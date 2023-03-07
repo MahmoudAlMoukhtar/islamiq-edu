@@ -44,6 +44,7 @@ const HeroSection = () => {
             <img
               src="/top-view-islamic-new-year-concept-with-copy-space.jpg"
               className="w-full relative object-cover	h-full"
+              alt="heroimage"
             />
             <div className="flex flex-col items-start justify-center text-start gap-6 w-full absolute top-[50%] left-[50%] px-20 translate-x-[-50%] translate-y-[-50%]">
               <SlidePrevButton />
