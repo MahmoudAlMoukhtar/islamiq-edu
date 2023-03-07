@@ -1,7 +1,7 @@
 import React from "react";
 import {motion} from "framer-motion";
 import {Swiper, SwiperSlide} from "swiper/react";
-import {Autoplay} from "swiper";
+import {Autoplay, Pagination} from "swiper";
 import "swiper/css";
 
 const Testimonials = () => {
@@ -74,12 +74,15 @@ const Testimonials = () => {
       </div>
       <div className="flex gap-4 justify-center items-center flex-wrap w-full px-4 md:px-20 lg:px-40 xl:px-60 sm:hidden">
         <Swiper
+          modules={[Pagination]}
           spaceBetween={10}
           slidesPerView={1}
           loop={true}
-          className="cursor-grap"
+          navigation
+          pagination={{clickable: true}}
+          className="cursor-grab"
         >
-          <SwiperSlide className="w-[500px] h-[200px]">
+          <SwiperSlide className="w-[500px] h-[200px] cursor-grab">
             <div className="flex justify-between items-start gap-4 bg-[#34872A] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 text-center w-full">
               <div className="flex flex-col items-center w-40">
                 <img
@@ -98,8 +101,8 @@ const Testimonials = () => {
               </p>
             </div>
           </SwiperSlide>
-          <SwiperSlide className="w-[500px] h-[200px]">
-            <div className="flex justify-between items-start gap-4 bg-[#34872A] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 text-center w-full">
+          <SwiperSlide className="w-[500px] h-[200px] cursor-grab">
+            <div className="flex justify-between items-start gap-4 bg-[#34872A] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 text-center w-full cursor-grab">
               <div className="flex flex-col items-center w-40">
                 <img
                   src="/student.jpg"
