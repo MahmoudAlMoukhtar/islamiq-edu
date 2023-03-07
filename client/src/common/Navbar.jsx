@@ -23,7 +23,7 @@ const Navbar = ({setNavBarModal, navbarModal}) => {
       <div className="flex justify-center">
         <a href="#" className="sm:hidden">
           <div className="flex  gap-2 items-start">
-            <img src="/iqraa.png" className="w-16" alt="kapaIcon" />
+            <img src="/test.png" className="w-16" alt="kapaIcon" />
           </div>
         </a>
         <ul className="invisible absolute sm:flex sm:items-center  md:gap-2 sm:visible sm:static">

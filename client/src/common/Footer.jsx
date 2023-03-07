@@ -34,7 +34,7 @@ const Footer = () => {
       <div className="flex flex-col justify-between items-center sm:flex-row sm:justify-between sm:items-start gap-10 flex-wrap sm:flex-nowrap text-white w-full">
         <div className="flex flex-col items-center text-center sm:text-start sm:items-start gap-10 sm:gap-4 w-64">
           <a href="#" className="flex  gap-2 items-center">
-            <img src="/iqraa.jpeg" className="w-20" alt="kapaIcon" />
+            <img src="/test.png" className="w-20" alt="kapaIcon" />
           </a>
 
           <p className="text-sm text-white">

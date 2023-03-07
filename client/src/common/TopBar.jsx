@@ -9,7 +9,7 @@ const TopBar = () => {
     <header className="flex justify-center gap-6 sm:justify-between items-center bg-[#ffc265]  sm:px-20 w-full py-4 sm:py-2 text-[#000]">
       <a href="#" className="hidden absolute sm:block sm:static">
         <div className="flex  gap-2 items-start ">
-          <img src="/iqraa.png" className="w-32" alt="iqraa" />
+          <img src="/test.png" className="w-32" alt="iqraa" />
         </div>
       </a>
       <div className="flex justify-center items-center gap-2 ">
