@@ -37,7 +37,7 @@ const Navbar = ({setNavBarModal, navbarModal}) => {
           </NavLink>
           <NavLink
             style={({isActive}) => (isActive ? activeStyle : undefined)}
-            to="/courses"
+            to="/Whyus"
             end
             className={styles.linkPages}
           >
@@ -53,7 +53,7 @@ const Navbar = ({setNavBarModal, navbarModal}) => {
           </NavLink>
           <NavLink
             style={({isActive}) => (isActive ? activeStyle : undefined)}
-            to="/courses"
+            to="/Fees"
             end
             className={styles.linkPages}
           >

@@ -50,6 +50,14 @@ export default function App() {
               />
             }
           />
+          <Route
+            path="*"
+            element={
+              <h1 className="flex justify-center text-center w-full min-h-full text-6xl font-bold py-20">
+                Comming soon...
+              </h1>
+            }
+          />
         </Routes>
         <Footer />
         <ToastContainer theme="dark" />

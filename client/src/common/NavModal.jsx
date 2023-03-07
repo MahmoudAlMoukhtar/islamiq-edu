@@ -51,7 +51,7 @@ const NavbarModal = ({setNavBarModal, navbarModal}) => {
           </NavLink>
           <NavLink
             style={({isActive}) => (isActive ? activeStyle : undefined)}
-            to="/courses"
+            to="/WhyUs"
             end
             className={styles.linkPages}
           >
@@ -59,7 +59,7 @@ const NavbarModal = ({setNavBarModal, navbarModal}) => {
           </NavLink>
           <NavLink
             style={({isActive}) => (isActive ? activeStyle : undefined)}
-            to="/courses"
+            to="/Courses"
             end
             className={styles.linkPages}
           >
@@ -67,7 +67,7 @@ const NavbarModal = ({setNavBarModal, navbarModal}) => {
           </NavLink>
           <NavLink
             style={({isActive}) => (isActive ? activeStyle : undefined)}
-            to="/courses"
+            to="/Fees"
             end
             className={styles.linkPages}
           >
@@ -75,7 +75,7 @@ const NavbarModal = ({setNavBarModal, navbarModal}) => {
           </NavLink>
           <NavLink
             style={({isActive}) => (isActive ? activeStyle : undefined)}
-            to="/aboutUs"
+            to="/Testimonials"
             className={styles.linkPages}
           >
             Testimonials
@@ -90,11 +90,11 @@ const NavbarModal = ({setNavBarModal, navbarModal}) => {
           </NavLink>
           <NavLink
             style={({isActive}) => (isActive ? activeStyle : undefined)}
-            to="/cart"
+            to="/Blogs"
             end
             className={styles.linkPages}
           >
-            Blog
+            Blogs
           </NavLink>
         </ul>
       </div>
