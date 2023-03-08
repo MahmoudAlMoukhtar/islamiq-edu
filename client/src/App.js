@@ -20,13 +20,13 @@ import DetaiTajweedlCourse from "./pages/DetailCourse/DetaiTajweedlCourse";
 export default function App() {
   const [navBarModal, setNavBarModal] = useState(false);
   const [show, setShow] = useState(false);
-  const {loading} = useSelector(state => state.products);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchAllProductsAction());
-  }, []);
+  // const {loading} = useSelector(state => state.products);
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(fetchAllProductsAction());
+  // }, []);
 
-  if (loading) return <Spinner />;
+  // if (loading) return <Spinner />;
 
   return (
     <React.Fragment>

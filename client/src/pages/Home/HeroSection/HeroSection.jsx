@@ -33,7 +33,6 @@ const HeroSection = () => {
           modules={[Autoplay, Navigation]}
           spaceBetween={0}
           slidesPerView={1}
-          onSwiper={swiper => console.log(swiper)}
           centeredSlides={true}
           initialSlide={0}
           loop={true}
