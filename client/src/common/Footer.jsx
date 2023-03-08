@@ -15,18 +15,20 @@ const Footer = () => {
   return (
     <footer className="flex flex-col items-center gap-10 py-10 px-4 sm:px-10 lg:px-40 w-full bg-[#34872A]">
       <div className="flex flex-col items-center text-center sm:text-start gap-6 text-white">
-        <h2 className="text-4xl font-bold">Subscibe For Newsletter</h2>
-        <p>
+        <h2 className="text-2xl sm:text-4xl font-bold">
+          Subscibe For Newsletter
+        </h2>
+        <p className="text-xs w-60 sm:text-md sm:w-auto">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
           malesuada lacus ex
         </p>
-        <div className="flex justify-center items-center gap-6 text-black">
+        <div className="flex justify-center items-center gap-2 sm:gap-6 text-black">
           <input
             type="email"
-            className="rounded-l-full border-2 border-[#FF932D] py-2 px-6 "
+            className="rounded-l-full border-2 border-[#FF932D] py-2 px-4 "
             placeholder="example@gmail.com"
           />
-          <button className="bg-[#FF932D] rounded-r-full py-2 px-6 border-2 border-[#FF932D] font-bold">
+          <button className="bg-[#FF932D] rounded-r-full py-2 px-4 border-2 border-[#FF932D] font-bold">
             Subscibe
           </button>
         </div>

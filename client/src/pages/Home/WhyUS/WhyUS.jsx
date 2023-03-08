@@ -24,7 +24,7 @@ const WhyUS = () => {
   return (
     <motion.section
       variants={container}
-      whileInView="visible"
+      animate="visible"
       initial="hidden"
       id="landing"
       className="flex flex-col  justify-center items-center gap-20 py-10"

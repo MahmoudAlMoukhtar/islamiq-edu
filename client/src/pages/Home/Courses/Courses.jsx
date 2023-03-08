@@ -35,7 +35,7 @@ const Courses = () => {
       <motion.div
         variants={container}
         whileInView="visible"
-        initial="hidden"
+        initial="visible"
         className="flex justify-center items-center flex-wrap gap-4 w-full"
       >
         <div

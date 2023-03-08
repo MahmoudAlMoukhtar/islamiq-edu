@@ -18,9 +18,15 @@ import {fetchAllProductsAction} from "./redux/actions/productsActions";
 import {fetchAllProductsCartAction} from "./redux/actions/cart";
 import {ToastContainer} from "react-toastify";
 import TopBar from "./common/TopBar";
+import {purple, red} from "@mui/material/colors";
 
+import "react-chat-widget/lib/styles.css";
+import {Fab} from "@mui/material";
+import {MdAddCircleOutline} from "react-icons/md";
+import {BsChatDotsFill, BsTelegram, BsWhatsapp} from "react-icons/bs";
 export default function App() {
   const [navBarModal, setNavBarModal] = useState(false);
+  const [show, setShow] = useState(false);
   const {loading} = useSelector(state => state.products);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -33,7 +39,7 @@ export default function App() {
   return (
     <React.Fragment>
       <ScrollToTop />
-      <div className="flex flex-col justify-between items-center w-full h-full">
+      <div className="flex flex-col justify-between items-center w-full h-full relative">
         <TopBar />
         <Navbar setNavBarModal={setNavBarModal} navbarModal={navBarModal} />
         <NavbarModal
@@ -60,6 +66,52 @@ export default function App() {
           />
         </Routes>
         <Footer />
+        <div className="fixed bottom-10 right-10 z-40">
+          {show && (
+            <React.Fragment>
+              <div className="translate-y-[-20px]">
+                <Fab
+                  variant="extended"
+                  color="primary"
+                  aria-label="add"
+                  style={{width: "70px", height: "70px", borderRadius: "100%"}}
+                >
+                  <BsTelegram size={30} />
+                </Fab>
+              </div>
+              <div className="translate-y-[-10px]">
+                <Fab
+                  variant="extended"
+                  aria-label="add"
+                  style={{
+                    backgroundColor: "#4caf50",
+                    color: "#fff",
+                    width: "70px",
+                    height: "70px",
+                    borderRadius: "100%",
+                  }}
+                >
+                  <a href="http://wa.me/+963936464820" target="blank">
+                    <BsWhatsapp size={30} />
+                  </a>
+                </Fab>
+              </div>
+            </React.Fragment>
+          )}
+          <Fab
+            variant="extended"
+            aria-label="add"
+            style={{
+              backgroundColor: "#FF932D",
+              width: "70px",
+              height: "70px",
+              borderRadius: "100%",
+            }}
+            onClick={() => setShow(!show)}
+          >
+            <BsChatDotsFill size={30} />
+          </Fab>
+        </div>
         <ToastContainer theme="dark" />
       </div>
     </React.Fragment>
