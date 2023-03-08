@@ -56,7 +56,7 @@ const Auth = () => {
     <React.Fragment>
       <motion.div
         variants={container}
-        whileInView="visible"
+        animate="visible"
         initial="hidden"
         className="flex flex-col justify-center items-center h-full my-10  rounded"
       >

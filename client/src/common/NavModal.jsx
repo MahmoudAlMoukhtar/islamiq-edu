@@ -49,53 +49,22 @@ const NavbarModal = ({setNavBarModal, navbarModal}) => {
           >
             Home
           </NavLink>
-          <NavLink
-            style={({isActive}) => (isActive ? activeStyle : undefined)}
-            to="/WhyUs"
-            end
-            className={styles.linkPages}
-          >
+          <a href="#Whyus" end className={styles.linkPages}>
             Why us
-          </NavLink>
-          <NavLink
-            style={({isActive}) => (isActive ? activeStyle : undefined)}
-            to="/Courses"
-            end
-            className={styles.linkPages}
-          >
+          </a>
+          <a href="#courses" end className={styles.linkPages}>
             Courses
-          </NavLink>
-          <NavLink
-            style={({isActive}) => (isActive ? activeStyle : undefined)}
-            to="/Fees"
-            end
-            className={styles.linkPages}
-          >
+          </a>
+          <a href="#fees" end className={styles.linkPages}>
             Fees
-          </NavLink>
-          <NavLink
-            style={({isActive}) => (isActive ? activeStyle : undefined)}
-            to="/Testimonials"
-            className={styles.linkPages}
-          >
+          </a>
+          <a href="#testimonials" className={styles.linkPages}>
             Testimonials
-          </NavLink>
-          <NavLink
-            style={({isActive}) => (isActive ? activeStyle : undefined)}
-            to="/contact"
-            end
-            className={styles.linkPages}
-          >
-            Contact
-          </NavLink>
-          <NavLink
-            style={({isActive}) => (isActive ? activeStyle : undefined)}
-            to="/Blogs"
-            end
-            className={styles.linkPages}
-          >
+          </a>
+
+          <a href="#blogs" end className={styles.linkPages}>
             Blogs
-          </NavLink>
+          </a>
         </ul>
       </div>
     </div>

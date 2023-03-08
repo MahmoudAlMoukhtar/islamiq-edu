@@ -21,11 +21,11 @@ const Navbar = ({setNavBarModal, navbarModal}) => {
   return (
     <nav className="flex justify-between items-center gap-2 py-4 px-4 sm:px-20 md:px-20 w-full shadow-xl text-white bg-[#34872A] ">
       <div className="flex justify-center">
-        <a href="#" className="sm:hidden">
+        <Link to="/" className="sm:hidden">
           <div className="flex  gap-2 items-start">
             <img src="/test.png" className="w-20" alt="kapaIcon" />
           </div>
-        </a>
+        </Link>
         <ul className="invisible absolute sm:flex sm:items-center  md:gap-2 sm:visible sm:static">
           <NavLink
             style={({isActive}) => (isActive ? activeStyle : undefined)}

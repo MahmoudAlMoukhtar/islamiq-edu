@@ -92,7 +92,7 @@ export default function App() {
                     borderRadius: "100%",
                   }}
                 >
-                  <a href="http://wa.me/+963936464820" target="blank">
+                  <a href="http://wa.me/+201012750418" target="blank">
                     <BsWhatsapp size={30} />
                   </a>
                 </Fab>

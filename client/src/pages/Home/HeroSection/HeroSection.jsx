@@ -4,6 +4,7 @@ import {AiOutlineArrowRight, AiOutlineArrowLeft} from "react-icons/ai";
 import {Autoplay, Navigation} from "swiper";
 import {motion} from "framer-motion";
 import "swiper/css";
+import {Link} from "react-router-dom";
 
 const SlideNextButton = () => {
   const swiper = useSwiper();
@@ -54,9 +55,12 @@ const HeroSection = () => {
               <p className="font-semibold">
                 Our Academy is an academy for Arabic and Quran Studies.
               </p>
-              <button className="py-2 px-8 rounded bg-[#34872A] text-white font-bold text-black">
+              <a
+                href="#fees"
+                className="py-2 px-8 rounded bg-[#34872A] text-white font-bold text-black"
+              >
                 Show Fees
-              </button>
+              </a>
               <SlideNextButton />
             </div>
           </SwiperSlide>
@@ -74,9 +78,12 @@ const HeroSection = () => {
                 We want to make the process of Quran teaching easier for
                 everyone
               </p>
-              <button className="py-2 px-8 rounded bg-[#34872A] text-white font-bold text-black">
+              <a
+                href="#courses"
+                className="py-2 px-8 rounded bg-[#34872A] text-white font-bold text-black"
+              >
                 Our courses
-              </button>
+              </a>
               <SlideNextButton />
             </div>
           </SwiperSlide>
@@ -94,9 +101,12 @@ const HeroSection = () => {
                 We are offering our services for every individual nu ignoring
                 the age and gender factor.
               </p>
-              <button className="py-2 px-8 rounded bg-[#34872A] text-white font-bold text-black">
-                Register
-              </button>
+              <Link
+                to="/auth"
+                className="py-2 px-8 rounded bg-[#34872A] text-white font-bold text-black"
+              >
+                Login
+              </Link>
               <SlideNextButton />
             </div>
           </SwiperSlide>
