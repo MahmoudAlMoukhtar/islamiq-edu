@@ -33,8 +33,8 @@ const HomePage = () => {
       <HeroSection />
       <WhyUS />
       <Courses />
-      <Fees />
       <BlogsSection />
+      <Fees />
       <Testimonials />
       <CustomizedAccordions />
       <ToastContainer theme="dark" />

@@ -5,7 +5,7 @@ import {toast} from "react-toastify";
 
 const styles = {
   linkPages:
-    "text-sm md:text-lg font-semibold py-[4px] px-2 lg:px-4 hover:bg-[#FF932D] transtion duration-200 text-white rounded",
+    "text-lg md:text-lg font-semibold py-[4px] px-2 lg:px-4 hover:bg-[#FF932D] transtion duration-200 text-white rounded",
 };
 
 const activeStyle = {
@@ -23,7 +23,7 @@ const Navbar = ({setNavBarModal, navbarModal}) => {
       <div className="flex justify-center">
         <a href="#" className="sm:hidden">
           <div className="flex  gap-2 items-start">
-            <img src="/test.png" className="w-16" alt="kapaIcon" />
+            <img src="/test.png" className="w-20" alt="kapaIcon" />
           </div>
         </a>
         <ul className="invisible absolute sm:flex sm:items-center  md:gap-2 sm:visible sm:static">
@@ -35,56 +35,25 @@ const Navbar = ({setNavBarModal, navbarModal}) => {
           >
             Home
           </NavLink>
-          <NavLink
-            style={({isActive}) => (isActive ? activeStyle : undefined)}
-            to="/Whyus"
-            end
-            className={styles.linkPages}
-          >
+          <a href="#Whyus" end className={styles.linkPages}>
             Why us
-          </NavLink>
-          <NavLink
-            style={({isActive}) => (isActive ? activeStyle : undefined)}
-            to="/courses"
-            end
-            className={styles.linkPages}
-          >
+          </a>
+          <a href="#courses" end className={styles.linkPages}>
             Courses
-          </NavLink>
-          <NavLink
-            style={({isActive}) => (isActive ? activeStyle : undefined)}
-            to="/Fees"
-            end
-            className={styles.linkPages}
-          >
+          </a>
+          <a href="#fees" end className={styles.linkPages}>
             Fees
-          </NavLink>
-          <NavLink
-            style={({isActive}) => (isActive ? activeStyle : undefined)}
-            to="/aboutUs"
-            className={styles.linkPages}
-          >
+          </a>
+          <a href="#testimonials" className={styles.linkPages}>
             Testimonials
-          </NavLink>
-          <NavLink
-            style={({isActive}) => (isActive ? activeStyle : undefined)}
-            to="/contact"
-            end
-            className={styles.linkPages}
-          >
-            Contact
-          </NavLink>
-          <NavLink
-            style={({isActive}) => (isActive ? activeStyle : undefined)}
-            to="/cart"
-            end
-            className={styles.linkPages}
-          >
-            Blog
-          </NavLink>
+          </a>
+
+          <a href="#blogs" end className={styles.linkPages}>
+            Blogs
+          </a>
         </ul>
       </div>
-      <div className="flex justify-center md:gap-2 items-center">
+      <div className="flex justify-center  md:gap-2 items-center">
         {!user ? (
           <NavLink
             style={({isActive}) => (isActive ? activeStyle : undefined)}
@@ -97,7 +66,7 @@ const Navbar = ({setNavBarModal, navbarModal}) => {
         ) : (
           <button
             className={
-              "text-sm md:text-md font-semibold py-2 px-2 lg:px-4 bg-[#34872A] text-[#fff] transtion duration-200  rounded text-lg"
+              "text-md font-semibold py-2 px-2 lg:px-4 bg-[#34872A] text-[#fff] transtion duration-200  rounded text-lg"
             }
             onClick={() => {
               localStorage.removeItem("userEcommerce");
@@ -120,3 +89,6 @@ const Navbar = ({setNavBarModal, navbarModal}) => {
 
 export default Navbar;
 /* bg-[#34872A] */
+/* <a href="#contact" end className={styles.linkPages}>
+            Contact
+          </a> */

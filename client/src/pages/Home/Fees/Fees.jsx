@@ -13,7 +13,7 @@ const Fees = () => {
   return (
     <motion.section
       variants={item}
-      id="landing"
+      id="fees"
       className="flex flex-col  justify-center items-center gap-20 mt-20 py-10 bg-[#34872A] w-full"
     >
       <div className="flex flex-col items-center gap-2">

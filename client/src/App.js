@@ -64,6 +64,7 @@ export default function App() {
               </h1>
             }
           />
+          <Route path="/auth" element={<Auth />} />
         </Routes>
         <Footer />
         <div className="fixed bottom-10 right-10 z-40">
@@ -121,7 +122,6 @@ export default function App() {
 /* 
 <Route path="/products" element={<Menu />} />
           <Route path="/products/:id" element={<DetailProduct />} />
-          <Route path="/auth" element={<Auth />} />
           <Route path="/aboutUs" element={<AboutPage />} />
           <Route
             path="/contact"

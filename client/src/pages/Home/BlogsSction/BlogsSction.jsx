@@ -16,7 +16,7 @@ const BlogsSection = () => {
   return (
     <motion.section
       variants={item}
-      id="landing"
+      id="blogs"
       className="flex flex-col  justify-center items-center gap-10 py-10 bg-[#f2ede7] w-full my-40"
     >
       <div className="flex flex-col items-center gap-2">

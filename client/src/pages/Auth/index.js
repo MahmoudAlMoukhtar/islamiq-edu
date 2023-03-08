@@ -58,16 +58,19 @@ const Auth = () => {
         variants={container}
         whileInView="visible"
         initial="hidden"
-        className="flex justify-center items-center min-h-full w-full sm:w-[600px] rounded mx-10 mt-12 my-8 px-4 sm:px-6 lg:px-8 bg-black text-white"
+        className="flex flex-col justify-center items-center h-full my-10  rounded"
       >
-        <div className="flex flex-col w-full max-w-md ">
+        <div className=" ">
+          <img src="/facebookcover.png" className="w-full" />
+        </div>
+        <div className="flex flex-col  min-h-full w-full  px-4 sm:px-6 lg:px-8  text-[#000] rounded">
           <div>
             <h2 className="mt-6 text-center text-3xl font-bold tracking-tight">
               {isSignup ? "Sign-Up" : "Sign in to your account"}
             </h2>
             <p className="mt-2 text-center text-sm text-gray-400">
               Or{" "}
-              <a href="#" className="font-medium text-white">
+              <a href="#" className="font-medium text-black">
                 start your 14-day free trial
               </a>
             </p>
@@ -81,20 +84,60 @@ const Auth = () => {
             <input type="hidden" name="remember" defaultValue="true" />
             <div className=" rounded-md shadow-sm">
               {isSignup && (
-                <div>
-                  <label htmlFor="fullName" className="">
-                    Full Name
-                  </label>
-                  <input
-                    id="fullName"
-                    name="fullName"
-                    type="text"
-                    required
-                    className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-400 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                    placeholder="First Name"
+                <React.Fragment>
+                  <div>
+                    <label htmlFor="fullName" className="">
+                      First Name
+                    </label>
+                    <input
+                      id="fullName"
+                      name="fullName"
+                      type="text"
+                      required
+                      className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-400 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                      placeholder="First Name"
+                      onChange={handleTextFieldChange}
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="fullName" className="">
+                      Last Name
+                    </label>
+                    <input
+                      id="lastName"
+                      name="lastName"
+                      type="text"
+                      required
+                      className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-400 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                      placeholder="First Name"
+                      onChange={handleTextFieldChange}
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="phone" className="">
+                      Phone
+                    </label>
+                    <input
+                      id="phone"
+                      name="phone"
+                      type="number"
+                      required
+                      className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-400 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                      placeholder="Phone"
+                      onChange={handleTextFieldChange}
+                    />
+                  </div>
+
+                  <select
+                    id="gender"
+                    name="gender"
+                    className="w-full p-4 rounded my-4"
                     onChange={handleTextFieldChange}
-                  />
-                </div>
+                  >
+                    <option value="Male">Male</option>
+                    <option value="Fmale">Fmale</option>
+                  </select>
+                </React.Fragment>
               )}
               <div>
                 <label htmlFor="email" className="">
@@ -170,38 +213,16 @@ const Auth = () => {
               </div>
             </div>
 
-            <div className="flex items-center justify-between">
-              <div className="flex items-center">
-                <input
-                  id="remember-me"
-                  name="remember-me"
-                  type="checkbox"
-                  className="h-4 w-4 rounded border-gray-300 text-white focus:ring-indigo-500"
-                />
-                <label
-                  htmlFor="remember-me"
-                  className="ml-2 block text-sm text-gray-400"
-                >
-                  Remember me
-                </label>
-              </div>
-
-              <div className="text-sm">
-                <a href="#" className="font-medium text-white hover:text-white">
-                  Forgot your password?
-                </a>
-              </div>
-            </div>
             <div>
               <button
                 type="submit"
-                className="group relative flex w-full justify-center rounded-md border border-transparent py-2 px-4 text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 bg-[#ca0202]"
+                className="group relative flex w-full justify-center rounded-md border border-transparent py-2 px-4 text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 bg-[#34872A]"
               >
                 {isSignup ? "Sign Up" : "Sign In"}
               </button>
             </div>
 
-            <div className="group relative flex w-full justify-center rounded-md border border-transparent py-2 px-4 text-sm font-medium text-white">
+            <div className="group relative flex w-full justify-center rounded-md border border-transparent py-2 px-4 text-sm font-medium text-black">
               {isSignup ? (
                 <div>
                   Already have an account?{" "}

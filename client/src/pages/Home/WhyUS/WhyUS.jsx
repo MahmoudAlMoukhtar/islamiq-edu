@@ -26,7 +26,7 @@ const WhyUS = () => {
       variants={container}
       animate="visible"
       initial="hidden"
-      id="landing"
+      id="Whyus"
       className="flex flex-col  justify-center items-center gap-20 py-10"
     >
       <div className="flex flex-col items-center gap-2">

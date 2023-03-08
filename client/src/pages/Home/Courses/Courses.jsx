@@ -23,21 +23,14 @@ const Courses = () => {
   };
   return (
     <motion.section
-      initial={{opacity: 0, y: "200px"}}
-      whileInView={{opacity: 1, y: 0}}
-      id="landing"
+      id="courses"
       className="flex flex-col  justify-center items-center gap-20 mt-20 py-10 w-full"
     >
       <div className="flex flex-col items-center gap-2">
         <h2 className="text-4xl font-bold ">Courses</h2>
         <span className="h-2 w-60 bg-[#ffc265]" />
       </div>
-      <motion.div
-        variants={container}
-        whileInView="visible"
-        initial="visible"
-        className="flex justify-center items-center flex-wrap gap-4 w-full"
-      >
+      <motion.div className="flex justify-center items-center flex-wrap gap-4 w-full">
         <div
           variants={item}
           className="item flex flex-col items-center justify-between hover:text-black  transtion duration-200 w-60 text-center h-[200px] bg-[#FF932D] rounded-t-full pt-4   cursor-pointer hover:translate-y-[-10px]"
@@ -104,9 +97,13 @@ const Courses = () => {
           </h3>
         </div>
       </motion.div>
-      <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-10 w-full bg-[#34872A] px-40 py-20">
+      <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-10 w-full bg-[#34872A] px-40 py-6">
         <div className="flex flex-col items-center justify-center gap-2 text-white w-60 text-center">
-          <span className="text-6xl font-bold text-[#FF932D]" id="value1">
+          <img src="/icons/rating.png" className="w-28" />
+          <span
+            className="flex flex-col justify-center text-6xl font-bold text-[#FF932D]"
+            id="value1"
+          >
             100
           </span>
           <p className="text-md font-semibold ">
@@ -114,10 +111,14 @@ const Courses = () => {
           </p>
         </div>
         <div className="flex flex-col items-center justify-center gap-2 text-white w-60 text-center">
-          <span className="text-6xl font-bold text-[#FF932D]">200</span>
+          <img src="/icons/graduate.png" className="w-28" />
+          <span className="flex flex-col justify-center text-6xl font-bold text-[#FF932D]">
+            200
+          </span>
           <p className="text-md font-semibold ">Student</p>
         </div>
         <div className="flex flex-col items-center justify-center gap-2 text-white w-60 text-center">
+          <img src="/icons/teacherr.png" className="w-28" />
           <span className="text-6xl font-bold text-[#FF932D]">30</span>
           <p className="text-md font-semibold ">Teacher</p>
         </div>
@@ -139,4 +140,11 @@ export default Courses;
             Nour Al-Bayan
           </h3>
         </div>
+*/
+/* variants={container}
+        whileInView="visible"
+        initial="visible" */
+/* 
+      initial={{opacity: 0, y: "200px"}}
+      whileInView={{opacity: 1, y: 0}}
 */
