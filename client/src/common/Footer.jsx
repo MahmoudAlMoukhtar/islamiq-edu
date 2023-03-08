@@ -14,7 +14,7 @@ import {Ri24HoursLine} from "react-icons/ri";
 const Footer = () => {
   return (
     <footer className="flex flex-col items-center gap-10 py-10 px-4 sm:px-10 lg:px-40 w-full bg-[#34872A]">
-      <div className="flex flex-col items-center text-center sm:text-start gap-6 text-white">
+      <div className="flex flex-col items-center text-center sm:text-start gap-2 sm:gap-6 text-white">
         <h2 className="text-2xl sm:text-4xl font-bold">
           Subscibe For Newsletter
         </h2>

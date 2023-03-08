@@ -11,7 +11,7 @@ const SlideNextButton = () => {
 
   return (
     <button onClick={() => swiper.slideNext()}>
-      <AiOutlineArrowRight className="cursor-pointer" />
+      <AiOutlineArrowRight className="cursor-pointer font-bold" size={30} />
     </button>
   );
 };
@@ -20,7 +20,7 @@ const SlidePrevButton = () => {
 
   return (
     <button onClick={() => swiper.slidePrev()}>
-      <AiOutlineArrowLeft className="cursor-pointer" />
+      <AiOutlineArrowLeft className="cursor-pointer font-bold" size={30} />
     </button>
   );
 };

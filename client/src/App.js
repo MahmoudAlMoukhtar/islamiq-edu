@@ -67,7 +67,7 @@ export default function App() {
           <Route path="/auth" element={<Auth />} />
         </Routes>
         <Footer />
-        <div className="fixed bottom-10 right-10 z-40">
+        <div className="fixed bottom-10 right-4 sm:right-10 z-40">
           {show && (
             <React.Fragment>
               <div className="translate-y-[-20px]">

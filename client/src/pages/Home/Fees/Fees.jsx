@@ -118,12 +118,16 @@ const Fees = () => {
           </p>
         </div>
       </div>
-      <button className="flex gap-2 items-center bg-[#FF932D] rounded-full py-4 px-8 font-bold">
+      <a
+        href="http://wa.me/+201012750418"
+        target="blank"
+        className="flex gap-2 items-center bg-[#FF932D] rounded-full py-4 px-8 font-bold"
+      >
         <div>
           <AiOutlineWhatsApp size={25} />
         </div>
         Whatsapp
-      </button>
+      </a>
     </motion.section>
   );
 };
