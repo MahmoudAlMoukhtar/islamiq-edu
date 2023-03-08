@@ -1,16 +1,16 @@
 import React from "react";
-import {NavLink, useNavigate} from "react-router-dom";
+import {Link, NavLink, useNavigate} from "react-router-dom";
 
 const activeStyle = {
   color: "white",
-  backgroundColor: "#FF932D",
+  backgroundColor: "#34872A",
   padding: "20px 12px",
   fontWeight: "bold",
-  borderLeft: "8px solid #34872A",
+  borderLeft: "8px solid #FF932D",
 };
 const styles = {
   linkPages:
-    "text-[#000] hover:text-white hover:text-white hover:bg-[#FF932D] py-6 px-2 font-semibold w-full hover:border-l-8 hover:border-[#34872A] hover:font-bold w-full transtion duration-200",
+    "text-[#000] hover:text-white hover:text-white hover:bg-[#34872A] py-6 px-2 font-semibold w-full hover:border-l-8 hover:border-[#FF932D] hover:font-bold w-full transtion duration-200",
   navBarModalHidden: "hidden",
   navBarModal:
     "fixed inset-0 bg-opacity-75 transition-opacity flex flex-col justify-center items-center z-50",
@@ -49,22 +49,22 @@ const NavbarModal = ({setNavBarModal, navbarModal}) => {
           >
             Home
           </NavLink>
-          <a href="#Whyus" end className={styles.linkPages}>
+          <Link to="/#Whyus" end className={styles.linkPages}>
             Why us
-          </a>
-          <a href="#courses" end className={styles.linkPages}>
+          </Link>
+          <Link to="/#courses" end className={styles.linkPages}>
             Courses
-          </a>
-          <a href="#fees" end className={styles.linkPages}>
+          </Link>
+          <Link to="/#fees" end className={styles.linkPages}>
             Fees
-          </a>
-          <a href="#testimonials" className={styles.linkPages}>
+          </Link>
+          <Link to="/#testimonials" className={styles.linkPages}>
             Testimonials
-          </a>
+          </Link>
 
-          <a href="#blogs" end className={styles.linkPages}>
+          <Link to="/#blogs" end className={styles.linkPages}>
             Blogs
-          </a>
+          </Link>
         </ul>
       </div>
     </div>

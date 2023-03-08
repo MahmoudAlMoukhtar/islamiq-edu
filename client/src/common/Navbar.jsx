@@ -1,8 +1,7 @@
-import React from "react";
-import {Link, NavLink, useNavigate} from "react-router-dom";
+import React, {useEffect} from "react";
+import {Link, NavLink, useLocation, useNavigate} from "react-router-dom";
 import {HiMenuAlt1} from "react-icons/hi";
 import {toast} from "react-toastify";
-
 const styles = {
   linkPages:
     "text-lg md:text-lg font-semibold py-[4px] px-2 lg:px-4 hover:bg-[#FF932D] transtion duration-200 text-white rounded",
@@ -18,6 +17,24 @@ const activeStyle = {
 const Navbar = ({setNavBarModal, navbarModal}) => {
   const user = JSON.parse(localStorage.getItem("userEcommerce"));
   const navigaite = useNavigate();
+  const {pathname, hash, key} = useLocation();
+
+  useEffect(() => {
+    // if not a hash link, scroll to top
+    if (hash === "") {
+      window.scrollTo(0, 0);
+    }
+    // else scroll to id
+    else {
+      setTimeout(() => {
+        const id = hash.replace("#", "");
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView();
+        }
+      }, 0);
+    }
+  }, [pathname, hash, key]);
   return (
     <nav className="flex justify-between items-center gap-2 py-4 px-4 sm:px-20 md:px-20 w-full shadow-xl text-white bg-[#34872A] ">
       <div className="flex justify-center">
@@ -35,22 +52,24 @@ const Navbar = ({setNavBarModal, navbarModal}) => {
           >
             Home
           </NavLink>
-          <a href="#Whyus" end className={styles.linkPages}>
-            Why us
-          </a>
-          <a href="#courses" end className={styles.linkPages}>
+          <li>
+            <Link to="/#Whyus" end className={styles.linkPages}>
+              Why us
+            </Link>
+          </li>
+          <Link to="/#courses" end className={styles.linkPages}>
             Courses
-          </a>
-          <a href="#fees" end className={styles.linkPages}>
+          </Link>
+          <Link to="/#fees" end className={styles.linkPages}>
             Fees
-          </a>
-          <a href="#testimonials" className={styles.linkPages}>
+          </Link>
+          <Link to="/#testimonials" className={styles.linkPages}>
             Testimonials
-          </a>
+          </Link>
 
-          <a href="#blogs" end className={styles.linkPages}>
+          <Link to="/#blogs" end className={styles.linkPages}>
             Blogs
-          </a>
+          </Link>
         </ul>
       </div>
       <div className="flex justify-center  md:gap-2 items-center">
