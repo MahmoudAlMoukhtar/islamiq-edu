@@ -74,13 +74,8 @@ const Navbar = ({setNavBarModal, navbarModal}) => {
       </div>
       <div className="flex justify-center  md:gap-2 items-center">
         {!user ? (
-          <NavLink
-            style={({isActive}) => (isActive ? activeStyle : undefined)}
-            to="/auth"
-            end
-            className={styles.linkPages}
-          >
-            Login
+          <NavLink style={({isActive}) => activeStyle} to="/auth" end>
+            Free Trial
           </NavLink>
         ) : (
           <button

@@ -15,7 +15,7 @@ const initialState = {
 const Auth = () => {
   const [formData, setFormData] = useState(initialState);
   const [showPassword, setShowPassword] = useState(false);
-  const [isSignup, setIsSignup] = useState(false);
+  const [isSignup, setIsSignup] = useState(true);
   const navigait = useNavigate();
 
   const handleSubmit = async e => {
@@ -68,12 +68,11 @@ const Auth = () => {
             <h2 className="mt-6 text-center text-3xl font-bold tracking-tight">
               {isSignup ? "Sign-Up" : "Sign in to your account"}
             </h2>
-            <p className="mt-2 text-center text-sm text-gray-400">
-              Or{" "}
-              <a href="#" className="font-medium text-black">
-                start your 14-day free trial
-              </a>
-            </p>
+            {isSignup && (
+              <p className="mt-2 text-center text-sm text-gray-400">
+                <p className="font-medium text-black">start your free trial</p>
+              </p>
+            )}
           </div>
           <form
             className="mt-8 space-y-6"
@@ -127,16 +126,20 @@ const Auth = () => {
                       onChange={handleTextFieldChange}
                     />
                   </div>
-
-                  <select
-                    id="gender"
-                    name="gender"
-                    className="w-full p-4 rounded my-4"
-                    onChange={handleTextFieldChange}
-                  >
-                    <option value="Male">Male</option>
-                    <option value="Fmale">Fmale</option>
-                  </select>
+                  <div className="my-2">
+                    <label htmlFor="gender" className="">
+                      Gender
+                    </label>
+                    <select
+                      id="gender"
+                      name="gender"
+                      className="w-full p-4 rounded cursor-pointer"
+                      onChange={handleTextFieldChange}
+                    >
+                      <option value="Male">Male</option>
+                      <option value="Fmale">Fmale</option>
+                    </select>
+                  </div>
                 </React.Fragment>
               )}
               <div>

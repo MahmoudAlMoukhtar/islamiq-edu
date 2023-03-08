@@ -1,5 +1,6 @@
 import React, {useEffect} from "react";
 import {motion} from "framer-motion";
+import {Link} from "react-router-dom";
 const Courses = () => {
   useEffect(() => {}, []);
   const container = {
@@ -57,7 +58,8 @@ const Courses = () => {
             Arabic Language
           </h3>
         </div>
-        <div
+        <Link
+          to="/courses/Quran"
           variants={item}
           className="item flex flex-col items-center justify-between hover:text-black  transtion duration-200 w-60 text-center h-[200px] bg-[#FF932D] rounded-t-full pt-4 cursor-pointer hover:translate-y-[-10px]"
         >
@@ -69,7 +71,7 @@ const Courses = () => {
           <h3 className="text-sm font-semibold bg-[#34872A] text-white w-full h-10 text-lg">
             Quran Memorization
           </h3>
-        </div>
+        </Link>
         <div
           variants={item}
           className="item flex flex-col items-center justify-between hover:text-black  transtion duration-200 w-60 text-center h-[200px] bg-[#FF932D] rounded-t-full pt-4 cursor-pointer hover:translate-y-[-10px]"

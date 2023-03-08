@@ -1,29 +1,22 @@
 import React, {useEffect, useState} from "react";
 import {Routes, Route} from "react-router-dom";
-import CartPage from "./pages/Cart";
-import DetailProduct from "./pages/DetailProduct/index";
-import ContactPage from "./pages/Contact";
 import HomePage from "./pages/Home";
 import Footer from "./common/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import NavbarModal from "./common/NavModal";
 import Navbar from "./common/Navbar";
 import Auth from "./pages/Auth/index";
-import AboutPage from "./pages/About Us";
 import PrivaitRoute from "./components/PrivaitRoute";
 import Spinner from "./Spinner";
-import Menu from "./pages/Menu/Menu";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAllProductsAction} from "./redux/actions/productsActions";
 import {fetchAllProductsCartAction} from "./redux/actions/cart";
 import {ToastContainer} from "react-toastify";
 import TopBar from "./common/TopBar";
-import {purple, red} from "@mui/material/colors";
-
-import "react-chat-widget/lib/styles.css";
 import {Fab} from "@mui/material";
-import {MdAddCircleOutline} from "react-icons/md";
 import {BsChatDotsFill, BsTelegram, BsWhatsapp} from "react-icons/bs";
+import DetailCourse from "./pages/DetailCourse/DetailCourse";
+import DetaiTajweedlCourse from "./pages/DetailCourse/DetaiTajweedlCourse";
 export default function App() {
   const [navBarModal, setNavBarModal] = useState(false);
   const [show, setShow] = useState(false);
@@ -65,6 +58,8 @@ export default function App() {
             }
           />
           <Route path="/auth" element={<Auth />} />
+          <Route path="/courses/:id" element={<DetailCourse />} />
+          <Route path="/courses/tajweed" element={<DetaiTajweedlCourse />} />
         </Routes>
         <Footer />
         <div className="fixed bottom-10 right-4 sm:right-10 z-40">
@@ -121,7 +116,6 @@ export default function App() {
 
 /* 
 <Route path="/products" element={<Menu />} />
-          <Route path="/products/:id" element={<DetailProduct />} />
           <Route path="/aboutUs" element={<AboutPage />} />
           <Route
             path="/contact"
