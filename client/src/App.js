@@ -24,7 +24,6 @@ export default function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchAllProductsAction());
-    dispatch(fetchAllProductsCartAction());
   }, []);
 
   if (loading) return <Spinner />;
