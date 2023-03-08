@@ -37,7 +37,7 @@ const Courses = () => {
           className="item flex flex-col items-center justify-between hover:text-black  transtion duration-200 w-60 text-center h-[200px] bg-[#FF932D] rounded-t-full pt-4   cursor-pointer hover:translate-y-[-10px]"
         >
           <img
-            src="/Islamic-Studies-Online.jpg"
+            src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678308415/islamiq/Islamic-Studies-Online_voji5s.jpg"
             className="w-60  rounded-t-full h-[200px] px-4"
             alt="Islamic-Studies"
           />
@@ -50,7 +50,7 @@ const Courses = () => {
           className="item flex flex-col items-center justify-between hover:text-black  transtion duration-200 w-60 text-center h-[200px] bg-[#FF932D] rounded-t-full pt-4 cursor-pointer hover:translate-y-[-10px]"
         >
           <img
-            src="/Arabic.jpg"
+            src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678308808/islamiq/Arabic_ivxwki.jpg"
             className="w-60  rounded-t-full h-[200px] px-4"
             alt="Arabic"
           />
@@ -64,7 +64,7 @@ const Courses = () => {
           className="item flex flex-col items-center justify-between hover:text-black  transtion duration-200 w-60 text-center h-[200px] bg-[#FF932D] rounded-t-full pt-4 cursor-pointer hover:translate-y-[-10px]"
         >
           <img
-            src="/Quran-4.jpg"
+            src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678307652/islamiq/Quran-4_bodw6r.jpg"
             className="w-60  rounded-t-full h-[200px] px-4"
             alt="Quran-Memorization"
           />
@@ -77,7 +77,7 @@ const Courses = () => {
           className="item flex flex-col items-center justify-between hover:text-black  transtion duration-200 w-60 text-center h-[200px] bg-[#FF932D] rounded-t-full pt-4 cursor-pointer hover:translate-y-[-10px]"
         >
           <img
-            src="/tafser.jpg"
+            src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678308736/islamiq/tafser_lyas9j.jpg"
             className="w-60  rounded-t-full h-[200px] px-4"
             alt="tafser"
           />
@@ -90,7 +90,7 @@ const Courses = () => {
           className="item flex flex-col items-center justify-between hover:text-black  transtion duration-200 w-60 text-center h-[200px] bg-[#FF932D] rounded-t-full pt-4 cursor-pointer hover:translate-y-[-10px]"
         >
           <img
-            src="/tajweed.jpg"
+            src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678308744/islamiq/tajweed_oloxd2.jpg"
             className="w-60  rounded-t-full h-[200px] px-4"
             alt="tafser"
           />

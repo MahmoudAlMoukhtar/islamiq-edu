@@ -42,7 +42,7 @@ const HeroSection = () => {
         >
           <SwiperSlide className="">
             <img
-              src="/top-view-islamic-new-year-concept-with-copy-space.jpg"
+              src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678308216/islamiq/top-view-islamic-new-year-concept-with-copy-space_skc7bz.jpg"
               className="w-full relative object-cover	h-full"
               alt="heroimage"
             />
@@ -65,7 +65,7 @@ const HeroSection = () => {
           </SwiperSlide>
           <SwiperSlide>
             <img
-              src="/Quran-4.jpg"
+              src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678307652/islamiq/Quran-4_bodw6r.jpg"
               className="w-full relative object-cover	h-full"
             />
             <div className="flex flex-col items-center justify-center text-center gap-6 w-full absolute top-[50%] left-[50%] sm:px-20 translate-x-[-50%] translate-y-[-80%]">
@@ -88,7 +88,7 @@ const HeroSection = () => {
           </SwiperSlide>
           <SwiperSlide>
             <img
-              src="/quran2.jpg"
+              src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678307907/islamiq/quran2_reos1a.jpg"
               className="w-full relative object-cover	h-full"
             />
             <div className="flex flex-col items-center justify-center text-center gap-6 w-full absolute top-[50%] left-[50%] sm:px-20 translate-x-[-50%] translate-y-[-80%]">

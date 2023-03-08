@@ -30,7 +30,11 @@ const DetailCourse = () => {
           {"Quran Memorization".toUpperCase()}
         </h2>
         <div className="flex flex-col items-center gap-10 w-full">
-          <img src="/Quran-4.jpg" className="w-full rounded" alt="course" />
+          <img
+            src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678307652/islamiq/Quran-4_bodw6r.jpg"
+            className="w-full rounded"
+            alt="course"
+          />
           <p className="text-2xl">
             “The Reading”, is a confirmation of the Torah and the Bible, and it
             affirms, confirms and repeats the Faith and the Law that was sent in
@@ -48,7 +52,7 @@ const DetailCourse = () => {
         </div>
         <div className="flex flex-col items-center gap-10 w-full">
           <img
-            src="/pexels-ahmed-aqtai-2233416.jpg"
+            src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678308280/islamiq/pexels-ahmed-aqtai-2233416_t8vhbp.jpg"
             className="w-full rounded"
             alt="course"
           />
@@ -67,7 +71,7 @@ const DetailCourse = () => {
         </div>
         <div className="flex flex-col items-center gap-10 w-full">
           <img
-            src="/learn-to-read-quran-for-adults.jpg"
+            src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678308417/islamiq/learn-to-read-quran-for-adults_ewcc4j.jpg"
             className="w-full rounded"
             alt="course"
           />
@@ -86,7 +90,7 @@ const DetailCourse = () => {
         </div>
         <div className="flex flex-col items-center gap-10 w-full">
           <img
-            src="/vecteezy_verses-of-the-holy-quran_6034228_263.jpg"
+            src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678308674/islamiq/vecteezy_verses-of-the-holy-quran_6034228_263_anazif.jpg"
             className="w-full rounded"
             alt="course"
           />
@@ -119,11 +123,6 @@ const DetailCourse = () => {
           </p>
         </div>
         <div className="flex flex-col items-center gap-10 w-full">
-          <img
-            src="/vecteezy_verses-of-the-holy-quran_6034228_263.jpg"
-            className="w-full rounded"
-            alt="course"
-          />
           <p className="text-2xl">
             3.Reciting Quran in Ramadan Quran has even more of an important
             significance in the month of Ramadan, the month of fasting. Allah

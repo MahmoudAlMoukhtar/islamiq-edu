@@ -26,7 +26,7 @@ const BlogsSection = () => {
       <div className="flex gap-20 sm:gap-4 justify-center items-center flex-wrap w-full px-4 sm:px-20">
         <div className="flex flex-col items-start justify-center gap-10 w-96 rounded shadow-xl text-start  sm:h-[550px] hover:scale-105 transtion duration-200">
           <img
-            src="/learn-to-read-quran-for-adults.jpg"
+            src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678308417/islamiq/learn-to-read-quran-for-adults_ewcc4j.jpg"
             className="w-full h-[250px] rounded-t-md"
           />
           <div className="flex flex-col  items-start gap-10 text-start h-full px-4">
@@ -45,7 +45,7 @@ const BlogsSection = () => {
         </div>
         <div className="flex flex-col items-start justify-center gap-10 w-96 rounded shadow-xl text-start  sm:h-[550px] hover:scale-105 transtion duration-200">
           <img
-            src="/mohammed-300x300.jpg"
+            src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678308704/islamiq/mohammed-300x300_qkp1eq.jpg"
             className="w-full h-[250px] rounded-t-md"
           />
           <div className="flex flex-col  items-start gap-10 text-start h-full px-4">
@@ -64,7 +64,7 @@ const BlogsSection = () => {
         </div>
         <div className="flex flex-col items-start justify-center gap-10 w-96 rounded shadow-xl text-start  sm:h-[550px] hover:scale-105 transtion duration-200">
           <img
-            src="/5-pillars-of-Islam-300x300.jpg"
+            src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678309219/islamiq/5-pillars-of-Islam-300x300_bpu107.jpg"
             className="w-full h-[250px] rounded-t-md"
           />
           <div className="flex flex-col  items-start gap-10 text-start h-full px-4">
