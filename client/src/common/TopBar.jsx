@@ -19,7 +19,7 @@ const TopBar = () => {
       >
         <AiFillFacebook className="text-3xl sm:text-6xl" />
         <div className="flex flex-col text-center text-xs md:text-lg">
-          <p className="font-bold text-[#34872A]">Facebook</p>
+          <p className="font-bold text-[#4caf50]">Facebook</p>
         </div>
       </a>
 
@@ -31,14 +31,14 @@ const TopBar = () => {
         <AiOutlineWhatsApp className="text-3xl sm:text-6xl" />
         <div className="flex flex-col text-center text-xs md:text-lg">
           <p className="text-xs sm:text-md sm:font-bold">+201012750418</p>
-          <p className="text-[#34872A] font-bold">whatsapp</p>
+          <p className="text-[#4caf50] font-bold">whatsapp</p>
         </div>
       </a>
       <div className="flex items-center gap-2 ">
         <AiFillHourglass className="text-3xl sm:text-6xl" />
         <div className="flex flex-col text-center text-xs md:text-lg">
           <p className="text-xs sm:text-md sm:font-bold">24/7</p>
-          <p className="font-bold text-[#34872A]">houre</p>
+          <p className="font-bold text-[#4caf50]">Open</p>
         </div>
       </div>
     </header>

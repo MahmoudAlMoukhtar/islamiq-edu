@@ -37,7 +37,7 @@ const HeroSection = () => {
           initialSlide={0}
           loop={true}
           navigation
-          autoplay={{delay: 2000}}
+          autoplay={{delay: 3000}}
           className="cursor-grap"
         >
           <SwiperSlide className="">
@@ -56,7 +56,7 @@ const HeroSection = () => {
               </p>
               <a
                 href="#fees"
-                className="py-2 px-8 rounded bg-[#34872A] text-white font-bold text-black"
+                className="py-2 px-8 rounded bg-[#4caf50] text-white font-bold text-black"
               >
                 Show Fees
               </a>
@@ -79,7 +79,7 @@ const HeroSection = () => {
               </p>
               <a
                 href="#courses"
-                className="py-2 px-8 rounded bg-[#34872A] text-white font-bold text-black"
+                className="py-2 px-8 rounded bg-[#4caf50] text-white font-bold text-black"
               >
                 Our courses
               </a>
@@ -102,7 +102,7 @@ const HeroSection = () => {
               </p>
               <Link
                 to="/auth"
-                className="py-2 px-8 rounded bg-[#34872A] text-white font-bold text-black"
+                className="py-2 px-8 rounded bg-[#4caf50] text-white font-bold text-black"
               >
                 Login
               </Link>

@@ -160,7 +160,7 @@ const DetailCourse = () => {
         </div>
         <ToastContainer theme="dark" />
       </div>
-      <section className="flex flex-col sm:flex-row  lg:flex-col items-center w-full lg:w-96  lg:h-[1200px] gap-10 bg-[#34872A] p-4 rounded text-white text-center">
+      <section className="flex flex-col sm:flex-row  lg:flex-col items-center w-full lg:w-96  lg:h-[1200px] gap-10 bg-[#4caf50] p-4 rounded text-white text-center">
         <div className="flex flex-col items-center gap-4 shadow-lg p-2">
           <img src="/download.jpg" className="rounded-full w-40" />
           <h2 className="text-3xl font-bold">
@@ -187,7 +187,7 @@ const DetailCourse = () => {
         <div className="flex flex-col items-center gap-4 shadow-lg p-2">
           <img src="/download.jpg" className="rounded-full w-40" />
           <h2 className="text-3xl font-bold">
-            Teacher For <span className="text-4xl text-[#FF932D]">FMALE</span>
+            Teacher For <span className="text-4xl text-[#FF932D]">FEMALE</span>
           </h2>
           <h4 className="text-xl font-bold">Errim Sleemy</h4>
           <p className="text-sm">

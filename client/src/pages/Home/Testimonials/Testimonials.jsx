@@ -27,13 +27,15 @@ const Testimonials = () => {
       </div>
       <div className="flex gap-4 justify-center items-center flex-wrap w-full px-4 md:px-20 lg:px-40 xl:px-60 hidden sm:block">
         <Swiper
+          modules={[Pagination, Autoplay]}
           spaceBetween={10}
           slidesPerView={2}
           loop={true}
+          autoplay={{delay: 2000}}
           className="cursor-grap"
         >
           <SwiperSlide className="w-[500px] h-[200px]">
-            <div className="flex justify-between items-start gap-4 bg-[#34872A] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 text-center w-full">
+            <div className="flex justify-between items-start gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 text-center w-full">
               <div className="flex flex-col items-center w-40">
                 <img
                   src="/student.jpg"
@@ -52,7 +54,7 @@ const Testimonials = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide className="w-[500px] h-[200px]">
-            <div className="flex justify-between items-start gap-4 bg-[#34872A] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 text-center w-full">
+            <div className="flex justify-between items-start gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 text-center w-full">
               <div className="flex flex-col items-center w-40">
                 <img
                   src="/student.jpg"
@@ -74,16 +76,17 @@ const Testimonials = () => {
       </div>
       <div className="flex gap-4 justify-center items-center flex-wrap w-full px-4 md:px-20 lg:px-40 xl:px-60 sm:hidden">
         <Swiper
-          modules={[Pagination]}
+          modules={[Pagination, Autoplay]}
           spaceBetween={10}
           slidesPerView={1}
           loop={true}
           navigation
           pagination={{clickable: true}}
+          autoplay={{delay: 2000}}
           className="cursor-grab"
         >
           <SwiperSlide className="w-[500px] h-[200px] cursor-grab">
-            <div className="flex justify-between items-start gap-4 bg-[#34872A] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 text-center w-full">
+            <div className="flex justify-between items-start gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 text-center w-full">
               <div className="flex flex-col items-center w-40">
                 <img
                   src="/student.jpg"
@@ -102,7 +105,7 @@ const Testimonials = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide className="w-[500px] h-[200px] cursor-grab">
-            <div className="flex justify-between items-start gap-4 bg-[#34872A] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 text-center w-full cursor-grab">
+            <div className="flex justify-between items-start gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 text-center w-full cursor-grab">
               <div className="flex flex-col items-center w-40">
                 <img
                   src="/student.jpg"

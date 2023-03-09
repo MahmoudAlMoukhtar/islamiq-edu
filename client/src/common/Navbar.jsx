@@ -36,7 +36,7 @@ const Navbar = ({setNavBarModal, navbarModal}) => {
     }
   }, [pathname, hash, key]);
   return (
-    <nav className="flex justify-between items-center gap-2 py-4 px-4 sm:px-20 md:px-20 w-full shadow-xl text-white bg-[#34872A] ">
+    <nav className="flex justify-between items-center gap-2 py-4 px-4 sm:px-20 md:px-20 w-full shadow-xl text-white bg-[#4caf50] ">
       <div className="flex justify-center">
         <Link to="/" className="sm:hidden">
           <div className="flex  gap-2 items-start">
@@ -80,7 +80,7 @@ const Navbar = ({setNavBarModal, navbarModal}) => {
         ) : (
           <button
             className={
-              "text-md font-semibold py-2 px-2 lg:px-4 bg-[#34872A] text-[#fff] transtion duration-200  rounded text-lg"
+              "text-md font-semibold py-2 px-2 lg:px-4 bg-[#4caf50] text-[#fff] transtion duration-200  rounded text-lg"
             }
             onClick={() => {
               localStorage.removeItem("userEcommerce");
@@ -102,7 +102,7 @@ const Navbar = ({setNavBarModal, navbarModal}) => {
 };
 
 export default Navbar;
-/* bg-[#34872A] */
+/* bg-[#4caf50] */
 /* <a href="#contact" end className={styles.linkPages}>
             Contact
           </a> */

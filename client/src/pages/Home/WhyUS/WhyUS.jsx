@@ -36,7 +36,7 @@ const WhyUS = () => {
       <div className="flex gap-4 justify-center items-center flex-wrap">
         <motion.div
           variants={item}
-          className="item flex flex-col items-center gap-4 bg-[#34872A] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-60 text-center h-[200px]"
+          className="item flex flex-col items-center gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-60 text-center h-[200px]"
         >
           <img
             src="/icons/experience.png"
@@ -47,7 +47,7 @@ const WhyUS = () => {
         </motion.div>
         <motion.div
           variants={item}
-          className="item flex flex-col items-center gap-4 bg-[#34872A] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-60 text-center h-[200px]"
+          className="item flex flex-col items-center gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-60 text-center h-[200px]"
         >
           <img src="/icons/teacher.png" className="w-20" alt="teaching" />
           <h3 className="text-sm font-bold">
@@ -56,7 +56,7 @@ const WhyUS = () => {
         </motion.div>
         <motion.div
           variants={item}
-          className="item flex flex-col items-center gap-4 bg-[#34872A] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-60 text-center h-[200px]"
+          className="item flex flex-col items-center gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-60 text-center h-[200px]"
         >
           <img
             src="/icons/onlineCourse1.png"
@@ -69,7 +69,7 @@ const WhyUS = () => {
         </motion.div>
         <motion.div
           variants={item}
-          className="item flex flex-col items-center gap-4 bg-[#34872A] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-60 text-center h-[200px]"
+          className="item flex flex-col items-center gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-60 text-center h-[200px]"
         >
           <img
             src="/icons/scholarship.png"
@@ -82,7 +82,7 @@ const WhyUS = () => {
         </motion.div>
         <motion.div
           variants={item}
-          className="item flex flex-col items-center gap-4 bg-[#34872A] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-60 text-center h-[200px]"
+          className="item flex flex-col items-center gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-60 text-center h-[200px]"
         >
           <img src="/icons/period.png" className="w-20" alt="period" />
           <h3 className="text-sm font-bold">
@@ -91,7 +91,7 @@ const WhyUS = () => {
         </motion.div>
         <motion.div
           variants={item}
-          className="item flex flex-col items-center gap-4 bg-[#34872A] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-60 text-center h-[200px]"
+          className="item flex flex-col items-center gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-60 text-center h-[200px]"
         >
           <img src="/icons/easy-to-use.png" className="w-20" alt="easy" />
           <h3 className="text-sm font-bold">
@@ -100,7 +100,7 @@ const WhyUS = () => {
         </motion.div>
         <motion.div
           variants={item}
-          className="item flex flex-col items-center gap-4 bg-[#34872A] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-60 text-center h-[200px]"
+          className="item flex flex-col items-center gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-60 text-center h-[200px]"
         >
           <img src="/icons/handling.png" className="w-20" alt="handling" />
           <h3 className="text-sm font-bold">
@@ -109,7 +109,7 @@ const WhyUS = () => {
         </motion.div>
         <motion.div
           variants={item}
-          className="item flex flex-col items-center gap-4 bg-[#34872A] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-60 text-center h-[200px]"
+          className="item flex flex-col items-center gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-60 text-center h-[200px]"
         >
           <img src="/icons/webinar.png" className="w-20" alt="webinar" />
           <h3 className="text-sm font-bold">
@@ -118,7 +118,7 @@ const WhyUS = () => {
         </motion.div>
         <motion.div
           variants={item}
-          className="item flex flex-col items-center gap-4 bg-[#34872A] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-60 text-center h-[200px]"
+          className="item flex flex-col items-center gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-60 text-center h-[200px]"
         >
           <img src="/icons/choice.png" className="w-20" alt="choice" />
           <h3 className="text-sm font-bold">
@@ -127,14 +127,14 @@ const WhyUS = () => {
         </motion.div>
         <motion.div
           variants={item}
-          className="item flex flex-col items-center gap-4 bg-[#34872A] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-60 text-center h-[200px]"
+          className="item flex flex-col items-center gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-60 text-center h-[200px]"
         >
           <img src="/icons/24-hours.png" className="w-20" alt="24-hours" />
           <h3 className="text-sm font-bold">24-hour service, 7 days a week.</h3>
         </motion.div>
         <motion.div
           variants={item}
-          className="item flex flex-col items-center gap-4 bg-[#34872A] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-60 text-center h-[200px]"
+          className="item flex flex-col items-center gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-60 text-center h-[200px]"
         >
           <img src="/icons/flexible.png" className="w-20" alt="flexible" />
           <h3 className="text-sm font-bold">
@@ -143,7 +143,7 @@ const WhyUS = () => {
         </motion.div>
         <motion.div
           variants={item}
-          className="item flex flex-col items-center gap-4 bg-[#34872A] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-60 text-center h-[200px]"
+          className="item flex flex-col items-center gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-60 text-center h-[200px]"
         >
           <img src="/icons/salary.png" className="w-20" alt="salary" />
           <h3 className="text-sm font-bold">

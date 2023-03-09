@@ -48,7 +48,7 @@ export default function CustomizedAccordions() {
   };
 
   return (
-    <section className="px-4 sm:px-10 md:px-20 lg:px-40 flex flex-col items-center gap-10 my-20">
+    <section className="px-4 sm:px-10 md:px-10 lg:px-20 flex flex-col items-center gap-10 my-20">
       <div className="flex flex-col items-center gap-2">
         <h2 className="text-4xl font-bold text-black">FAQ</h2>
         <span className="h-2 w-40 bg-[#ffc265]" />

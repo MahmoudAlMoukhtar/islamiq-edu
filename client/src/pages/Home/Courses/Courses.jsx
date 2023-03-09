@@ -41,7 +41,7 @@ const Courses = () => {
             className="w-60  rounded-t-full h-[200px] px-4"
             alt="Islamic-Studies"
           />
-          <h3 className="text-sm font-semibold bg-[#34872A] text-white w-full h-10 text-lg">
+          <h3 className="text-sm font-semibold bg-[#4caf50] text-white w-full h-10 text-lg">
             Islamic Studies
           </h3>
         </div>
@@ -54,7 +54,7 @@ const Courses = () => {
             className="w-60  rounded-t-full h-[200px] px-4"
             alt="Arabic"
           />
-          <h3 className="text-sm font-semibold bg-[#34872A] text-white w-full h-10 text-lg">
+          <h3 className="text-sm font-semibold bg-[#4caf50] text-white w-full h-10 text-lg">
             Arabic Language
           </h3>
         </div>
@@ -68,7 +68,7 @@ const Courses = () => {
             className="w-60  rounded-t-full h-[200px] px-4"
             alt="Quran-Memorization"
           />
-          <h3 className="text-sm font-semibold bg-[#34872A] text-white w-full h-10 text-lg">
+          <h3 className="text-sm font-semibold bg-[#4caf50] text-white w-full h-10 text-lg">
             Quran Memorization
           </h3>
         </Link>
@@ -81,7 +81,7 @@ const Courses = () => {
             className="w-60  rounded-t-full h-[200px] px-4"
             alt="tafser"
           />
-          <h3 className="text-sm font-semibold bg-[#34872A] text-white w-full h-10 text-lg">
+          <h3 className="text-sm font-semibold bg-[#4caf50] text-white w-full h-10 text-lg">
             Quran Tafseer
           </h3>
         </div>
@@ -94,12 +94,12 @@ const Courses = () => {
             className="w-60  rounded-t-full h-[200px] px-4"
             alt="tafser"
           />
-          <h3 className="text-sm font-semibold bg-[#34872A] text-white w-full h-10 text-lg">
+          <h3 className="text-sm font-semibold bg-[#4caf50] text-white w-full h-10 text-lg">
             Tajweed Course
           </h3>
         </div>
       </motion.div>
-      <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-10 w-full bg-[#34872A] px-40 py-6">
+      <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-10 w-full bg-[#4caf50] px-40 py-6">
         <div className="flex flex-col items-center justify-center gap-2 text-white w-60 text-center">
           <img src="/icons/rating.png" className="w-28" />
           <span
@@ -138,7 +138,7 @@ export default Courses;
             className="w-60  rounded-t-full h-[200px] px-4"
             alt="tafser"
           />
-          <h3 className="text-sm font-semibold bg-[#34872A] text-white w-full h-10 text-lg">
+          <h3 className="text-sm font-semibold bg-[#4caf50] text-white w-full h-10 text-lg">
             Nour Al-Bayan
           </h3>
         </div>

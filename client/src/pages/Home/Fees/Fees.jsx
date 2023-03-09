@@ -14,7 +14,7 @@ const Fees = () => {
     <motion.section
       variants={item}
       id="fees"
-      className="flex flex-col  justify-center items-center gap-20 mt-20 py-10 bg-[#34872A] w-full"
+      className="flex flex-col  justify-center items-center gap-20 mt-20 py-10 bg-[#4caf50] w-full"
     >
       <div className="flex flex-col items-center gap-2">
         <h2 className="text-4xl font-bold text-white">Pricing</h2>

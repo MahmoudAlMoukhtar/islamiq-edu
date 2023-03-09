@@ -6,6 +6,7 @@ import {
   AiOutlineTwitter,
   AiFillInstagram,
   AiOutlineMail,
+  AiOutlineWhatsApp,
 } from "react-icons/ai";
 import {BiLocationPlus} from "react-icons/bi";
 import {HiLocationMarker} from "react-icons/hi";
@@ -14,7 +15,7 @@ import {Ri24HoursLine} from "react-icons/ri";
 
 const Footer = () => {
   return (
-    <footer className="flex flex-col items-center gap-10 py-10 px-4 sm:px-10 lg:px-40 w-full bg-[#34872A]">
+    <footer className="flex flex-col items-center gap-10 py-10 px-4 sm:px-10 lg:px-40 w-full bg-[#4caf50]">
       <div className="flex flex-col items-center text-center sm:text-start gap-2 sm:gap-6 text-white">
         <h2 className="text-2xl sm:text-4xl font-bold">
           Subscibe For Newsletter
@@ -26,10 +27,10 @@ const Footer = () => {
         <div className="flex justify-center items-center gap-2 sm:gap-6 text-black">
           <input
             type="email"
-            className="rounded-l-full border-2 border-[#FF932D] py-2 px-4 "
+            className="rounded-l-full border-2 border-[#FF932D] py-2 px-2 sm:px-4 "
             placeholder="example@gmail.com"
           />
-          <button className="bg-[#FF932D] rounded-r-full py-2 px-4 border-2 border-[#FF932D] font-bold">
+          <button className="bg-[#FF932D] rounded-r-full py-2 px-2 sm:px-4 border-2 border-[#FF932D] font-bold">
             Subscibe
           </button>
         </div>
@@ -53,11 +54,11 @@ const Footer = () => {
             </a>
 
             <a
+              href="http://wa.me/+201012750418"
               target="blank"
-              href="https://twitter.com/"
               className="border-[1px] border-gray-700 rounded-full p-[4px] hover:bg-[#FF932D]"
             >
-              <AiOutlineTwitter size={20} />
+              <AiOutlineWhatsApp size={20} />
             </a>
             <a
               target="blank"
@@ -70,7 +71,7 @@ const Footer = () => {
         </div>
         <section className="flex flex-col justify-center items-center text-center sm:flex-row  sm:justify-between sm:items-start sm:text-start sm:w-[600px] gap-10 sm:gap-4 flex-wrap sm:flex-nowrap w-full">
           <div className="flex flex-col gap-10 sm:gap-4">
-            <h5 className="text-md">GENERAL</h5>
+            <h5 className="text-md font-bold">GENERAL</h5>
             <nav className="flex flex-col justify-center items-center text-center  sm:justify-between sm:items-start sm:text-start gap-10 sm:gap-4">
               <Link to={"/"} className="text-white text-sm">
                 HOME
@@ -84,21 +85,18 @@ const Footer = () => {
             </nav>
           </div>
           <div className="flex flex-col justify-center items-center text-center  sm:justify-between sm:items-start sm:text-start gap-10 sm:gap-4">
-            <h5 className="text-md">Quick Links</h5>
+            <h5 className="text-md font-bold">Quick Links</h5>
             <nav className="flex flex-col justify-center items-center text-center  sm:justify-between sm:items-start sm:text-start gap-10 sm:gap-4">
-              <Link to={"/contact"} className="text-white text-sm">
-                CONTACT US
-              </Link>
-              <Link to={"/cart"} className="text-white text-sm">
+              <Link to="/#blogs" className="text-white text-sm">
                 Blogs
               </Link>
-              <Link to={"/auth"} className="text-white text-sm">
+              <Link to="/auth" className="text-white text-sm">
                 Signup
               </Link>
             </nav>
           </div>
           <div className="flex flex-col justify-center items-center text-center  sm:justify-between sm:items-start sm:text-start gap-10 sm:gap-4">
-            <h5 className="text-md">Contact</h5>
+            <h5 className="text-md font-bold">Contact</h5>
             <nav className="flex flex-col justify-center items-center text-center  sm:justify-between sm:items-start sm:text-start gap-10 sm:gap-4">
               <div className="flex items-center gap-2">
                 <div>
