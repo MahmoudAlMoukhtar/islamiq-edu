@@ -74,13 +74,13 @@ const Footer = () => {
             <h5 className="text-md font-bold">GENERAL</h5>
             <nav className="flex flex-col justify-center items-center text-center  sm:justify-between sm:items-start sm:text-start gap-10 sm:gap-4">
               <Link to={"/"} className="text-white text-sm">
-                HOME
+                Home
               </Link>
-              <Link to={"/aboutUs"} className="text-white text-sm">
-                ABOUT
+              <Link to={"/#Whyus"} className="text-white text-sm">
+                Why Us
               </Link>
-              <Link to={"/menu"} className="text-white text-sm">
-                Products
+              <Link to={"/#courses"} className="text-white text-sm">
+                Courses
               </Link>
             </nav>
           </div>

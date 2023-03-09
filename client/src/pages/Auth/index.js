@@ -61,7 +61,10 @@ const Auth = () => {
         className="flex flex-col justify-center items-center h-full my-10  rounded"
       >
         <div className=" ">
-          <img src="/facebookcover.png" className="w-full" />
+          <img
+            src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678308701/islamiq/facebookcover_hscelo.png"
+            className="w-full"
+          />
         </div>
         <div className="flex flex-col  min-h-full w-full  px-4 sm:px-6 lg:px-8  text-[#000] rounded">
           <div>
