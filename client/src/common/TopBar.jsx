@@ -12,20 +12,28 @@ const TopBar = () => {
           <img src="/test.png" className="w-32" alt="iqraa" />
         </div>
       </a>
-      <div className="flex justify-center items-center gap-2 ">
+      <a
+        target="blank"
+        href="https://www.facebook.com/profile.php?id=100090853364224"
+        className="flex justify-center items-center gap-2 "
+      >
         <AiFillFacebook className="text-3xl sm:text-6xl" />
         <div className="flex flex-col text-center text-xs md:text-lg">
           <p className="font-bold text-[#34872A]">Facebook</p>
         </div>
-      </div>
+      </a>
 
-      <div className="flex items-center gap-2 ">
+      <a
+        target="blank"
+        href="http://wa.me/+201012750418"
+        className="flex items-center gap-2 "
+      >
         <AiOutlineWhatsApp className="text-3xl sm:text-6xl" />
         <div className="flex flex-col text-center text-xs md:text-lg">
           <p className="text-xs sm:text-md sm:font-bold">+201012750418</p>
           <p className="text-[#34872A] font-bold">whatsapp</p>
         </div>
-      </div>
+      </a>
       <div className="flex items-center gap-2 ">
         <AiFillHourglass className="text-3xl sm:text-6xl" />
         <div className="flex flex-col text-center text-xs md:text-lg">

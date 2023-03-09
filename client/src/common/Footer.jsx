@@ -5,6 +5,7 @@ import {
   AiFillLinkedin,
   AiOutlineTwitter,
   AiFillInstagram,
+  AiOutlineMail,
 } from "react-icons/ai";
 import {BiLocationPlus} from "react-icons/bi";
 import {HiLocationMarker} from "react-icons/hi";
@@ -45,7 +46,7 @@ const Footer = () => {
           <ul className="flex items-center gap-1">
             <a
               target="blank"
-              href="https://www.facebook.com/"
+              href="https://www.facebook.com/profile.php?id=100090853364224"
               className="border-[1px] border-gray-700 rounded-full p-[4px] hover:bg-[#FF932D]"
             >
               <AiOutlineFacebook size={20} />
@@ -127,12 +128,18 @@ const Footer = () => {
                 <div>
                   <Ri24HoursLine color="#FF932D" size={20} />
                 </div>
+                <p className="text-white text-sm">24/7</p>
+              </div>
+              <div className="flex items-center gap-2">
+                <div>
+                  <AiOutlineMail color="#FF932D" size={20} />
+                </div>
                 <a
                   target="blank"
                   href="https://www.facebook.com/"
                   className="text-white text-sm"
                 >
-                  24/7
+                  iqrainthenameofallah29@gmail.com
                 </a>
               </div>
             </nav>

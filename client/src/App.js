@@ -71,7 +71,9 @@ export default function App() {
                   aria-label="add"
                   style={{width: "70px", height: "70px", borderRadius: "100%"}}
                 >
-                  <BsTelegram size={30} />
+                  <a href="https://t.me/+963936464820" target="blank">
+                    <BsTelegram size={30} />
+                  </a>
                 </Fab>
               </div>
               <div className="translate-y-[-10px]">
