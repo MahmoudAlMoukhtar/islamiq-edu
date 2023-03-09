@@ -3,14 +3,14 @@ import {Link, NavLink, useNavigate} from "react-router-dom";
 
 const activeStyle = {
   color: "white",
-  backgroundColor: "#34872A",
+  backgroundColor: "#4caf50",
   padding: "20px 12px",
   fontWeight: "bold",
   borderLeft: "8px solid #FF932D",
 };
 const styles = {
   linkPages:
-    "text-[#000] hover:text-white hover:text-white hover:bg-[#34872A] py-6 px-2 font-semibold w-full hover:border-l-8 hover:border-[#FF932D] hover:font-bold w-full transtion duration-200",
+    "text-[#000] hover:text-white hover:text-white hover:bg-[#4caf50] py-6 px-2 font-semibold w-full hover:border-l-8 hover:border-[#FF932D] hover:font-bold w-full transtion duration-200",
   navBarModalHidden: "hidden",
   navBarModal:
     "fixed inset-0 bg-opacity-75 transition-opacity flex flex-col justify-center items-center z-50",
