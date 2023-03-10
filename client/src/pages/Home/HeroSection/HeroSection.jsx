@@ -43,7 +43,7 @@ const HeroSection = () => {
           autoplay={{delay: 3000}}
           className="cursor-grap"
         >
-          <SwiperSlide className="">
+          <SwiperSlide className="max-h-screen">
             <LazyLoadImage
               effect="blur"
               loading="lazy"
@@ -67,7 +67,7 @@ const HeroSection = () => {
             </div>
           </SwiperSlide>
 
-          <SwiperSlide>
+          <SwiperSlide className="max-h-screen">
             <LazyLoadImage
               effect="blur"
               loading="lazy"
@@ -89,6 +89,28 @@ const HeroSection = () => {
               <SlideNextButton />
             </div>
           </SwiperSlide>
+          <SwiperSlide className="max-h-screen">
+            <LazyLoadImage
+              effect="blur"
+              loading="lazy"
+              src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678308674/islamiq/vecteezy_verses-of-the-holy-quran_6034228_263_anazif.jpg"
+              className="w-full relative object-cover h-[390px]	sm:h-full"
+            />
+            <div className="flex flex-col items-center justify-center text-center gap-6 w-full absolute top-[50%] left-[50%] sm:px-20 translate-x-[-50%] translate-y-[-50%] sm:translate-y-[-80%] md:translate-y-[-100%]">
+              <SlidePrevButton />
+              <p className="text-4xl md:text-5xl lg:text-6xl font-bold text-black">
+                {t("mainSlider.2.title")}
+              </p>
+              <p className="font-semibold">{t("mainSlider.2.desciption")}</p>
+              <a
+                href="#courses"
+                className="py-2 px-8 rounded bg-[#4caf50] text-white font-bold text-black"
+              >
+                {t("mainSlider.2.button")}
+              </a>
+              <SlideNextButton />
+            </div>
+          </SwiperSlide>
         </Swiper>
       </div>
     </div>
@@ -102,7 +124,7 @@ export default HeroSection;
  <SwiperSlide>
             <img
               loading="lazy"
-              src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678307652/islamiq/Quran-4_bodw6r.jpg"
+              src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678308674/islamiq/vecteezy_verses-of-the-holy-quran_6034228_263_anazif.jpg"
               className="w-full relative object-cover	h-full"
             />
             <div className="flex flex-col items-center justify-center text-center gap-6 w-full absolute top-[50%] left-[50%] sm:px-20 translate-x-[-50%] translate-y-[-80%]">
