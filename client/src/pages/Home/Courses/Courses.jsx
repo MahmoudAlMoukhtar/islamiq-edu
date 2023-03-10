@@ -22,7 +22,7 @@ const Courses = () => {
         <h2 className="text-4xl font-bold ">{t("titlecourses")}</h2>
         <span className="h-2 w-60 bg-[#ffc265]" />
       </div>
-      <motion.div className="flex justify-center items-center flex-wrap gap-4 w-full">
+      <motion.div className="flex justify-center items-center flex-wrap gap-10 lg:gap-4 w-full">
         <div
           variants={item}
           className="item flex flex-col items-center justify-between hover:text-black  transtion duration-200 w-60 text-center h-[200px] bg-[#FF932D] rounded-t-full pt-4   cursor-pointer hover:translate-y-[-10px]"
@@ -103,7 +103,11 @@ const Courses = () => {
       <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-10 w-full bg-[#4caf50] px-40 py-6">
         <div className="flex flex-col items-center justify-center gap-2 text-white w-60 text-center">
           <LazyLoadImage
-            effect="blur" loading="lazy" src="/icons/rating.png" className="w-28" />
+            effect="blur"
+            loading="lazy"
+            src="/icons/rating.png"
+            className="w-28"
+          />
           <span
             className="flex flex-col justify-center text-6xl font-bold text-[#FF932D]"
             id="value1"
@@ -114,7 +118,11 @@ const Courses = () => {
         </div>
         <div className="flex flex-col items-center justify-center gap-2 text-white w-60 text-center">
           <LazyLoadImage
-            effect="blur" loading="lazy" src="/icons/graduate.png" className="w-28" />
+            effect="blur"
+            loading="lazy"
+            src="/icons/graduate.png"
+            className="w-28"
+          />
           <span className="flex flex-col justify-center text-6xl font-bold text-[#FF932D]">
             200
           </span>
@@ -122,7 +130,11 @@ const Courses = () => {
         </div>
         <div className="flex flex-col items-center justify-center gap-2 text-white w-60 text-center">
           <LazyLoadImage
-            effect="blur" loading="lazy" src="/icons/teacherr.png" className="w-28" />
+            effect="blur"
+            loading="lazy"
+            src="/icons/teacherr.png"
+            className="w-28"
+          />
           <span className="text-6xl font-bold text-[#FF932D]">30</span>
           <p className="text-md font-semibold ">{t("numbers.teacher")}</p>
         </div>

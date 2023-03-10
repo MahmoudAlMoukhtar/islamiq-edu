@@ -64,7 +64,7 @@ const BlogsSection = () => {
           <LazyLoadImage
             effect="blur"
             loading="lazy"
-            src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678309219/islamiq/5-pillars-of-Islam-300x300_bpu107.jpg"
+            src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678308674/islamiq/vecteezy_verses-of-the-holy-quran_6034228_263_anazif.jpg"
             className="w-full h-[250px] rounded-t-md"
           />
           <div className="flex flex-col  items-start gap-10 text-start h-full px-4">
