@@ -1,23 +1,15 @@
 import React from "react";
 import {motion} from "framer-motion";
-import {Swiper, SwiperSlide} from "swiper/react";
-import {Autoplay} from "swiper";
 import "swiper/css";
 import {useTranslation} from "react-i18next";
+import {LazyLoadImage} from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const BlogsSection = () => {
   const [t, i18n] = useTranslation();
-  const item = {
-    hidden: {y: 50, opacity: 0},
-    visible: {
-      y: 0,
-      opacity: 1,
-    },
-  };
 
   return (
     <motion.section
-      variants={item}
       id="blogs"
       className="flex flex-col  justify-center items-center gap-10 py-10 bg-[#f2ede7] w-full my-40"
     >
@@ -27,7 +19,8 @@ const BlogsSection = () => {
       </div>
       <div className="flex gap-20 sm:gap-4 justify-center items-center flex-wrap w-full px-4 sm:px-20">
         <div className="flex flex-col items-start justify-center gap-10 w-96 rounded shadow-xl text-start  sm:h-[550px] hover:scale-105 transtion duration-200">
-          <img
+          <LazyLoadImage
+            effect="blur"
             loading="lazy"
             src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678308417/islamiq/learn-to-read-quran-for-adults_ewcc4j.jpg"
             className="w-full h-[250px] rounded-t-md"
@@ -48,6 +41,7 @@ const BlogsSection = () => {
         </div>
         <div className="flex flex-col items-start justify-center gap-10 w-96 rounded shadow-xl text-start  sm:h-[550px] hover:scale-105 transtion duration-200">
           <img
+            effect="blur"
             loading="lazy"
             src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678308704/islamiq/mohammed-300x300_qkp1eq.jpg"
             className="w-full h-[250px] rounded-t-md"
@@ -67,7 +61,8 @@ const BlogsSection = () => {
           </div>
         </div>
         <div className="flex flex-col items-start justify-center gap-10 w-96 rounded shadow-xl text-start  sm:h-[550px] hover:scale-105 transtion duration-200">
-          <img
+          <LazyLoadImage
+            effect="blur"
             loading="lazy"
             src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678309219/islamiq/5-pillars-of-Islam-300x300_bpu107.jpg"
             className="w-full h-[250px] rounded-t-md"

@@ -1,6 +1,8 @@
 import React from "react";
 import {motion} from "framer-motion";
 import {useTranslation} from "react-i18next";
+import {LazyLoadImage} from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 const WhyUS = () => {
   const [t, i18n] = useTranslation();
   const container = {
@@ -40,7 +42,8 @@ const WhyUS = () => {
           variants={item}
           className="item flex flex-col items-center gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-60 text-center h-[200px]"
         >
-          <img
+          <LazyLoadImage
+            effect="blur"
             loading="lazy"
             src="/icons/experience.png"
             className="w-20 translate-x-[+10px]"
@@ -52,7 +55,8 @@ const WhyUS = () => {
           variants={item}
           className="item flex flex-col items-center gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-60 text-center h-[200px]"
         >
-          <img
+          <LazyLoadImage
+            effect="blur"
             loading="lazy"
             src="/icons/teacher.png"
             className="w-20"
@@ -64,7 +68,8 @@ const WhyUS = () => {
           variants={item}
           className="item flex flex-col items-center gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-60 text-center h-[200px]"
         >
-          <img
+          <LazyLoadImage
+            effect="blur"
             loading="lazy"
             src="/icons/onlineCourse1.png"
             className="w-20"
@@ -76,7 +81,8 @@ const WhyUS = () => {
           variants={item}
           className="item flex flex-col items-center gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-60 text-center h-[200px]"
         >
-          <img
+          <LazyLoadImage
+            effect="blur"
             loading="lazy"
             src="/icons/scholarship.png"
             className="w-20"
@@ -88,7 +94,8 @@ const WhyUS = () => {
           variants={item}
           className="item flex flex-col items-center gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-60 text-center h-[200px]"
         >
-          <img
+          <LazyLoadImage
+            effect="blur"
             loading="lazy"
             src="/icons/period.png"
             className="w-20"
@@ -100,7 +107,8 @@ const WhyUS = () => {
           variants={item}
           className="item flex flex-col items-center gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-60 text-center h-[200px]"
         >
-          <img
+          <LazyLoadImage
+            effect="blur"
             loading="lazy"
             src="/icons/easy-to-use.png"
             className="w-20"
@@ -112,7 +120,8 @@ const WhyUS = () => {
           variants={item}
           className="item flex flex-col items-center gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-60 text-center h-[200px]"
         >
-          <img
+          <LazyLoadImage
+            effect="blur"
             loading="lazy"
             src="/icons/handling.png"
             className="w-20"
@@ -124,7 +133,8 @@ const WhyUS = () => {
           variants={item}
           className="item flex flex-col items-center gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-60 text-center h-[200px]"
         >
-          <img
+          <LazyLoadImage
+            effect="blur"
             loading="lazy"
             src="/icons/webinar.png"
             className="w-20"
@@ -136,7 +146,8 @@ const WhyUS = () => {
           variants={item}
           className="item flex flex-col items-center gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-60 text-center h-[200px]"
         >
-          <img
+          <LazyLoadImage
+            effect="blur"
             loading="lazy"
             src="/icons/choice.png"
             className="w-20"
@@ -148,7 +159,8 @@ const WhyUS = () => {
           variants={item}
           className="item flex flex-col items-center gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-60 text-center h-[200px]"
         >
-          <img
+          <LazyLoadImage
+            effect="blur"
             loading="lazy"
             src="/icons/24-hours.png"
             className="w-20"
@@ -160,7 +172,8 @@ const WhyUS = () => {
           variants={item}
           className="item flex flex-col items-center gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-60 text-center h-[200px]"
         >
-          <img
+          <LazyLoadImage
+            effect="blur"
             loading="lazy"
             src="/icons/flexible.png"
             className="w-20"
@@ -172,7 +185,8 @@ const WhyUS = () => {
           variants={item}
           className="item flex flex-col items-center gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-60 text-center h-[200px]"
         >
-          <img
+          <LazyLoadImage
+            effect="blur"
             loading="lazy"
             src="/icons/salary.png"
             className="w-20"

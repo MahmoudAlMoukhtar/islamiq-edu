@@ -2,6 +2,8 @@ import React, {useEffect} from "react";
 import {motion} from "framer-motion";
 import {Link} from "react-router-dom";
 import {useTranslation} from "react-i18next";
+import {LazyLoadImage} from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 const Courses = () => {
   const [t, i18n] = useTranslation();
   const item = {
@@ -25,7 +27,8 @@ const Courses = () => {
           variants={item}
           className="item flex flex-col items-center justify-between hover:text-black  transtion duration-200 w-60 text-center h-[200px] bg-[#FF932D] rounded-t-full pt-4   cursor-pointer hover:translate-y-[-10px]"
         >
-          <img
+          <LazyLoadImage
+            effect="blur"
             loading="lazy"
             src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678308415/islamiq/Islamic-Studies-Online_voji5s.jpg"
             className="w-60  rounded-t-full h-[200px] px-4"
@@ -39,7 +42,8 @@ const Courses = () => {
           variants={item}
           className="item flex flex-col items-center justify-between hover:text-black  transtion duration-200 w-60 text-center h-[200px] bg-[#FF932D] rounded-t-full pt-4 cursor-pointer hover:translate-y-[-10px]"
         >
-          <img
+          <LazyLoadImage
+            effect="blur"
             loading="lazy"
             src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678308808/islamiq/Arabic_ivxwki.jpg"
             className="w-60  rounded-t-full h-[200px] px-4"
@@ -54,7 +58,8 @@ const Courses = () => {
           variants={item}
           className="item flex flex-col items-center justify-between hover:text-black  transtion duration-200 w-60 text-center h-[200px] bg-[#FF932D] rounded-t-full pt-4 cursor-pointer hover:translate-y-[-10px]"
         >
-          <img
+          <LazyLoadImage
+            effect="blur"
             loading="lazy"
             src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678307652/islamiq/Quran-4_bodw6r.jpg"
             className="w-60  rounded-t-full h-[200px] px-4"
@@ -68,7 +73,8 @@ const Courses = () => {
           variants={item}
           className="item flex flex-col items-center justify-between hover:text-black  transtion duration-200 w-60 text-center h-[200px] bg-[#FF932D] rounded-t-full pt-4 cursor-pointer hover:translate-y-[-10px]"
         >
-          <img
+          <LazyLoadImage
+            effect="blur"
             loading="lazy"
             src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678308736/islamiq/tafser_lyas9j.jpg"
             className="w-60  rounded-t-full h-[200px] px-4"
@@ -82,7 +88,8 @@ const Courses = () => {
           variants={item}
           className="item flex flex-col items-center justify-between hover:text-black  transtion duration-200 w-60 text-center h-[200px] bg-[#FF932D] rounded-t-full pt-4 cursor-pointer hover:translate-y-[-10px]"
         >
-          <img
+          <LazyLoadImage
+            effect="blur"
             loading="lazy"
             src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678308744/islamiq/tajweed_oloxd2.jpg"
             className="w-60  rounded-t-full h-[200px] px-4"
@@ -95,7 +102,8 @@ const Courses = () => {
       </motion.div>
       <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-10 w-full bg-[#4caf50] px-40 py-6">
         <div className="flex flex-col items-center justify-center gap-2 text-white w-60 text-center">
-          <img loading="lazy" src="/icons/rating.png" className="w-28" />
+          <LazyLoadImage
+            effect="blur" loading="lazy" src="/icons/rating.png" className="w-28" />
           <span
             className="flex flex-col justify-center text-6xl font-bold text-[#FF932D]"
             id="value1"
@@ -105,14 +113,16 @@ const Courses = () => {
           <p className="text-md font-semibold ">{t("numbers.satisfied")}</p>
         </div>
         <div className="flex flex-col items-center justify-center gap-2 text-white w-60 text-center">
-          <img loading="lazy" src="/icons/graduate.png" className="w-28" />
+          <LazyLoadImage
+            effect="blur" loading="lazy" src="/icons/graduate.png" className="w-28" />
           <span className="flex flex-col justify-center text-6xl font-bold text-[#FF932D]">
             200
           </span>
           <p className="text-md font-semibold ">{t("numbers.students")}</p>
         </div>
         <div className="flex flex-col items-center justify-center gap-2 text-white w-60 text-center">
-          <img loading="lazy" src="/icons/teacherr.png" className="w-28" />
+          <LazyLoadImage
+            effect="blur" loading="lazy" src="/icons/teacherr.png" className="w-28" />
           <span className="text-6xl font-bold text-[#FF932D]">30</span>
           <p className="text-md font-semibold ">{t("numbers.teacher")}</p>
         </div>
@@ -125,7 +135,8 @@ export default Courses;
 /* f2ede7 */
 /* 
 <div className="flex flex-col items-center justify-between hover:text-black  transtion duration-200 w-60 text-center h-[200px] bg-[#FF932D] rounded-t-full pt-4 cursor-pointer hover:translate-y-[-10px]">
-          <img loading="lazy"
+          <LazyLoadImage
+            effect="blur" loading="lazy"
             src="/nour_albayan.jpg"
             className="w-60  rounded-t-full h-[200px] px-4"
             alt="tafser"

@@ -6,7 +6,8 @@ import {motion} from "framer-motion";
 import "swiper/css";
 import {Link} from "react-router-dom";
 import {useTranslation} from "react-i18next";
-
+import {LazyLoadImage} from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 const SlideNextButton = () => {
   const swiper = useSwiper();
 
@@ -43,7 +44,8 @@ const HeroSection = () => {
           className="cursor-grap"
         >
           <SwiperSlide className="">
-            <img
+            <LazyLoadImage
+              effect="blur"
               loading="lazy"
               src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678308216/islamiq/top-view-islamic-new-year-concept-with-copy-space_skc7bz.jpg"
               className="w-full relative object-cover	h-full"
@@ -86,7 +88,8 @@ const HeroSection = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <img
+            <LazyLoadImage
+              effect="blur"
               loading="lazy"
               src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678307907/islamiq/quran2_reos1a.jpg"
               className="w-full relative object-cover	h-full"
