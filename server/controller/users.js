@@ -52,15 +52,16 @@ const signin = async (req, res) => {
       {email: existingUser.email, id: existingUser._id},
       "132jwtsecretkey123"
     );
-    res.status(200).json({resulte: existingUser, token});
+    res.status(200).json({token});
   } catch (err) {
     res.status(500).json({message: "Somthing error in signin"});
   }
 };
 
 const signup = async (req, res) => {
-  const {fullName, email, password, confirmPassword} = req.body;
-  //console.log(email);
+  const {firstName, lastName, email, gender, phone, password, confirmPassword} =
+    req.body;
+  console.log(req.body);
   try {
     const existingUser = await User.findOne({email});
     //console.log(existingUser);
@@ -71,13 +72,25 @@ const signup = async (req, res) => {
 
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(password, salt);
-    const resulte = await new User({fullName, email, password: hash});
+    const resulte = await new User({
+      firstName,
+      lastName,
+      email,
+      phone,
+      gender,
+      password: hash,
+    });
     await resulte.save();
     const token = jwt.sign(
-      {fullName: resulte.fullName, email: resulte.email, id: resulte._id},
+      {
+        firstName: resulte.firstName,
+        lastName: resulte.lastName,
+        email: resulte.email,
+        id: resulte._id,
+      },
       "132jwtsecretkey123"
     );
-    res.status(200).json({resulte, token});
+    res.status(200).json({token});
   } catch (err) {
     res.status(500).json({message: "Somthing error in signin"});
   }

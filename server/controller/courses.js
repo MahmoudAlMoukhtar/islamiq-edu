@@ -1,22 +1,22 @@
-const {default: mongoose} = require("mongoose");
-const Product = require("../models/product");
+const Course = require("../models/course");
 const {cloudinary} = require("../utils/cloudinary");
-const getProducts = async (req, res) => {
+
+const getCourses = async (req, res) => {
   try {
-    const products = await Product.find();
-    res.status(200).json(products);
+    const courses = await Course.find();
+    res.status(200).json(courses);
   } catch (err) {
     res.status(404).json({message: err.message});
   }
 };
 
-const createProduct = async (req, res) => {
+const createCourse = async (req, res) => {
   const {title, price, category, description, stock, selectedFile} = req.body;
   try {
     const uploadedCloudniary = await cloudinary.uploader.upload(selectedFile, {
       upload_preset: "ml_default",
     });
-    const newProduct = await new Product({
+    const newCourse = await new Course({
       title,
       price,
       category,
@@ -24,58 +24,58 @@ const createProduct = async (req, res) => {
       stock,
       image: uploadedCloudniary.url,
     });
-    const newProd = await newProduct.save();
-    console.log(newProduct);
-    res.status(201).json(newProd);
+    await newCourse.save();
+    console.log(newCourse);
+    res.status(201).json(newCourse);
   } catch (err) {
     res.status(400).json({message: err.message});
   }
 };
 
-const getProductById = async (req, res) => {
+const getCourseById = async (req, res) => {
   const {id: _id} = req.params;
   try {
-    const product = await Product.findById(_id);
-    res.status(200).json(product);
+    const course = await Course.findById(_id);
+    res.status(200).json(course);
   } catch (err) {
     res.status(400).json({message: err.message});
   }
 };
 
-const deleteProductById = async (req, res) => {
+const deleteCourseById = async (req, res) => {
   const {id: _id} = req.params;
   try {
-    const product = await Product.findByIdAndDelete(_id);
-    res.status(200).json(product);
+    const course = await Course.findByIdAndDelete(_id);
+    res.status(200).json(course);
   } catch (err) {
     res.status(400).json({message: err.message});
   }
 };
 
-const updateProduct = async (req, res) => {
+const updateCourse = async (req, res) => {
   const {id: _id} = req.params;
   const updates = req.body;
   try {
     const uploadedCloudniary = await cloudinary.uploader.upload(updates.image, {
       upload_preset: "ml_default",
     });
-    const product = await Product.findByIdAndUpdate(
+    const course = await Course.findByIdAndUpdate(
       _id,
       {...updates, image: uploadedCloudniary.url},
       {
         new: true,
       }
     );
-    res.status(200).json(product);
+    res.status(200).json(course);
   } catch (err) {
     res.status(400).json({message: err.message});
   }
 };
 
 module.exports = {
-  getProducts,
-  createProduct,
-  getProductById,
-  updateProduct,
-  deleteProductById,
+  getCourses,
+  createCourse,
+  getCourseById,
+  updateCourse,
+  deleteCourseById,
 };

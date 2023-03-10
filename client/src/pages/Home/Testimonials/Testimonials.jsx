@@ -3,8 +3,10 @@ import {motion} from "framer-motion";
 import {Swiper, SwiperSlide} from "swiper/react";
 import {Autoplay, Pagination} from "swiper";
 import "swiper/css";
+import {useTranslation} from "react-i18next";
 
 const Testimonials = () => {
+  const [t, i18n] = useTranslation();
   const item = {
     hidden: {y: 50, opacity: 0},
     visible: {
@@ -21,7 +23,7 @@ const Testimonials = () => {
     >
       <div className="flex flex-col items-center gap-2 md:w-[600px]">
         <h2 className="text-center text-2xl md:text-3xl lg:text-4xl font-bold">
-          Testimonials Take a Look at Some of Our Amazing Review from Students
+          {t("titletestimonials")}
         </h2>
         <span className="h-2 w-40 bg-[#ffc265]" />
       </div>
@@ -38,6 +40,7 @@ const Testimonials = () => {
             <div className="flex justify-between items-start gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 text-center w-full">
               <div className="flex flex-col items-center w-40">
                 <img
+                  loading="lazy"
                   src="/student.jpg"
                   className="w-40 rounded-md"
                   alt="experience"
@@ -57,6 +60,7 @@ const Testimonials = () => {
             <div className="flex justify-between items-start gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 text-center w-full">
               <div className="flex flex-col items-center w-40">
                 <img
+                  loading="lazy"
                   src="/student.jpg"
                   className="w-40 rounded-md"
                   alt="experience"
@@ -89,6 +93,7 @@ const Testimonials = () => {
             <div className="flex justify-between items-start gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 text-center w-full">
               <div className="flex flex-col items-center w-40">
                 <img
+                  loading="lazy"
                   src="/student.jpg"
                   className="w-40 rounded-md"
                   alt="experience"
@@ -108,6 +113,7 @@ const Testimonials = () => {
             <div className="flex justify-between items-start gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 text-center w-full cursor-grab">
               <div className="flex flex-col items-center w-40">
                 <img
+                  loading="lazy"
                   src="/student.jpg"
                   className="w-40 rounded-md"
                   alt="experience"

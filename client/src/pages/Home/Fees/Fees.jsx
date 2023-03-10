@@ -1,7 +1,9 @@
 import React from "react";
 import {motion} from "framer-motion";
 import {AiOutlineWhatsApp} from "react-icons/ai";
+import {useTranslation} from "react-i18next";
 const Fees = () => {
+  const [t, i18n] = useTranslation();
   const item = {
     hidden: {y: 50, opacity: 0},
     visible: {
@@ -17,7 +19,7 @@ const Fees = () => {
       className="flex flex-col  justify-center items-center gap-20 mt-20 py-10 bg-[#4caf50] w-full"
     >
       <div className="flex flex-col items-center gap-2">
-        <h2 className="text-4xl font-bold text-white">Pricing</h2>
+        <h2 className="text-4xl font-bold text-white">{t("titleFees")}</h2>
         <span className="h-2 w-40 bg-[#ffc265]" />
       </div>
       <div className="flex flex-col sm:flex-row gap-[-2px] justify-center items-center w-full px-10 sm:px-1">

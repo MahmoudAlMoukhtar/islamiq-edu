@@ -31,6 +31,7 @@ const DetailCourse = () => {
         </h2>
         <div className="flex flex-col items-center gap-10 w-full">
           <img
+            loading="lazy"
             src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678307652/islamiq/Quran-4_bodw6r.jpg"
             className="w-full rounded"
             alt="course"
@@ -52,6 +53,7 @@ const DetailCourse = () => {
         </div>
         <div className="flex flex-col items-center gap-10 w-full">
           <img
+            loading="lazy"
             src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678308280/islamiq/pexels-ahmed-aqtai-2233416_t8vhbp.jpg"
             className="w-full rounded"
             alt="course"
@@ -71,6 +73,7 @@ const DetailCourse = () => {
         </div>
         <div className="flex flex-col items-center gap-10 w-full">
           <img
+            loading="lazy"
             src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678308417/islamiq/learn-to-read-quran-for-adults_ewcc4j.jpg"
             className="w-full rounded"
             alt="course"
@@ -90,6 +93,7 @@ const DetailCourse = () => {
         </div>
         <div className="flex flex-col items-center gap-10 w-full">
           <img
+            loading="lazy"
             src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678308674/islamiq/vecteezy_verses-of-the-holy-quran_6034228_263_anazif.jpg"
             className="w-full rounded"
             alt="course"
@@ -162,7 +166,11 @@ const DetailCourse = () => {
       </div>
       <section className="flex flex-col sm:flex-row  lg:flex-col items-center w-full lg:w-96  lg:h-[1200px] gap-10 bg-[#4caf50] p-4 rounded text-white text-center">
         <div className="flex flex-col items-center gap-4 shadow-lg p-2">
-          <img src="/download.jpg" className="rounded-full w-40" />
+          <img
+            loading="lazy"
+            src="/download.jpg"
+            className="rounded-full w-40"
+          />
           <h2 className="text-3xl font-bold">
             Teacher For <span className="text-4xl text-[#FF932D]">MALE</span>
           </h2>
@@ -185,7 +193,11 @@ const DetailCourse = () => {
           </a>
         </div>
         <div className="flex flex-col items-center gap-4 shadow-lg p-2">
-          <img src="/download.jpg" className="rounded-full w-40" />
+          <img
+            loading="lazy"
+            src="/download.jpg"
+            className="rounded-full w-40"
+          />
           <h2 className="text-3xl font-bold">
             Teacher For <span className="text-4xl text-[#FF932D]">FEMALE</span>
           </h2>

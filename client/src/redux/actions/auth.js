@@ -6,7 +6,7 @@ export const signin = formData => {
     const {data} = await api.signin(formData);
     toast.success("Login successfully");
     dispatch({type: "SIGNIN", payload: data});
-    localStorage.setItem("userEcommerce", JSON.stringify(data));
+    localStorage.setItem("userIqraa", JSON.stringify(data));
   };
 };
 
@@ -15,7 +15,7 @@ export const signup = formData => {
     const {data} = await api.signup(formData);
     toast.success("Signup successfully");
     dispatch({type: "SIGNUP", payload: data});
-    localStorage.setItem("userEcommerce", JSON.stringify(data));
+    localStorage.setItem("userIqraa", JSON.stringify(data));
   };
 };
 

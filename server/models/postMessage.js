@@ -1,26 +1,25 @@
 const mongoose = require("mongoose");
 
-const postSchema = mongoose.Schema({
-  title: {
-    type: String,
+const postSchema = mongoose.Schema(
+  {
+    title: {
+      type: String,
+    },
+    image: {
+      type: String,
+    },
+    content: {
+      type: String,
+    },
+    author: {
+      type: String,
+    },
+    comments: {
+      type: [String],
+    },
   },
-  content: {
-    type: String,
-  },
-  by: {
-    type: String,
-  },
-  comments: {
-    type: [String],
-  },
-  selectedFile: {
-    type: String,
-  },
-  date: {
-    type: Date,
-    default: new Date(),
-  },
-});
+  {timestamps: true}
+);
 
 const PostMessage = mongoose.model("PostMessage", postSchema);
 

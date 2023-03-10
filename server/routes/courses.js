@@ -1,19 +1,19 @@
 const express = require("express");
 const {
-  getProducts,
-  createProduct,
-  getProductById,
-  updateProduct,
-  deleteProductById,
-} = require("../controller/products.js");
+  getCourses,
+  createCourse,
+  getCourseById,
+  updateCourse,
+  deleteCourseById,
+} = require("../controller/courses.js");
 const authMW = require("../middleware/authMW");
 const router = express.Router();
 
-router.get("/", getProducts);
-router.get("/:id", getProductById);
-router.post("/", createProduct);
-router.put("/:id", updateProduct);
-router.delete("/:id", deleteProductById);
+router.get("/", getCourses);
+router.get("/:id", getCourseById);
+router.post("/", createCourse);
+router.put("/:id", updateCourse);
+router.delete("/:id", deleteCourseById);
 
 // router.Product("/", authMW,createProduct)
 // router.patch("/:id", authMW,updateProduct)

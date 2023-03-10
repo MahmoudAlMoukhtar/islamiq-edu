@@ -1,0 +1,114 @@
+{
+    "mainSlider":{
+        "1":{
+            "title":"Highest Quality & Low Fees",
+            "desciption":"Our Academy is an academy for Arabic and Quran Studies.",
+            "button":"Show Fees"
+        },
+        "2":{
+            "title":"Islam company for learn islamiq scince",
+            "desciption":"We want to make the process of Quran teaching easier for everyone",
+            "button":"Our courses"
+        },
+        "3":{
+            "title":"Register Now",
+            "desciption":"We are offering our services for every individual nu ignoring the age and gender factor.",
+            "button":"Login"
+        }
+
+        },
+    "titlewhyus":"Why Us",
+    "titlecourses":"Courses",
+    "titleFees":"Pricing",
+    "titleblogs":"Our Blogs",
+    "titletestimonials":"Testimonials Take a Look at Some of Our Amazing Review from Students",
+    "titlefaq":"FAQ",
+    
+     "nav":{
+"home":"Home",
+"whyus":"Why Us",
+"courses":"Courses",
+"fees":"Fees",
+"blogs":"Blogs",
+"testimonials":"Testimonials",
+"login":"تسجيل الدخول",
+"logout":"Logout",
+"freetrail":"Free Trail"
+    },
+     "whyus":{
+"1":"Native and experienced Tutors.",
+"2":"Male and female teachers. and One to one",
+"3":"All Islamic courses are available.",
+"4":"Full interrest to the educational process.",
+"5":"Periodic monitoring of students, levels and monthly reports..",
+"6":"Easy handling for all age groups.",
+"7":"Flexibility in dealing and paying expenses.",
+"8":"Freedom to choose the right course and lesson.",
+"9":"Independence in the hours and courses chosen by the student.",
+"10":"24-hour service, 7 days a week.",
+"11":"Flexibility in the work invironment.",
+"12":"Saving money in terms of course value."
+
+    },
+    "numbers":{
+        "students":"students",
+        "satisfied":"Student satisfied with the service",
+        "teacher":"Teacher"
+    },
+    "faq":{
+        "1":{
+            "q":"HOW DO YOU TEACH QURAN ONLINE?",
+            "a":"We teach Quran online by using Skype or zoom. Skype and zoom are used for audio/video communication and screen sharing. The tutor shares their screen with the student and both the student and the tutor can see the Quran or Qaida page on their computer screens. The tutor reads the Quran and the student listens to him/her and vice versa. The classes are interactive & engaging."
+        },
+        "2":{
+            "q":"DO YOU OFFER FREE TRIAL CLASSES?",
+            "a":"Yes. We offer a free trial classes before you sing up for regular classes in order to give you an opportunity to see how it works and evaluate the tutors and services"
+        },
+        "3":{
+            "q":"HOW DO I GET STARTED WITH THE FREE TRIAL SESSION?",
+            "a":"You can sign up for the free trial sessions.We will contact you either by email or phone and you can confirm the schedule that best works for you."
+        },
+        "4":{
+            "q":"DO YOU HAVE FEMALE QURAN TUTORS?",
+            "a":"Yes. We have female tutors for those who prefer to be taught by lady tutors."
+        },
+        "5":{
+            "q":"DO YOU HAVE NATIVE ARAB QURAN TUTORS?",
+            "a":"Yes, we have a qualified native Arab tutors from Egypt. Those who want to be taught by native Arab speakers can opt for them ."
+        },
+        "6":{
+            "q":"HOW DO YOU ACCEPT PAYMENTS?",
+            "a":"We accept PayPal which is the most convenient and secure method for online payments. We also collect payments through bank transfer and Western Union."
+        },
+        "7":{
+            "q":"WHAT IF A CLASS IS MISSED DUE TO TEACHER OR STUDENT?",
+            "a":"We are liable to give you makeup class(s) in case of prior notice by the student about the cancellation of a class. You will also get makeup classes or refund if the classes are missed due to the teacher (the tutor being sick or having technical issues etc.)"
+        },
+        "8":{
+            "q":"HOW DO YOU TEACH QURAN ONLINE?",
+            "a":"» Student Lateness:1. The student has to attend the class on time, and the teacher will leave after the half time of the class.2. The teacher will not be able to make up the lost minutes.» Class Timings and Rescheduling:1. The student should choose his class timings according to his needs.2. At two Eid breaks, the student can reschedule his classes before Eid to be taken after that.3. The student can reschedule his class to any other suitable time within his teacher shift, and he can do that by at least two hours ahead"
+        }
+    },
+    "authPage":{
+"signup":"Sign-Up",
+"login":"Sign in to your account",
+"starfreetrail":"start your free trial",
+"fn":"First Name",
+"ln":"Last Name",
+"ph":"Phone",
+"gn":"Gender",
+"em":"Email",
+"ps":"Password",
+"haveAcc":"Already have an account?",
+"dontHaveAcc":" Don't have an account?"
+
+    },
+    "footer":{
+        "title":"Subscibe For Newsletter",
+        "desciptionSubscibe":"Subscribe to the newsletter to receive all new",
+        "desciption":"iqra in the name of allah online quran & arabic classes",
+        "button":"Subscibe",
+        "loaction":"Egypt"
+    }
+
+}

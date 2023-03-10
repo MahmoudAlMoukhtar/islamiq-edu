@@ -12,17 +12,16 @@ import {BiLocationPlus} from "react-icons/bi";
 import {HiLocationMarker} from "react-icons/hi";
 import {BsTelephoneFill} from "react-icons/bs";
 import {Ri24HoursLine} from "react-icons/ri";
+import {useTranslation} from "react-i18next";
 
 const Footer = () => {
+  const [t, i18n] = useTranslation();
   return (
     <footer className="flex flex-col items-center gap-10 py-10 px-4 sm:px-10 lg:px-40 w-full bg-[#4caf50]">
       <div className="flex flex-col items-center text-center sm:text-start gap-2 sm:gap-6 text-white">
-        <h2 className="text-2xl sm:text-4xl font-bold">
-          Subscibe For Newsletter
-        </h2>
+        <h2 className="text-2xl sm:text-4xl font-bold">{t("footer.title")}</h2>
         <p className="text-xs w-60 sm:text-md sm:w-auto">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-          malesuada lacus ex
+          {t("footer.desciptionSubscibe")}
         </p>
         <div className="flex justify-center items-center gap-2 sm:gap-6 text-black">
           <input
@@ -31,7 +30,7 @@ const Footer = () => {
             placeholder="example@gmail.com"
           />
           <button className="bg-[#FF932D] rounded-r-full py-2 px-2 sm:px-4 border-2 border-[#FF932D] font-bold">
-            Subscibe
+            {t("footer.button")}
           </button>
         </div>
       </div>
@@ -41,9 +40,7 @@ const Footer = () => {
             <img src="/test.png" className="w-20" alt="kapaIcon" />
           </a>
 
-          <p className="text-sm text-white">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit
-          </p>
+          <p className="text-sm text-white">{t("footer.desciption")}</p>
           <ul className="flex items-center gap-1">
             <a
               target="blank"
@@ -74,13 +71,13 @@ const Footer = () => {
             <h5 className="text-md font-bold">GENERAL</h5>
             <nav className="flex flex-col justify-center items-center text-center  sm:justify-between sm:items-start sm:text-start gap-10 sm:gap-4">
               <Link to={"/"} className="text-white text-sm">
-                Home
+                {t("nav.home")}
               </Link>
               <Link to={"/#Whyus"} className="text-white text-sm">
-                Why Us
+                {t("nav.whyus")}
               </Link>
               <Link to={"/#courses"} className="text-white text-sm">
-                Courses
+                {t("nav.courses")}
               </Link>
             </nav>
           </div>
@@ -88,10 +85,10 @@ const Footer = () => {
             <h5 className="text-md font-bold">Quick Links</h5>
             <nav className="flex flex-col justify-center items-center text-center  sm:justify-between sm:items-start sm:text-start gap-10 sm:gap-4">
               <Link to="/#blogs" className="text-white text-sm">
-                Blogs
+                {t("nav.blogs")}
               </Link>
               <Link to="/auth" className="text-white text-sm">
-                Signup
+                {t("nav.freetrail")}
               </Link>
             </nav>
           </div>
@@ -102,25 +99,13 @@ const Footer = () => {
                 <div>
                   <HiLocationMarker color="#FF932D" size={20} />
                 </div>
-                <a
-                  target="blank"
-                  href="https://www.facebook.com/"
-                  className="text-white text-sm"
-                >
-                  Egypt
-                </a>
+                <div className="text-white text-sm">{t("footer.location")}</div>
               </div>
               <div className="flex items-center gap-2">
                 <div>
                   <BsTelephoneFill color="#FF932D" size={20} />
                 </div>
-                <a
-                  target="blank"
-                  href="https://www.facebook.com/"
-                  className="text-white text-sm"
-                >
-                  +966534686903
-                </a>
+                <div className="text-white text-sm">+966534686903</div>
               </div>
               <div className="flex items-center gap-2">
                 <div>
@@ -132,13 +117,9 @@ const Footer = () => {
                 <div>
                   <AiOutlineMail color="#FF932D" size={20} />
                 </div>
-                <a
-                  target="blank"
-                  href="https://www.facebook.com/"
-                  className="text-white text-sm"
-                >
+                <div className="text-white text-sm">
                   iqrainthenameofallah29@gmail.com
-                </a>
+                </div>
               </div>
             </nav>
           </div>

@@ -5,6 +5,7 @@ import {Autoplay, Navigation} from "swiper";
 import {motion} from "framer-motion";
 import "swiper/css";
 import {Link} from "react-router-dom";
+import {useTranslation} from "react-i18next";
 
 const SlideNextButton = () => {
   const swiper = useSwiper();
@@ -26,6 +27,7 @@ const SlidePrevButton = () => {
 };
 
 const HeroSection = () => {
+  const [t, i18n] = useTranslation();
   return (
     <div id="hero" className="flex w-full min-h-screen w-full">
       <div className=" flex justify-center text-black  w-full">
@@ -42,6 +44,7 @@ const HeroSection = () => {
         >
           <SwiperSlide className="">
             <img
+              loading="lazy"
               src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678308216/islamiq/top-view-islamic-new-year-concept-with-copy-space_skc7bz.jpg"
               className="w-full relative object-cover	h-full"
               alt="heroimage"
@@ -49,62 +52,56 @@ const HeroSection = () => {
             <div className="flex flex-col items-center justify-center text-center gap-6 w-full absolute top-[50%] left-[50%] sm:px-20 translate-x-[-50%] translate-y-[-80%]">
               <SlidePrevButton />
               <p className="text-4xl md:text-5xl lg:text-6xl font-bold">
-                Highest Quality & Low Fees
+                {t("mainSlider.1.title")}
               </p>
-              <p className="font-semibold">
-                Our Academy is an academy for Arabic and Quran Studies.
-              </p>
+              <p className="font-semibold">{t("mainSlider.1.desciption")}</p>
               <a
                 href="#fees"
                 className="py-2 px-8 rounded bg-[#4caf50] text-white font-bold text-black"
               >
-                Show Fees
+                {t("mainSlider.1.button")}
               </a>
               <SlideNextButton />
             </div>
           </SwiperSlide>
           <SwiperSlide>
             <img
+              loading="lazy"
               src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678307652/islamiq/Quran-4_bodw6r.jpg"
               className="w-full relative object-cover	h-full"
             />
             <div className="flex flex-col items-center justify-center text-center gap-6 w-full absolute top-[50%] left-[50%] sm:px-20 translate-x-[-50%] translate-y-[-80%]">
               <SlidePrevButton />
               <p className="text-4xl md:text-5xl lg:text-6xl font-bold text-black">
-                Islam company for learn islamiq scince
+                {t("mainSlider.2.title")}
               </p>
-              <p className="font-semibold">
-                We want to make the process of Quran teaching easier for
-                everyone
-              </p>
+              <p className="font-semibold">{t("mainSlider.2.desciption")}</p>
               <a
                 href="#courses"
                 className="py-2 px-8 rounded bg-[#4caf50] text-white font-bold text-black"
               >
-                Our courses
+                {t("mainSlider.2.button")}
               </a>
               <SlideNextButton />
             </div>
           </SwiperSlide>
           <SwiperSlide>
             <img
+              loading="lazy"
               src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678307907/islamiq/quran2_reos1a.jpg"
               className="w-full relative object-cover	h-full"
             />
             <div className="flex flex-col items-center justify-center text-center gap-6 w-full absolute top-[50%] left-[50%] sm:px-20 translate-x-[-50%] translate-y-[-80%]">
               <SlidePrevButton />
               <p className="text-4xl md:text-5xl lg:text-6xl font-bold text-black">
-                Register Now
+                {t("mainSlider.3.title")}
               </p>
-              <p className="font-semibold">
-                We are offering our services for every individual nu ignoring
-                the age and gender factor.
-              </p>
+              <p className="font-semibold">{t("mainSlider.3.desciption")}</p>
               <Link
                 to="/auth"
                 className="py-2 px-8 rounded bg-[#4caf50] text-white font-bold text-black"
               >
-                Login
+                {t("mainSlider.3.button")}
               </Link>
               <SlideNextButton />
             </div>

@@ -4,15 +4,19 @@ import {useNavigate} from "react-router-dom";
 import * as api from "../../api/index";
 import {motion} from "framer-motion";
 import {ToastContainer} from "react-toastify";
+import {useTranslation} from "react-i18next";
 
 const initialState = {
-  fullName: "",
+  firstName: "",
   email: "",
+  gender: "male",
   password: "",
   confirmPassword: "",
+  phone: 0,
 };
 
 const Auth = () => {
+  const [t, i18n] = useTranslation();
   const [formData, setFormData] = useState(initialState);
   const [showPassword, setShowPassword] = useState(false);
   const [isSignup, setIsSignup] = useState(true);
@@ -22,12 +26,11 @@ const Auth = () => {
     e.preventDefault();
     if (isSignup) {
       const {data} = await api.signup(formData);
-      localStorage.setItem("userEcommerce", JSON.stringify(data));
-      await api.createCart();
+      localStorage.setItem("userIqraa", JSON.stringify(data));
       navigait("/");
     } else {
       const {data} = await api.signin(formData);
-      localStorage.setItem("userEcommerce", JSON.stringify(data));
+      localStorage.setItem("userIqraa", JSON.stringify(data));
       navigait("/");
     }
   };
@@ -40,28 +43,12 @@ const Auth = () => {
     setIsSignup(!isSignup);
   };
 
-  const container = {
-    hidden: {opacity: 1, scale: 0},
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
   return (
     <React.Fragment>
-      <motion.div
-        variants={container}
-        animate="visible"
-        initial="hidden"
-        className="flex flex-col justify-center items-center h-full my-10  rounded"
-      >
+      <div className="flex flex-col justify-center items-center h-full my-10  rounded">
         <div className=" ">
           <img
+            loading="lazy"
             src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678308701/islamiq/facebookcover_hscelo.png"
             className="w-full"
           />
@@ -69,11 +56,13 @@ const Auth = () => {
         <div className="flex flex-col  min-h-full w-full  px-4 sm:px-6 lg:px-8  text-[#000] rounded">
           <div>
             <h2 className="mt-6 text-center text-3xl font-bold tracking-tight">
-              {isSignup ? "Sign-Up" : "Sign in to your account"}
+              {isSignup ? t("authPage.signup") : t("authPage.login")}
             </h2>
             {isSignup && (
               <p className="mt-2 text-center text-sm text-gray-400">
-                <p className="font-medium text-black">start your free trial</p>
+                <p className="font-medium text-black">
+                  {t("authPage.starfreetrail")}
+                </p>
               </p>
             )}
           </div>
@@ -88,12 +77,12 @@ const Auth = () => {
               {isSignup && (
                 <React.Fragment>
                   <div>
-                    <label htmlFor="fullName" className="">
-                      First Name
+                    <label htmlFor="firstName" className="">
+                      {t("authPage.fn")}
                     </label>
                     <input
-                      id="fullName"
-                      name="fullName"
+                      id="firstName"
+                      name="firstName"
                       type="text"
                       required
                       className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-400 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
@@ -102,8 +91,8 @@ const Auth = () => {
                     />
                   </div>
                   <div>
-                    <label htmlFor="fullName" className="">
-                      Last Name
+                    <label htmlFor="lastName" className="">
+                      {t("authPage.ln")}
                     </label>
                     <input
                       id="lastName"
@@ -111,13 +100,13 @@ const Auth = () => {
                       type="text"
                       required
                       className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-400 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                      placeholder="First Name"
+                      placeholder="Last Name"
                       onChange={handleTextFieldChange}
                     />
                   </div>
                   <div>
                     <label htmlFor="phone" className="">
-                      Phone
+                      {t("authPage.ph")}
                     </label>
                     <input
                       id="phone"
@@ -131,7 +120,7 @@ const Auth = () => {
                   </div>
                   <div className="my-2">
                     <label htmlFor="gender" className="">
-                      Gender
+                      {t("authPage.gn")}
                     </label>
                     <select
                       id="gender"
@@ -147,7 +136,7 @@ const Auth = () => {
               )}
               <div>
                 <label htmlFor="email" className="">
-                  Email address
+                  {t("authPage.em")}
                 </label>
                 <input
                   id="email"
@@ -162,7 +151,7 @@ const Auth = () => {
               </div>
               <div className="flex flex-col">
                 <label htmlFor="password" className="">
-                  Password
+                  {t("authPage.ps")}
                 </label>
                 <div className="flex gap-2 items-center appearance-none rounded-none rounded-b-md border border-gray-300">
                   <input
@@ -224,23 +213,23 @@ const Auth = () => {
                 type="submit"
                 className="group relative flex w-full justify-center rounded-md border border-transparent py-2 px-4 text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 bg-[#34872A]"
               >
-                {isSignup ? "Sign Up" : "Sign In"}
+                {isSignup ? t("authPage.signup") : t("authPage.login")}
               </button>
             </div>
 
             <div className="group relative flex w-full justify-center rounded-md border border-transparent py-2 px-4 text-sm font-medium text-black">
               {isSignup ? (
                 <div>
-                  Already have an account?{" "}
+                  {t("authPage.haveAcc")}{" "}
                   <button onClick={switchMode} className="font-bold">
-                    Sign In
+                    {t("authPage.login")}
                   </button>
                 </div>
               ) : (
                 <div>
-                  Don't have an account?{" "}
+                  {t("authPage.dontHaveAcc")}{" "}
                   <button onClick={switchMode} className="font-bold">
-                    Sign Up
+                    {t("authPage.signup")}
                   </button>
                 </div>
               )}
@@ -248,7 +237,7 @@ const Auth = () => {
           </form>
         </div>
         <ToastContainer theme="dark" />
-      </motion.div>
+      </div>
     </React.Fragment>
   );
 };

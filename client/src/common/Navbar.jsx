@@ -1,7 +1,9 @@
 import React, {useEffect} from "react";
 import {Link, NavLink, useLocation, useNavigate} from "react-router-dom";
 import {HiMenuAlt1} from "react-icons/hi";
+import {FaLanguage} from "react-icons/fa";
 import {toast} from "react-toastify";
+import {useTranslation} from "react-i18next";
 const styles = {
   linkPages:
     "text-lg md:text-lg font-semibold py-[4px] px-2 lg:px-4 hover:bg-[#FF932D] transtion duration-200 text-white rounded",
@@ -15,7 +17,8 @@ const activeStyle = {
 };
 
 const Navbar = ({setNavBarModal, navbarModal}) => {
-  const user = JSON.parse(localStorage.getItem("userEcommerce"));
+  const user = JSON.parse(localStorage.getItem("userIqraa"));
+  const [t, i18n] = useTranslation();
   const navigaite = useNavigate();
   const {pathname, hash, key} = useLocation();
 
@@ -35,6 +38,7 @@ const Navbar = ({setNavBarModal, navbarModal}) => {
       }, 0);
     }
   }, [pathname, hash, key]);
+
   return (
     <nav className="flex justify-between items-center gap-2 py-4 px-4 sm:px-20 md:px-20 w-full shadow-xl text-white bg-[#4caf50] ">
       <div className="flex justify-center">
@@ -50,45 +54,50 @@ const Navbar = ({setNavBarModal, navbarModal}) => {
             end
             className={styles.linkPages}
           >
-            Home
+            {t("nav.home")}
           </NavLink>
           <li>
             <Link to="/#Whyus" end className={styles.linkPages}>
-              Why us
+              {t("nav.whyus")}
             </Link>
           </li>
           <Link to="/#courses" end className={styles.linkPages}>
-            Courses
+            {t("nav.courses")}
           </Link>
           <Link to="/#fees" end className={styles.linkPages}>
-            Fees
+            {t("nav.fees")}
           </Link>
           <Link to="/#testimonials" className={styles.linkPages}>
-            Testimonials
+            {t("nav.testimonials")}
           </Link>
 
           <Link to="/#blogs" end className={styles.linkPages}>
-            Blogs
+            {t("nav.blogs")}
           </Link>
         </ul>
       </div>
       <div className="flex justify-center  md:gap-2 items-center">
+        <select
+          className="text-black font-bold border-2 border-[#FF932D] rounded px-2 py-1 cursor-pointer"
+          onChange={e => i18n.changeLanguage(e.target.value)}
+        >
+          <option value={"en"}>English</option>
+          <option value={"ar"}>العربية</option>
+        </select>
         {!user ? (
           <NavLink style={({isActive}) => activeStyle} to="/auth" end>
-            Free Trial
+            {t("nav.freetrail")}
           </NavLink>
         ) : (
           <button
-            className={
-              "text-md font-semibold py-2 px-2 lg:px-4 bg-[#4caf50] text-[#fff] transtion duration-200  rounded text-lg"
-            }
+            style={activeStyle}
             onClick={() => {
-              localStorage.removeItem("userEcommerce");
+              localStorage.removeItem("userIqraa");
               toast.success("Logout successfully");
               navigaite("/");
             }}
           >
-            Logout
+            {t("nav.logout")}
           </button>
         )}
         <HiMenuAlt1
