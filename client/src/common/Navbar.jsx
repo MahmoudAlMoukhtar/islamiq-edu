@@ -76,16 +76,20 @@ const Navbar = ({setNavBarModal, navbarModal}) => {
           </Link>
         </ul>
       </div>
-      <div className="flex justify-center  md:gap-2 items-center">
+      <div className="flex justify-center  gap-2 items-center">
         <select
-          className="text-black font-bold border-2 border-[#FF932D] rounded px-2 py-1 cursor-pointer"
+          className="text-black font-bold border-2 border-[#FF932D] rounded px-1 text-sm sm:text-md sm:px-2 sm:py-1 cursor-pointer"
           onChange={e => i18n.changeLanguage(e.target.value)}
         >
           <option value={"en"}>English</option>
           <option value={"ar"}>العربية</option>
         </select>
         {!user ? (
-          <NavLink style={({isActive}) => activeStyle} to="/auth" end>
+          <NavLink
+            className="font-bold px-1 text-sm sm:text-md sm:px-2 py-1 sm:py-2 bg-[#FF932D] transtion duration-200 text-white rounded"
+            to="/auth"
+            end
+          >
             {t("nav.freetrail")}
           </NavLink>
         ) : (
@@ -112,6 +116,3 @@ const Navbar = ({setNavBarModal, navbarModal}) => {
 
 export default Navbar;
 /* bg-[#4caf50] */
-/* <a href="#contact" end className={styles.linkPages}>
-            Contact
-          </a> */
