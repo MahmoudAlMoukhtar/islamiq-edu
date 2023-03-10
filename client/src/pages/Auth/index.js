@@ -5,6 +5,7 @@ import * as api from "../../api/index";
 import {motion} from "framer-motion";
 import {ToastContainer} from "react-toastify";
 import {useTranslation} from "react-i18next";
+import {LazyLoadImage} from "react-lazy-load-image-component";
 
 const initialState = {
   firstName: "",
@@ -47,7 +48,8 @@ const Auth = () => {
     <React.Fragment>
       <div className="flex flex-col justify-center items-center h-full my-10  rounded">
         <div className=" ">
-          <img
+          <LazyLoadImage
+            effect="blur"
             loading="lazy"
             src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678308701/islamiq/facebookcover_hscelo.png"
             className="w-full"
