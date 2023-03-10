@@ -99,7 +99,7 @@ const Footer = () => {
                 <div>
                   <HiLocationMarker color="#FF932D" size={20} />
                 </div>
-                <div className="text-white text-sm">{t("footer.location")}</div>
+                <div className="text-white text-sm">{t("footer.loaction")}</div>
               </div>
               <div className="flex items-center gap-2">
                 <div>
