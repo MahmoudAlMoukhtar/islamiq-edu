@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://localhost:3001/api",
   //baseURL: "http://localhost:3001/api",
+  baseURL: "https://islamiq-edu-d114.vercel.app/api",
 });
 API.interceptors.request.use(req => {
   if (localStorage.getItem("userIqraa")) {
