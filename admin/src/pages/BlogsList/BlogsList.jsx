@@ -27,7 +27,7 @@ export default function BlogsList() {
   }, []);
 
   const handleDelete = async id => {
-    const res = await api.deleteCourseById(id);
+    const res = await api.deletePost(id);
     setDataProducts(data.filter(item => item._id !== res.data._id));
   };
 

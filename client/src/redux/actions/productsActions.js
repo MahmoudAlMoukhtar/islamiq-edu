@@ -7,7 +7,7 @@ import {
 
 export const fetchAllProductsAction = () => async dispatch => {
   try {
-    const {data} = await api.fetchProducts();
+    const {data} = await api.fetchCourses();
     console.log(data);
     dispatch({type: FETCH_PRODUCTS, payload: data});
     dispatch({type: LOADING_PRODUCTS, payload: false});
@@ -19,7 +19,7 @@ export const fetchAllProductsAction = () => async dispatch => {
 export const fetchProductByIdAction = id => async dispatch => {
   try {
     dispatch({type: "LOADING_PRODUCT", payload: true});
-    const {data} = await api.fetchProductById(id);
+    const {data} = await api.fetchCourseById(id);
     dispatch({type: FETCH_PRODUCT_BY_ID, payload: data});
     dispatch({type: "LOADING_PRODUCT", payload: false});
   } catch (err) {

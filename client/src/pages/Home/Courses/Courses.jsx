@@ -4,8 +4,11 @@ import {Link} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 import {LazyLoadImage} from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import {useDispatch, useSelector} from "react-redux";
 const Courses = () => {
   const [t, i18n] = useTranslation();
+  const {products: courses} = useSelector(state => state.products);
+  console.log(courses);
   const item = {
     hidden: {y: 50, opacity: 0},
     visible: {
@@ -22,8 +25,93 @@ const Courses = () => {
         <h2 className="text-4xl font-bold ">{t("titlecourses")}</h2>
         <span className="h-2 w-60 bg-[#ffc265]" />
       </div>
-      <motion.div className="flex justify-center items-center flex-wrap gap-10 lg:gap-4 w-full">
-        <div
+      <motion.div className="flex justify-center items-center flex-wrap gap-10 lg:gap-4  w-full">
+        {courses.map(c => (
+          <Link
+            to={`/courses/${c._id}`}
+            variants={item}
+            className="item flex flex-col items-center justify-between hover:text-black  transtion duration-200 w-60 text-center h-[200px] bg-[#FF932D] rounded-t-full pt-4   cursor-pointer hover:translate-y-[-10px] mb-10"
+          >
+            <LazyLoadImage
+              effect="blur"
+              loading="lazy"
+              src={c.sections[0].image}
+              className="w-60  rounded-t-full h-[200px] px-4 bg-[#FF932D]"
+              alt="Islamic-Studies"
+            />
+            <h3 className="text-sm font-semibold bg-[#4caf50] text-white w-full h-10 text-lg">
+              {c.title}
+            </h3>
+          </Link>
+        ))}
+      </motion.div>
+      <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-10 w-full bg-[#4caf50] px-40 py-6">
+        <div className="flex flex-col items-center justify-center gap-2 text-white w-60 text-center">
+          <LazyLoadImage
+            effect="blur"
+            loading="lazy"
+            src="/icons/rating.png"
+            className="w-28"
+          />
+          <span
+            className="flex flex-col justify-center text-6xl font-bold text-[#FF932D]"
+            id="value1"
+          >
+            100
+          </span>
+          <p className="text-md font-semibold ">{t("numbers.satisfied")}</p>
+        </div>
+        <div className="flex flex-col items-center justify-center gap-2 text-white w-60 text-center">
+          <LazyLoadImage
+            effect="blur"
+            loading="lazy"
+            src="/icons/graduate.png"
+            className="w-28"
+          />
+          <span className="flex flex-col justify-center text-6xl font-bold text-[#FF932D]">
+            200
+          </span>
+          <p className="text-md font-semibold ">{t("numbers.students")}</p>
+        </div>
+        <div className="flex flex-col items-center justify-center gap-2 text-white w-60 text-center">
+          <LazyLoadImage
+            effect="blur"
+            loading="lazy"
+            src="/icons/teacherr.png"
+            className="w-28"
+          />
+          <span className="text-6xl font-bold text-[#FF932D]">30</span>
+          <p className="text-md font-semibold ">{t("numbers.teacher")}</p>
+        </div>
+      </div>
+    </motion.section>
+  );
+};
+
+export default Courses;
+/* f2ede7 */
+/* 
+<div className="flex flex-col items-center justify-between hover:text-black  transtion duration-200 w-60 text-center h-[200px] bg-[#FF932D] rounded-t-full pt-4 cursor-pointer hover:translate-y-[-10px]">
+          <LazyLoadImage
+            effect="blur" loading="lazy"
+            src="/nour_albayan.jpg"
+            className="w-60  rounded-t-full h-[200px] px-4"
+            alt="tafser"
+          />
+          <h3 className="text-sm font-semibold bg-[#4caf50] text-white w-full h-10 text-lg">
+            Nour Al-Bayan
+          </h3>
+        </div>
+*/
+/* variants={container}
+        whileInView="visible"
+        initial="visible" */
+/* 
+      initial={{opacity: 0, y: "200px"}}
+      whileInView={{opacity: 1, y: 0}}
+*/
+/* 
+ <div
           variants={item}
           className="item flex flex-col items-center justify-between hover:text-black  transtion duration-200 w-60 text-center h-[200px] bg-[#FF932D] rounded-t-full pt-4   cursor-pointer hover:translate-y-[-10px]"
         >
@@ -99,69 +187,4 @@ const Courses = () => {
             Tajweed Course
           </h3>
         </div>
-      </motion.div>
-      <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-10 w-full bg-[#4caf50] px-40 py-6">
-        <div className="flex flex-col items-center justify-center gap-2 text-white w-60 text-center">
-          <LazyLoadImage
-            effect="blur"
-            loading="lazy"
-            src="/icons/rating.png"
-            className="w-28"
-          />
-          <span
-            className="flex flex-col justify-center text-6xl font-bold text-[#FF932D]"
-            id="value1"
-          >
-            100
-          </span>
-          <p className="text-md font-semibold ">{t("numbers.satisfied")}</p>
-        </div>
-        <div className="flex flex-col items-center justify-center gap-2 text-white w-60 text-center">
-          <LazyLoadImage
-            effect="blur"
-            loading="lazy"
-            src="/icons/graduate.png"
-            className="w-28"
-          />
-          <span className="flex flex-col justify-center text-6xl font-bold text-[#FF932D]">
-            200
-          </span>
-          <p className="text-md font-semibold ">{t("numbers.students")}</p>
-        </div>
-        <div className="flex flex-col items-center justify-center gap-2 text-white w-60 text-center">
-          <LazyLoadImage
-            effect="blur"
-            loading="lazy"
-            src="/icons/teacherr.png"
-            className="w-28"
-          />
-          <span className="text-6xl font-bold text-[#FF932D]">30</span>
-          <p className="text-md font-semibold ">{t("numbers.teacher")}</p>
-        </div>
-      </div>
-    </motion.section>
-  );
-};
-
-export default Courses;
-/* f2ede7 */
-/* 
-<div className="flex flex-col items-center justify-between hover:text-black  transtion duration-200 w-60 text-center h-[200px] bg-[#FF932D] rounded-t-full pt-4 cursor-pointer hover:translate-y-[-10px]">
-          <LazyLoadImage
-            effect="blur" loading="lazy"
-            src="/nour_albayan.jpg"
-            className="w-60  rounded-t-full h-[200px] px-4"
-            alt="tafser"
-          />
-          <h3 className="text-sm font-semibold bg-[#4caf50] text-white w-full h-10 text-lg">
-            Nour Al-Bayan
-          </h3>
-        </div>
-*/
-/* variants={container}
-        whileInView="visible"
-        initial="visible" */
-/* 
-      initial={{opacity: 0, y: "200px"}}
-      whileInView={{opacity: 1, y: 0}}
 */

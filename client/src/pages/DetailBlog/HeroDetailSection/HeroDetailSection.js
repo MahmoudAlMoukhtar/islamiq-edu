@@ -5,7 +5,7 @@ import {LazyLoadImage} from "react-lazy-load-image-component";
 const HeroDetailSection = ({post}) => {
   return (
     <section className="relative">
-      <LazyLoadImage
+      <img
         effect="blur"
         src={post.image}
         alt="post"

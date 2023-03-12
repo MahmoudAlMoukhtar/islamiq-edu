@@ -3,6 +3,7 @@ import "./newcourse.css";
 import * as api from "../../api/index";
 import SectionsList from "./SectionsList";
 import {ToastContainer} from "react-toastify";
+import Resizer from "react-image-file-resizer";
 export default function Newcourse() {
   const [courseData, setCourseData] = useState({
     title: "",
@@ -10,7 +11,6 @@ export default function Newcourse() {
     teachers: [],
   });
   const [sectionData, setSectionData] = useState({
-    image: "",
     description: "",
   });
   const [teacherData, setTeacherData] = useState({
@@ -18,32 +18,52 @@ export default function Newcourse() {
     bio: "",
     gender: "",
   });
+  const [imagesSections, setImagesSections] = useState([]);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const handleUpload = e => {
+  const handleUpload = async e => {
     const file = e.target.files[0];
+    const resizeFile = file =>
+      new Promise(resolve => {
+        Resizer.imageFileResizer(
+          file,
+          300,
+          300,
+          "JPEG",
+          100,
+          0,
+          uri => {
+            resolve(uri);
+          },
+          "file"
+        );
+      });
+    const image = await resizeFile(file);
     const validFileTypes = ["image/jpg", "image/jpeg", "image/png"];
     if (!validFileTypes.find(type => type === file.type)) {
       setError("File must be in JPG/PNG format");
       return;
     } else {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => {
-        setSectionData({...sectionData, image: reader.result});
-      };
+      setImagesSections([...imagesSections, image]);
+      //setSectionData({...sectionData, image});
+      // const reader = new FileReader();
+      // reader.readAsDataURL(file);
+      // reader.onload = () => {
+      // setSectionData({...sectionData, image: reader.result});
+      // };
     }
   };
 
   const handleAddSection = async e => {
     e.preventDefault();
-
+    console.log(imagesSections);
+    console.log(sectionData);
     setCourseData({
       ...courseData,
       sections: [...courseData.sections, sectionData],
     });
-    console.log(courseData);
+    //console.log(courseData);
   };
   const handleAddTeacher = async e => {
     e.preventDefault();
@@ -53,14 +73,21 @@ export default function Newcourse() {
     });
     console.log(courseData);
   };
+
   const handleSubmit = async e => {
     e.preventDefault();
     setLoading(true);
-
-    //const data = await api.fetchCourses();
-    const res = await api.createCourse(courseData);
+    const formData = new FormData();
+    for (const image of imagesSections) {
+      formData.append("images", image);
+    }
+    //formData.append("images", imagesSections);
+    formData.append("title", courseData.title);
+    formData.append("teachers", JSON.stringify(courseData.teachers));
+    formData.append("sections", JSON.stringify(courseData.sections));
+    console.log(formData);
+    const res = await api.createCourse(formData);
     setLoading(false);
-    //setCourseData({...courseData, res.data});
   };
   if (error) return <h1 className="text-red-800">error</h1>;
   if (loading) return <h1 className="text-red-800 course">Loading</h1>;

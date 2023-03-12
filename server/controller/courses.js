@@ -11,34 +11,52 @@ const getCourses = async (req, res) => {
   }
 };
 
+const addSection = async (req, res) => {
+  const {idCourse, description} = req.body;
+  //console.log(sections);
+
+  try {
+    const course = await Course.findById(idCourse);
+    const newCourse = await new Course.findByIdAndUpdate(
+      idCourse,
+      {
+        titel: course.title,
+        sections: [...course.sections, {image: req.file.path, description}],
+        teachers: course.teachers,
+      },
+      {
+        new: true,
+      }
+    );
+    await newCourse.save();
+    console.log(newCourse);
+    res.status(201).json(newCourse);
+  } catch (err) {
+    res.status(400).json({message: err.message});
+  }
+};
 const createCourse = async (req, res) => {
   const {title, sections, teachers} = req.body;
-  console.log(sections);
-  console.log(title);
-  console.log(teachers);
+
+  const parseSections = JSON.parse(sections);
   let sectionsHandled = [];
   try {
-    for (let i = 0; i < sections.length; i++) {
-      const uploadedCloudniary = await cloudinary.uploader.upload(
-        sections[i].image,
-        {
-          upload_preset: "ml_default",
-        }
-      );
+    for (let i = 0; i < parseSections.length; i++) {
       sectionsHandled.push({
-        image: uploadedCloudniary.url,
-        description: sections[i].description,
+        image: req.files[i].path,
+        description: parseSections[i].description,
       });
     }
-    console.log(sectionsHandled);
+    // console.log("sectionsHandled");
+    // console.log(sectionsHandled);
 
     const newCourse = await new Course({
       title,
       sections: sectionsHandled,
-      teachers,
+      teachers: JSON.parse(teachers),
     });
     await newCourse.save();
-    console.log(newCourse);
+    //console.log(newCourse);
     res.status(201).json(newCourse);
   } catch (err) {
     res.status(400).json({message: err.message});
@@ -91,4 +109,5 @@ module.exports = {
   getCourseById,
   updateCourse,
   deleteCourseById,
+  addSection,
 };

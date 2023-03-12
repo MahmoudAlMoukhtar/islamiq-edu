@@ -21,7 +21,10 @@ const BlogItem = ({b}) => {
       />
       <div className="flex flex-col justify-end items-start gap-10 text-start h-full w-full">
         <p className="text-2xl font-semibold  px-4">{b.title}</p>
-        <p className="w-full  px-4">{b.message}</p>
+        <p className="w-full  px-4">
+          {b.message.substr(0, 200)}
+          <span className="mx-1 opacity-[0.6] text-3xl">.....</span>
+        </p>
         <button className="rounded bg-[#FF932D] py-2 px-4 w-full">
           See more
         </button>

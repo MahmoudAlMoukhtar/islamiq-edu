@@ -33,7 +33,7 @@ export default function NewBlog() {
         );
       });
     const image = await resizeFile(file);
-    console.log(image);
+    //console.log(image);
     const validFileTypes = ["image/jpg", "image/jpeg", "image/png"];
     if (!validFileTypes.find(type => type === file.type)) {
       setError("File must be in JPG/PNG format");
@@ -55,7 +55,9 @@ export default function NewBlog() {
   const handleSubmit = async e => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append("image", fileData);
+    if (fileData) {
+      formData.append("image", fileData);
+    }
     formData.append("title", blogData.title);
     formData.append("message", blogData.message);
     setLoading(true);

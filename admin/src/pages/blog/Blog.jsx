@@ -4,12 +4,15 @@ import Chart from "../../components/chart/Chart";
 //import {blogData} from "../../dummyData";
 import * as api from "../../api/index";
 import "./blog.css";
+import Resizer from "react-image-file-resizer";
 
 // import { Publish } from "@material-ui/icons";
 
 export default function Blog() {
   const {id} = useParams();
   const [datablog, setDatablog] = useState();
+  const [fileData, setFileData] = useState("");
+
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
 
@@ -29,30 +32,47 @@ export default function Blog() {
     console.log("test");
   }, []);
 
-  const handleUpdate = async e => {
-    e.preventDefault();
-    console.log(datablog);
-    setLoading(true);
-    const res = await api.updatePost(id, datablog);
-    setLoading(false);
-    console.log("tset");
-    setDatablog(res.data);
-    console.log("res.data", res.data);
-  };
-
-  const handleUpload = e => {
+  const handleUpload = async e => {
     const file = e.target.files[0];
+    const resizeFile = file =>
+      new Promise(resolve => {
+        Resizer.imageFileResizer(
+          file,
+          300,
+          300,
+          "JPEG",
+          100,
+          0,
+          uri => {
+            resolve(uri);
+          },
+          "file"
+        );
+      });
+    const image = await resizeFile(file);
+    //console.log(image);
     const validFileTypes = ["image/jpg", "image/jpeg", "image/png"];
     if (!validFileTypes.find(type => type === file.type)) {
       setError("File must be in JPG/PNG format");
       return;
     } else {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => {
-        setDatablog({...datablog, image: reader.result});
-      };
+      setFileData(image);
     }
+  };
+
+  const handleUpdate = async e => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("image", fileData);
+    formData.append("title", datablog.title);
+    formData.append("message", datablog.message);
+    console.log(datablog);
+    setLoading(true);
+    const res = await api.updatePost(id, formData);
+    setLoading(false);
+    console.log("tset");
+    setDatablog(res.data);
+    console.log("res.data", res.data);
   };
 
   if (error) return <h1 className="text-red-800">error</h1>;

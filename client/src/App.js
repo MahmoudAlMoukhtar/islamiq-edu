@@ -20,13 +20,18 @@ import DetailBlog from "./pages/DetailBlog/DetailBlog";
 export default function App() {
   const [navBarModal, setNavBarModal] = useState(false);
   const [show, setShow] = useState(false);
-  // const {loading} = useSelector(state => state.products);
+  const dispatch = useDispatch();
+  const {loading} = useSelector(state => state.products);
+
+  useEffect(() => {
+    dispatch(fetchAllProductsAction());
+  }, []);
   // const dispatch = useDispatch();
   // useEffect(() => {
   //   dispatch(fetchAllProductsAction());
   // }, []);
 
-  // if (loading) return <Spinner />;
+  if (loading) return <Spinner />;
 
   return (
     <React.Fragment>

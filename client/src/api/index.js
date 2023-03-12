@@ -24,5 +24,5 @@ export const updateProfile = (id, updates) =>
   API.put(`/user/updateProfile/${id}`, updates);
 
 //courses
-export const fetchProducts = () => API.get("/products");
-export const fetchProductById = id => API.get(`/products/${id}`);
+export const fetchCourses = () => API.get("/courses");
+export const fetchCourseById = id => API.get(`/courses/${id}`);

@@ -15,42 +15,97 @@ const DetailCourse = () => {
   //react router
   const {id} = useParams();
   const navigate = useNavigate();
-  const {loadingProduct, product} = useSelector(state => state.products);
+  const {loadingProduct, product: course} = useSelector(
+    state => state.products
+  );
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchProductByIdAction(id));
   }, []);
 
   //return jsx UI product
-  //if (loadingProduct) return <Spinner />;
+  if (loadingProduct) return <Spinner />;
   return (
     <div className="flex justify-between flex-col-reverse lg:flex-row gap-4 w-full my-20   px-4 md:px-10 lg:px-20 py-10">
       <div className="flex flex-col justify-center items-start gap-20  text-black w-full shadow-2xl p-4 rounded">
         <h2 className="text-center text-3xl sm:text-5xl font-bold w-full">
-          {"Quran Memorization".toUpperCase()}
+          {`${course.title}`.toUpperCase()}
         </h2>
-        <div className="flex flex-col items-center gap-10 w-full">
+        {course.sections.map(c => (
+          <div className="flex flex-col items-center gap-10 w-full">
+            <img
+              loading="lazy"
+              src={c.image}
+              className="w-full rounded"
+              alt="course"
+            />
+            <p className="text-2xl">{c.description}</p>
+          </div>
+        ))}
+
+        <ToastContainer theme="dark" />
+      </div>
+      <section className="flex flex-col sm:flex-row  lg:flex-col items-center w-full lg:w-96  lg:h-[1200px] gap-10 bg-[#4caf50] p-4 rounded text-white text-center">
+        <div className="flex flex-col items-center gap-4 shadow-lg p-2">
           <img
             loading="lazy"
-            src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678307652/islamiq/Quran-4_bodw6r.jpg"
-            className="w-full rounded"
-            alt="course"
+            src="/download.jpg"
+            className="rounded-full w-40"
           />
-          <p className="text-2xl">
-            “The Reading”, is a confirmation of the Torah and the Bible, and it
-            affirms, confirms and repeats the Faith and the Law that was sent in
-            them both. The Faith and the Law that were sent in them have been
-            corrupted. The Arabic Quran, which cannot be adulterated, has today
-            been surrounded by absolute lies attributed to Mohammad outside the
-            Quran and usually referred to as “Ahadith” or “Stories”, and
-            “Sunnah” or “Method”. The Quran, which is The Story or “The Hadith”,
-            is absolutely self sufficient in explaining itself, otherwise it
-            would be from other than Allah. The Quran confirms what has passed
-            before and points to what is to come. Two major events, first a
-            Punishment will come, then the Hour when the Earth, Sun, and Moon as
-            we know it will cease to exist.
+          <h2 className="text-3xl font-bold">
+            Teacher For <span className="text-4xl text-[#FF932D]">MALE</span>
+          </h2>
+          <h4 className="text-xl font-bold">Atia Salimullah</h4>
+          <p className="text-sm">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+            malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum
+            dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada
+            lacus ex, sit amet blandit leo lobortis eget.
           </p>
+          <a
+            href="http://wa.me/+201012750418"
+            target="blank"
+            className="flex gap-2 items-center bg-[#FF932D]  py-4 px-8 font-bold rounded"
+          >
+            <div>
+              <AiOutlineWhatsApp size={25} />
+            </div>
+            Whatsapp
+          </a>
         </div>
+        <div className="flex flex-col items-center gap-4 shadow-lg p-2">
+          <img
+            loading="lazy"
+            src="/download.jpg"
+            className="rounded-full w-40"
+          />
+          <h2 className="text-3xl font-bold">
+            Teacher For <span className="text-4xl text-[#FF932D]">FEMALE</span>
+          </h2>
+          <h4 className="text-xl font-bold">Errim Sleemy</h4>
+          <p className="text-sm">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+            malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum
+            dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada
+            lacus ex, sit amet blandit leo lobortis eget.
+          </p>
+          <a
+            href="http://wa.me/+201012750418"
+            target="blank"
+            className="flex gap-2 items-center bg-[#FF932D]  py-4 px-8 font-bold rounded"
+          >
+            <div>
+              <AiOutlineWhatsApp size={25} />
+            </div>
+            Whatsapp
+          </a>
+        </div>
+      </section>
+    </div>
+  );
+};
+export default DetailCourse;
+/* 
         <div className="flex flex-col items-center gap-10 w-full">
           <img
             loading="lazy"
@@ -162,65 +217,4 @@ const DetailCourse = () => {
             in Arabic for their extra effort.
           </p>
         </div>
-        <ToastContainer theme="dark" />
-      </div>
-      <section className="flex flex-col sm:flex-row  lg:flex-col items-center w-full lg:w-96  lg:h-[1200px] gap-10 bg-[#4caf50] p-4 rounded text-white text-center">
-        <div className="flex flex-col items-center gap-4 shadow-lg p-2">
-          <img
-            loading="lazy"
-            src="/download.jpg"
-            className="rounded-full w-40"
-          />
-          <h2 className="text-3xl font-bold">
-            Teacher For <span className="text-4xl text-[#FF932D]">MALE</span>
-          </h2>
-          <h4 className="text-xl font-bold">Atia Salimullah</h4>
-          <p className="text-sm">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum
-            dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada
-            lacus ex, sit amet blandit leo lobortis eget.
-          </p>
-          <a
-            href="http://wa.me/+201012750418"
-            target="blank"
-            className="flex gap-2 items-center bg-[#FF932D]  py-4 px-8 font-bold rounded"
-          >
-            <div>
-              <AiOutlineWhatsApp size={25} />
-            </div>
-            Whatsapp
-          </a>
-        </div>
-        <div className="flex flex-col items-center gap-4 shadow-lg p-2">
-          <img
-            loading="lazy"
-            src="/download.jpg"
-            className="rounded-full w-40"
-          />
-          <h2 className="text-3xl font-bold">
-            Teacher For <span className="text-4xl text-[#FF932D]">FEMALE</span>
-          </h2>
-          <h4 className="text-xl font-bold">Errim Sleemy</h4>
-          <p className="text-sm">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum
-            dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada
-            lacus ex, sit amet blandit leo lobortis eget.
-          </p>
-          <a
-            href="http://wa.me/+201012750418"
-            target="blank"
-            className="flex gap-2 items-center bg-[#FF932D]  py-4 px-8 font-bold rounded"
-          >
-            <div>
-              <AiOutlineWhatsApp size={25} />
-            </div>
-            Whatsapp
-          </a>
-        </div>
-      </section>
-    </div>
-  );
-};
-export default DetailCourse;
+*/

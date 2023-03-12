@@ -5,14 +5,16 @@ const {
   getCourseById,
   updateCourse,
   deleteCourseById,
+  addSection,
 } = require("../controller/courses.js");
 const authMW = require("../middleware/authMW");
 const router = express.Router();
-
+const parser = require("../utils/cloudinary");
 router.get("/", getCourses);
 router.get("/:id", getCourseById);
-router.post("/", createCourse);
-router.put("/:id", updateCourse);
+router.post("/addsection", parser.single("image"), addSection);
+router.post("/", parser.array("images"), createCourse);
+router.put("/:id", parser.single("image"), updateCourse);
 router.delete("/:id", deleteCourseById);
 
 // router.Product("/", authMW,createProduct)
