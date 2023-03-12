@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const postSchema = mongoose.Schema(
+const blogSchema = mongoose.Schema(
   {
     title: {
       type: String,
@@ -8,10 +8,7 @@ const postSchema = mongoose.Schema(
     image: {
       type: String,
     },
-    content: {
-      type: String,
-    },
-    author: {
+    message: {
       type: String,
     },
     comments: {
@@ -21,6 +18,6 @@ const postSchema = mongoose.Schema(
   {timestamps: true}
 );
 
-const PostMessage = mongoose.model("PostMessage", postSchema);
+const Blog = mongoose.model("Blog", blogSchema);
 
-module.exports = PostMessage;
+module.exports = Blog;

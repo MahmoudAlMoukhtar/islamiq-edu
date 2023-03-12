@@ -16,7 +16,7 @@ import TopBar from "./common/TopBar";
 import {Fab} from "@mui/material";
 import {BsChatDotsFill, BsTelegram, BsWhatsapp} from "react-icons/bs";
 import DetailCourse from "./pages/DetailCourse/DetailCourse";
-import DetaiTajweedlCourse from "./pages/DetailCourse/DetaiTajweedlCourse";
+import DetailBlog from "./pages/DetailBlog/DetailBlog";
 export default function App() {
   const [navBarModal, setNavBarModal] = useState(false);
   const [show, setShow] = useState(false);
@@ -58,7 +58,7 @@ export default function App() {
           />
           <Route path="/auth" element={<Auth />} />
           <Route path="/courses/:id" element={<DetailCourse />} />
-          <Route path="/courses/tajweed" element={<DetaiTajweedlCourse />} />
+          <Route path="/blogs/:id" element={<DetailBlog />} />
         </Routes>
         <Footer />
         <div className="fixed bottom-10 right-4 sm:right-10 z-40">
@@ -109,7 +109,6 @@ export default function App() {
             <BsChatDotsFill size={30} />
           </Fab>
         </div>
-        <ToastContainer theme="dark" />
       </div>
     </React.Fragment>
   );

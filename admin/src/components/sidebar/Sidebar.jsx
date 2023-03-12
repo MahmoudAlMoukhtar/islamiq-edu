@@ -33,8 +33,6 @@ export default function Sidebar({theme, selectTheme}) {
             <Link to="/" className="link">
               <li className="sidebarListItem active">Home</li>
             </Link>
-            <li className="sidebarListItem">Analytics</li>
-            <li className="sidebarListItem">Sales</li>
           </ul>
         </div>
         <div className="sidebarMenu">
@@ -43,30 +41,19 @@ export default function Sidebar({theme, selectTheme}) {
             <Link to="/users" className="link">
               <li className="sidebarListItem">Users</li>
             </Link>
-            <Link to="/products" className="link">
-              <li className="sidebarListItem">Products</li>
+            <Link to="/blogs" className="link">
+              <li className="sidebarListItem">Blogs</li>
             </Link>
-            <Link to="/oreders" className="sidebarListItem">
-              Orders
+            <Link to="/courses" className="link">
+              <li className="sidebarListItem">Courses</li>
             </Link>
-            <li className="sidebarListItem">Transactions</li>
             <li className="sidebarListItem">Reports</li>
           </ul>
         </div>
         <div className="sidebarMenu">
-          <h3 className="sidebarTitle">Notifications</h3>
           <ul className="sidebarList">
-            <li className="sidebarListItem">Mail</li>
+            <li className="sidebarListItem">Newsletter</li>
             <li className="sidebarListItem">Feedback</li>
-            <li className="sidebarListItem">Messages</li>
-          </ul>
-        </div>
-        <div className="sidebarMenu">
-          <h3 className="sidebarTitle">Staff</h3>
-          <ul className="sidebarList">
-            <li className="sidebarListItem">Manage</li>
-            <li className="sidebarListItem">Analytics</li>
-            <li className="sidebarListItem">Reports</li>
           </ul>
         </div>
       </div>

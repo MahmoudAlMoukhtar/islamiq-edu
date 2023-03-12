@@ -28,74 +28,34 @@ export default function WidgetLg() {
   };
   return (
     <div className="widgetLg">
-      <h3 className="widgetLgTitle">Latest transactions</h3>
+      <h3 className="widgetLgTitle">Latest Users</h3>
       <table className="widgetLgTable">
         <tr className="widgetLgTr">
-          <th className="widgetLgTh">Customer</th>
-          <th className="widgetLgTh">Date</th>
-          <th className="widgetLgTh">Amount</th>
-          <th className="widgetLgTh">Status</th>
+          <th className="widgetLgTh">Name</th>
+          <th className="widgetLgTh">Gender</th>
+          <th className="widgetLgTh">Phone</th>
+          <th className="widgetLgTh">Email</th>
+          <th className="widgetLgTh">Action</th>
         </tr>
-        <tr className="widgetLgTr">
-          <td className="widgetLgUser">
-            <img
-              src="/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"
-              alt=""
-              className="widgetLgImg"
-            />
-            <span className="widgetLgName">Susan Carol</span>
-          </td>
-          <td className="widgetLgDate">2 Jun 2021</td>
-          <td className="widgetLgAmount">$122.00</td>
-          <td className="widgetLgStatus">
-            <Button type="Approved" />
-          </td>
-        </tr>
-        <tr className="widgetLgTr">
-          <td className="widgetLgUser">
-            <img
-              src="/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"
-              alt=""
-              className="widgetLgImg"
-            />
-            <span className="widgetLgName">Susan Carol</span>
-          </td>
-          <td className="widgetLgDate">2 Jun 2021</td>
-          <td className="widgetLgAmount">$122.00</td>
-          <td className="widgetLgStatus">
-            <Button type="Declined" />
-          </td>
-        </tr>
-        <tr className="widgetLgTr">
-          <td className="widgetLgUser">
-            <img
-              src="/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"
-              alt=""
-              className="widgetLgImg"
-            />
-            <span className="widgetLgName">Susan Carol</span>
-          </td>
-          <td className="widgetLgDate">2 Jun 2021</td>
-          <td className="widgetLgAmount">$122.00</td>
-          <td className="widgetLgStatus">
-            <Button type="Pending" />
-          </td>
-        </tr>
-        <tr className="widgetLgTr">
-          <td className="widgetLgUser">
-            <img
-              src="/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"
-              alt=""
-              className="widgetLgImg"
-            />
-            <span className="widgetLgName">Susan Carol</span>
-          </td>
-          <td className="widgetLgDate">2 Jun 2021</td>
-          <td className="widgetLgAmount">$122.00</td>
-          <td className="widgetLgStatus">
-            <Button type="Approved" />
-          </td>
-        </tr>
+
+        {data.map(u => (
+          <tr className="widgetLgTr">
+            <td className="widgetLgUser">
+              <img
+                src="/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"
+                alt="user"
+                className="widgetLgImg"
+              />
+              <span className="widgetLgName">{u.firstName}</span>
+            </td>
+            <td className="widgetLgDate">{u.gender}</td>
+            <td className="widgetLgAmount">{u.phone}</td>
+            <td className="widgetLgAmount">{u.email}</td>
+            <td className="widgetLgStatus">
+              <button className="bg-orange-100 rounded p-2">Display</button>
+            </td>
+          </tr>
+        ))}
       </table>
     </div>
   );

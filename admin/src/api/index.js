@@ -1,30 +1,25 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://e-commer-mernstack.vercel.app/api",
+  //baseURL: "https://e-commer-mernstack.vercel.app/api",
+  baseURL: "http://localhost:3001/api",
 });
-//baseURL: "http://localhost:3001/api",
 
 API.interceptors.request.use(req => {
-  if (localStorage.getItem("userEcommerce")) {
+  if (localStorage.getItem("userIqraa")) {
     req.headers.Authorization = `Bearer ${
-      JSON.parse(localStorage.getItem("userEcommerce")).token
+      JSON.parse(localStorage.getItem("userIqraa")).token
     }`;
   }
 
   return req;
 });
 //CRUD POSTS
-export const fetchPosts = () => API.get("/posts");
-export const fetchPostById = id => API.get(`/posts/${id}`);
-export const createPosts = newPost => API.post("/posts", newPost);
-export const updatePost = (id, updates) => API.patch(`/posts/${id}`, updates);
-export const deletePost = id => API.delete(`/posts/${id}`);
-export const commentPost = (value, id) =>
-  API.post(`/posts/${id}/commentPost`, {value});
-export const deleteCommentPost = (idPost, idComment) =>
-  API.post(`/posts/${idPost}/commentPost/${idComment}`);
-//export const likePost = id => API.patch(`/posts/${id}/likePost`);
+export const fetchPosts = () => API.get("/blogs");
+export const fetchPostById = id => API.get(`/blogs/${id}`);
+export const createPost = newPost => API.post("/blogs", newPost);
+export const updatePost = (id, updates) => API.put(`/blogs/${id}`, updates);
+export const deletePost = id => API.delete(`/blogs/${id}`);
 
 //AUTH Operation
 export const signin = formData => API.post("/user/signin", formData);
@@ -32,31 +27,19 @@ export const signup = formData => API.post("/user/signup", formData);
 export const updateProfile = (id, updates) =>
   API.put(`/user/updateProfile/${id}`, updates);
 
-// //notify
-// export const addNotify = notify => API.post(`/notify`, notify);
-// export const fetchNotifycations = () => API.get("/notify");
-// export const updateNotifycations = id => API.get(`/notify/${id}`);
-
-//products
-export const fetchProducts = () => API.get("/products");
-export const fetchProductById = id => API.get(`/products/${id}`);
-export const deleteProductById = id => API.delete(`/products/${id}`);
-export const createProduct = formData => API.post("/products", formData);
-export const updateProduct = (id, updates) =>
-  API.put(`/products/${id}`, updates);
-//cart
-export const createCart = () => API.post("/cart");
-export const updateCart = updates => API.put("/cart", updates);
-export const fetchCart = () => API.get("/cart");
-//payment
-export const createPay = data => API.post("/payment", data);
+//courses
+export const fetchCourses = () => API.get("/courses");
+export const fetchCourseById = id => API.get(`/courses/${id}`);
+export const deleteCourseById = id => API.delete(`/courses/${id}`);
+export const createCourse = formData => API.post("/courses", formData);
+export const updateCourse = (id, updates) => API.put(`/courses/${id}`, updates);
 
 //users
 export const fetchAllUsers = () => API.get("/user");
 export const fetchUserById = id => API.get(`/user/${id}`);
 export const deleteUserById = id => API.delete(`/user/${id}`);
 
-//orders
-export const fetchAllOrders = () => API.get(`/orders`);
-export const deleteOrderById = id => API.get(`/orders/${id}`);
-export const getMonthlyIncome = () => API.get(`/income`);
+// //notify
+// export const addNotify = notify => API.post(`/notify`, notify);
+// export const fetchNotifycations = () => API.get("/notify");
+// export const updateNotifycations = id => API.get(`/notify/${id}`);

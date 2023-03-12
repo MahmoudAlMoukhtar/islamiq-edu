@@ -9,16 +9,18 @@ export default function Home() {
   return (
     <div className="home">
       <FeaturedInfo />
-      <Chart
-        data={userData}
-        title="User Analytics"
-        grid
-        dataKey="Sales products"
-      />
+      <img src="/facebookcover.png" className="rounded" />
       <div className="homeWidgets">
-        <WidgetSm />
         <WidgetLg />
       </div>
     </div>
   );
 }
+
+//<WidgetSm />
+// <Chart
+//   data={userData}
+//   title="User Analytics"
+//   grid
+//   dataKey="Sales products"
+// />

@@ -6,11 +6,14 @@ import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import UserList from "./pages/userList/UserList";
 import User from "./pages/user/User";
 import NewUser from "./pages/newUser/NewUser";
-import ProductList from "./pages/productList/ProductList";
-import Product from "./pages/product/Product";
 import NewProduct from "./pages/newProduct/NewProduct";
 import {useState} from "react";
-import OrederList from "./pages/orederList/OrederList";
+import CoursesList from "./pages/coursesList/CoursesList";
+import BlogsList from "./pages/BlogsList/BlogsList";
+import NewBlog from "./pages/newBlog/NewBlog";
+import Blog from "./pages/blog/Blog";
+import Course from "./pages/course/Course";
+//import OrederList from "./pages/orederList/OrederList";
 
 function App() {
   const [theme, selectTheme] = useState("white");
@@ -36,17 +39,23 @@ function App() {
           <Route path="/newUser">
             <NewUser />
           </Route>
-          <Route path="/products">
-            <ProductList />
+          <Route path="/courses">
+            <CoursesList />
           </Route>
-          <Route path="/product/:productId">
-            <Product />
+          <Route path="/blogs">
+            <BlogsList />
+          </Route>
+          <Route path="/course/:id">
+            <Course />
           </Route>
           <Route path="/newproduct">
             <NewProduct />
           </Route>
-          <Route path="/oreders">
-            <OrederList />
+          <Route path="/blog/:id">
+            <Blog />
+          </Route>
+          <Route path="/newBlog">
+            <NewBlog />
           </Route>
         </Switch>
       </div>
@@ -55,3 +64,6 @@ function App() {
 }
 
 export default App;
+/* <Route path="/oreders">
+            <OrederList />
+          </Route> */

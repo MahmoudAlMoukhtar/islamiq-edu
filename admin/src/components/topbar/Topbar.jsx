@@ -16,24 +16,10 @@ export default function Topbar({theme, selectTheme}) {
       >
         <div className="topLeft">
           <span className={theme === "black" ? "logo text-white" : "logo"}>
-            Furni.
+            Iqraa
           </span>
         </div>
         <div className="topRight">
-          <div className="topbarIconContainer">
-            <span className="topIconBadge">2</span>
-            <IoMdNotificationsOutline
-              size={20}
-              color={theme === "black" ? "white" : "black"}
-            />
-          </div>
-          <div className="topbarIconContainer">
-            <span className="topIconBadge">2</span>
-            <IoSettings
-              size={20}
-              color={theme === "black" ? "white" : "black"}
-            />
-          </div>
           <div className="topbarIconContainer">
             {theme === "black" ? (
               <MdOutlineLightMode
@@ -62,3 +48,10 @@ export default function Topbar({theme, selectTheme}) {
 <Settings />
 
 */
+/* <div className="topbarIconContainer">
+            <span className="topIconBadge">2</span>
+            <IoMdNotificationsOutline
+              size={20}
+              color={theme === "black" ? "white" : "black"}
+            />
+          </div> */

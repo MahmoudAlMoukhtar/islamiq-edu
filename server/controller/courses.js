@@ -2,6 +2,7 @@ const Course = require("../models/course");
 const {cloudinary} = require("../utils/cloudinary");
 
 const getCourses = async (req, res) => {
+  console.log("test");
   try {
     const courses = await Course.find();
     res.status(200).json(courses);
@@ -11,18 +12,30 @@ const getCourses = async (req, res) => {
 };
 
 const createCourse = async (req, res) => {
-  const {title, price, category, description, stock, selectedFile} = req.body;
+  const {title, sections, teachers} = req.body;
+  console.log(sections);
+  console.log(title);
+  console.log(teachers);
+  let sectionsHandled = [];
   try {
-    const uploadedCloudniary = await cloudinary.uploader.upload(selectedFile, {
-      upload_preset: "ml_default",
-    });
+    for (let i = 0; i < sections.length; i++) {
+      const uploadedCloudniary = await cloudinary.uploader.upload(
+        sections[i].image,
+        {
+          upload_preset: "ml_default",
+        }
+      );
+      sectionsHandled.push({
+        image: uploadedCloudniary.url,
+        description: sections[i].description,
+      });
+    }
+    console.log(sectionsHandled);
+
     const newCourse = await new Course({
       title,
-      price,
-      category,
-      description,
-      stock,
-      image: uploadedCloudniary.url,
+      sections: sectionsHandled,
+      teachers,
     });
     await newCourse.save();
     console.log(newCourse);

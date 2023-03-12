@@ -55,9 +55,33 @@ export default function UserList() {
               src="/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"
               alt=""
             />
-            {params.row.fullName}
+            {params.row.firstName}
           </div>
         );
+      },
+    },
+    {
+      field: "lastName",
+      headerName: "Last Name",
+      width: 200,
+      renderCell: params => {
+        return <div className="userListUser">{params.row.lastName}</div>;
+      },
+    },
+    {
+      field: "gender",
+      headerName: "Gender",
+      width: 200,
+      renderCell: params => {
+        return <div className="userListUser">{params.row.gender}</div>;
+      },
+    },
+    {
+      field: "phone",
+      headerName: "Phone number",
+      width: 200,
+      renderCell: params => {
+        return <div className="userListUser">{params.row.phone}</div>;
       },
     },
     {

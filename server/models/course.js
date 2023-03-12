@@ -10,6 +10,9 @@ const productSchema = mongoose.Schema(
         image: {
           type: String,
         },
+        video: {
+          type: String,
+        },
         description: {
           type: String,
         },
@@ -18,8 +21,8 @@ const productSchema = mongoose.Schema(
     teachers: [
       {
         name: String,
-        type: String,
-        description: String,
+        gender: String,
+        bio: String,
       },
     ],
   },

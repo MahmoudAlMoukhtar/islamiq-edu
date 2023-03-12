@@ -1,33 +1,33 @@
-.newProduct {
+.newcourse {
   flex: 4;
 }
 
-.addProductForm {
+.addcourseForm {
   margin-top: 10px;
 }
 
-.addProductItem {
+.addcourseItem {
   width: 250px;
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
 }
 
-.addProductItem > label {
+.addcourseItem > label {
   color: gray;
   font-weight: 600;
   margin-bottom: 10px;
 }
 
-.addProductItem > input {
+.addcourseItem > input {
   padding: 10px;
 }
 
-.addProductItem > select {
+.addcourseItem > select {
   padding: 10px;
 }
 
-.addProductButton {
+.addcourseButton {
   margin-top: 10px;
   padding: 7px 10px;
   border: none;

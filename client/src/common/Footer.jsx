@@ -13,6 +13,7 @@ import {HiLocationMarker} from "react-icons/hi";
 import {BsTelephoneFill} from "react-icons/bs";
 import {Ri24HoursLine} from "react-icons/ri";
 import {useTranslation} from "react-i18next";
+import {toast} from "react-toastify";
 
 const Footer = () => {
   const [t, i18n] = useTranslation();
@@ -29,7 +30,12 @@ const Footer = () => {
             className="rounded-l-full border-2 border-[#FF932D] py-2 px-2 sm:px-4 "
             placeholder="example@gmail.com"
           />
-          <button className="bg-[#FF932D] rounded-r-full py-2 px-2 sm:px-4 border-2 border-[#FF932D] font-bold">
+          <button
+            className="bg-[#FF932D] rounded-r-full py-2 px-2 sm:px-4 border-2 border-[#FF932D] font-bold"
+            onClick={() => {
+              toast.success("Signup successfully");
+            }}
+          >
             {t("footer.button")}
           </button>
         </div>

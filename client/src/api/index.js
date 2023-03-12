@@ -14,8 +14,8 @@ API.interceptors.request.use(req => {
   return req;
 });
 //CRUD POSTS
-export const fetchPosts = () => API.get("/posts");
-export const fetchPostById = id => API.get(`/posts/${id}`);
+export const fetchPosts = () => API.get("/blogs");
+export const fetchPostById = id => API.get(`/blogs/${id}`);
 
 //AUTH Operation
 export const signin = formData => API.post("/user/signin", formData);

@@ -1,6 +1,10 @@
 //products
 export const FETCH_PRODUCTS = "FETCH_PRODUCTS";
 export const FETCH_PRODUCT_BY_ID = "FETCH_PRODUCT_BY_ID";
+//blogs
+export const FETCH_BLOGS = "FETCH_BLOGS";
+export const FETCH_BLOG_BY_ID = "FETCH_BLOG_BY_ID";
+export const LOADING_BLOGS = "LOADING_BLOGS";
 //cart
 export const FETCH_CART_PRODUCTS = "FETCH_CART_PRODUCTS";
 export const ADD_CART_PRODUCT = "ADD_CART_PRODUCT";

@@ -1,4 +1,4 @@
-import "./productList.css";
+import "./coursesList.css";
 import {DataGrid} from "@material-ui/data-grid";
 //import { DeleteOutline } from "@material-ui/icons";
 import {productRows} from "../../dummyData";
@@ -7,7 +7,7 @@ import {useState} from "react";
 import React from "react";
 import {useEffect} from "react";
 import * as api from "../../api/index";
-export default function ProductList() {
+export default function CoursesList() {
   const [data, setDataProducts] = useState();
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -15,7 +15,7 @@ export default function ProductList() {
   useEffect(() => {
     const makeRequest = async () => {
       try {
-        const responseProducts = await api.fetchProducts();
+        const responseProducts = await api.fetchCourses();
         setDataProducts(responseProducts.data);
       } catch (err) {
         setError(true);
@@ -27,39 +27,54 @@ export default function ProductList() {
   }, []);
 
   const handleDelete = async id => {
-    const res = await api.deleteProductById(id);
-    setDataProducts(data.filter(item => item.id !== res.data._id));
+    const res = await api.deleteCourseById(id);
+    setDataProducts(data.filter(item => item._id !== res.data._id));
   };
 
   if (error) return <h1 className="text-red-800">error</h1>;
   if (loading) return <h1 className="text-red-800">Loading</h1>;
 
   const columns = [
-    {field: "id", headerName: "ID", width: 90},
+    {field: "_id", headerName: "ID", width: 150},
     {
-      field: "product",
-      headerName: "Product",
+      field: "image",
+      headerName: "Image Course",
       width: 200,
       renderCell: params => {
         return (
-          <div className="productListItem">
-            <img className="productListImg" src={params.row.image} alt="" />
-            {params.row.name}
-          </div>
+          <img src={params.row.sections[0].image} className="productListImg" />
         );
       },
     },
-    {field: "stock", headerName: "Stock", width: 200},
     {
-      field: "status",
-      headerName: "Status",
-      width: 120,
+      field: "title",
+      headerName: "Title Course",
+      width: 200,
+      renderCell: params => {
+        return <div className="productListItem">{params.row.title}</div>;
+      },
     },
     {
-      field: "price",
-      headerName: "Price",
-      width: 160,
+      field: "sections",
+      headerName: "Sections number",
+      width: 200,
+      renderCell: params => {
+        return (
+          <div className="productListItem">{params.row.sections.length}</div>
+        );
+      },
     },
+    {
+      field: "teachers",
+      headerName: "Teachers number",
+      width: 200,
+      renderCell: params => {
+        return (
+          <div className="productListItem">{params.row.teachers.length}</div>
+        );
+      },
+    },
+
     {
       field: "action",
       headerName: "Action",
@@ -68,7 +83,7 @@ export default function ProductList() {
         //console.log(params.row);
         return (
           <div className="containerActionsBtns">
-            <Link to={"/product/" + params.row._id}>
+            <Link to={"/course/" + params.row._id}>
               <button className="productListEdit">Edit</button>
             </Link>
             <button

@@ -3,19 +3,21 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const coursesRoutes = require("./routes/courses");
-const postRoutes = require("./routes/posts");
+const blogRoutes = require("./routes/blogs");
 const userRoutes = require("./routes/users");
+const TestimoialsRouter = require("./routes/testimoials");
 const newsRouter = require("./routes/newslitter");
 const app = express();
 
-app.use(bodyParser.json({limit: "100mb", extended: true}));
-app.use(bodyParser.urlencoded({limit: "100mb", extended: true}));
+app.use(bodyParser.json({extended: true}));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors());
 
-app.use("/api/posts", postRoutes);
+app.use("/api/blogs", blogRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/courses", coursesRoutes);
 app.use("/api/news", newsRouter);
+app.use("/api/testimoials", TestimoialsRouter);
 
 const PORT = process.env.PORT || 3001;
 mongoose

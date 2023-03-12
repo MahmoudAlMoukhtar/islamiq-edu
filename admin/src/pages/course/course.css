@@ -1,42 +1,42 @@
-.product {
+.course {
   flex: 4;
   padding: 20px;
 }
 
-.productTitleContainer {
+.courseTitleContainer {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.productAddButton {
+.courseAddButton {
   width: 80px;
   border: none;
   padding: 5px;
-  background-color: teal;
+  background-color: #FF932D;
   color: white;
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
 }
 
-.productTop {
+.courseTop {
   display: flex;
 }
 
-.productTopLeft,
-.productTopRight {
+.courseTopLeft,
+.courseTopRight {
   flex: 1;
 }
 
-.productTopRight {
+.courseTopRight {
   padding: 20px;
   margin: 20px;
   -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
 }
 
-.productInfoImg {
+.courseInfoImg {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -44,63 +44,63 @@
   margin-right: 20px;
 }
 
-.productInfoTop {
+.courseInfoTop {
   display: flex;
   align-items: center;
 }
 
-.productName {
+.courseName {
   font-weight: 600;
 }
 
-.productInfoBottom {
+.courseInfoBottom {
   margin-top: 10px;
 }
 
-.productInfoItem {
+.courseInfoItem {
   width: 150px;
   display: flex;
   justify-content: space-between;
 }
 
-.productInfoValue {
+.courseInfoValue {
   font-weight: 300;
 }
 
-.productBottom {
+.courseBottom {
   padding: 20px;
   margin: 20px;
   -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
 }
 
-.productForm {
+.courseForm {
   display: flex;
   justify-content: space-between;
 }
 
-.productFormLeft {
+.courseFormLeft {
   display: flex;
   flex-direction: column;
 }
 
-.productFormLeft > label {
+.courseFormLeft > label {
   margin-bottom: 10px;
   color: gray;
 }
 
-.productFormLeft > input {
+.courseFormLeft > input {
   margin-bottom: 10px;
   border: none;
   padding: 5px;
   border-bottom: 1px solid gray;
 }
 
-.productFormLeft >select{
+.courseFormLeft >select{
   margin-bottom: 10px;
 }
 
-.productUploadImg{
+.courseUploadImg{
   width: 100px;
   height: 100px;
   border-radius: 10px;
@@ -108,22 +108,22 @@
   margin-right: 20px;
 }
 
-.productFormRight{
+.courseFormRight{
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
 
-.productUpload{
+.courseUpload{
   display: flex;
   align-items: center;
 }
 
-.productButton{
+.courseButton{
   border: none;
   padding: 5px;
   border-radius: 5px;
-  background-color: darkblue;
+  background-color: #4caf50;
   color:white;
   font-weight: 600;
   cursor: pointer;
