@@ -76,10 +76,6 @@ export default function User() {
               <HiOutlineMail />
               <span className="userShowInfoTitle">{userData.email}</span>
             </div>
-            <div className="userShowInfo">
-              <HiOutlineLocationMarker />
-              <span className="userShowInfoTitle">New York | USA</span>
-            </div>
           </div>
         </div>
         <div className="userUpdate">
@@ -115,14 +111,6 @@ export default function User() {
                 <input
                   type="text"
                   placeholder="+1 123 456 67"
-                  className="userUpdateInput"
-                />
-              </div>
-              <div className="userUpdateItem">
-                <label>Address</label>
-                <input
-                  type="text"
-                  placeholder="New York | USA"
                   className="userUpdateInput"
                 />
               </div>

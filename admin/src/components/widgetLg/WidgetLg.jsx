@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
-import {useHistory} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
+import GridLoader from "react-spinners/GridLoader";
 import * as api from "../../api/index";
 import "./widgetLg.css";
 
@@ -22,7 +23,16 @@ export default function WidgetLg() {
     makeRequest();
   }, []);
   if (error) return <h1 className="text-red-800">error</h1>;
-  if (loading) return <h1 className="text-red-800">Loading</h1>;
+  if (loading)
+    return (
+      <GridLoader
+        color={"#0000"}
+        loading={loading}
+        size={150}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+      />
+    );
   const Button = ({type}) => {
     return <button className={"widgetLgButton " + type}>{type}</button>;
   };
@@ -52,7 +62,12 @@ export default function WidgetLg() {
             <td className="widgetLgAmount">{u.phone}</td>
             <td className="widgetLgAmount">{u.email}</td>
             <td className="widgetLgStatus">
-              <button className="bg-orange-100 rounded p-2">Display</button>
+              <Link
+                to={`/users/${u._id}`}
+                className="bg-orange-100 rounded p-2"
+              >
+                Display
+              </Link>
             </td>
           </tr>
         ))}

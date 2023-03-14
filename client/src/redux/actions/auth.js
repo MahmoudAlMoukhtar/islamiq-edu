@@ -1,12 +1,17 @@
 import {toast} from "react-toastify";
 import * as api from "../../api/index";
 
-export const signin = formData => {
+export const signin = (formData, navigait) => {
   return async dispatch => {
-    const {data} = await api.signin(formData);
-    toast.success("Login successfully");
-    dispatch({type: "SIGNIN", payload: data});
-    localStorage.setItem("userIqraa", JSON.stringify(data));
+    try {
+      const {data} = await api.signin(formData);
+      toast.success("Login successfully");
+      dispatch({type: "SIGNIN", payload: data});
+      localStorage.setItem("userIqraa", JSON.stringify(data));
+      navigait("/");
+    } catch (err) {
+      toast.error("Email Or Password Is Not Correct!");
+    }
   };
 };
 

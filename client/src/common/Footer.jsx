@@ -14,6 +14,7 @@ import {BsTelephoneFill} from "react-icons/bs";
 import {Ri24HoursLine} from "react-icons/ri";
 import {useTranslation} from "react-i18next";
 import {toast} from "react-toastify";
+import {FaLanguage} from "react-icons/fa";
 
 const Footer = () => {
   const [t, i18n] = useTranslation();
@@ -126,6 +127,18 @@ const Footer = () => {
                 <div className="text-white text-sm">
                   iqrainthenameofallah29@gmail.com
                 </div>
+              </div>
+              <div className="flex items-center gap-2">
+                <div>
+                  <FaLanguage color="#FF932D" size={50} />
+                </div>
+                <select
+                  className="text-black font-bold border-2 border-[#FF932D] bg-[#FF932D] rounded px-1 text-xs sm:px-2 sm:py-1 cursor-pointer"
+                  onChange={e => i18n.changeLanguage(e.target.value)}
+                >
+                  <option value={"en"}>English</option>
+                  <option value={"ar"}>العربية</option>
+                </select>
               </div>
             </nav>
           </div>

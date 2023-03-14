@@ -17,6 +17,7 @@ import {Fab} from "@mui/material";
 import {BsChatDotsFill, BsTelegram, BsWhatsapp} from "react-icons/bs";
 import DetailCourse from "./pages/DetailCourse/DetailCourse";
 import DetailBlog from "./pages/DetailBlog/DetailBlog";
+import {motion} from "framer-motion";
 export default function App() {
   const [navBarModal, setNavBarModal] = useState(false);
   const [show, setShow] = useState(false);
@@ -100,19 +101,25 @@ export default function App() {
               </div>
             </React.Fragment>
           )}
-          <Fab
-            variant="extended"
-            aria-label="add"
-            style={{
-              backgroundColor: "#FF932D",
-              width: "70px",
-              height: "70px",
-              borderRadius: "100%",
-            }}
-            onClick={() => setShow(!show)}
+          <motion.div
+            initial={{rotate: 360}}
+            whileHover={{rotate: 360}}
+            transition={{ease: "linear", duration: 1, repeat: Infinity}}
           >
-            <BsChatDotsFill size={30} />
-          </Fab>
+            <Fab
+              variant="extended"
+              aria-label="add"
+              style={{
+                backgroundColor: "#FF932D",
+                width: "70px",
+                height: "70px",
+                borderRadius: "100%",
+              }}
+              onClick={() => setShow(!show)}
+            >
+              <img src="/icons/47-chat-solid.gif" className="rounded-full" />
+            </Fab>
+          </motion.div>
         </div>
       </div>
     </React.Fragment>

@@ -5,6 +5,7 @@ const productSchema = mongoose.Schema(
     title: {
       type: String,
     },
+    thum: String,
     sections: [
       {
         image: {

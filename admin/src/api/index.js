@@ -34,11 +34,21 @@ export const deleteCourseById = id => API.delete(`/courses/${id}`);
 export const createCourse = formData => API.post("/courses", formData);
 export const addSection = formData => API.post("/addsection", formData);
 export const updateCourse = (id, updates) => API.put(`/courses/${id}`, updates);
+export const deleteSection = (id, idSection) =>
+  API.patch(`/courses/sections/${id}`, {idSection: idSection});
 
 //users
 export const fetchAllUsers = () => API.get("/user");
 export const fetchUserById = id => API.get(`/user/${id}`);
 export const deleteUserById = id => API.delete(`/user/${id}`);
+//testimonials
+export const fetchAllTestimonials = () =>
+  API.get("/testimoials/testminialsDashboard");
+export const fetchTestimonialById = id =>
+  API.get(`/testimoials/testminialsDashboard/${id}`);
+export const updateTestimonial = (id, data) =>
+  API.put(`/testimoials/${id}`, data);
+export const deleteTestimonialById = id => API.delete(`/testimoials/${id}`);
 
 // //notify
 // export const addNotify = notify => API.post(`/notify`, notify);

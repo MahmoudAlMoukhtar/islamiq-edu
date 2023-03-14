@@ -47,10 +47,10 @@ const HeroSection = () => {
             effect="blur"
             loading="lazy"
             src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678308216/islamiq/top-view-islamic-new-year-concept-with-copy-space_skc7bz.jpg"
-            className="w-full relative object-cover	h-[390px] sm:h-full"
+            className="w-full relative object-cover	h-[300px] sm:h-full"
             alt="heroimage"
           />
-          <div className="flex flex-col items-center justify-center text-center gap-6 w-full absolute top-[50%] left-[50%] sm:px-20 translate-x-[-50%] translate-y-[-50%] sm:translate-y-[-80%] ">
+          <div className="flex flex-col items-center justify-center text-center gap-6 w-full absolute top-[50%] left-[50%] sm:px-20 translate-x-[-50%] translate-y-[-50%] sm:translate-y-[-80%]">
             <SlidePrevButton />
             <p className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
               {t("mainSlider.1.title")}
@@ -58,7 +58,7 @@ const HeroSection = () => {
             <p className="font-semibold">{t("mainSlider.1.desciption")}</p>
             <a
               href="#fees"
-              className="py-2 px-8 rounded bg-[#4caf50] text-white font-bold text-black"
+              className="py-2 px-8 rounded bg-[#4caf50] text-white font-bold text-black chatWidget"
             >
               {t("mainSlider.1.button")}
             </a>
@@ -71,7 +71,7 @@ const HeroSection = () => {
             effect="blur"
             loading="lazy"
             src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678307907/islamiq/quran2_reos1a.jpg"
-            className="w-full relative object-cover	h-[390px] sm:h-full"
+            className="w-full relative object-cover	h-[300px] sm:h-full"
           />
           <div className="flex flex-col items-center justify-center text-center gap-6 w-full absolute top-[50%] left-[50%] sm:px-20 translate-x-[-50%] translate-y-[-50%] sm:translate-y-[-80%] ">
             <SlidePrevButton />
@@ -93,7 +93,7 @@ const HeroSection = () => {
             effect="blur"
             loading="lazy"
             src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678308674/islamiq/vecteezy_verses-of-the-holy-quran_6034228_263_anazif.jpg"
-            className="w-full relative object-cover h-[390px] sm:h-full"
+            className="w-full relative object-cover h-[300px] sm:h-full"
           />
           <div className="flex flex-col items-center justify-center text-center gap-6 w-full absolute top-[50%] left-[50%] sm:px-20 translate-x-[-50%] translate-y-[-50%] sm:translate-y-[-80%] ">
             <SlidePrevButton />

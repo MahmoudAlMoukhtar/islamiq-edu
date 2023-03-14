@@ -14,6 +14,9 @@ import NewBlog from "./pages/newBlog/NewBlog";
 import Blog from "./pages/blog/Blog";
 import Course from "./pages/course/Course";
 //import OrederList from "./pages/orederList/OrederList";
+import "react-toastify/dist/ReactToastify.css";
+import TestimonialsList from "./pages/orederList/TestimonialsList";
+import Testimonial from "./pages/testimonial/Testimonial";
 
 function App() {
   const [theme, selectTheme] = useState("white");
@@ -48,7 +51,7 @@ function App() {
           <Route path="/course/:id">
             <Course />
           </Route>
-          <Route path="/newproduct">
+          <Route path="/newcourse">
             <NewProduct />
           </Route>
           <Route path="/blog/:id">
@@ -56,6 +59,12 @@ function App() {
           </Route>
           <Route path="/newBlog">
             <NewBlog />
+          </Route>
+          <Route path="/testimonials" exact>
+            <TestimonialsList />
+          </Route>
+          <Route path="/testimonials/:id">
+            <Testimonial />
           </Route>
         </Switch>
       </div>

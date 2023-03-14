@@ -11,6 +11,7 @@ body {
     background-position: center;
     background-size: cover; */
   height: 100vh;
+  color: #f5cd9c;
 }
 #test {
   background-size: cover;
@@ -40,3 +41,25 @@ body {
                 -150px 100px, -100px 100px, -100px 150px, -150px 150px,
                 0 0, 0 0, 0 0, 0 0;
         } */
+.chatWidget {
+
+  animation: animateWidget;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+            @keyframes animateWidget {
+              0% {
+                transform:rotate("0deg")
+                
+              }
+      
+              25% {
+                transform: rotate("20deg")
+              }
+    
+      
+              100% {
+                transform: rotate("160deg")
+              }
+            }

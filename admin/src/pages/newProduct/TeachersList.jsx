@@ -2,17 +2,15 @@ import "./productList.css";
 import React from "react";
 import {DataGrid} from "@material-ui/data-grid";
 import {useHistory} from "react-router-dom";
-export default function SectionsList({courseData, setCourseData}) {
+export default function TeacherList({courseData, setCourseData}) {
   const navigate = useHistory();
-  const handleDelete = async description => {
-    const courseSections = courseData.sections.filter(
-      s => s.description !== description
-    );
+  const handleDelete = async bio => {
+    const courseTeachers = courseData.teachers.filter(s => s.bio !== bio);
     setCourseData({
       ...courseData,
-      sections: courseSections,
+      teachers: courseTeachers,
     });
-    if (courseSections.length === 0) {
+    if (courseTeachers.length === 0) {
       navigate.push("/newproduct");
     }
   };
@@ -21,11 +19,19 @@ export default function SectionsList({courseData, setCourseData}) {
     {field: "_id", headerName: "ID", width: 150},
 
     {
-      field: "description",
-      headerName: "description",
+      field: "name",
+      headerName: "Name Teacher",
       width: 200,
       renderCell: params => {
-        return <p>{params.row.description}</p>;
+        return <p>{params.row.name}</p>;
+      },
+    },
+    {
+      field: "bio",
+      headerName: "Bio Teacher",
+      width: 200,
+      renderCell: params => {
+        return <p>{params.row.bio}</p>;
       },
     },
 
@@ -38,7 +44,7 @@ export default function SectionsList({courseData, setCourseData}) {
           <div className="containerActionsBtns w-full">
             <button
               className="productListDelete w-full"
-              onClick={() => handleDelete(params.row.description)}
+              onClick={() => handleDelete(params.row.bio)}
             >
               Delete
             </button>
@@ -50,14 +56,14 @@ export default function SectionsList({courseData, setCourseData}) {
 
   return (
     <div className="h-screen">
-      <h2 className="text-3xl font-bold">SECTIONS LIST</h2>
+      <h2 className="text-3xl font-bold">TEACHERS LIST</h2>
       <DataGrid
-        rows={courseData.sections}
+        rows={courseData.teachers}
         disableSelectionOnClick
         columns={columns}
         pageSize={8}
         checkboxSelection
-        getRowId={row => row.description}
+        getRowId={row => row.bio}
       />
     </div>
   );

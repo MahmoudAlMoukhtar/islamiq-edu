@@ -6,6 +6,8 @@ import {motion} from "framer-motion";
 import {ToastContainer} from "react-toastify";
 import {useTranslation} from "react-i18next";
 import {LazyLoadImage} from "react-lazy-load-image-component";
+import {useDispatch} from "react-redux";
+import {signin} from "../../redux/actions/auth";
 
 const initialState = {
   firstName: "",
@@ -22,6 +24,7 @@ const Auth = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [isSignup, setIsSignup] = useState(true);
   const navigait = useNavigate();
+  const dispatch = useDispatch();
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -30,9 +33,7 @@ const Auth = () => {
       localStorage.setItem("userIqraa", JSON.stringify(data));
       navigait("/");
     } else {
-      const {data} = await api.signin(formData);
-      localStorage.setItem("userIqraa", JSON.stringify(data));
-      navigait("/");
+      dispatch(signin(formData, navigait));
     }
   };
 
@@ -238,7 +239,7 @@ const Auth = () => {
             </div>
           </form>
         </div>
-        <ToastContainer theme="dark" />
+        <ToastContainer />
       </div>
     </React.Fragment>
   );

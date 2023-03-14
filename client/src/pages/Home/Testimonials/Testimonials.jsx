@@ -22,7 +22,7 @@ const Testimonials = () => {
       className="flex flex-col  justify-center items-center gap-20 py-10 bg-[#f2ede7] w-full"
     >
       <div className="flex flex-col items-center gap-2 md:w-[600px]">
-        <h2 className="text-center text-2xl md:text-3xl lg:text-4xl font-bold">
+        <h2 className="text-center text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold">
           {t("titletestimonials")}
         </h2>
         <span className="h-2 w-40 bg-[#ffc265]" />

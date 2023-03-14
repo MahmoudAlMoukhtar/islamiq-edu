@@ -1,13 +1,13 @@
-.orderList{
+.productList{
     flex: 4;
 }
 
-.orderListItem{
+.productListItem{
     display: flex;
     align-items: center;
 }
 
-.orderListImg {
+.productListImg {
     width: 32px;
     height: 32px;
     border-radius: 50%;
@@ -22,7 +22,7 @@
     gap: 8px;
 }
 
-.orderListEdit{
+.productListEdit{
     border: none;
     border-radius: 10px;
     padding: 5px 10px;
@@ -31,26 +31,17 @@
     cursor: pointer;
     
 }
-.orderListDiplay{
-    border: none;
-    border-radius: 10px;
-    padding: 5px 10px;
-    background-color: #ddf1e7;
-    color: black;
-    cursor: pointer;
-    
-}
 
-.orderListDelete{
+.productListDelete{
     border: none;
     border-radius: 10px;
     padding: 5px 10px;
-    background-color: #a02020;
+    background-color: rgb(160, 32, 32);
     color: white;
     cursor: pointer;
 }
 
-.addorderList{
+.addProductList{
     color: white;
     padding: 8px 0;
     width: 100%;

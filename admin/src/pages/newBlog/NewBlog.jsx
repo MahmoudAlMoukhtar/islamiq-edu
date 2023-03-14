@@ -3,7 +3,7 @@ import "./newcourse.css";
 import * as api from "../../api/index";
 import {toast, ToastContainer} from "react-toastify";
 import Resizer from "react-image-file-resizer";
-
+import GridLoader from "react-spinners/GridLoader";
 export default function NewBlog() {
   const [blogData, setBlogData] = useState({
     title: "",
@@ -33,22 +33,13 @@ export default function NewBlog() {
         );
       });
     const image = await resizeFile(file);
-    //console.log(image);
     const validFileTypes = ["image/jpg", "image/jpeg", "image/png"];
     if (!validFileTypes.find(type => type === file.type)) {
       setError("File must be in JPG/PNG format");
       return;
     } else {
-      //console.log(file);
       setFileData(image);
       setFile(e.target.value);
-      //console.log(images);
-
-      // const reader = new FileReader();
-      // reader.readAsDataURL(file);
-      // reader.onload = () => {
-      //   setBlogData({...blogData, image: reader.result});
-      // };
     }
   };
 
@@ -61,24 +52,29 @@ export default function NewBlog() {
     formData.append("title", blogData.title);
     formData.append("message", blogData.message);
     setLoading(true);
-
-    //const data = await api.fetchCourses();
     const res = await api.createPost(formData);
     toast.success("Signup successfully");
     setLoading(false);
-    //setBlogData({...blogData, res.data});
   };
   if (error) return <h1 className="text-red-800">error</h1>;
-  if (loading) return <h1 className="text-red-800 course">Loading</h1>;
+  if (loading)
+    return (
+      <GridLoader
+        color={"#0000"}
+        loading={loading}
+        size={150}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+      />
+    );
   return (
     <form
       action="#"
       method="POST"
-      onSubmit={handleSubmit}
       className="min-w-[300px] shadow-xl flex flex-col gap-8 items-start w-full justify-start bg-white p-2 transition duration-200 rounded-md"
     >
       <h1 className="font-bold flex flex-col gap-1 items-start">
-        Form{" "}
+        Form New Blog
         <span className="text-sm text-gray-400 font-normal">
           write your post and puplish it...
         </span>
@@ -152,6 +148,7 @@ export default function NewBlog() {
         <button
           type="submit"
           className="inline-flex justify-center rounded-md border border-transparent bg-[#4caf50] py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-[#FF932D] focus:outline-none focus:ring-2 focus:ring-[#FF932D] focus:ring-offset-2 w-2/3"
+          onSubmit={handleSubmit}
         >
           Submit
         </button>

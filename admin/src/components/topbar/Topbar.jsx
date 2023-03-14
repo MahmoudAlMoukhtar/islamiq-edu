@@ -35,14 +35,13 @@ export default function Topbar({theme, selectTheme}) {
               />
             )}
           </div>
-          <img src="/person_2.jpg" alt="" className="topAvatar" />
         </div>
       </div>
     </div>
   );
 }
 /* 
-
+          <img src="/person_2.jpg" alt="" className="topAvatar" />
 <NotificationsNone />
 <Language />
 <Settings />

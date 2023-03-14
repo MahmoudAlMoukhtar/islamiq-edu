@@ -64,26 +64,22 @@ const Navbar = ({setNavBarModal, navbarModal}) => {
           <Link to="/#courses" end className={styles.linkPages}>
             {t("nav.courses")}
           </Link>
-          <Link to="/#fees" end className={styles.linkPages}>
-            {t("nav.fees")}
-          </Link>
           <Link to="/#testimonials" className={styles.linkPages}>
             {t("nav.testimonials")}
+          </Link>
+          <Link to="/#fees" end className={styles.linkPages}>
+            {t("nav.fees")}
           </Link>
 
           <Link to="/#blogs" end className={styles.linkPages}>
             {t("nav.blogs")}
           </Link>
+          <Link to="/#blogs" end className={styles.linkPages}>
+            {t("nav.contact")}
+          </Link>
         </ul>
       </div>
       <div className="flex justify-center  gap-2 items-center">
-        <select
-          className="text-black font-bold border-2 border-[#FF932D] rounded px-1 text-sm sm:text-md sm:px-2 sm:py-1 cursor-pointer"
-          onChange={e => i18n.changeLanguage(e.target.value)}
-        >
-          <option value={"en"}>English</option>
-          <option value={"ar"}>العربية</option>
-        </select>
         {!user ? (
           <NavLink
             className="font-bold px-1 text-sm sm:text-md sm:px-2 py-1 sm:py-2 bg-[#FF932D] transtion duration-200 text-white rounded"

@@ -19,31 +19,36 @@ const Courses = () => {
   return (
     <motion.section
       id="courses"
-      className="flex flex-col  justify-center items-center gap-20 mt-20 py-10 w-full"
+      className="flex flex-col  justify-center items-center  mt-20 py-10 w-full"
     >
       <div className="flex flex-col items-center gap-2">
         <h2 className="text-4xl font-bold ">{t("titlecourses")}</h2>
         <span className="h-2 w-60 bg-[#ffc265]" />
+        <button className="w-60 bg-[#ffc265] p-2 rounded font-bold">
+          SHOW ALL
+        </button>
       </div>
-      <motion.div className="flex justify-center items-center flex-wrap gap-10 lg:gap-4  w-full">
-        {courses.map(c => (
-          <Link
-            to={`/courses/${c._id}`}
-            variants={item}
-            className="item flex flex-col items-center justify-between hover:text-black  transtion duration-200 w-60 text-center h-[200px] bg-[#FF932D] rounded-t-full pt-4   cursor-pointer hover:translate-y-[-10px] mb-10"
-          >
-            <LazyLoadImage
-              effect="blur"
-              loading="lazy"
-              src={c.sections[0].image}
-              className="w-60  rounded-t-full h-[200px] px-4 bg-[#FF932D]"
-              alt="Islamic-Studies"
-            />
-            <h3 className="text-sm font-semibold bg-[#4caf50] text-white w-full h-10 text-lg">
-              {c.title}
-            </h3>
-          </Link>
-        ))}
+      <motion.div className="flex justify-center items-center flex-wrap gap-4 sm:gap-10 lg:gap-4  w-full py-10 mt-4 sm:mt-20">
+        {courses
+          .map(c => (
+            <Link
+              to={`/courses/${c._id}`}
+              variants={item}
+              className="item flex flex-col items-center justify-between hover:text-black  transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px] bg-[#FF932D] rounded-t-full pt-4   cursor-pointer hover:translate-y-[-10px] mb-10"
+            >
+              <LazyLoadImage
+                effect="blur"
+                loading="lazy"
+                src={c.thum}
+                className="w-40 sm:w-60 rounded-t-full h-[100px] sm:h-[200px] px-4 bg-[#FF932D]"
+                alt="Islamic-Studies"
+              />
+              <h3 className="text-xs sm:text-sm font-semibold bg-[#4caf50] text-white w-full h-6 sm:h-10 text-lg">
+                {c.title}
+              </h3>
+            </Link>
+          ))
+          .slice(0, 5)}
       </motion.div>
       <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-10 w-full bg-[#4caf50] px-40 py-6">
         <div className="flex flex-col items-center justify-center gap-2 text-white w-60 text-center">

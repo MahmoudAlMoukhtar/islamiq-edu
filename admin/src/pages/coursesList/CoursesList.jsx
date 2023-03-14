@@ -41,9 +41,7 @@ export default function CoursesList() {
       headerName: "Image Course",
       width: 200,
       renderCell: params => {
-        return (
-          <img src={params.row.sections[0].image} className="productListImg" />
-        );
+        return <img src={params.row.thum} className="productListImg" />;
       },
     },
     {
@@ -99,12 +97,12 @@ export default function CoursesList() {
   ];
 
   return (
-    <div className="productList">
+    <div className="productList h-[500px]">
       <button
         className="addProductList"
-        onClick={() => navigate.push("/newproduct")}
+        onClick={() => navigate.push("/newcourse")}
       >
-        Add new product
+        Add New Course
       </button>
       <DataGrid
         rows={data}

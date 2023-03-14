@@ -8,6 +8,10 @@ const testimoialSchema = mongoose.Schema(
     message: {
       type: String,
     },
+    display: {
+      type: Boolean,
+      default: false,
+    },
   },
   {timestamps: true}
 );

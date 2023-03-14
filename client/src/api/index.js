@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const API = axios.create({
-  //baseURL: "http://localhost:3001/api",
-  baseURL: "https://islamiq-edu-d114.vercel.app/api",
+  baseURL: "http://localhost:3001/api",
+  //baseURL: "https://islamiq-edu-d114.vercel.app/api",
 });
 API.interceptors.request.use(req => {
   if (localStorage.getItem("userIqraa")) {
@@ -26,3 +26,7 @@ export const updateProfile = (id, updates) =>
 //courses
 export const fetchCourses = () => API.get("/courses");
 export const fetchCourseById = id => API.get(`/courses/${id}`);
+//testimoials
+export const getTestimoials = () => API.get("/testimoials");
+export const sendTestemional = data => API.post("/testimoials", data);
+//export const fetchCourseById = id => API.get(`/courses/${id}`);
