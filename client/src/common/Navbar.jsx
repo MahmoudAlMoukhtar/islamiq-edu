@@ -43,9 +43,7 @@ const Navbar = ({setNavBarModal, navbarModal}) => {
     <nav className="flex justify-between items-center gap-2 py-2 sm:py-4 px-4 sm:px-20 md:px-20 w-full shadow-xl text-white bg-[#4caf50] ">
       <div className="flex justify-center">
         <Link to="/" className="sm:hidden">
-          <div className="flex  gap-2 items-start">
-            <img src="/test.png" className="w-14" alt="kapaIcon" />
-          </div>
+          <h2 className="font-bold text-xl">IQRAA</h2>
         </Link>
         <ul className="invisible absolute sm:flex sm:items-center  md:gap-2 sm:visible sm:static">
           <NavLink

@@ -3,7 +3,7 @@ import {styled} from "@mui/material/styles";
 import MuiAccordion from "@mui/material/Accordion";
 import MuiAccordionSummary from "@mui/material/AccordionSummary";
 import MuiAccordionDetails from "@mui/material/AccordionDetails";
-import Typography from "@mui/material/Typography";
+//import Typography from "@mui/material/Typography";
 import {AiOutlineArrowRight} from "react-icons/ai";
 import {useTranslation} from "react-i18next";
 const Accordion = styled(props => (
@@ -49,7 +49,7 @@ export default function CustomizedAccordions() {
   };
 
   return (
-    <section className="px-4 sm:px-10 md:px-10 lg:px-20 flex flex-col items-center gap-10 my-20">
+    <section className=" sm:px-10 md:px-10 lg:px-20 flex flex-col items-center gap-10 my-20">
       <div className="flex flex-col items-center gap-2">
         <h2 className="text-4xl font-bold text-black">{t("titlefaq")}</h2>
         <span className="h-2 w-40 bg-[#ffc265]" />
@@ -60,10 +60,10 @@ export default function CustomizedAccordions() {
           onChange={handleChange("panel1")}
         >
           <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-            <h3 className="text-lg font-bold">{t("faq.1.q")}</h3>
+            <h3 className="text-sm font-bold">{t("faq.1.q")}</h3>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography>{t("faq.1.a")}</Typography>
+            <p className="text-sm">{t("faq.1.a")}</p>
           </AccordionDetails>
         </Accordion>
         <Accordion
@@ -71,10 +71,10 @@ export default function CustomizedAccordions() {
           onChange={handleChange("panel2")}
         >
           <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
-            <h3 className="text-lg font-bold">{t("faq.2.q")}</h3>
+            <h3 className="text-sm font-bold">{t("faq.2.q")}</h3>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography>{t("faq.2.a")}</Typography>
+            <p className="text-sm">{t("faq.2.a")}</p>
           </AccordionDetails>
         </Accordion>
         <Accordion
@@ -82,10 +82,10 @@ export default function CustomizedAccordions() {
           onChange={handleChange("panel3")}
         >
           <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
-            <h3 className="text-lg font-bold">{t("faq.3.q")}</h3>
+            <h3 className="text-sm font-bold">{t("faq.3.q")}</h3>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography>{t("faq.3.a")}</Typography>
+            <p className="text-sm">{t("faq.3.a")}</p>
           </AccordionDetails>
         </Accordion>
         <Accordion
@@ -93,10 +93,10 @@ export default function CustomizedAccordions() {
           onChange={handleChange("panel4")}
         >
           <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
-            <h3 className="text-lg font-bold">{t("faq.4.q")}</h3>
+            <h3 className="text-sm font-bold">{t("faq.4.q")}</h3>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography>{t("faq.4.a")}</Typography>
+            <p className="text-sm">{t("faq.4.a")}</p>
           </AccordionDetails>
         </Accordion>
         <Accordion
@@ -104,10 +104,10 @@ export default function CustomizedAccordions() {
           onChange={handleChange("panel5")}
         >
           <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
-            <h3 className="text-lg font-bold">{t("faq.5.q")}</h3>
+            <h3 className="text-sm font-bold">{t("faq.5.q")}</h3>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography>{t("faq.5.a")}</Typography>
+            <p className="text-sm">{t("faq.5.a")}</p>
           </AccordionDetails>
         </Accordion>
         <Accordion
@@ -115,10 +115,10 @@ export default function CustomizedAccordions() {
           onChange={handleChange("panel6")}
         >
           <AccordionSummary aria-controls="panel6d-content" id="panel6d-header">
-            <h3 className="text-lg font-bold">{t("faq.6.q")}</h3>
+            <h3 className="text-sm font-bold">{t("faq.6.q")}</h3>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography>{t("faq.6.a")}</Typography>
+            <p className="text-sm">{t("faq.6.a")}</p>
           </AccordionDetails>
         </Accordion>
         <Accordion
@@ -126,10 +126,10 @@ export default function CustomizedAccordions() {
           onChange={handleChange("panel7")}
         >
           <AccordionSummary aria-controls="panel7d-content" id="panel7d-header">
-            <h3 className="text-lg font-bold">{t("faq.7.q")}</h3>
+            <h3 className="text-sm font-bold">{t("faq.7.q")}</h3>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography>{t("faq.7.a")}</Typography>
+            <p className="text-sm">{t("faq.7.a")}</p>
           </AccordionDetails>
         </Accordion>
         <Accordion
@@ -137,10 +137,10 @@ export default function CustomizedAccordions() {
           onChange={handleChange("panel8")}
         >
           <AccordionSummary aria-controls="panel8d-content" id="panel8d-header">
-            <h3 className="text-lg font-bold">{t("faq.8.q")}</h3>
+            <h3 className="text-sm font-bold">{t("faq.8.q")}</h3>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography>{t("faq.8.a")}</Typography>
+            <p className="text-sm">{t("faq.8.a")}</p>
           </AccordionDetails>
         </Accordion>
       </div>

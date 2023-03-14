@@ -34,7 +34,7 @@ const Courses = () => {
             <Link
               to={`/courses/${c._id}`}
               variants={item}
-              className="item flex flex-col items-center justify-between hover:text-black  transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px] bg-[#FF932D] rounded-t-full pt-4   cursor-pointer hover:translate-y-[-10px] mb-10"
+              className="item flex flex-col items-center justify-between hover:text-black  transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px] bg-[#FF932D] rounded-t-full pt-4   cursor-pointer hover:translate-y-[-10px] sm:mb-10"
             >
               <LazyLoadImage
                 effect="blur"

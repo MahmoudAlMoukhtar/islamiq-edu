@@ -128,21 +128,21 @@ const Footer = () => {
                   iqrainthenameofallah29@gmail.com
                 </div>
               </div>
-              <div className="flex items-center gap-2">
-                <div>
-                  <FaLanguage color="#FF932D" size={50} />
-                </div>
-                <select
-                  className="text-black font-bold border-2 border-[#FF932D] bg-[#FF932D] rounded px-1 text-xs sm:px-2 sm:py-1 cursor-pointer"
-                  onChange={e => i18n.changeLanguage(e.target.value)}
-                >
-                  <option value={"en"}>English</option>
-                  <option value={"ar"}>العربية</option>
-                </select>
-              </div>
             </nav>
           </div>
         </section>
+      </div>
+      <div className="flex flex-col sm:flex-row items-center gap-2">
+        <div>
+          <FaLanguage color="#FF932D" size={50} />
+        </div>
+        <select
+          className="text-black font-bold border-2 border-[#FF932D] bg-[#FF932D] rounded px-1 text-xs sm:px-2 sm:py-1 cursor-pointer w-40 py-2 "
+          onChange={e => i18n.changeLanguage(e.target.value)}
+        >
+          <option value={"en"}>English</option>
+          <option value={"ar"}>العربية</option>
+        </select>
       </div>
     </footer>
   );
