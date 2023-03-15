@@ -4,6 +4,7 @@
 
 body {
   background-color: #f2ede7;
+  
 }
 #hero {
   /* background-image: url('/public/top-view-islamic-new-year-concept-with-copy-space.jpg');
@@ -63,3 +64,17 @@ body {
                 transform: rotate("160deg")
               }
             }
+
+                        ::-webkit-scrollbar {
+                          width: 15px;
+                        }
+            
+                        /* Track */
+                        ::-webkit-scrollbar-track {
+                          background: #f1f1f1;
+                        }
+            
+                        ::-webkit-scrollbar-thumb {
+                          background: #FF932D;
+                          border-radius: 10px;
+                        }

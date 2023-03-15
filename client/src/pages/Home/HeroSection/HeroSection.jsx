@@ -39,7 +39,7 @@ const HeroSection = () => {
         initialSlide={0}
         loop={true}
         navigation
-        autoplay={{delay: 3000}}
+        autoplay={{delay: 4000}}
         className="cursor-grap"
       >
         <SwiperSlide className="">

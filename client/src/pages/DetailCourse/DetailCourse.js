@@ -53,13 +53,25 @@ const DetailCourse = () => {
               />
             )}
             {i === 0 && (
-              <div className="flex justify-between items-center w-full px-4">
-                <h2 className="text-3xl sm:text-3xl font-bold w-full">
+              <div className="flex flex-col sm:flex-row sm:justify-between items-center gap-2 w-full px-4">
+                <h2 className="text-3xl sm:text-xl md:text-3xl font-bold w-full text-center sm:text-start">
                   {`${course.title}`.toUpperCase()}
                 </h2>
-                <button className="bg-[#ffc265] px-4 py-2 rounded font-semibold text-sm w-52">
-                  Show our pricing
-                </button>
+                <div className="flex justify-center ">
+                  <button className="bg-[#ffc265] px-4 py-2 rounded text-md w-40 font-bold">
+                    Show Fees
+                  </button>
+                  <a
+                    href="http://wa.me/+201012750418"
+                    target="blank"
+                    className="flex justify-center gap-2 items-center bg-[#4caf50] py-4 px-8 font-bold rounded w-40 text-white"
+                  >
+                    <div>
+                      <AiOutlineWhatsApp size={25} />
+                    </div>
+                    Whatsapp
+                  </a>
+                </div>
               </div>
             )}
             {c.video && (
@@ -82,7 +94,9 @@ const DetailCourse = () => {
               <div>
                 <FaQuoteLeft size={25} />
               </div>
-              <p className="text-5xl font-bold">Write Your Testimonial</p>
+              <p className="text-2xl sm:text-3xl lg:text-5xl font-bold">
+                Write Your Testimonial
+              </p>
               <div>
                 <FaQuoteRight size={25} />
               </div>

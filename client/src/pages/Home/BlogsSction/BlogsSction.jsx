@@ -11,7 +11,7 @@ const BlogItem = ({b}) => {
   return (
     <Link
       to={`/blogs/${b._id}`}
-      className="flex flex-col items-start justify-between gap-10 w-96 rounded shadow-xl text-start  sm:h-[550px] hover:scale-105 transtion duration-200"
+      className="flex flex-col items-start justify-between gap-10 w-96 rounded shadow-xl text-start  sm:h-[550px] hover:scale-[1.02] transtion duration-200"
     >
       <LazyLoadImage
         effect="blur"
@@ -25,7 +25,7 @@ const BlogItem = ({b}) => {
           {b.message.substr(0, 200)}
           <span className="mx-1 opacity-[0.6] text-3xl">.....</span>
         </p>
-        <button className="rounded bg-[#FF932D] py-2 px-4 w-full">
+        <button className="rounded bg-[#FF932D] py-2 px-4 w-full font-bold">
           See more
         </button>
       </div>

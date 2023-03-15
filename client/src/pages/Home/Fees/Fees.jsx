@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {motion} from "framer-motion";
 import {AiOutlineWhatsApp} from "react-icons/ai";
 import {BsCheck} from "react-icons/bs";
@@ -6,6 +6,29 @@ import {ImRadioUnchecked} from "react-icons/im";
 import {useTranslation} from "react-i18next";
 const Fees = () => {
   const [t, i18n] = useTranslation();
+  const [selectedPackage, setSelectedPackage] = useState("family");
+  const packages = {
+    family: {
+      titleEN: "FAMILY",
+      titleAR: "عائلي",
+      feachers: [
+        "When 3 members from your family join us thus package will gift you even if",
+        "30 min per session for everyone",
+        "8 sessions per month for everyone",
+        "Flexible timing schedule",
+      ],
+    },
+    economic: {
+      titleEN: "ECONOMIC",
+      titleAR: "اقتصادي",
+      feachers: [
+        "20 sessions per month",
+        "60 min per session",
+        "4 session per week",
+        "Flexible timing schedule",
+      ],
+    },
+  };
   const item = {
     hidden: {y: 50, opacity: 0},
     visible: {
@@ -42,39 +65,103 @@ const Fees = () => {
               </button>
             </div>
           </div>
-          <div className="flex items-center justify-between w-full  p-2 ">
-            All Limited links
-            <div className="bg-[#FF932D] rounded-full">
-              <BsCheck size={25} />
+          {selectedPackage === "family" &&
+            packages.family.feachers.map(f => (
+              <div className="flex items-center justify-between w-full  p-2 gap-2">
+                {f}
+                <div className="bg-[#FF932D] rounded-full">
+                  <BsCheck size={25} />
+                </div>
+              </div>
+            ))}
+          {selectedPackage === "economic" &&
+            packages.economic.feachers.map(f => (
+              <div className="flex items-center justify-between w-full  p-2 gap-2">
+                {f}
+                <div className="bg-[#FF932D] rounded-full">
+                  <BsCheck size={25} />
+                </div>
+              </div>
+            ))}
+        </div>
+        <div className="w-full flex flex-col gap-4">
+          <div
+            className="rounded-lg bg-[#ffc265] flex justify-between py-10 px-4 cursor-pointer"
+            onClick={() => setSelectedPackage("family")}
+          >
+            <div className="flex items-center gap-4">
+              <div className="bg-[#fff] rounded-full">
+                {selectedPackage === "family" ? (
+                  <BsCheck color="black" size={30} />
+                ) : (
+                  <ImRadioUnchecked color="gray" size={30} />
+                )}
+              </div>
+              <div className="flex flex-col">
+                <h5 className="text-2xl font-semibold">FAMILY</h5>
+                <h5 className="text-2xl font-bold">12 HRS</h5>
+                <p className="bg-[#fff] rounded-full py-1 px-2 text-xs font-semibold">
+                  Save %20
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-col">
+              <p className="text-sm">
+                <span className=" text-4xl font-bold">$90</span>/Month
+              </p>
+
+              <span className="line-through	 text-lg font-bold">$120</span>
             </div>
           </div>
-          <div className="flex items-center justify-between w-full  p-2 ">
-            Own analytics platform
-            <div className="bg-[#FF932D] rounded-full">
-              <BsCheck size={25} />
+          <div
+            className="rounded-lg bg-[#FF932D] flex justify-between py-10 px-4 cursor-pointer"
+            onClick={() => setSelectedPackage("economic")}
+          >
+            <div className="flex items-center gap-4">
+              <div className="bg-[#fff] rounded-full">
+                {selectedPackage === "economic" ? (
+                  <BsCheck color="black" size={30} />
+                ) : (
+                  <ImRadioUnchecked color="gray" size={30} />
+                )}
+              </div>
+              <div className="flex flex-col items-start">
+                <h5 className="text-2xl font-semibold">ECONOMIC</h5>
+                <h5 className="text-2xl font-bold">20 HRS</h5>
+                <p className="bg-[#fff] rounded-full py-1 px-2 text-xs font-semibold">
+                  Save $60
+                </p>
+              </div>
             </div>
-          </div>
-          <div className="flex items-center justify-between w-full  p-2 ">
-            Chat support
-            <div className="bg-[#FF932D] rounded-full">
-              <BsCheck size={25} />
-            </div>
-          </div>
-          <div className="flex items-center justify-between w-full  p-2 ">
-            Optimize hashtags
-            <div className="bg-[#FF932D] rounded-full">
-              <BsCheck size={25} />
-            </div>
-          </div>
-          <div className="flex items-center justify-between w-full  p-2 ">
-            Un limited users
-            <div className="bg-[#FF932D] rounded-full">
-              <BsCheck size={25} />
+            <div className="flex flex-col">
+              <p className="text-sm">
+                <span className=" text-4xl font-bold">$140</span>/Month
+              </p>
+
+              <span className="line-through	 text-lg font-bold">$200</span>
             </div>
           </div>
         </div>
-        <div className="w-full flex flex-col gap-4">
-          <div className="rounded-lg bg-[#EFEDD6] flex justify-between py-6 px-4 cursor-pointer border-4 border-black">
+      </div>
+      <a
+        href="http://wa.me/+201012750418"
+        target="blank"
+        className="flex gap-2 items-center bg-[#FF932D] rounded-full py-4 px-8 font-bold"
+      >
+        <div>
+          <AiOutlineWhatsApp size={25} />
+        </div>
+        Whatsapp
+      </a>
+    </motion.section>
+  );
+};
+
+export default Fees;
+
+/* 
+
+<div className="rounded-lg bg-[#EFEDD6] flex justify-between py-6 px-4 cursor-pointer border-4 border-black">
             <div className="flex items-center gap-4">
               <div className="bg-[#fff] rounded-full">
                 <BsCheck color="black" size={30} />
@@ -106,55 +193,8 @@ const Fees = () => {
               <span className=" text-4xl font-bold">$39</span>/Month
             </p>
           </div>
-          <div className="rounded-lg bg-[#ffc265] flex justify-between py-6 px-4 cursor-pointer">
-            <div className="flex items-center gap-4">
-              <div className="bg-[#fff] rounded-full">
-                <ImRadioUnchecked color="gray" size={30} />
-              </div>
-              <div className="flex flex-col">
-                <h5 className="text-2xl font-semibold">Popular</h5>
-                <p className="bg-[#fff] rounded-full py-1 px-2 text-xs">
-                  Save %20
-                </p>
-              </div>
-            </div>
-            <p className="text-sm">
-              <span className=" text-4xl font-bold">$99</span>/Month
-            </p>
-          </div>
-          <div className="rounded-lg bg-[#FF932D] flex justify-between py-6 px-4 cursor-pointer">
-            <div className="flex items-center gap-4">
-              <div className="bg-[#fff] rounded-full">
-                <ImRadioUnchecked color="gray" size={30} />
-              </div>
-              <div className="flex flex-col">
-                <h5 className="text-2xl font-semibold">Enterprise</h5>
-                <p className="bg-[#fff] rounded-full py-1 px-2 text-xs">
-                  Save %20
-                </p>
-              </div>
-            </div>
-            <p className="text-sm">
-              <span className=" text-4xl font-bold">$19</span>/Month
-            </p>
-          </div>
-        </div>
-      </div>
-      <a
-        href="http://wa.me/+201012750418"
-        target="blank"
-        className="flex gap-2 items-center bg-[#FF932D] rounded-full py-4 px-8 font-bold"
-      >
-        <div>
-          <AiOutlineWhatsApp size={25} />
-        </div>
-        Whatsapp
-      </a>
-    </motion.section>
-  );
-};
 
-export default Fees;
+*/
 
 /* 
 <div className="flex flex-col justify-between items-center gap-4 bg-white text-black hover:text-black pb-6 transtion duration-200  text-center w-full sm:w-[200px] md:w-[250px] lg:w-80 xl:w-96 h-[500px] rounded shadow-xl">
@@ -253,4 +293,32 @@ export default Fees;
             *Get your first Free Demo class.
           </p>
         </div>
+*/
+
+/* 
+   <div className="flex items-center justify-between w-full  p-2 gap-2">
+            When 3 members from your family join us thus package will gift you
+            even if
+            <div className="bg-[#FF932D] rounded-full">
+              <BsCheck size={25} />
+            </div>
+          </div>
+          <div className="flex items-center justify-between w-full  p-2 ">
+            30 min per session for everyone
+            <div className="bg-[#FF932D] rounded-full">
+              <BsCheck size={25} />
+            </div>
+          </div>
+          <div className="flex items-center justify-between w-full  p-2 ">
+            8 sessions per month for everyone
+            <div className="bg-[#FF932D] rounded-full">
+              <BsCheck size={25} />
+            </div>
+          </div>
+          <div className="flex items-center justify-between w-full  p-2 ">
+            Flexible timing schedule
+            <div className="bg-[#FF932D] rounded-full">
+              <BsCheck size={25} />
+            </div>
+          </div>
 */
