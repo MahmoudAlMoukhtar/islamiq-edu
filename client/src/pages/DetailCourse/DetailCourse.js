@@ -44,14 +44,6 @@ const DetailCourse = () => {
       <div className="flex flex-col  items-start gap-20  text-black w-full shadow-md rounded ">
         {course.sections.map((c, i) => (
           <div className="flex flex-col items-center gap-10 w-full">
-            {c.image && (
-              <img
-                loading="lazy"
-                src={c.image}
-                className="w-full rounded"
-                alt="course"
-              />
-            )}
             {i === 0 && (
               <div className="flex flex-col sm:flex-row sm:justify-between items-center gap-2 w-full px-4">
                 <h2 className="text-3xl sm:text-xl md:text-3xl font-bold w-full text-center sm:text-start">
@@ -73,6 +65,14 @@ const DetailCourse = () => {
                   </a>
                 </div>
               </div>
+            )}
+            {c.image && (
+              <img
+                loading="lazy"
+                src={c.image}
+                className="w-full rounded"
+                alt="course"
+              />
             )}
             {c.video && (
               <iframe
