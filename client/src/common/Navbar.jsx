@@ -89,6 +89,7 @@ const Navbar = ({setNavBarModal, navbarModal}) => {
         ) : (
           <button
             style={activeStyle}
+            className="text-sm"
             onClick={() => {
               localStorage.removeItem("userIqraa");
               toast.success("Logout successfully");
