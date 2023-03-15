@@ -11,13 +11,13 @@ const BlogItem = ({b}) => {
   return (
     <Link
       to={`/blogs/${b._id}`}
-      className="flex flex-col items-start justify-between gap-10 w-96 rounded shadow-xl text-start  sm:h-[550px] hover:scale-[1.02] transtion duration-200"
+      className="flex flex-col items-start justify-between gap-10  w-80 sm:w-96 rounded shadow-xl text-start  sm:h-[550px] hover:scale-[1.02] transtion duration-200"
     >
       <LazyLoadImage
         effect="blur"
         loading="lazy"
         src={b.image}
-        className="w-96 h-[250px] rounded-t-md"
+        className="w-80 sm:w-96 h-[250px] rounded-t-md"
       />
       <div className="flex flex-col justify-end items-start gap-10 text-start h-full w-full">
         <p className="text-2xl font-semibold  px-4">{b.title}</p>
@@ -56,7 +56,7 @@ const BlogsSection = () => {
         <span className="h-2 w-40 bg-[#ffc265]" />
       </div>
 
-      <div className="flex gap-20 sm:gap-4 justify-center items-center flex-wrap w-full px-4 sm:px-20">
+      <div className="flex gap-20 sm:gap-4 justify-center items-center flex-wrap w-full px-2 sm:px-4 sm:px-20">
         {blogsData.map(b => (
           <BlogItem b={b} />
         ))}
