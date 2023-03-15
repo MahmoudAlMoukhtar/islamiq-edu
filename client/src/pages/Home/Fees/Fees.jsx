@@ -86,7 +86,7 @@ const Fees = () => {
         </div>
         <div className="w-full flex flex-col gap-4">
           <div
-            className="rounded-lg bg-[#ffc265] flex justify-between py-10 px-4 cursor-pointer"
+            className="rounded-lg bg-[#ffc265] flex justify-between py-8 sm:py-10 px-4 cursor-pointer"
             onClick={() => setSelectedPackage("family")}
           >
             <div className="flex items-center gap-4">
@@ -98,8 +98,8 @@ const Fees = () => {
                 )}
               </div>
               <div className="flex flex-col">
-                <h5 className="text-2xl font-semibold">FAMILY</h5>
-                <h5 className="text-2xl font-bold">12 HRS</h5>
+                <h5 className="text-xl sm:text-2xl font-semibold">FAMILY</h5>
+                <h5 className="text-xl sm:text-2xl font-bold">12 HRS</h5>
                 <p className="bg-[#fff] rounded-full py-1 px-2 text-xs font-semibold">
                   Save %20
                 </p>
@@ -107,14 +107,17 @@ const Fees = () => {
             </div>
             <div className="flex flex-col">
               <p className="text-sm">
-                <span className=" text-4xl font-bold">$90</span>/Month
+                <span className=" text-2xl sm:text-4xl font-bold">$90</span>
+                /Month
               </p>
 
-              <span className="line-through	 text-lg font-bold">$120</span>
+              <span className="line-through	 text-lg sm:text-lg font-bold">
+                $120
+              </span>
             </div>
           </div>
           <div
-            className="rounded-lg bg-[#FF932D] flex justify-between py-10 px-4 cursor-pointer"
+            className="rounded-lg bg-[#FF932D] flex justify-between py-8 sm:py-10 px-2 sm:px-4 cursor-pointer"
             onClick={() => setSelectedPackage("economic")}
           >
             <div className="flex items-center gap-4">
@@ -126,8 +129,8 @@ const Fees = () => {
                 )}
               </div>
               <div className="flex flex-col items-start">
-                <h5 className="text-2xl font-semibold">ECONOMIC</h5>
-                <h5 className="text-2xl font-bold">20 HRS</h5>
+                <h5 className="text-xl sm:text-2xl font-semibold">ECONOMIC</h5>
+                <h5 className="text-xl sm:text-2xl font-bold">20 HRS</h5>
                 <p className="bg-[#fff] rounded-full py-1 px-2 text-xs font-semibold">
                   Save $60
                 </p>
@@ -135,10 +138,13 @@ const Fees = () => {
             </div>
             <div className="flex flex-col">
               <p className="text-sm">
-                <span className=" text-4xl font-bold">$140</span>/Month
+                <span className="text-2xl sm:text-4xl font-bold">$140</span>
+                /Month
               </p>
 
-              <span className="line-through	 text-lg font-bold">$200</span>
+              <span className="line-through	 text-lg sm:text-lg font-bold">
+                $200
+              </span>
             </div>
           </div>
         </div>
