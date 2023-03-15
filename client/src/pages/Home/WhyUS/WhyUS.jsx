@@ -40,7 +40,7 @@ const WhyUS = () => {
       <div className="flex gap-4 justify-center items-center flex-wrap">
         <motion.div
           variants={item}
-          className="item flex flex-col items-center gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
+          className="item flex flex-col items-center gap-2 sm:gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black px-6 py-4 sm:py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
         >
           <LazyLoadImage
             effect="blur"
@@ -53,7 +53,7 @@ const WhyUS = () => {
         </motion.div>
         <motion.div
           variants={item}
-          className="item flex flex-col items-center gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
+          className="item flex flex-col items-center gap-2 sm:gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black px-6 py-4 sm:py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
         >
           <LazyLoadImage
             effect="blur"
@@ -66,7 +66,7 @@ const WhyUS = () => {
         </motion.div>
         <motion.div
           variants={item}
-          className="item flex flex-col items-center gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
+          className="item flex flex-col items-center gap-2 sm:gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black px-6 py-4 sm:py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
         >
           <LazyLoadImage
             effect="blur"
@@ -79,7 +79,7 @@ const WhyUS = () => {
         </motion.div>
         <motion.div
           variants={item}
-          className="item flex flex-col items-center gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
+          className="item flex flex-col items-center gap-2 sm:gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black px-6 py-4 sm:py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
         >
           <LazyLoadImage
             effect="blur"
@@ -92,7 +92,7 @@ const WhyUS = () => {
         </motion.div>
         <motion.div
           variants={item}
-          className="item flex flex-col items-center gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
+          className="item flex flex-col items-center gap-2 sm:gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black px-6 py-4 sm:py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
         >
           <LazyLoadImage
             effect="blur"
@@ -105,7 +105,7 @@ const WhyUS = () => {
         </motion.div>
         <motion.div
           variants={item}
-          className="item flex flex-col items-center gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
+          className="item flex flex-col items-center gap-2 sm:gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black px-6 py-4 sm:py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
         >
           <LazyLoadImage
             effect="blur"
@@ -118,7 +118,7 @@ const WhyUS = () => {
         </motion.div>
         <motion.div
           variants={item}
-          className="item flex flex-col items-center gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
+          className="item flex flex-col items-center gap-2 sm:gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black px-6 py-4 sm:py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
         >
           <LazyLoadImage
             effect="blur"
@@ -131,7 +131,7 @@ const WhyUS = () => {
         </motion.div>
         <motion.div
           variants={item}
-          className="item flex flex-col items-center gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
+          className="item flex flex-col items-center gap-2 sm:gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black px-6 py-4 sm:py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
         >
           <LazyLoadImage
             effect="blur"
@@ -144,7 +144,7 @@ const WhyUS = () => {
         </motion.div>
         <motion.div
           variants={item}
-          className="item flex flex-col items-center gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
+          className="item flex flex-col items-center gap-2 sm:gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black px-6 py-4 sm:py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
         >
           <LazyLoadImage
             effect="blur"
@@ -157,7 +157,7 @@ const WhyUS = () => {
         </motion.div>
         <motion.div
           variants={item}
-          className="item flex flex-col items-center gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
+          className="item flex flex-col items-center gap-2 sm:gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black px-6 py-4 sm:py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
         >
           <LazyLoadImage
             effect="blur"
@@ -170,7 +170,7 @@ const WhyUS = () => {
         </motion.div>
         <motion.div
           variants={item}
-          className="item flex flex-col items-center gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
+          className="item flex flex-col items-center gap-2 sm:gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black px-6 py-4 sm:py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
         >
           <LazyLoadImage
             effect="blur"
@@ -183,7 +183,7 @@ const WhyUS = () => {
         </motion.div>
         <motion.div
           variants={item}
-          className="item flex flex-col items-center gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
+          className="item flex flex-col items-center gap-2 sm:gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black px-6 py-4 sm:py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
         >
           <LazyLoadImage
             effect="blur"
