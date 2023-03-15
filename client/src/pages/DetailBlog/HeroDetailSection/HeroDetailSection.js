@@ -4,13 +4,16 @@ import {LazyLoadImage} from "react-lazy-load-image-component";
 
 const HeroDetailSection = ({post}) => {
   return (
-    <section className="relative">
-      <img
-        effect="blur"
-        src={post.image}
-        alt="post"
-        className="w-full relative brightness-[0.30]"
-      />
+    <section className="relative w-full">
+      <div>
+        <img
+          loading="lazy"
+          effect="blur"
+          src={post.image}
+          alt="post"
+          className="w-full relative brightness-[0.30]"
+        />
+      </div>
       <div className="flex flex-col items-center gap-6 absolute  text-white top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] ">
         <h3 className=" text-center text-white text-3xl sm:text-5xl font-md">
           {post.title}

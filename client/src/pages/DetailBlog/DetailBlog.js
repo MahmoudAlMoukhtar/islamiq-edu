@@ -26,7 +26,7 @@ const DetailBlog = () => {
   //return jsx UI product
   if (loadingBlog) return <Spinner />;
   return (
-    <div className="flex flex-col sm:px-10 md:px-20">
+    <div className="flex flex-col sm:px-10 md:px-20 w-full">
       <HeroDetailSection post={blog} />
       <section className="bg-white flex flex-wrap items-center md:items-start md:flex-nowrap  lg:flex-row  justify-center gap-4 p-4 w-full">
         <Details post={blog} />
