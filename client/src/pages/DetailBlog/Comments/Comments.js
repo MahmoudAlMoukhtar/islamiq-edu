@@ -27,7 +27,7 @@ const Comments = ({post}) => {
   // console.log("decoded", decoded.email);
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4 w-full">
       {user && (
         <div className="flex flex-col gap-2">
           <h3 className="text-md">Write Comment</h3>
@@ -46,11 +46,11 @@ const Comments = ({post}) => {
           </div>
         </div>
       )}
-      <div className="flex flex-col gap-10">
+      <div className="flex flex-col gap-10 w-full">
         <h3 className="flex flex-col gap-4 font-semibold">
           {post.comments.length} Comments <hr />
         </h3>
-        <div className="w-96">
+        <div className="w-full sm:w-96">
           {post && post.comments && post.comments.length > 0 ? (
             post.comments.map(c => (
               <div className="flex flex-col flex-wrap gap-2 rounded-lg p-2 w-full">

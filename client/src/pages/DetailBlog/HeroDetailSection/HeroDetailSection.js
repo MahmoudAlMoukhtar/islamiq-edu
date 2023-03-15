@@ -14,11 +14,11 @@ const HeroDetailSection = ({post}) => {
           className="w-full relative brightness-[0.30]"
         />
       </div>
-      <div className="flex flex-col items-center gap-6 absolute  text-white top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] ">
+      <div className="flex flex-col items-center gap-6 absolute  text-white top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-full sm:w-auto">
         <h3 className=" text-center text-white text-3xl sm:text-5xl font-md">
           {post.title}
         </h3>
-        <div className="flex justify-center items-center gap-2 text-sm">
+        <div className="flex justify-between sm:justify-center items-center gap-2 text-sm">
           <img
             src="/download.jpg"
             alt="creator post"
