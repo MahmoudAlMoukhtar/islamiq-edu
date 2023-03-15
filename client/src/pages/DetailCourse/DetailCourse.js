@@ -76,8 +76,8 @@ const DetailCourse = () => {
             )}
             {c.video && (
               <iframe
-                width="853"
-                height="480"
+                width="100%"
+                className="h-[300px] sm:h-[400px]"
                 src={`https://www.youtube.com/embed/${c.video}`}
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
