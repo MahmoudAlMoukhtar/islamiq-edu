@@ -37,7 +37,7 @@ export default function App() {
   return (
     <React.Fragment>
       <ScrollToTop />
-      <div className="flex flex-col justify-between items-center  h-full relative">
+      <div className="flex flex-col justify-between items-center  h-full relative w-full">
         <TopBar />
         <Navbar setNavBarModal={setNavBarModal} navbarModal={navBarModal} />
         <NavbarModal
