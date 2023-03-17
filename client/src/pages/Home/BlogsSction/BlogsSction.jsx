@@ -65,9 +65,14 @@ const BlogsSection = () => {
         <span className="h-2 w-40 bg-[#ffc265]" />
       </div>
 
-      <div className="flex gap-20 sm:gap-4 justify-center items-center flex-wrap w-full px-2 sm:px-4 sm:px-20">
+      <motion.div
+        whileInView={{opacity: 1}}
+        initial={{opacity: 0}}
+        transition={{duration: 0.7}}
+        className="flex gap-20 sm:gap-4 justify-center items-center flex-wrap w-full px-2 sm:px-4 sm:px-20"
+      >
         {blogsData.map(b => <BlogItem b={b} key={b._id} />).slice(0, 3)}
-      </div>
+      </motion.div>
       <Link
         to="/blogs"
         className="flex gap-2 items-center bg-[#FF932D] rounded-full py-4 px-8 font-bold"

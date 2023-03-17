@@ -21,6 +21,10 @@ const WhyUS = () => {
     visible: {
       y: 0,
       opacity: 1,
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.2,
+      },
     },
   };
 
