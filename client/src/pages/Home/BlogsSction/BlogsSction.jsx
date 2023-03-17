@@ -8,6 +8,8 @@ import {Link} from "react-router-dom";
 import * as api from "../../../api/index";
 
 const BlogItem = ({b}) => {
+  const [t, i18n] = useTranslation();
+
   return (
     <Link
       to={`/blogs/${b._id}`}
@@ -20,13 +22,17 @@ const BlogItem = ({b}) => {
         className="w-80 sm:w-96 h-[250px] rounded-t-md"
       />
       <div className="flex flex-col justify-end items-start gap-10 text-start h-full w-full">
-        <p className="text-2xl font-semibold  px-4">{b.title}</p>
+        <p className="text-2xl font-semibold  px-4">
+          {i18n.language === "en" ? b.title : b.titleAr}
+        </p>
         <p className="w-full  px-4">
-          {b.message.substr(0, 200)}
+          {i18n.language === "en"
+            ? b.message.substr(0, 200)
+            : b.messageAr.substr(0, 200)}
           <span className="mx-1 opacity-[0.6] text-3xl">.....</span>
         </p>
         <button className="rounded bg-[#FF932D] py-2 px-4 w-full font-bold">
-          See more
+          {i18n.language === "en" ? "See more" : "رؤية المزيد"}
         </button>
       </div>
     </Link>
@@ -48,6 +54,9 @@ const BlogsSection = () => {
   if (loading) return <h1>Loading...</h1>;
   return (
     <motion.section
+      whileInView={{y: 0, opacity: 1}}
+      initial={{y: "200px", opacity: 0}}
+      transition={{duration: 0.7}}
       id="blogs"
       className="flex flex-col  justify-center items-center gap-10 py-10 bg-[#f2ede7] w-full my-40"
     >
@@ -57,13 +66,14 @@ const BlogsSection = () => {
       </div>
 
       <div className="flex gap-20 sm:gap-4 justify-center items-center flex-wrap w-full px-2 sm:px-4 sm:px-20">
-        {blogsData.map(b => (
-          <BlogItem b={b} />
-        ))}
+        {blogsData.map(b => <BlogItem b={b} key={b._id} />).slice(0, 3)}
       </div>
-      <button className="flex gap-2 items-center bg-[#FF932D] rounded-full py-4 px-8 font-bold">
+      <Link
+        to="/blogs"
+        className="flex gap-2 items-center bg-[#FF932D] rounded-full py-4 px-8 font-bold"
+      >
         {t("titleblogs")}
-      </button>
+      </Link>
     </motion.section>
   );
 };

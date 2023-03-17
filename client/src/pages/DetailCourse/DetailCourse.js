@@ -10,7 +10,9 @@ import {AiOutlineWhatsApp} from "react-icons/ai";
 import {FaQuoteLeft, FaQuoteRight} from "react-icons/fa";
 import * as api from "../../api/index";
 import jwt_decode from "jwt-decode";
+import {useTranslation} from "react-i18next";
 const DetailCourse = () => {
+  const [t, i18n] = useTranslation();
   const {id} = useParams();
   const user = JSON.parse(localStorage.getItem("userIqraa"));
   const navigate = useNavigate();
@@ -47,11 +49,13 @@ const DetailCourse = () => {
             {i === 0 && (
               <div className="flex flex-col sm:flex-row sm:justify-between items-center gap-2 w-full px-4">
                 <h2 className="text-3xl sm:text-xl md:text-3xl font-bold w-full text-center sm:text-start">
-                  {`${course.title}`.toUpperCase()}
+                  {i18n.language === "en"
+                    ? `${course.title}`.toUpperCase()
+                    : `${course.titleAr}`.toUpperCase()}
                 </h2>
                 <div className="flex justify-center ">
                   <button className="bg-[#ffc265] px-4 py-2 rounded text-md w-40 font-bold">
-                    Show Fees
+                    {i18n.language === "en" ? "Show Fees" : "رؤية الأسعار"}
                   </button>
                   <a
                     href="http://wa.me/+201012750418"
@@ -85,7 +89,9 @@ const DetailCourse = () => {
                 title="Embedded youtube"
               />
             )}
-            <p className="text-lg p-4">{c.description}</p>
+            <p className="text-lg p-4">
+              {i18n.language === "en" ? c.description : c.descriptionAr}
+            </p>
           </div>
         ))}
         {user && (
@@ -95,7 +101,9 @@ const DetailCourse = () => {
                 <FaQuoteLeft size={25} />
               </div>
               <p className="text-2xl sm:text-3xl lg:text-5xl font-bold">
-                Write Your Testimonial
+                {i18n.language === "en"
+                  ? "Write Your Testimonial"
+                  : "أكتب توصية"}
               </p>
               <div>
                 <FaQuoteRight size={25} />
@@ -103,6 +111,8 @@ const DetailCourse = () => {
             </label>
             <textarea
               type="text"
+              required
+              maxLength={220}
               placeholder="Write Your Testimonial"
               className="w-full p-4 h-60"
               value={testemionalValue}
@@ -112,7 +122,7 @@ const DetailCourse = () => {
               className="p-4 w-full text-xl font-bold bg-[#4caf50] hover:bg-[#FF932D] text-white"
               onClick={handleSubmitTestmional}
             >
-              SUBMIT
+              {i18n.language === "en" ? "SUBMIT" : "أرسل"}
             </button>
           </form>
         )}

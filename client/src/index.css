@@ -12,7 +12,8 @@ body {
     background-position: center;
     background-size: cover; */
   height: 100vh;
-  color: #f5cd9c;
+  
+
 }
 #test {
   background-size: cover;
@@ -78,3 +79,5 @@ body {
                           background: #FF932D;
                           border-radius: 10px;
                         }
+
+           

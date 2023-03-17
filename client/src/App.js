@@ -18,6 +18,8 @@ import {BsChatDotsFill, BsTelegram, BsWhatsapp} from "react-icons/bs";
 import DetailCourse from "./pages/DetailCourse/DetailCourse";
 import DetailBlog from "./pages/DetailBlog/DetailBlog";
 import {motion} from "framer-motion";
+import BlogsPage from "./pages/Blogs/Blogs";
+import * as api from "./api/index";
 export default function App() {
   const [navBarModal, setNavBarModal] = useState(false);
   const [show, setShow] = useState(false);
@@ -25,12 +27,12 @@ export default function App() {
   const {loading} = useSelector(state => state.products);
 
   useEffect(() => {
+    const makeRequest = async () => {
+      await api.getTestimoials();
+    };
     dispatch(fetchAllProductsAction());
+    makeRequest();
   }, []);
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(fetchAllProductsAction());
-  // }, []);
 
   if (loading) return <Spinner />;
 
@@ -58,12 +60,13 @@ export default function App() {
             path="*"
             element={
               <h1 className="flex justify-center text-center w-full min-h-full text-6xl font-bold py-20">
-                Comming soon...
+                Not Found Page
               </h1>
             }
           />
           <Route path="/auth" element={<Auth />} />
           <Route path="/courses/:id" element={<DetailCourse />} />
+          <Route path="/blogs" element={<BlogsPage />} exact />
           <Route path="/blogs/:id" element={<DetailBlog />} />
         </Routes>
         <Footer />

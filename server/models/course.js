@@ -5,6 +5,9 @@ const productSchema = mongoose.Schema(
     title: {
       type: String,
     },
+    titleAr: {
+      type: String,
+    },
     thum: String,
     sections: [
       {
@@ -17,13 +20,9 @@ const productSchema = mongoose.Schema(
         description: {
           type: String,
         },
-      },
-    ],
-    teachers: [
-      {
-        name: String,
-        gender: String,
-        bio: String,
+        descriptionAr: {
+          type: String,
+        },
       },
     ],
   },

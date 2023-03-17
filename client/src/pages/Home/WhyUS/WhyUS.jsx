@@ -28,7 +28,7 @@ const WhyUS = () => {
   return (
     <motion.section
       variants={container}
-      animate="visible"
+      whileInView="visible"
       initial="hidden"
       id="Whyus"
       className="flex flex-col  justify-center items-center gap-20 py-10"
@@ -37,7 +37,12 @@ const WhyUS = () => {
         <h2 className="text-4xl font-bold">{t("titlewhyus")}</h2>
         <span className="h-2 w-40 bg-[#ffc265]" />
       </div>
-      <div className="flex gap-4 justify-center items-center flex-wrap">
+      <motion.div
+        variants={container}
+        whileInView="visible"
+        initial="hidden"
+        className="flex gap-4 justify-center items-center flex-wrap"
+      >
         <motion.div
           variants={item}
           className="item flex flex-col items-center gap-2 sm:gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black px-6 py-4 sm:py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
@@ -194,7 +199,7 @@ const WhyUS = () => {
           />
           <h3 className="text-xs sm:text-sm sm:font-bold">{t("whyus.12")}</h3>
         </motion.div>
-      </div>
+      </motion.div>
     </motion.section>
   );
 };

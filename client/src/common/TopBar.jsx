@@ -3,10 +3,13 @@ import {
   AiFillHourglass,
   AiOutlineWhatsApp,
 } from "react-icons/ai";
-
+import {motion} from "framer-motion";
 const TopBar = () => {
   return (
-    <header className="flex justify-center gap-6 sm:justify-between items-center bg-[#ffc265]  sm:px-20 w-full py-4 sm:py-2 text-[#000]">
+    <header
+     
+      className="flex  gap-6 justify-between items-center bg-[#ffc265]  px-4 sm:px-20 w-full py-4 sm:py-2 text-[#000]"
+    >
       <a href="#" className="hidden absolute sm:block sm:static">
         <div className="flex  gap-2 items-start ">
           <img src="/test.png" className="w-32" alt="iqraa" />
@@ -15,10 +18,13 @@ const TopBar = () => {
       <a
         target="blank"
         href="https://www.facebook.com/profile.php?id=100090853364224"
-        className="flex justify-center items-center gap-2 "
+        className="flex justify-center items-end gap-2 "
       >
         <AiFillFacebook className="text-3xl sm:text-6xl" />
-        <div className="flex flex-col text-center text-xs md:text-lg">
+        <div className="flex flex-col text-start text-xs md:text-lg">
+          <p className="text-xs sm:text-md sm:font-bold">
+            IQRA In the name of Allah
+          </p>
           <p className="font-bold text-[#4caf50]">Facebook</p>
         </div>
       </a>

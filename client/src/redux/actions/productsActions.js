@@ -8,7 +8,6 @@ import {
 export const fetchAllProductsAction = () => async dispatch => {
   try {
     const {data} = await api.fetchCourses();
-    console.log(data);
     dispatch({type: FETCH_PRODUCTS, payload: data});
     dispatch({type: LOADING_PRODUCTS, payload: false});
   } catch (err) {

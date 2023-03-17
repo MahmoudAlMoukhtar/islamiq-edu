@@ -4,9 +4,29 @@ import {Swiper, SwiperSlide} from "swiper/react";
 import {Autoplay, Pagination} from "swiper";
 import "swiper/css";
 import {useTranslation} from "react-i18next";
-
+import {useEffect} from "react";
+import {useState} from "react";
+import * as api from "../../../api/index";
 const Testimonials = () => {
   const [t, i18n] = useTranslation();
+  const [data, setDataTestimonials] = useState();
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const makeRequest = async () => {
+      try {
+        const res = await api.getTestimoials();
+        setDataTestimonials(res.data);
+      } catch (err) {
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
+    };
+    makeRequest();
+  }, []);
+
   const item = {
     hidden: {y: 50, opacity: 0},
     visible: {
@@ -14,7 +34,8 @@ const Testimonials = () => {
       opacity: 1,
     },
   };
-
+  if (error) return <h1 className="text-red-800">error</h1>;
+  if (loading) return <h1 className="text-red-800">Loading</h1>;
   return (
     <motion.section
       variants={item}
@@ -36,6 +57,25 @@ const Testimonials = () => {
           autoplay={{delay: 2000}}
           className="cursor-grap"
         >
+          {data.map(t => (
+            <SwiperSlide className="w-[500px] h-[200px]" key={t._id}>
+              <div className="flex justify-between items-start gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 text-center w-full">
+                <div className="flex flex-col items-center w-40">
+                  <img
+                    loading="lazy"
+                    src="/student.jpg"
+                    className="w-40 rounded-md"
+                    alt="experience"
+                  />
+                  <h4 className="text-sm font-bold">{t.firstName}</h4>
+                  <p>Student</p>
+                </div>
+                <p className="text-start text-sm font-bold w-96">
+                  {t.message.slice(0, 220)}
+                </p>
+              </div>
+            </SwiperSlide>
+          ))}
           <SwiperSlide className="w-[500px] h-[200px]">
             <div className="flex justify-between items-start gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 text-center w-full">
               <div className="flex flex-col items-center w-40">

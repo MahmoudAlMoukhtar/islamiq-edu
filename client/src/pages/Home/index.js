@@ -29,7 +29,12 @@ const HomePage = () => {
   };
 
   return (
-    <div className="flex flex-col items-center w-full relative min-h-screen">
+    <motion.div
+      initial={{opacity: 0}}
+      animate={{opacity: 1}}
+      transition={{duration: 0.7}}
+      className="flex flex-col items-center w-full relative min-h-screen"
+    >
       <HeroSection />
       <WhyUS />
       <Courses />
@@ -38,7 +43,7 @@ const HomePage = () => {
       <Testimonials />
       <CustomizedAccordions />
       <ToastContainer />
-    </div>
+    </motion.div>
   );
 };
 

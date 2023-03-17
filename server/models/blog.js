@@ -5,10 +5,16 @@ const blogSchema = mongoose.Schema(
     title: {
       type: String,
     },
+    titleAr: {
+      type: String,
+    },
     image: {
       type: String,
     },
     message: {
+      type: String,
+    },
+    messageAr: {
       type: String,
     },
     comments: {

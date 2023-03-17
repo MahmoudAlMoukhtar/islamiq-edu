@@ -12,6 +12,7 @@ export default function Blog() {
   const {id} = useParams();
   const [datablog, setDatablog] = useState();
   const [fileData, setFileData] = useState("");
+  const [imageValueBlog, setImageValueBlog] = useState("");
 
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -21,7 +22,6 @@ export default function Blog() {
       try {
         const response = await api.fetchPostById(id);
         setDatablog(response.data);
-        console.log(datablog);
       } catch (err) {
         setError(true);
       } finally {
@@ -50,29 +50,34 @@ export default function Blog() {
         );
       });
     const image = await resizeFile(file);
-    //console.log(image);
     const validFileTypes = ["image/jpg", "image/jpeg", "image/png"];
     if (!validFileTypes.find(type => type === file.type)) {
       setError("File must be in JPG/PNG format");
       return;
     } else {
       setFileData(image);
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        setDatablog({...datablog, image: e.target.result});
+      };
+      reader.readAsDataURL(file);
     }
   };
 
   const handleUpdate = async e => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append("image", fileData);
+    if (fileData) {
+      formData.append("image", fileData);
+    }
     formData.append("title", datablog.title);
+    formData.append("titleAr", datablog.titleAr);
     formData.append("message", datablog.message);
-    console.log(datablog);
+    formData.append("messageAr", datablog.messageAr);
     setLoading(true);
     const res = await api.updatePost(id, formData);
     setLoading(false);
-    console.log("tset");
     setDatablog(res.data);
-    console.log("res.data", res.data);
   };
 
   if (error) return <h1 className="text-red-800">error</h1>;
@@ -140,7 +145,7 @@ export default function Blog() {
           </div>
         </form>
         <div className="blogFormLeft">
-          <label>blog Title</label>
+          <label>Blog Title In English Language</label>
           <input
             type="text"
             placeholder="Apple AirPod"
@@ -148,13 +153,33 @@ export default function Blog() {
             onChange={e => setDatablog({...datablog, title: e.target.value})}
           />
         </div>
+        <div className="blogFormLeft">
+          <label>عنوان المدونة باللغة العربية</label>
+          <input
+            type="text"
+            placeholder="عنوان المدونة باللغة العربية"
+            className="w-full"
+            onChange={e => setDatablog({...datablog, titleAr: e.target.value})}
+          />
+        </div>
         <div className="flex flex-col my-4">
-          <label>message</label>
+          <label>Blog Message In English Language</label>
           <textarea
             type="text"
             placeholder="blog message"
             className="w-full border-b-[1px] border-black rounded"
             onChange={e => setDatablog({...datablog, message: e.target.value})}
+          />
+        </div>
+        <div className="flex flex-col my-4">
+          <label>رسالة المدونة باللغة العربية</label>
+          <textarea
+            type="text"
+            placeholder="رسالة المدونة باللغة العربية"
+            className="w-full border-b-[1px] border-black rounded"
+            onChange={e =>
+              setDatablog({...datablog, messageAr: e.target.value})
+            }
           />
         </div>
         <button

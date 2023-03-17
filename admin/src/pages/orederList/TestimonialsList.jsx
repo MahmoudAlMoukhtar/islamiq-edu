@@ -5,6 +5,7 @@ import {useState} from "react";
 import React from "react";
 import {useEffect} from "react";
 import * as api from "../../api/index";
+import {toast, ToastContainer} from "react-toastify";
 
 export default function TestimonialsList() {
   const [data, setDataTestimonials] = useState();
@@ -29,7 +30,7 @@ export default function TestimonialsList() {
     const res = await api.deleteTestimonialById(id);
     setDataTestimonials(data.filter(item => item.id !== res.data._id));
   };
-  console.log(data);
+
   if (error) return <h1 className="text-red-800">error</h1>;
   if (loading) return <h1 className="text-red-800">Loading</h1>;
 
@@ -78,7 +79,34 @@ export default function TestimonialsList() {
               <button className="orderListDiplay">Display</button>
             </Link>
             <button>
-              <button className="orderListEdit">Accept</button>
+              <button
+                className="orderListEdit"
+                onClick={() => {
+                  const res = api.updateTestimonial(params.row._id, {
+                    display: true,
+                  });
+                  toast.success(
+                    "This Testimonial Is Display On Main Website In Success"
+                  );
+                }}
+              >
+                Accept
+              </button>
+            </button>
+            <button>
+              <button
+                className="orderListReject"
+                onClick={() => {
+                  const res = api.updateTestimonial(params.row._id, {
+                    display: false,
+                  });
+                  toast.success(
+                    "This Testimonial Is Un Display On Main Website In Success"
+                  );
+                }}
+              >
+                Reject
+              </button>
             </button>
             <button
               className="orderListDelete"
@@ -102,6 +130,7 @@ export default function TestimonialsList() {
         checkboxSelection
         getRowId={row => row._id}
       />
+      <ToastContainer />
     </div>
   );
 }

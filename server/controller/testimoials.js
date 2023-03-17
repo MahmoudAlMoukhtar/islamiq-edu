@@ -2,9 +2,21 @@ const Testimoial = require("../models/testimoial");
 const User = require("../models/User");
 
 const getTestimoials = async (req, res) => {
+  //console.log("testimonialsUsersData");
   try {
+    let testimonialsUsersData = [];
     const testimoials = await Testimoial.find({display: true});
-    res.status(200).json(testimoials);
+    for (let i = 0; i < testimoials.length; i++) {
+      const testimonialUserData = await User.findById(testimoials[i].idUser);
+      //console.log(testimoials[i].idUser);
+      testimonialsUsersData.push({
+        ...testimonialUserData._doc,
+        _id: testimoials[i]._id,
+        message: testimoials[i].message,
+      });
+    }
+    //console.log(testimonialsUsersData);
+    res.status(200).json(testimonialsUsersData);
   } catch (err) {
     res.status(404).json({message: err.message});
   }
@@ -32,7 +44,7 @@ const getTestimoialsDashboard = async (req, res) => {
 
     for (let i = 0; i < testimoials.length; i++) {
       const testimonialUserData = await User.findById(testimoials[i].idUser);
-      console.log(testimoials[i].idUser);
+      //console.log(testimoials[i].idUser);
       testimonialsUsersData.push({
         ...testimonialUserData._doc,
         _id: testimoials[i]._id,
@@ -48,7 +60,7 @@ const getTestimoialsDashboard = async (req, res) => {
 
 const createTestimoials = async (req, res) => {
   const testimoialData = req.body;
-  console.log(testimoialData);
+  //console.log(testimoialData);
   try {
     const newTestimoial = await new Testimoial({
       idUser: testimoialData.idUser,
@@ -76,7 +88,7 @@ const updateTestimoialsById = async (req, res) => {
       }
     );
     res.status(200).json(testimoialUpdated);
-    console.log(testimoialUpdated);
+    //console.log(testimoialUpdated);
   } catch (err) {
     res.status(400).json({message: err.message});
   }

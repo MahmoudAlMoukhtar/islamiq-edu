@@ -7,6 +7,7 @@ import {
   AiFillInstagram,
   AiOutlineMail,
   AiOutlineWhatsApp,
+  AiFillYoutube,
 } from "react-icons/ai";
 import {BiLocationPlus} from "react-icons/bi";
 import {HiLocationMarker} from "react-icons/hi";
@@ -15,9 +16,13 @@ import {Ri24HoursLine} from "react-icons/ri";
 import {useTranslation} from "react-i18next";
 import {toast} from "react-toastify";
 import {FaLanguage} from "react-icons/fa";
+import {useState} from "react";
+import * as api from "../api/index";
+import * as EmailValidator from "email-validator";
 
 const Footer = () => {
   const [t, i18n] = useTranslation();
+  const [emailSubscripe, setEmailSubscripe] = useState();
   return (
     <footer className="flex flex-col items-center gap-10 py-10 px-4 sm:px-10 lg:px-40 w-full bg-[#4caf50]">
       <div className="flex flex-col items-center text-center sm:text-start gap-2 sm:gap-6 text-white">
@@ -26,19 +31,35 @@ const Footer = () => {
           {t("footer.desciptionSubscibe")}
         </p>
         <div className="flex justify-center items-center gap-2 sm:gap-6 text-black">
-          <input
-            type="email"
-            className="rounded-l-full border-2 border-[#FF932D] py-2 px-2 sm:px-4 "
-            placeholder="example@gmail.com"
-          />
-          <button
-            className="bg-[#FF932D] rounded-r-full py-2 px-2 sm:px-4 border-2 border-[#FF932D] font-bold"
-            onClick={() => {
-              toast.success("Signup successfully");
+          <form
+            className=""
+            onSubmit={async e => {
+              e.preventDefault();
+              const testValid = EmailValidator.validate(emailSubscripe);
+              if (testValid) {
+                await api.addEmailSubscripe({email: emailSubscripe});
+                toast.success("Subscribe successfully");
+              } else {
+                toast.error("Error Email not validation");
+              }
             }}
           >
-            {t("footer.button")}
-          </button>
+            <input
+              type="email"
+              required
+              className="rounded-l-full border-2 border-[#FF932D] py-2 px-2 sm:px-4 "
+              placeholder="example@gmail.com"
+              onChange={e => {
+                setEmailSubscripe(e.target.value);
+              }}
+            />
+            <button
+              type="submit"
+              className="bg-[#FF932D] rounded-r-full py-2 px-2 sm:px-4 border-2 border-[#FF932D] font-bold"
+            >
+              {t("footer.button")}
+            </button>
+          </form>
         </div>
       </div>
       <div className="flex flex-col justify-between items-center sm:flex-row sm:justify-between sm:items-start gap-10 flex-wrap sm:flex-nowrap text-white w-full">
@@ -69,7 +90,7 @@ const Footer = () => {
               href="https://www.instagram.com/"
               className="border-[1px] border-gray-700 rounded-full p-[4px] hover:bg-[#FF932D]"
             >
-              <AiFillInstagram size={20} />
+              <AiFillYoutube size={20} />
             </a>
           </ul>
         </div>
@@ -149,20 +170,3 @@ const Footer = () => {
 };
 
 export default Footer;
-/* 
-<a
-                target="blank"
-                href="https://www.instagram.com/"
-                className="text-white text-sm"
-              >
-                INSTGRAM
-              </a>
-              <a
-                target="blank"
-                href="https://twitter.com/"
-                className="text-white text-sm"
-              >
-                TWITTER
-              </a>
-
-*/

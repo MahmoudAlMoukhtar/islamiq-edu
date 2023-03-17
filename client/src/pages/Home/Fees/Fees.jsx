@@ -28,6 +28,28 @@ const Fees = () => {
         "Flexible timing schedule",
       ],
     },
+    static: {
+      titleEN: "Static",
+      titleAR: "اقتصادي",
+      feachers: [
+        "30 Min per sesstion",
+        "3 sessions per week",
+        "Native teachers",
+        "Flexible timing schedule",
+      ],
+    },
+    childern: {
+      titleEN: "Static",
+      titleAR: "اقتصادي",
+      feachers: [
+        "15 min per sesstion",
+        "3 sessions per week",
+        "in teractive tools such as Games,stories, and drawings",
+        "especially for kids from 4-6 year sold",
+        "Native teachers",
+        "Flexible timing schedule",
+      ],
+    },
   };
   const item = {
     hidden: {y: 50, opacity: 0},
@@ -52,7 +74,7 @@ const Fees = () => {
         </p>
         <span className="h-2 w-40 bg-[#ffc265]" />
       </div>
-      <div className="flex flex-col-reverse sm:flex-row gap-10 justify-center w-full px-4  sm:px-40">
+      <div className="flex flex-col-reverse md:flex-row gap-10 justify-center w-full px-4  sm:px-10 md:px-20">
         <div className="flex flex-col gap-8 w-full text-white font-semibold p-4">
           <div className="flex flex-col gap-2 sm:flex-row items-center justify-between w-full">
             <h4 className="text-lg  sm:text-2xl">Details Package Selected</h4>
@@ -67,26 +89,131 @@ const Fees = () => {
           </div>
           {selectedPackage === "family" &&
             packages.family.feachers.map(f => (
-              <div className="flex items-center justify-between w-full  p-2 gap-2">
+              <motion.div
+                initial={{opacity: 0}}
+                animate={{opacity: 1}}
+                transition={{duration: 0.7}}
+                className="flex items-center justify-between w-full  p-2 gap-2"
+                key={f}
+              >
                 {f}
                 <div className="bg-[#FF932D] rounded-full">
                   <BsCheck size={25} />
                 </div>
-              </div>
+              </motion.div>
             ))}
           {selectedPackage === "economic" &&
             packages.economic.feachers.map(f => (
-              <div className="flex items-center justify-between w-full  p-2 gap-2">
+              <motion.div
+                initial={{opacity: 0}}
+                animate={{opacity: 1}}
+                transition={{duration: 0.7}}
+                className="flex items-center justify-between w-full  p-2 gap-2"
+                key={f}
+              >
                 {f}
                 <div className="bg-[#FF932D] rounded-full">
                   <BsCheck size={25} />
                 </div>
-              </div>
+              </motion.div>
+            ))}
+          {selectedPackage === "start" &&
+            packages.static.feachers.map(f => (
+              <motion.div
+                initial={{opacity: 0}}
+                animate={{opacity: 1}}
+                transition={{duration: 0.7}}
+                className="flex items-center justify-between w-full  p-2 gap-2"
+                key={f}
+              >
+                {f}
+                <div className="bg-[#FF932D] rounded-full">
+                  <BsCheck size={25} />
+                </div>
+              </motion.div>
+            ))}
+          {selectedPackage === "childern" &&
+            packages.childern.feachers.map(f => (
+              <motion.div
+                initial={{opacity: 0}}
+                animate={{opacity: 1}}
+                transition={{duration: 0.7}}
+                className="flex items-center justify-between w-full  p-2 gap-2"
+                key={f}
+              >
+                {f}
+                <div className="bg-[#FF932D] rounded-full">
+                  <BsCheck size={25} />
+                </div>
+              </motion.div>
             ))}
         </div>
         <div className="w-full flex flex-col gap-4">
           <div
-            className="rounded-lg bg-[#ffc265] flex justify-between py-8 sm:py-10 px-4 cursor-pointer"
+            className="rounded-lg bg-[#EFEDD6] flex justify-between py-6 sm:py-4 px-2 sm:px-4 cursor-pointer"
+            onClick={() => setSelectedPackage("start")}
+          >
+            <div className="flex items-center gap-4">
+              <div className="bg-[#fff] rounded-full">
+                {selectedPackage === "start" ? (
+                  <BsCheck color="black" size={30} />
+                ) : (
+                  <ImRadioUnchecked color="gray" size={30} />
+                )}
+              </div>
+              <div className="flex flex-col items-start">
+                <h5 className="text-xl sm:text-2xl font-semibold">START</h5>
+                <h5 className="text-xl sm:text-2xl font-bold">6 HRS</h5>
+                <p className="bg-[#fff] rounded-full py-1 px-2 text-xs font-semibold">
+                  Save $10
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-col">
+              <p className="text-sm">
+                <span className="text-2xl sm:text-4xl font-bold">$50</span>
+                /Month
+              </p>
+
+              <span className="line-through	 text-lg sm:text-lg font-bold">
+                $60
+              </span>
+            </div>
+          </div>
+          <div
+            className="rounded-lg bg-[#f5cd9c] flex justify-between py-6 sm:py-4 px-2 sm:px-4 cursor-pointer"
+            onClick={() => setSelectedPackage("childern")}
+          >
+            <div className="flex items-center gap-4">
+              <div className="bg-[#fff] rounded-full">
+                {selectedPackage === "childern" ? (
+                  <BsCheck color="black" size={30} />
+                ) : (
+                  <ImRadioUnchecked color="gray" size={30} />
+                )}
+              </div>
+              <div className="flex flex-col items-start">
+                <h5 className="text-xl sm:text-2xl font-semibold">CHILDERN</h5>
+                <h5 className="text-xl sm:text-2xl font-bold">6 HRS</h5>
+                <p className="bg-[#fff] rounded-full py-1 px-2 text-xs font-semibold">
+                  Save $5
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-col">
+              <p className="text-sm">
+                <span className="text-2xl sm:text-4xl font-bold">$25</span>
+                /Month
+              </p>
+
+              <span className="line-through	 text-lg sm:text-lg font-bold">
+                $30
+              </span>
+            </div>
+          </div>
+
+          <div
+            className="rounded-lg bg-[#ffc265] flex justify-between py-6 sm:py-4 px-4 cursor-pointer"
             onClick={() => setSelectedPackage("family")}
           >
             <div className="flex items-center gap-4">
@@ -117,7 +244,7 @@ const Fees = () => {
             </div>
           </div>
           <div
-            className="rounded-lg bg-[#FF932D] flex justify-between py-8 sm:py-10 px-2 sm:px-4 cursor-pointer"
+            className="rounded-lg bg-[#FF932D] flex justify-between py-6 sm:py-4 px-2 sm:px-4 cursor-pointer"
             onClick={() => setSelectedPackage("economic")}
           >
             <div className="flex items-center gap-4">

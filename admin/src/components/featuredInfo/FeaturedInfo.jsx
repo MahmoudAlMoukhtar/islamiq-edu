@@ -32,35 +32,61 @@ export default function FeaturedInfo() {
   }, []);
 
   if (error) return <h1 className="text-red-800">error</h1>;
-  if (loading)
-    return (
-      <GridLoader
-        color={"#0000"}
-        loading={loading}
-        size={150}
-        aria-label="Loading Spinner"
-        data-testid="loader"
-      />
-    );
   return (
     <div className="featured mb-4">
       <div className="featuredItem flex flex-col items-center justify-center gap-6">
         <span className="text-4xl">USERS</span>
         <div className="featuredMoneyContainer">
-          <span className="featuredMoney">{dataUsers.length}</span>
+          <span className="featuredMoney">
+            {loading ? (
+              <GridLoader
+                color={"#000"}
+                loading={loading}
+                size={20}
+                aria-label="Loading Spinner"
+                data-testid="loader"
+              />
+            ) : (
+              dataUsers.length
+            )}
+          </span>
         </div>
       </div>
       <div className="featuredItem flex flex-col items-center justify-center gap-6">
         <span className="text-4xl">Courses</span>
         <div className="featuredMoneyContainer">
-          <span className="featuredMoney">{dataCourses.length}</span>
+          <span className="featuredMoney">
+            {loading ? (
+              <GridLoader
+                color={"#000"}
+                loading={loading}
+                size={20}
+                aria-label="Loading Spinner"
+                data-testid="loader"
+              />
+            ) : (
+              dataCourses.length
+            )}
+          </span>
         </div>
       </div>
 
       <div className="featuredItem flex flex-col items-center justify-center gap-6">
         <span className="text-4xl">Blogs</span>
         <div className="featuredMoneyContainer">
-          <span className="featuredMoney">{dataBlogs.length}</span>
+          <span className="featuredMoney">
+            {loading ? (
+              <GridLoader
+                color={"#000"}
+                loading={loading}
+                size={20}
+                aria-label="Loading Spinner"
+                data-testid="loader"
+              />
+            ) : (
+              dataBlogs.length
+            )}
+          </span>
         </div>
       </div>
     </div>
@@ -93,4 +119,13 @@ export default function FeaturedInfo() {
         <span className="featuredSub">Compared to last month</span>
       </div>
 
+*/
+/* 
+<GridLoader
+        color={"#000"}
+        loading={loading}
+        size={50}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+      />
 */

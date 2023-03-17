@@ -8,7 +8,6 @@ import {useDispatch, useSelector} from "react-redux";
 const Courses = () => {
   const [t, i18n] = useTranslation();
   const {products: courses} = useSelector(state => state.products);
-  console.log(courses);
   const item = {
     hidden: {y: 50, opacity: 0},
     visible: {
@@ -18,6 +17,9 @@ const Courses = () => {
   };
   return (
     <motion.section
+      whileInView={{y: 0, opacity: 1}}
+      initial={{y: "200px", opacity: 0}}
+      transition={{duration: 0.7}}
       id="courses"
       className="flex flex-col  justify-center items-center  mt-20 py-10 w-full"
     >
@@ -29,6 +31,7 @@ const Courses = () => {
         {courses
           .map(c => (
             <Link
+              key={c._id}
               to={`/courses/${c._id}`}
               variants={item}
               className="item flex flex-col items-center justify-between hover:text-black  transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px] bg-[#FF932D] rounded-t-full pt-4   cursor-pointer hover:translate-y-[-10px] sm:mb-10"
@@ -41,7 +44,7 @@ const Courses = () => {
                 alt="Islamic-Studies"
               />
               <h3 className="text-xs sm:text-sm font-semibold bg-[#4caf50] text-white w-full h-6 sm:h-10 text-lg">
-                {c.title}
+                {i18n.language === "en" ? c.title : c.titleAr}
               </h3>
             </Link>
           ))

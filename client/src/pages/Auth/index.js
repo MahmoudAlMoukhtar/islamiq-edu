@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {BiShowAlt, BiHide} from "react-icons/bi";
 import {useNavigate} from "react-router-dom";
 import * as api from "../../api/index";
@@ -8,6 +8,9 @@ import {useTranslation} from "react-i18next";
 import {LazyLoadImage} from "react-lazy-load-image-component";
 import {useDispatch} from "react-redux";
 import {signin} from "../../redux/actions/auth";
+import "react-phone-number-input/style.css";
+import flags from "react-phone-number-input/flags";
+import PhoneInput from "react-phone-number-input";
 
 const initialState = {
   firstName: "",
@@ -23,13 +26,14 @@ const Auth = () => {
   const [formData, setFormData] = useState(initialState);
   const [showPassword, setShowPassword] = useState(false);
   const [isSignup, setIsSignup] = useState(true);
+  const [value, setValue] = useState();
   const navigait = useNavigate();
   const dispatch = useDispatch();
 
   const handleSubmit = async e => {
     e.preventDefault();
     if (isSignup) {
-      const {data} = await api.signup(formData);
+      const {data} = await api.signup({...formData, phone: value});
       localStorage.setItem("userIqraa", JSON.stringify(data));
       navigait("/");
     } else {
@@ -111,14 +115,17 @@ const Auth = () => {
                     <label htmlFor="phone" className="">
                       {t("authPage.ph")}
                     </label>
-                    <input
-                      id="phone"
-                      name="phone"
-                      type="number"
-                      required
-                      className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-400 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                      placeholder="Phone"
-                      onChange={handleTextFieldChange}
+
+                    <PhoneInput
+                      flags={flags}
+                      placeholder="Enter phone number"
+                      value={value}
+                      inputStyle={{
+                        padding: "2px 3px !important",
+                      }}
+                      defaultCountry={"EG"}
+                      onChange={setValue}
+                      addInternationalOption={false}
                     />
                   </div>
                   <div className="my-2">
@@ -127,6 +134,7 @@ const Auth = () => {
                     </label>
                     <select
                       id="gender"
+                      required
                       name="gender"
                       className="w-full p-4 rounded cursor-pointer"
                       onChange={handleTextFieldChange}
@@ -246,3 +254,14 @@ const Auth = () => {
 };
 
 export default Auth;
+/* 
+    <input
+                      id="phone"
+                      name="phone"
+                      type="number"
+                      required
+                      className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-400 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                      placeholder="Phone"
+                      onChange={handleTextFieldChange}
+                    />
+*/

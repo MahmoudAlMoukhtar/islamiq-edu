@@ -16,7 +16,7 @@ app.use(cors());
 app.use("/api/blogs", blogRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/courses", coursesRoutes);
-app.use("/api/news", newsRouter);
+app.use("/api/newsLetter", newsRouter);
 app.use("/api/testimoials", TestimoialsRouter);
 
 const PORT = process.env.PORT || 3001;

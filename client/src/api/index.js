@@ -30,3 +30,6 @@ export const fetchCourseById = id => API.get(`/courses/${id}`);
 export const getTestimoials = () => API.get("/testimoials");
 export const sendTestemional = data => API.post("/testimoials", data);
 //export const fetchCourseById = id => API.get(`/courses/${id}`);
+//email
+export const addEmailSubscripe = data =>
+  API.post("/newsLetter/addEmailSubscripe", data);

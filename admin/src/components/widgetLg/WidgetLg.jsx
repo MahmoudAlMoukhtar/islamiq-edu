@@ -62,10 +62,7 @@ export default function WidgetLg() {
             <td className="widgetLgAmount">{u.phone}</td>
             <td className="widgetLgAmount">{u.email}</td>
             <td className="widgetLgStatus">
-              <Link
-                to={`/users/${u._id}`}
-                className="bg-orange-100 rounded p-2"
-              >
+              <Link to={`/user/${u._id}`} className="bg-orange-100 rounded p-2">
                 Display
               </Link>
             </td>

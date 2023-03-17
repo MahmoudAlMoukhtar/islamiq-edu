@@ -32,6 +32,28 @@ const deleteUserById = async (req, res) => {
     res.status(404).json({message: err.message});
   }
 };
+const updateUserById = async (req, res) => {
+  const {id: _id} = req.params;
+  const updates = req.body;
+  console.log(_id);
+
+  try {
+    const userUpdated = await User.findByIdAndUpdate(
+      _id,
+      {
+        ...updates,
+      },
+      {
+        new: true,
+      }
+    );
+    console.log(userUpdated);
+
+    res.status(200).json(userUpdated);
+  } catch (err) {
+    res.status(404).json({message: err.message});
+  }
+};
 
 const signin = async (req, res) => {
   const {email, password} = req.body;
@@ -102,4 +124,5 @@ module.exports = {
   fetchAllUsers,
   deleteUserById,
   fetchUserById,
+  updateUserById,
 };

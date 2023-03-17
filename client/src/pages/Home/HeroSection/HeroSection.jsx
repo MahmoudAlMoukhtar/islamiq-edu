@@ -89,10 +89,10 @@ const HeroSection = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide className="">
-          <LazyLoadImage
+          <img
             effect="blur"
             loading="lazy"
-            src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678308674/islamiq/vecteezy_verses-of-the-holy-quran_6034228_263_anazif.jpg"
+            src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678962796/photo1678924784_ha4cys.jpg"
             className="w-full relative object-cover h-[300px] sm:h-full"
           />
           <div className="flex flex-col items-center justify-center text-center gap-6 w-full absolute top-[50%] left-[50%] sm:px-20 translate-x-[-50%] translate-y-[-50%] sm:translate-y-[-80%] ">

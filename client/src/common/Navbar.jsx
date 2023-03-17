@@ -6,7 +6,7 @@ import {toast} from "react-toastify";
 import {useTranslation} from "react-i18next";
 const styles = {
   linkPages:
-    "text-lg md:text-lg font-semibold py-[4px] px-2 lg:px-4 hover:bg-[#FF932D] transtion duration-200 text-white rounded",
+    "text-lg sm:text-[15px] md:text-[16px] lg:text-lg font-semibold py-[4px] px-2 lg:px-4 hover:bg-[#FF932D] transtion duration-200 text-white rounded",
 };
 
 const activeStyle = {
@@ -40,7 +40,7 @@ const Navbar = ({setNavBarModal, navbarModal}) => {
   }, [pathname, hash, key]);
 
   return (
-    <nav className="flex justify-between items-center gap-2 py-2 sm:py-4 px-4 sm:px-20 md:px-20 w-full shadow-xl text-white bg-[#4caf50] ">
+    <nav className="flex justify-between items-center gap-2 py-2 sm:py-4 px-4  lg:px-20 w-full shadow-xl text-white bg-[#4caf50] ">
       <div className="flex justify-center">
         <Link to="/" className="sm:hidden">
           <h2 className="font-bold text-xl">IQRAA</h2>
@@ -71,9 +71,6 @@ const Navbar = ({setNavBarModal, navbarModal}) => {
 
           <Link to="/#blogs" end className={styles.linkPages}>
             {t("nav.blogs")}
-          </Link>
-          <Link to="/#blogs" end className={styles.linkPages}>
-            {t("nav.contact")}
           </Link>
         </ul>
       </div>
@@ -111,3 +108,6 @@ const Navbar = ({setNavBarModal, navbarModal}) => {
 
 export default Navbar;
 /* bg-[#4caf50] */
+/*    <Link to="/#blogs" end className={styles.linkPages}>
+            {t("nav.contact")}
+          </Link> */

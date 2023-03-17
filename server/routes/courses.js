@@ -18,7 +18,7 @@ router.post(
   parser.array("images"),
   createCourse
 );
-router.put("/:id", parser.single("image"), updateCourse);
+router.put("/:id", parser.array("images"), updateCourse);
 router.delete("/:id", deleteCourseById);
 router.patch("/sections/:id", deleteSection);
 

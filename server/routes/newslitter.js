@@ -5,13 +5,16 @@ let hbs = require("nodemailer-express-handlebars");
 const path = require("path");
 
 const router = express.Router();
+const parser = require("../utils/cloudinary");
+const EmailSubscripe = require("../models/emailSubscripe");
 
-router.post("/", (req, res) => {
+router.post("/", parser.single("imageNewsLetter"), async (req, res) => {
+  console.log(req.body);
   let transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
       user: process.env.EMAIL, // generated ethereal user
-      pass: process.env.PASSWORD_EMAIL, // generated ethereal password
+      pass: req.body.password, // generated ethereal password
     },
   });
 
@@ -26,7 +29,48 @@ router.post("/", (req, res) => {
   };
 
   transporter.use("compile", hbs(handlebarOptions));
+  const emailsSubscribes = await EmailSubscripe.find();
+  //console.log(emailsSubscribes);
 
+  for (let i = 0; i < emailsSubscribes.length; i++) {
+    transporter.sendMail(
+      {
+        from: process.env.EMAIL,
+        to: emailsSubscribes[i].email,
+        subject: req.body.title,
+        template: "index",
+        context: {
+          message: req.body.message,
+          image: req.file.path,
+        },
+      },
+      function (err) {
+        if (err) {
+          return;
+        }
+      }
+    );
+  }
+  res.status(200).json({message: "send email success!"});
+});
+
+router.post("/addEmailSubscripe", async (req, res) => {
+  const data = req.body;
+  console.log(data);
+  try {
+    const newEmailSubscripe = await new EmailSubscripe({
+      email: data.email,
+    });
+    await newEmailSubscripe.save();
+    res.status(201).json(newEmailSubscripe);
+  } catch {
+    res
+      .status(400)
+      .json({message: "error in serverside when try post subscribe email"});
+  }
+});
+module.exports = router;
+/* 
   // Configure mailgen by setting a theme and your product info
   let MailGenerator = new Mailgen({
     theme: "default",
@@ -54,18 +98,4 @@ router.post("/", (req, res) => {
   };
 
   let mail = MailGenerator.generate(response);
-  transporter.sendMail({
-    from: process.env.EMAIL,
-    to: "mahmoudalmoukhtar544@gmail.com",
-    subject: "test email with nodemailer",
-    template: "index",
-    context: {
-      title: "TESTTTTTTTTTTT",
-    },
-
-    // html: mail,
-  });
-  res.status(200).json({message: "you should recive email"});
-});
-
-module.exports = router;
+*/

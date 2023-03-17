@@ -12,8 +12,7 @@ const getCourses = async (req, res) => {
 };
 
 const createCourse = async (req, res) => {
-  const {title, sections, teachers} = req.body;
-  //console.log(req.files);
+  const {title, titleAr, sections} = req.body;
   const parseSections = JSON.parse(sections);
   let sectionsHandled = [];
   try {
@@ -22,6 +21,7 @@ const createCourse = async (req, res) => {
         sectionsHandled.push({
           image: req.files[i + 1].path,
           description: parseSections[i].description,
+          descriptionAr: parseSections[i].descriptionAr,
           video: parseSections[i].video,
         });
       }
@@ -33,19 +33,57 @@ const createCourse = async (req, res) => {
         });
       }
     }
-    // console.log("sectionsHandled");
-    //console.log(sectionsHandled);
-    //console.log(req.files[0].path);
 
     const newCourse = await new Course({
       title,
+      titleAr,
       thum: req.files[0].path,
       sections: sectionsHandled,
-      teachers: JSON.parse(teachers),
     });
     await newCourse.save();
-    //console.log(newCourse);
+    console.log(newCourse);
     res.status(201).json(newCourse);
+  } catch (err) {
+    res.status(400).json({message: err.message});
+  }
+};
+
+const updateCourse = async (req, res) => {
+  const {id: _id} = req.params;
+  const updates = req.body;
+  const parseSections = JSON.parse(updates.sections);
+  let sectionsHandled = [];
+
+  if (req.files.length > 1) {
+    for (let i = 0; i < parseSections.length; i++) {
+      sectionsHandled.push({
+        image: req.files[i + 1].path,
+        description: parseSections[i].description,
+        video: parseSections[i].video,
+      });
+    }
+  } else {
+    for (let i = 0; i < parseSections.length; i++) {
+      sectionsHandled.push({
+        description: parseSections[i].description,
+        video: parseSections[i].video,
+      });
+    }
+  }
+
+  try {
+    const course = await Course.findByIdAndUpdate(
+      _id,
+      {
+        title: updates.title,
+        thum: req.files[0].path,
+        sections: sectionsHandled,
+      },
+      {
+        new: true,
+      }
+    );
+    res.status(200).json(course);
   } catch (err) {
     res.status(400).json({message: err.message});
   }
@@ -65,23 +103,6 @@ const deleteCourseById = async (req, res) => {
   const {id: _id} = req.params;
   try {
     const course = await Course.findByIdAndDelete(_id);
-    res.status(200).json(course);
-  } catch (err) {
-    res.status(400).json({message: err.message});
-  }
-};
-
-const updateCourse = async (req, res) => {
-  const {id: _id} = req.params;
-  const updates = req.body;
-  try {
-    const course = await Course.findByIdAndUpdate(
-      _id,
-      {...updates, image: uploadedCloudniary.url},
-      {
-        new: true,
-      }
-    );
     res.status(200).json(course);
   } catch (err) {
     res.status(400).json({message: err.message});

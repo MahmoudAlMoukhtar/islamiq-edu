@@ -24,8 +24,7 @@ export const deletePost = id => API.delete(`/blogs/${id}`);
 //AUTH Operation
 export const signin = formData => API.post("/user/signin", formData);
 export const signup = formData => API.post("/user/signup", formData);
-export const updateProfile = (id, updates) =>
-  API.put(`/user/updateProfile/${id}`, updates);
+export const updateUser = (id, updates) => API.put(`/user/${id}`, updates);
 
 //courses
 export const fetchCourses = () => API.get("/courses");
@@ -54,3 +53,7 @@ export const deleteTestimonialById = id => API.delete(`/testimoials/${id}`);
 // export const addNotify = notify => API.post(`/notify`, notify);
 // export const fetchNotifycations = () => API.get("/notify");
 // export const updateNotifycations = id => API.get(`/notify/${id}`);
+
+//newsLetter
+export const createNewsLetter = newsLetter =>
+  API.post("/newsLetter", newsLetter);

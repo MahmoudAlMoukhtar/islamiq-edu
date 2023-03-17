@@ -17,6 +17,7 @@ import Course from "./pages/course/Course";
 import "react-toastify/dist/ReactToastify.css";
 import TestimonialsList from "./pages/orederList/TestimonialsList";
 import Testimonial from "./pages/testimonial/Testimonial";
+import NewNewsLetter from "./pages/newsLetter/NewsLetter";
 
 function App() {
   const [theme, selectTheme] = useState("white");
@@ -33,19 +34,19 @@ function App() {
           <Route exact path="/">
             <Home theme={theme} selectTheme={selectTheme} />
           </Route>
-          <Route path="/users">
+          <Route path="/users" exact>
             <UserList />
           </Route>
           <Route path="/user/:userId">
             <User />
           </Route>
-          <Route path="/newUser">
+          <Route path="/newUser" exact>
             <NewUser />
           </Route>
-          <Route path="/courses">
+          <Route path="/courses" exact>
             <CoursesList />
           </Route>
-          <Route path="/blogs">
+          <Route path="/blogs" exact>
             <BlogsList />
           </Route>
           <Route path="/course/:id">
@@ -65,6 +66,9 @@ function App() {
           </Route>
           <Route path="/testimonials/:id">
             <Testimonial />
+          </Route>
+          <Route path="/newsLetter">
+            <NewNewsLetter />
           </Route>
         </Switch>
       </div>

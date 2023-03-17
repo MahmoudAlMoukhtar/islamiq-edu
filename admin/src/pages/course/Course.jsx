@@ -9,7 +9,9 @@ export default function Course() {
   const {id} = useParams();
   const [courseData, setCourseData] = useState();
   const [imagesSections, setImagesSections] = useState([]);
+  const [imageThum, setImageThum] = useState();
   const [imageValue, setImageValue] = useState();
+  const [imageValueSection, setImageValueSection] = useState();
   const [sectionData, setSectionData] = useState({
     description: "",
   });
@@ -21,6 +23,8 @@ export default function Course() {
       try {
         const response = await api.fetchCourseById(id);
         setCourseData(response.data);
+        setImageThum(response.data.thum);
+        setImageValue(response.data.thum);
       } catch (err) {
         setError(true);
       } finally {
@@ -32,8 +36,8 @@ export default function Course() {
 
   const handleAddSection = async e => {
     e.preventDefault();
-    console.log(imagesSections);
-    console.log(sectionData);
+    // console.log(imagesSections);
+    // console.log(sectionData);
     setCourseData({
       ...courseData,
       sections: [...courseData.sections, sectionData],
@@ -42,18 +46,18 @@ export default function Course() {
 
   const handleUpdate = async e => {
     e.preventDefault();
-    setLoading(true);
     const formData = new FormData();
+    setImagesSections([imageThum, ...imagesSections]);
     for (const image of imagesSections) {
       formData.append("images", image);
     }
     formData.append("title", courseData.title);
-    formData.append("teachers", JSON.stringify(courseData.teachers));
     formData.append("sections", JSON.stringify(courseData.sections));
-    const res = await api.createCourse(formData);
+
+    setLoading(true);
+    const res = await api.updateCourse(id, formData);
     setLoading(false);
     setCourseData(res.data);
-    console.log("res.data", res.data);
   };
 
   const handleUpload = async e => {
@@ -80,7 +84,42 @@ export default function Course() {
       return;
     } else {
       setImagesSections([...imagesSections, image]);
-      setImageValue(e.target.value);
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        setImageValueSection(e.target.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+  const handleUploadThum = async e => {
+    const file = e.target.files[0];
+    const resizeFile = file =>
+      new Promise(resolve => {
+        Resizer.imageFileResizer(
+          file,
+          300,
+          300,
+          "JPEG",
+          100,
+          0,
+          uri => {
+            resolve(uri);
+          },
+          "file"
+        );
+      });
+    const image = await resizeFile(file);
+    const validFileTypes = ["image/jpg", "image/jpeg", "image/png"];
+    if (!validFileTypes.find(type => type === file.type)) {
+      setError("File must be in JPG/PNG format");
+      return;
+    } else {
+      setImageThum(image);
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        setImageValue(e.target.result);
+      };
+      reader.readAsDataURL(file);
     }
   };
 
@@ -99,15 +138,11 @@ export default function Course() {
       </div>
       <div className="courseTop">
         <div className="courseTopRight">
-          <img src={courseData.sections[0].image} alt="" className="w-full" />
+          <img src={imageValue} alt="" className="w-full" />
         </div>
         <div className="courseTopRight">
           <div className="courseInfoTop">
-            <img
-              src={courseData.sections[0].image}
-              alt=""
-              className="courseInfoImg"
-            />
+            <img src={imageValue} alt="" className="courseInfoImg" />
             <span className="courseName">{courseData.name}</span>
           </div>
           <div className="courseInfoBottom">
@@ -143,13 +178,9 @@ export default function Course() {
 
           <div className="courseFormRight">
             <div className="courseUpload">
-              <img
-                src={courseData.sections[0].image}
-                alt=""
-                className="courseUploadImg"
-              />
+              <img src={imageValue} alt="" className="courseUploadImg" />
               <label for="file"></label>
-              <input type="file" id="file" style={{display: "none"}} />
+              <input type="file" id="file" onChange={handleUploadThum} />
             </div>
           </div>
         </form>
@@ -167,13 +198,15 @@ export default function Course() {
           <label>Image</label>
           <input
             type="file"
-            id="image"
-            name="image"
-            htmlFor="image"
+            id="images"
+            name="images"
+            htmlFor="images"
             onChange={handleUpload}
           />
         </div>
-        {imageValue && <img src={imageValue} alt="image section" />}
+        {imageValueSection && (
+          <img src={imageValueSection} alt="image section" />
+        )}
         <div className="w-full">
           <label>Description</label>
           <textarea
@@ -193,13 +226,6 @@ export default function Course() {
           Add Section
         </button>
       </section>
-      {courseData.sections.length > 0 && (
-        <SectionsList
-          courseData={courseData}
-          setCourseData={setCourseData}
-          id={id}
-        />
-      )}
     </div>
   );
 }

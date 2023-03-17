@@ -31,6 +31,15 @@
     cursor: pointer;
     
 }
+.orderListReject{
+    border: none;
+    border-radius: 10px;
+    padding: 5px 10px;
+    background-color: #f89696;
+    color: white;
+    cursor: pointer;
+    
+}
 .orderListDiplay{
     border: none;
     border-radius: 10px;

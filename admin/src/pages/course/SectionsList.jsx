@@ -1,17 +1,13 @@
 import "./productList.css";
 import {DataGrid} from "@material-ui/data-grid";
 //import { DeleteOutline } from "@material-ui/icons";
-import {productRows} from "../../dummyData";
 import {Link, useHistory} from "react-router-dom";
-import {useState} from "react";
 import React from "react";
-import {useEffect} from "react";
 import * as api from "../../api/index";
 export default function SectionsList({courseData, setCourseData}) {
   const navigate = useHistory();
-  console.log(courseData);
   const handleDelete = async (idSection, idCourse) => {
-    console.log(idSection);
+    //console.log(idSection);
     const res = await api.deleteSection(idCourse, idSection);
     setCourseData(courseData.sections.filter(item => item._id !== idSection));
     if (
@@ -25,11 +21,25 @@ export default function SectionsList({courseData, setCourseData}) {
     {field: "_id", headerName: "ID", width: 150},
     {
       field: "image",
-      headerName: "Image Course",
-      width: 200,
+      headerName: "Header Section (image/video)",
+      width: 300,
       renderCell: params => {
-        console.log(params);
-        return <img src={params.row.image} className="productListImg" />;
+        //console.log(params);
+        if (params.row.image) {
+          return <img src={params.row.image} className="productListImg" />;
+        } else if (params.row.video) {
+          return (
+            <a
+              className="text-[#1512a8]"
+              target={"blank"}
+              href={`https://www.youtube.com/watch?v=${params.row.video}`}
+            >
+              {`https://www.youtube.com/watch?v=${params.row.video}`}
+            </a>
+          );
+        } else {
+          return <p>Empty</p>;
+        }
       },
     },
     {

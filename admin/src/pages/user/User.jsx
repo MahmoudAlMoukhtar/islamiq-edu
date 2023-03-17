@@ -32,6 +32,18 @@ export default function User() {
     };
     makeRequest();
   }, []);
+  const handleUpdate = async e => {
+    e.preventDefault();
+    try {
+      setLoading(true);
+      const res = await api.updateUser(userId, userData);
+      setuserData(res.data);
+      setLoading(false);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   if (error) return <h1 className="text-red-800">error</h1>;
   if (loading) return <h1 className="text-red-800">Loading</h1>;
   return (
@@ -47,30 +59,36 @@ export default function User() {
           <div className="userShowTop">
             <img
               src={
-                userData.image
-                  ? User.image
-                  : "/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"
+                "/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"
               }
               alt=""
               className="userShowImg"
             />
             <div className="userShowTopTitle">
-              <span className="userShowUsername">{userData.fullName}</span>
-              <span className="userShowUserTitle">Software Engineer</span>
+              <span className="userShowUsername">
+                {userData.firstName + " " + userData.lastName}
+              </span>
+              <span className="userShowUserTitle">
+                Gender: {userData.gender}
+              </span>
             </div>
           </div>
           <div className="userShowBottom">
             <span className="userShowTitle">Account Details</span>
             <div className="userShowInfo">
-              <span className="userShowInfoTitle">annabeck99</span>
+              <span className="userShowInfoTitle">
+                First Name: {userData.firstName}
+              </span>
             </div>
             <div className="userShowInfo">
-              <span className="userShowInfoTitle">10.12.1999</span>
+              <span className="userShowInfoTitle">
+                Last Name: {userData.lastName}
+              </span>
             </div>
             <span className="userShowTitle">Contact Details</span>
             <div className="userShowInfo">
               <HiDevicePhoneMobile />
-              <span className="userShowInfoTitle">+1 123 456 67</span>
+              <span className="userShowInfoTitle">Phone: {userData.phone}</span>
             </div>
             <div className="userShowInfo">
               <HiOutlineMail />
@@ -83,35 +101,64 @@ export default function User() {
           <form className="userUpdateForm">
             <div className="userUpdateLeft">
               <div className="userUpdateItem">
-                <label>Username</label>
+                <label>First Name</label>
                 <input
                   type="text"
-                  placeholder="annabeck99"
+                  placeholder={userData.firstName}
                   className="userUpdateInput"
+                  onChange={e =>
+                    setuserData({...userData, firstName: e.target.value})
+                  }
                 />
               </div>
               <div className="userUpdateItem">
-                <label>Full Name</label>
+                <label>Last Name</label>
                 <input
                   type="text"
-                  placeholder="Anna Becker"
+                  placeholder={userData.lastName}
                   className="userUpdateInput"
+                  onChange={e =>
+                    setuserData({...userData, lastName: e.target.value})
+                  }
                 />
+              </div>
+              <div className="my-2">
+                <label htmlFor="gender" className="">
+                  Gender
+                </label>
+                <select
+                  id="gender"
+                  required
+                  name="gender"
+                  className="w-full p-2 rounded cursor-pointer border-[1px] border-black"
+                  onChange={e =>
+                    setuserData({...userData, gender: e.target.value})
+                  }
+                >
+                  <option value="Male">Male</option>
+                  <option value="Fmale">Fmale</option>
+                </select>
               </div>
               <div className="userUpdateItem">
                 <label>Email</label>
                 <input
                   type="text"
-                  placeholder="annabeck99@gmail.com"
+                  placeholder={userData.email}
                   className="userUpdateInput"
+                  onChange={e =>
+                    setuserData({...userData, email: e.target.value})
+                  }
                 />
               </div>
               <div className="userUpdateItem">
                 <label>Phone</label>
                 <input
                   type="text"
-                  placeholder="+1 123 456 67"
+                  placeholder={userData.phone}
                   className="userUpdateInput"
+                  onChange={e =>
+                    setuserData({...userData, phone: e.target.value})
+                  }
                 />
               </div>
             </div>
@@ -119,17 +166,13 @@ export default function User() {
               <div className="userUpdateUpload">
                 <img
                   className="userUpdateImg"
-                  src={
-                    userData.image
-                      ? User.image
-                      : "/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"
-                  }
+                  src="/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"
                   alt=""
                 />
-                <label htmlFor="file"></label>
-                <input type="file" id="file" style={{display: "none"}} />
               </div>
-              <button className="userUpdateButton">Update</button>
+              <button className="userUpdateButton" onClick={handleUpdate}>
+                Update
+              </button>
             </div>
           </form>
         </div>

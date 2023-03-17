@@ -31,14 +31,24 @@ export default function Sidebar({theme, selectTheme}) {
             <NavLink to="/courses" className="link">
               <li className="sidebarListItem">Courses</li>
             </NavLink>
-          </ul>
-        </div>
-        <div className="sidebarMenu">
-          <ul className="sidebarList">
             <li className="sidebarListItem">Newsletter</li>
 
             <NavLink to="/testimonials" className="link">
               <li className="sidebarListItem">Testimonials</li>
+            </NavLink>
+          </ul>
+        </div>
+        <div className="sidebarMenu">
+          <h3 className="sidebarTitle">Add New</h3>
+          <ul className="sidebarList">
+            <NavLink to="/newcourse" className="link">
+              <li className="sidebarListItem">New Courses</li>
+            </NavLink>
+            <NavLink to="/newBlog" className="link">
+              <li className="sidebarListItem">New Blog</li>
+            </NavLink>
+            <NavLink to="/newsLetter" className="link">
+              <li className="sidebarListItem">New NewsLetter</li>
             </NavLink>
           </ul>
         </div>

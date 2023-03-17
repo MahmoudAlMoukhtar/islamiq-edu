@@ -7,7 +7,9 @@ import GridLoader from "react-spinners/GridLoader";
 export default function NewBlog() {
   const [blogData, setBlogData] = useState({
     title: "",
+    titleAr: "",
     message: "",
+    messageAr: "",
   });
   const [fileData, setFileData] = useState("");
   const [images, setFile] = useState("");
@@ -50,9 +52,11 @@ export default function NewBlog() {
       formData.append("image", fileData);
     }
     formData.append("title", blogData.title);
+    formData.append("titleAr", blogData.titleAr);
     formData.append("message", blogData.message);
+    formData.append("messageAr", blogData.messageAr);
     setLoading(true);
-    const res = await api.createPost(formData);
+    await api.createPost(formData);
     toast.success("Signup successfully");
     setLoading(false);
   };
@@ -68,11 +72,7 @@ export default function NewBlog() {
       />
     );
   return (
-    <form
-      action="#"
-      method="POST"
-      className="min-w-[300px] shadow-xl flex flex-col gap-8 items-start w-full justify-start bg-white p-2 transition duration-200 rounded-md"
-    >
+    <div className="min-w-[300px] shadow-xl flex flex-col gap-8 items-start w-full justify-start bg-white p-2 transition duration-200 rounded-md">
       <h1 className="font-bold flex flex-col gap-1 items-start">
         Form New Blog
         <span className="text-sm text-gray-400 font-normal">
@@ -85,11 +85,13 @@ export default function NewBlog() {
           htmlFor="title"
           className="block text-sm font-medium text-gray-700"
         >
-          title
+          Title Blog In English Language
         </label>
         <div className="mt-1">
           <input
             id="title"
+            required
+            minLength={5}
             name="title"
             placeholder="title"
             value={blogData.title}
@@ -100,17 +102,41 @@ export default function NewBlog() {
           />
         </div>
       </div>
+      <div className="w-full">
+        <label
+          htmlFor="title"
+          className="block text-sm font-medium text-gray-700"
+        >
+          عنوان المدونة باللغة العربية
+        </label>
+        <div className="mt-1">
+          <input
+            id="titleAr"
+            required
+            minLength={5}
+            name="titleAr"
+            placeholder="عنوان المدونة باللغة العربية"
+            value={blogData.titleAr}
+            className="block w-full h-8 flex-1 rounded-none rounded-r-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            onChange={e => {
+              setBlogData({...blogData, titleAr: e.target.value});
+            }}
+          />
+        </div>
+      </div>
 
       <div className="w-full">
         <label
           htmlFor="message"
           className="block text-sm font-medium text-gray-700"
         >
-          Message
+          Message Blog In English Language
         </label>
         <div className="mt-1">
           <textarea
             id="message"
+            required
+            minLength={200}
             name="message"
             rows={3}
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
@@ -118,6 +144,29 @@ export default function NewBlog() {
             value={blogData.message}
             onChange={e => {
               setBlogData({...blogData, message: e.target.value});
+            }}
+          />
+        </div>
+      </div>
+      <div className="w-full">
+        <label
+          htmlFor="message"
+          className="block text-sm font-medium text-gray-700"
+        >
+          رسالة المدونة باللغة العربية
+        </label>
+        <div className="mt-1">
+          <textarea
+            id="messageAr"
+            required
+            minLength={200}
+            name="messageAr"
+            rows={3}
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            placeholder="رسالة المدونة باللغة العربية"
+            value={blogData.messageAr}
+            onChange={e => {
+              setBlogData({...blogData, messageAr: e.target.value});
             }}
           />
         </div>
@@ -147,20 +196,13 @@ export default function NewBlog() {
       <div className="flex gap-2 py-2 w-full">
         <button
           type="submit"
-          className="inline-flex justify-center rounded-md border border-transparent bg-[#4caf50] py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-[#FF932D] focus:outline-none focus:ring-2 focus:ring-[#FF932D] focus:ring-offset-2 w-2/3"
-          onSubmit={handleSubmit}
+          className="inline-flex justify-center rounded-md border border-transparent bg-[#4caf50] py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-[#FF932D] focus:outline-none focus:ring-2 focus:ring-[#FF932D] focus:ring-offset-2 w-full"
+          onClick={handleSubmit}
         >
           Submit
         </button>
-
-        <div
-          onClick={() => setBlogData()}
-          className="inline-flex justify-center rounded-md border border-transparent bg-[#4caf50] py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-[#FF932D] focus:outline-none focus:ring-2 focus:ring-[#FF932D] focus:ring-offset-2 cursor-pointer w-1/3"
-        >
-          clear
-        </div>
       </div>
       <ToastContainer />
-    </form>
+    </div>
   );
 }

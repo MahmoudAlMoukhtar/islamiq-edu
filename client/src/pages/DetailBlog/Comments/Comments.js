@@ -1,8 +1,10 @@
 import {useState} from "react";
 import {useDispatch} from "react-redux";
 import jwt_decode from "jwt-decode";
+import {useTranslation} from "react-i18next";
 
 const Comments = ({post}) => {
+  const [t, i18n] = useTranslation();
   const [comment, setComment] = useState("");
   const user = JSON.parse(localStorage.getItem("userIqraa"));
   //const dispatch = useDispatch();
@@ -29,7 +31,9 @@ const Comments = ({post}) => {
     <div className="flex flex-col gap-4 w-full">
       {user && (
         <div className="flex flex-col gap-2">
-          <h3 className="text-md">Write Comment</h3>
+          <h3 className="text-md">
+            {i18n.language === "en" ? "Write Comment" : "اكتب تعليق"}
+          </h3>
           <div className="flex gap-2">
             <textarea
               type="text"
@@ -40,7 +44,7 @@ const Comments = ({post}) => {
               onClick={handleSubmitComment}
               className="bg-[#4caf50] text-white rounded p-2"
             >
-              Comment
+              {i18n.language === "en" ? "Comment" : "علّق"}
             </button>
           </div>
         </div>
