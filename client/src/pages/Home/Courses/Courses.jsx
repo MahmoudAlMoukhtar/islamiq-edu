@@ -18,7 +18,7 @@ const Courses = () => {
   return (
     <motion.section
       whileInView={{y: 0, opacity: 1}}
-      initial={{y: "200px", opacity: 0}}
+      initial={{y: "100px", opacity: 0}}
       transition={{duration: 0.7}}
       id="courses"
       className="flex flex-col  justify-center items-center  mt-20 py-10 w-full"

@@ -54,8 +54,8 @@ const BlogsSection = () => {
   if (loading) return <h1>Loading...</h1>;
   return (
     <motion.section
-      whileInView={{y: 0, opacity: 1}}
-      initial={{y: "200px", opacity: 0}}
+      whileInView={{opacity: 1}}
+      initial={{opacity: 0}}
       transition={{duration: 0.7}}
       id="blogs"
       className="flex flex-col  justify-center items-center gap-10 py-10 bg-[#f2ede7] w-full my-40"
