@@ -26,10 +26,7 @@ const WhyUS = () => {
   };
 
   return (
-    <motion.section
-      variants={container}
-      whileInView="visible"
-      initial="hidden"
+    <section
       id="Whyus"
       className="flex flex-col  justify-center items-center gap-20 py-10"
     >
@@ -200,7 +197,7 @@ const WhyUS = () => {
           <h3 className="text-xs sm:text-sm sm:font-bold">{t("whyus.12")}</h3>
         </motion.div>
       </motion.div>
-    </motion.section>
+    </section>
   );
 };
 
