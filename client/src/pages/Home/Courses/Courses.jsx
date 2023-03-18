@@ -55,7 +55,7 @@ const Courses = () => {
           <LazyLoadImage
             effect="blur"
             loading="lazy"
-            src="/icons/rating.png"
+            src="/icons/rating.avif"
             className="w-28"
           />
           <span
@@ -70,7 +70,7 @@ const Courses = () => {
           <LazyLoadImage
             effect="blur"
             loading="lazy"
-            src="/icons/graduate.png"
+            src="/icons/graduate.avif"
             className="w-28"
           />
           <span className="flex flex-col justify-center text-6xl font-bold text-[#FF932D]">
@@ -82,7 +82,7 @@ const Courses = () => {
           <LazyLoadImage
             effect="blur"
             loading="lazy"
-            src="/icons/teacherr.png"
+            src="/icons/teacherr.avif"
             className="w-28"
           />
           <span className="text-6xl font-bold text-[#FF932D]">30</span>

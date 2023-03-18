@@ -9,10 +9,13 @@ const TestimoialsRouter = require("./routes/testimoials");
 const contactMessagesRouter = require("./routes/contactMessage");
 const newsRouter = require("./routes/newslitter");
 const commentRouter = require("./routes/comments");
+const compression = require("compression");
 const app = express();
 
 app.use(bodyParser.json({extended: true}));
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(compression());
+
 app.use(cors());
 
 app.use("/api/blogs", blogRoutes);

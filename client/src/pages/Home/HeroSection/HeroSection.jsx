@@ -46,7 +46,7 @@ const HeroSection = () => {
           <img
             effect="blur"
             loading="lazy"
-            src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678308216/islamiq/top-view-islamic-new-year-concept-with-copy-space_skc7bz.jpg"
+            src="/top-view-islamic-new-year-concept-with-copy-space.avif"
             className="w-full relative object-cover	h-[300px] sm:h-full"
             alt="heroimage"
           />
@@ -72,7 +72,7 @@ const HeroSection = () => {
           <img
             effect="blur"
             loading="lazy"
-            src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678307907/islamiq/quran2_reos1a.jpg"
+            src="/quran2.avif"
             className="w-full relative object-cover	h-[300px] sm:h-full"
           />
           <div className="flex flex-col items-center justify-center text-center gap-6 w-full absolute top-[50%] left-[50%] sm:px-20 translate-x-[-50%] translate-y-[-50%] sm:translate-y-[-80%] ">
@@ -96,7 +96,7 @@ const HeroSection = () => {
           <img
             effect="blur"
             loading="lazy"
-            src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678962796/photo1678924784_ha4cys.jpg"
+            src="/photo1678924784.avif"
             className="w-full relative object-cover h-[300px] sm:h-full"
           />
           <div className="flex flex-col items-center justify-center text-center gap-6 w-full absolute top-[50%] left-[50%] sm:px-20 translate-x-[-50%] translate-y-[-50%] sm:translate-y-[-80%] ">
