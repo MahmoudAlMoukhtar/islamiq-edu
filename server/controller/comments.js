@@ -1,5 +1,5 @@
 const {default: mongoose} = require("mongoose");
-const Comment = require("../models/Comment");
+const Comment = require("../models/comment");
 const User = require("../models/User");
 
 const getComments = async (req, res) => {
