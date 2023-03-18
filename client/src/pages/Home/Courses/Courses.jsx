@@ -24,8 +24,8 @@ const Courses = () => {
       className="flex flex-col  justify-center items-center  mt-20 py-10 w-full"
     >
       <div className="flex flex-col items-center gap-2">
-        <h2 className="text-4xl font-bold ">{t("titlecourses")}</h2>
-        <span className="h-2 w-60 bg-[#ffc265]" />
+        <h2 className="text-3xl sm:text-4xl font-bold ">{t("titlecourses")}</h2>
+        <span className="h-1 sm:h-2 w-60 bg-[#ffc265]" />
       </div>
       <motion.div className="flex justify-center items-center flex-wrap gap-4 sm:gap-10 lg:gap-4  w-full py-10 mt-4 sm:mt-20">
         {courses

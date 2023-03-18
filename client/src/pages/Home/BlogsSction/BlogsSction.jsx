@@ -41,7 +41,7 @@ const BlogItem = ({b}) => {
             : b.messageAr.substr(0, 200)}
           <span className="mx-1 opacity-[0.6] text-3xl">.....</span>
         </p>
-        <button className="rounded bg-[#FF932D] py-2 px-4 w-full font-bold">
+        <button className="rounded bg-[#4caf50] py-2 px-4 w-full font-bold">
           {i18n.language === "en" ? "See more" : "رؤية المزيد"}
         </button>
       </div>
@@ -71,8 +71,10 @@ const BlogsSection = () => {
       className="flex flex-col  justify-center items-center gap-10 py-10 bg-[#f2ede7] w-full my-40"
     >
       <div className="flex flex-col items-center gap-2">
-        <h2 className="text-4xl font-bold text-center">{t("titleblogs")}</h2>
-        <span className="h-2 w-40 bg-[#ffc265]" />
+        <h2 className="text-3xl sm:text-4xl font-bold text-center">
+          {t("titleblogs")}
+        </h2>
+        <span className="h-1 sm:h-2 w-40 bg-[#ffc265]" />
       </div>
 
       <motion.div

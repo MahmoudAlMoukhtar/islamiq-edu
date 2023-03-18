@@ -52,10 +52,12 @@ const HeroSection = () => {
           />
           <div className="flex flex-col items-center justify-center text-center gap-6 w-full absolute top-[50%] left-[50%] sm:px-20 translate-x-[-50%] translate-y-[-50%] sm:translate-y-[-80%]">
             <SlidePrevButton />
-            <p className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
+            <p className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
               {t("mainSlider.1.title")}
             </p>
-            <p className="font-semibold">{t("mainSlider.1.desciption")}</p>
+            <p className="text-sm sm:text-md font-semibold w-80 sm:w-auto">
+              {t("mainSlider.1.desciption")}
+            </p>
             <a
               href="#fees"
               className="py-2 px-8 rounded bg-[#4caf50] text-white font-bold text-black chatWidget"
@@ -75,10 +77,12 @@ const HeroSection = () => {
           />
           <div className="flex flex-col items-center justify-center text-center gap-6 w-full absolute top-[50%] left-[50%] sm:px-20 translate-x-[-50%] translate-y-[-50%] sm:translate-y-[-80%] ">
             <SlidePrevButton />
-            <p className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-black">
+            <p className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-black">
               {t("mainSlider.3.title")}
             </p>
-            <p className="font-semibold">{t("mainSlider.3.desciption")}</p>
+            <p className="text-sm sm:text-md font-semibold w-80 sm:w-auto">
+              {t("mainSlider.3.desciption")}
+            </p>
             <Link
               to="/auth"
               className="py-2 px-8 rounded bg-[#4caf50] text-white font-bold text-black"
@@ -97,10 +101,12 @@ const HeroSection = () => {
           />
           <div className="flex flex-col items-center justify-center text-center gap-6 w-full absolute top-[50%] left-[50%] sm:px-20 translate-x-[-50%] translate-y-[-50%] sm:translate-y-[-80%] ">
             <SlidePrevButton />
-            <p className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-black">
+            <p className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-black">
               {t("mainSlider.2.title")}
             </p>
-            <p className="font-semibold">{t("mainSlider.2.desciption")}</p>
+            <p className="text-sm sm:text-md font-semibold w-80 sm:w-auto">
+              {t("mainSlider.2.desciption")}
+            </p>
             <a
               href="#courses"
               className="py-2 px-8 rounded bg-[#4caf50] text-white font-bold text-black"
@@ -130,7 +136,7 @@ export default HeroSection;
               <p className="text-4xl md:text-5xl lg:text-6xl font-bold text-black">
                 {t("mainSlider.2.title")}
               </p>
-              <p className="font-semibold">{t("mainSlider.2.desciption")}</p>
+              <p className="text-sm sm:text-md font-semibold w-80 sm:w-auto">{t("mainSlider.2.desciption")}</p>
               <a
                 href="#courses"
                 className="py-2 px-8 rounded bg-[#4caf50] text-white font-bold text-black"

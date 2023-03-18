@@ -42,25 +42,25 @@ const DetailCourse = () => {
   //return jsx UI product
   if (loadingProduct) return <Spinner />;
   return (
-    <div className="flex justify-between flex-col-reverse lg:flex-row gap-4 w-full md:px-20 lg:px-40 xl:px-60   py-10">
+    <div className="flex justify-between flex-col-reverse lg:flex-row gap-4 w-full md:px-20 lg:px-40 xl:px-60  py-4 sm:py-10">
       <div className="flex flex-col  items-start gap-20  text-black w-full shadow-md rounded ">
         {course.sections.map((c, i) => (
           <div className="flex flex-col items-center gap-10 w-full">
             {i === 0 && (
               <div className="flex flex-col sm:flex-row sm:justify-between items-center gap-2 w-full px-4">
-                <h2 className="text-3xl sm:text-xl md:text-3xl font-bold w-full text-center sm:text-start">
+                <h2 className="text-2xl sm:text-xl md:text-3xl font-bold w-full text-center sm:text-start">
                   {i18n.language === "en"
                     ? `${course.title}`.toUpperCase()
                     : `${course.titleAr}`.toUpperCase()}
                 </h2>
                 <div className="flex justify-center ">
-                  <button className="bg-[#ffc265] px-4 py-2 rounded text-md w-40 font-bold">
+                  <button className="bg-[#ffc265] py-2 px-4 sm:py-4 sm:px-8 rounded text-md w-40 font-bold">
                     {i18n.language === "en" ? "Show Fees" : "رؤية الأسعار"}
                   </button>
                   <a
                     href="http://wa.me/+201012750418"
                     target="blank"
-                    className="flex justify-center gap-2 items-center bg-[#4caf50] py-4 px-8 font-bold rounded w-40 text-white"
+                    className="flex justify-center gap-2 items-center bg-[#4caf50] py-2 px-4 sm:py-4 sm:px-8 font-bold rounded w-40 text-white"
                   >
                     <div>
                       <AiOutlineWhatsApp size={25} />

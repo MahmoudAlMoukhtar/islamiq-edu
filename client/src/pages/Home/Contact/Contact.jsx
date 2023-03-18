@@ -29,13 +29,15 @@ const ContactPage = () => {
     >
       <div className="flex flex-col items-center gap-2">
         {i18n.language === "en" ? (
-          <h4 className="text-4xl tracking-[0.2em] font-bold text-center">
+          <h4 className="text-3xl sm:text-4xl tracking-[0.2em] font-bold text-center">
             CONTACT US
           </h4>
         ) : (
-          <h2 className="text-4xl font-bold text-center">تواصل معنا</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-center">
+            تواصل معنا
+          </h2>
         )}
-        <span className="h-2 w-40 bg-[#ffc265]" />
+        <span className="h-1 sm:h-2 w-40 bg-[#ffc265]" />
       </div>
       <form
         onSubmit={async e => {

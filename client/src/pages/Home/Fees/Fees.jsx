@@ -95,13 +95,13 @@ const Fees = () => {
       className="flex flex-col  justify-center items-center gap-10 mt-20 py-10 bg-[#4caf50] w-full"
     >
       <div className={"flex flex-col items-center gap-2"}>
-        <h2 className="text-4xl font-bold text-white text-center">
+        <h2 className="text-3xl sm:text-4xl font-bold text-white text-center px-2 sm:px-0">
           {t("titleFees")}
         </h2>
-        <p className="text-xl text-gray-200 font-semibold text-white">
+        <p className="text-lg sm:text-xl text-gray-200 font-semibold text-white">
           No contracts, No surprise fees.
         </p>
-        <span className="h-2 w-40 bg-[#ffc265]" />
+        <span className="h-1 sm:h-2 w-40 bg-[#ffc265]" />
       </div>
       <div
         className={

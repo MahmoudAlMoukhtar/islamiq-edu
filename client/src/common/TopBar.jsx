@@ -11,7 +11,7 @@ const TopBar = () => {
     <header
       className={
         i18n.language === "en"
-          ? "flex  gap-6 justify-between items-center bg-[#ffc265]  px-4 sm:px-20 w-full py-4 sm:py-2 text-[#000]"
+          ? "flex  gap-6 justify-between items-center bg-[#ffc265]  px-4 sm:px-20 w-full py-4 sm:py-2 text-[#000] hidden absolute sm:flex sm:static"
           : "flex flex-row-reverse  gap-6 justify-between items-center bg-[#ffc265]  px-4 sm:px-20 w-full py-4 sm:py-2 text-[#000]"
       }
     >

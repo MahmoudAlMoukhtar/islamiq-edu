@@ -6,7 +6,10 @@ import moment from "moment";
 import * as api from "../../../api/index";
 const Comments = ({post}) => {
   const user = JSON.parse(localStorage.getItem("userIqraa"));
-  const userDecoded = jwt_decode(user.token);
+  let userDecoded;
+  if (user) {
+    userDecoded = jwt_decode(user.token);
+  }
   const [t, i18n] = useTranslation();
   const [commentsData, setCommentsData] = useState([]);
   const [comment, setComment] = useState("");
@@ -91,7 +94,7 @@ const Comments = ({post}) => {
                         {c.message}
                       </p>
                     </div>
-                    {userDecoded.id === c.idUser && (
+                    {user && userDecoded.id === c.idUser && (
                       <button
                         className="text-sm bg-black p-1 text-white rounded text-xs"
                         onClick={() => handleDeletComment(c._id)}

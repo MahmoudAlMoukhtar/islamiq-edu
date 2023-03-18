@@ -51,8 +51,10 @@ export default function CustomizedAccordions() {
   return (
     <section className=" sm:px-10 md:px-10 lg:px-20 flex flex-col items-center gap-10 my-20">
       <div className="flex flex-col items-center gap-2">
-        <h2 className="text-4xl font-bold text-black">{t("titlefaq")}</h2>
-        <span className="h-2 w-40 bg-[#ffc265]" />
+        <h2 className="text-3xl sm:text-4xl font-bold text-black">
+          {t("titlefaq")}
+        </h2>
+        <span className="h-1 sm:h-2 w-40 bg-[#ffc265]" />
       </div>
       <div>
         <Accordion
