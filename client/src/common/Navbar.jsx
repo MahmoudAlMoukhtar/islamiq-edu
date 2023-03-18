@@ -22,30 +22,27 @@ const Navbar = ({setNavBarModal, navbarModal}) => {
   const navigaite = useNavigate();
   const {pathname, hash, key} = useLocation();
 
-  useEffect(() => {
-    // if not a hash link, scroll to top
-    if (hash === "") {
-      window.scrollTo(0, 0);
-    }
-    // else scroll to id
-    else {
-      setTimeout(() => {
-        const id = hash.replace("#", "");
-        const element = document.getElementById(id);
-        if (element) {
-          element.scrollIntoView();
-        }
-      }, 0);
-    }
-  }, [pathname, hash, key]);
-
   return (
-    <nav className="flex justify-between items-center gap-2 py-2 sm:py-4 px-4  lg:px-20 w-full shadow-xl text-white bg-[#4caf50] ">
+    <nav
+      className={
+        i18n.language === "en"
+          ? "flex justify-between items-center gap-2 py-2 sm:py-4 px-4  lg:px-20 w-full shadow-xl text-white bg-[#4caf50]"
+          : "flex flex-row-reverse justify-between items-center gap-2 py-2 sm:py-4 px-4  lg:px-20 w-full shadow-xl text-white bg-[#4caf50]"
+      }
+    >
       <div className="flex justify-center">
         <Link to="/" className="sm:hidden">
-          <h2 className="font-bold text-xl">IQRAA</h2>
+          <h2 className="font-bold text-xl">
+            {i18n.language === "en" ? "IQRAA" : "إقرأ"}
+          </h2>
         </Link>
-        <ul className="invisible absolute sm:flex sm:items-center  md:gap-2 sm:visible sm:static">
+        <ul
+          className={
+            i18n.language === "en"
+              ? "invisible absolute sm:flex sm:items-center  md:gap-2 sm:visible sm:static"
+              : "invisible absolute sm:flex flex-row-reverse sm:items-center  md:gap-2 sm:visible sm:static"
+          }
+        >
           <NavLink
             style={({isActive}) => (isActive ? activeStyle : undefined)}
             to="/"
@@ -72,9 +69,18 @@ const Navbar = ({setNavBarModal, navbarModal}) => {
           <Link to="/#blogs" end className={styles.linkPages}>
             {t("nav.blogs")}
           </Link>
+          <Link to="/#contact" end className={styles.linkPages}>
+            {t("nav.contact")}
+          </Link>
         </ul>
       </div>
-      <div className="flex justify-center  gap-2 items-center">
+      <div
+        className={
+          i18n.language === "en"
+            ? "flex justify-center  gap-2 items-center"
+            : "flex flex-row-reverse justify-center  gap-2 items-center"
+        }
+      >
         {!user ? (
           <NavLink
             className="font-bold px-1 text-sm sm:text-md sm:px-2 py-1 sm:py-2 bg-[#FF932D] transtion duration-200 text-white rounded"

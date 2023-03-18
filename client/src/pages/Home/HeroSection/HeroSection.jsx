@@ -43,7 +43,7 @@ const HeroSection = () => {
         className="cursor-grap"
       >
         <SwiperSlide className="">
-          <LazyLoadImage
+          <img
             effect="blur"
             loading="lazy"
             src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678308216/islamiq/top-view-islamic-new-year-concept-with-copy-space_skc7bz.jpg"
@@ -67,7 +67,7 @@ const HeroSection = () => {
         </SwiperSlide>
 
         <SwiperSlide className="">
-          <LazyLoadImage
+          <img
             effect="blur"
             loading="lazy"
             src="https://res.cloudinary.com/dihhlmkrf/image/upload/v1678307907/islamiq/quran2_reos1a.jpg"

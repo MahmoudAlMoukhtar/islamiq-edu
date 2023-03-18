@@ -62,8 +62,20 @@ const Footer = () => {
           </form>
         </div>
       </div>
-      <div className="flex flex-col justify-between items-center sm:flex-row sm:justify-between sm:items-start gap-10 flex-wrap sm:flex-nowrap text-white w-full">
-        <div className="flex flex-col items-center text-center sm:text-start sm:items-start gap-10 sm:gap-4 w-64">
+      <div
+        className={
+          i18n.language === "en"
+            ? "flex flex-col justify-between items-center sm:flex-row sm:justify-between sm:items-start gap-10 flex-wrap sm:flex-nowrap text-white w-full"
+            : "flex flex-col justify-between items-center sm:flex-row-reverse sm:justify-between sm:items-start gap-10 flex-wrap sm:flex-nowrap text-white w-full"
+        }
+      >
+        <div
+          className={
+            i18n.language === "en"
+              ? "flex flex-col items-center text-center sm:text-start sm:items-start gap-10 sm:gap-4 w-64"
+              : "flex flex-col items-center text-center sm:text-end sm:items-end gap-10 sm:gap-4 w-64"
+          }
+        >
           <a href="#" className="flex  gap-2 items-center">
             <img src="/test.png" className="w-20" alt="kapaIcon" />
           </a>
@@ -94,10 +106,30 @@ const Footer = () => {
             </a>
           </ul>
         </div>
-        <section className="flex flex-col justify-center items-center text-center sm:flex-row  sm:justify-between sm:items-start sm:text-start sm:w-[600px] gap-10 sm:gap-4 flex-wrap sm:flex-nowrap w-full">
-          <div className="flex flex-col gap-10 sm:gap-4">
-            <h5 className="text-md font-bold">GENERAL</h5>
-            <nav className="flex flex-col justify-center items-center text-center  sm:justify-between sm:items-start sm:text-start gap-10 sm:gap-4">
+        <section
+          className={
+            i18n.language === "en"
+              ? "flex flex-col justify-center items-center text-center sm:flex-row  sm:justify-between sm:items-start sm:text-start sm:w-[600px] gap-10 sm:gap-4 flex-wrap sm:flex-nowrap w-full"
+              : "flex flex-col justify-center items-center text-center sm:flex-row-reverse  sm:justify-between sm:items-start sm:text-start sm:w-[600px] gap-10 sm:gap-4 flex-wrap sm:flex-nowrap w-full"
+          }
+        >
+          <div
+            className={
+              i18n.language === "en"
+                ? "flex flex-col gap-10 sm:gap-4"
+                : "flex flex-col items-end text-end gap-10 sm:gap-4"
+            }
+          >
+            <h5 className="text-md font-bold">
+              {i18n.language === "en" ? "GENERAL" : "روابط عامة"}
+            </h5>
+            <nav
+              className={
+                i18n.language === "en"
+                  ? "flex flex-col justify-center items-center text-center  sm:justify-between sm:items-start sm:text-start gap-10 sm:gap-4"
+                  : "flex flex-col justify-center items-center text-center  sm:justify-between sm:items-end sm:text-end gap-10 sm:gap-4"
+              }
+            >
               <Link to={"/"} className="text-white text-sm">
                 {t("nav.home")}
               </Link>
@@ -109,9 +141,23 @@ const Footer = () => {
               </Link>
             </nav>
           </div>
-          <div className="flex flex-col justify-center items-center text-center  sm:justify-between sm:items-start sm:text-start gap-10 sm:gap-4">
-            <h5 className="text-md font-bold">Quick Links</h5>
-            <nav className="flex flex-col justify-center items-center text-center  sm:justify-between sm:items-start sm:text-start gap-10 sm:gap-4">
+          <div
+            className={
+              i18n.language === "en"
+                ? "flex flex-col justify-center items-center text-center  sm:justify-between sm:items-start sm:text-start gap-10 sm:gap-4"
+                : "flex flex-col justify-center items-center text-center  sm:justify-between sm:items-end sm:text-end gap-10 sm:gap-4"
+            }
+          >
+            <h5 className="text-md font-bold">
+              {i18n.language === "en" ? "Quick Links" : "روابط الوصول السريع"}
+            </h5>
+            <nav
+              className={
+                i18n.language === "en"
+                  ? "flex flex-col justify-center items-center text-center  sm:justify-between sm:items-start sm:text-start gap-10 sm:gap-4"
+                  : "flex flex-col justify-center items-center text-center  sm:justify-between sm:items-end sm:text-end gap-10 sm:gap-4"
+              }
+            >
               <Link to="/#blogs" className="text-white text-sm">
                 {t("nav.blogs")}
               </Link>
@@ -120,9 +166,23 @@ const Footer = () => {
               </Link>
             </nav>
           </div>
-          <div className="flex flex-col justify-center items-center text-center  sm:justify-between sm:items-start sm:text-start gap-10 sm:gap-4">
-            <h5 className="text-md font-bold">Contact</h5>
-            <nav className="flex flex-col justify-center items-center text-center  sm:justify-between sm:items-start sm:text-start gap-10 sm:gap-4">
+          <div
+            className={
+              i18n.language === "en"
+                ? "flex flex-col justify-center items-center text-center  sm:justify-between sm:items-start sm:text-start gap-10 sm:gap-4"
+                : "flex flex-col justify-center items-center text-center  sm:justify-between sm:items-end sm:text-end gap-10 sm:gap-4"
+            }
+          >
+            <h5 className="text-md font-bold">
+              {i18n.language === "en" ? "Contact" : "التواصل"}
+            </h5>
+            <nav
+              className={
+                i18n.language === "en"
+                  ? "flex flex-col justify-center items-center text-center  sm:justify-between sm:items-start sm:text-start gap-10 sm:gap-4"
+                  : "flex flex-col justify-center items-center text-center  sm:justify-between sm:items-end sm:text-end gap-10 sm:gap-4"
+              }
+            >
               <div className="flex items-center gap-2">
                 <div>
                   <HiLocationMarker color="#FF932D" size={20} />

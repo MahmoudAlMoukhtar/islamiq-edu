@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  //baseURL: "https://e-commer-mernstack.vercel.app/api",
+  //baseURL: "https://islamiq-edu-d114.vercel.app/api",
   baseURL: "http://localhost:3001/api",
 });
 
@@ -20,6 +20,9 @@ export const fetchPostById = id => API.get(`/blogs/${id}`);
 export const createPost = newPost => API.post("/blogs", newPost);
 export const updatePost = (id, updates) => API.put(`/blogs/${id}`, updates);
 export const deletePost = id => API.delete(`/blogs/${id}`);
+export const fetchComments = () => API.get("/comments");
+export const fetchCommentById = id => API.get(`/comments/${id}`);
+export const deleteCommentById = id => API.delete(`/comments/${id}`);
 
 //AUTH Operation
 export const signin = formData => API.post("/user/signin", formData);
@@ -57,3 +60,8 @@ export const deleteTestimonialById = id => API.delete(`/testimoials/${id}`);
 //newsLetter
 export const createNewsLetter = newsLetter =>
   API.post("/newsLetter", newsLetter);
+//contactMessages
+export const fetchContactMessages = () => API.get("/contactMessages");
+export const fetchContactMessagesId = id => API.get(`/contactMessages/${id}`);
+export const deleteContactMessagesById = id =>
+  API.delete(`/contactMessages/${id}`);

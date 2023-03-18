@@ -13,7 +13,11 @@ const BlogItem = ({b}) => {
   return (
     <Link
       to={`/blogs/${b._id}`}
-      className="flex flex-col items-start justify-between gap-10  w-80 sm:w-96 rounded shadow-xl text-start  sm:h-[550px] hover:scale-[1.02] transtion duration-200"
+      className={
+        i18n.language === "en"
+          ? "flex flex-col items-start justify-between gap-10 mb-4 w-80 sm:w-96 rounded shadow-xl text-start  sm:h-[550px] hover:scale-[1.02] transtion duration-200"
+          : "flex flex-col items-end justify-between gap-10 mb-4 w-80 sm:w-96 rounded shadow-xl text-end  sm:h-[550px] hover:scale-[1.02] transtion duration-200"
+      }
     >
       <LazyLoadImage
         effect="blur"
@@ -21,7 +25,13 @@ const BlogItem = ({b}) => {
         src={b.image}
         className="w-80 sm:w-96 h-[250px] rounded-t-md"
       />
-      <div className="flex flex-col justify-end items-start gap-10 text-start h-full w-full">
+      <div
+        className={
+          i18n.language === "en"
+            ? "flex flex-col justify-end items-start gap-10 text-start h-full w-full"
+            : "flex flex-col justify-end items-end gap-10 text-end h-full w-full"
+        }
+      >
         <p className="text-2xl font-semibold  px-4">
           {i18n.language === "en" ? b.title : b.titleAr}
         </p>

@@ -1,10 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import {MdLocationOn, MdOutlineEmail} from "react-icons/md";
 import {AiOutlineMail, AiOutlinePhone} from "react-icons/ai";
 import {motion} from "framer-motion";
 import {toast, ToastContainer} from "react-toastify";
 
 const ContactPage = () => {
+  const [contactMessage, setContactMessageData] = useState();
   const container = {
     hidden: {opacity: 1, scale: 0},
     visible: {
@@ -59,6 +60,12 @@ const ContactPage = () => {
             name="name"
             id="name"
             className="border-[1px] border-black  px-4 py-2  w-[100%] rounded text-black"
+            onChange={e =>
+              setContactMessageData({
+                ...contactMessage,
+                firstName: e.targe.value,
+              })
+            }
           />
         </label>
         <label
@@ -71,6 +78,12 @@ const ContactPage = () => {
             name="name"
             id="name"
             className="border-[1px] border-black px-4 py-2  w-[100%] rounded text-black"
+            onChange={e =>
+              setContactMessageData({
+                ...contactMessage,
+                firstName: e.targe.value,
+              })
+            }
           />
         </label>
         <label for="email" className="text-white font-semibold w-[100%]">
@@ -80,6 +93,12 @@ const ContactPage = () => {
             name="email"
             id="email"
             className="border-[1px] border-black  px-4 py-2  w-[100%] rounded text-black"
+            onChange={e =>
+              setContactMessageData({
+                ...contactMessage,
+                firstName: e.targe.value,
+              })
+            }
           />
         </label>
         <label for="message" className="text-white font-semibold w-[100%]">
@@ -90,6 +109,12 @@ const ContactPage = () => {
             cols={"100"}
             rows="5"
             className="border-[1px] border-black w-[100%] rounded text-black"
+            onChange={e =>
+              setContactMessageData({
+                ...contactMessage,
+                firstName: e.targe.value,
+              })
+            }
           ></textarea>
         </label>
       </form>

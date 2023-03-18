@@ -13,11 +13,14 @@ import BlogsList from "./pages/BlogsList/BlogsList";
 import NewBlog from "./pages/newBlog/NewBlog";
 import Blog from "./pages/blog/Blog";
 import Course from "./pages/course/Course";
-//import OrederList from "./pages/orederList/OrederList";
 import "react-toastify/dist/ReactToastify.css";
 import TestimonialsList from "./pages/orederList/TestimonialsList";
 import Testimonial from "./pages/testimonial/Testimonial";
 import NewNewsLetter from "./pages/newsLetter/NewsLetter";
+import CommentsList from "./pages/comments/CommentsList";
+import Comment from "./pages/comment/Comment";
+import ContactMessagesList from "./pages/contactMessages/ContactMessagesList";
+import Message from "./pages/message/Message";
 
 function App() {
   const [theme, selectTheme] = useState("white");
@@ -31,43 +34,55 @@ function App() {
       <div className="container ">
         <Sidebar theme={theme} selectTheme={selectTheme} />
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/admin">
             <Home theme={theme} selectTheme={selectTheme} />
           </Route>
-          <Route path="/users" exact>
+          <Route path="/admin/users" exact>
             <UserList />
           </Route>
-          <Route path="/user/:userId">
+          <Route path="/admin/user/:userId">
             <User />
           </Route>
-          <Route path="/newUser" exact>
+          <Route path="/admin/newUser" exact>
             <NewUser />
           </Route>
-          <Route path="/courses" exact>
+          <Route path="/admin/courses" exact>
             <CoursesList />
           </Route>
-          <Route path="/blogs" exact>
+          <Route path="/admin/comments" exact>
+            <CommentsList />
+          </Route>
+          <Route path="/admin/comments/:id" exact>
+            <Comment />
+          </Route>
+          <Route path="/admin/blogs" exact>
             <BlogsList />
           </Route>
-          <Route path="/course/:id">
+          <Route path="/admin/course/:id">
             <Course />
           </Route>
-          <Route path="/newcourse">
+          <Route path="/admin/newcourse">
             <NewProduct />
           </Route>
-          <Route path="/blog/:id">
+          <Route path="/admin/blog/:id">
             <Blog />
           </Route>
-          <Route path="/newBlog">
+          <Route path="/admin/newBlog">
             <NewBlog />
           </Route>
-          <Route path="/testimonials" exact>
+          <Route path="/admin/testimonials" exact>
             <TestimonialsList />
           </Route>
-          <Route path="/testimonials/:id">
+          <Route path="/admin/testimonials/:id">
             <Testimonial />
           </Route>
-          <Route path="/newsLetter">
+          <Route path="/admin/contactMessage" exact>
+            <ContactMessagesList />
+          </Route>
+          <Route path="/admin/contactMessage/:id">
+            <Message />
+          </Route>
+          <Route path="/admin/newsLetter">
             <NewNewsLetter />
           </Route>
         </Switch>

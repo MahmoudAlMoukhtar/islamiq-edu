@@ -117,12 +117,6 @@ export default function UserList() {
 
   return (
     <div className="userList">
-      <button
-        className="addProductList"
-        onClick={() => navigate.push("/newUser")}
-      >
-        Add New User
-      </button>
       <DataGrid
         rows={data}
         disableSelectionOnClick

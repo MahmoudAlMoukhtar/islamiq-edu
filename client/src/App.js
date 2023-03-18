@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Routes, Route} from "react-router-dom";
+import {Routes, Route, useLocation} from "react-router-dom";
 import HomePage from "./pages/Home";
 import Footer from "./common/Footer";
 import ScrollToTop from "./components/ScrollToTop";
@@ -10,8 +10,7 @@ import PrivaitRoute from "./components/PrivaitRoute";
 import Spinner from "./Spinner";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAllProductsAction} from "./redux/actions/productsActions";
-import {fetchAllProductsCartAction} from "./redux/actions/cart";
-import {ToastContainer} from "react-toastify";
+
 import TopBar from "./common/TopBar";
 import {Fab} from "@mui/material";
 import {BsChatDotsFill, BsTelegram, BsWhatsapp} from "react-icons/bs";
@@ -20,11 +19,14 @@ import DetailBlog from "./pages/DetailBlog/DetailBlog";
 import {motion} from "framer-motion";
 import BlogsPage from "./pages/Blogs/Blogs";
 import * as api from "./api/index";
+import ContactPage from "./pages/Contact";
 export default function App() {
   const [navBarModal, setNavBarModal] = useState(false);
   const [show, setShow] = useState(false);
   const dispatch = useDispatch();
   const {loading} = useSelector(state => state.products);
+
+  const {pathname, hash, key} = useLocation();
 
   useEffect(() => {
     const makeRequest = async () => {
@@ -32,7 +34,21 @@ export default function App() {
     };
     dispatch(fetchAllProductsAction());
     makeRequest();
-  }, []);
+    // if not a hash link, scroll to top
+    if (hash === "") {
+      window.scrollTo(0, 0);
+    }
+    // else scroll to id
+    else {
+      setTimeout(() => {
+        const id = hash.replace("#", "");
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView();
+        }
+      }, 0);
+    }
+  }, [pathname, hash, key]);
 
   if (loading) return <Spinner />;
 
@@ -153,3 +169,5 @@ export default function App() {
 
 // <Route path="/checkout" element={<Pay />} />
 // <Route path="/locations" element={<Locations />} />
+/*           <Route path="/contact" element={<ContactPage />} exact />
+ */

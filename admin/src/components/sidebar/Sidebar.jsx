@@ -14,7 +14,7 @@ export default function Sidebar({theme, selectTheme}) {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Dashboard</h3>
           <ul className="sidebarList">
-            <NavLink to="/" className="link">
+            <NavLink to="/admin" className="link">
               <li className="sidebarListItem active">Home</li>
             </NavLink>
           </ul>
@@ -22,18 +22,23 @@ export default function Sidebar({theme, selectTheme}) {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Quick Menu</h3>
           <ul className="sidebarList">
-            <NavLink to="/users" className="link">
+            <NavLink to="/admin/users" className="link">
               <li className="sidebarListItem">Users</li>
             </NavLink>
-            <NavLink to="/blogs" className="link">
+            <NavLink to="/admin/blogs" className="link">
               <li className="sidebarListItem">Blogs</li>
             </NavLink>
-            <NavLink to="/courses" className="link">
+            <NavLink to="/admin/courses" className="link">
               <li className="sidebarListItem">Courses</li>
             </NavLink>
-            <li className="sidebarListItem">Newsletter</li>
+            <NavLink to="/admin/comments" className="link">
+              <li className="sidebarListItem">Comments</li>
+            </NavLink>
+            <NavLink to="/admin/contactMessage" className="link">
+              <li className="sidebarListItem">Contact Messages</li>
+            </NavLink>
 
-            <NavLink to="/testimonials" className="link">
+            <NavLink to="/admin/testimonials" className="link">
               <li className="sidebarListItem">Testimonials</li>
             </NavLink>
           </ul>
@@ -41,13 +46,13 @@ export default function Sidebar({theme, selectTheme}) {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Add New</h3>
           <ul className="sidebarList">
-            <NavLink to="/newcourse" className="link">
+            <NavLink to="/admin/newcourse" className="link">
               <li className="sidebarListItem">New Courses</li>
             </NavLink>
-            <NavLink to="/newBlog" className="link">
+            <NavLink to="/admin/newBlog" className="link">
               <li className="sidebarListItem">New Blog</li>
             </NavLink>
-            <NavLink to="/newsLetter" className="link">
+            <NavLink to="/admin/newsLetter" className="link">
               <li className="sidebarListItem">New NewsLetter</li>
             </NavLink>
           </ul>

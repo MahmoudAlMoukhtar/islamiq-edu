@@ -4,11 +4,16 @@ import {
   AiOutlineWhatsApp,
 } from "react-icons/ai";
 import {motion} from "framer-motion";
+import {useTranslation} from "react-i18next";
 const TopBar = () => {
+  const [t, i18n] = useTranslation();
   return (
     <header
-     
-      className="flex  gap-6 justify-between items-center bg-[#ffc265]  px-4 sm:px-20 w-full py-4 sm:py-2 text-[#000]"
+      className={
+        i18n.language === "en"
+          ? "flex  gap-6 justify-between items-center bg-[#ffc265]  px-4 sm:px-20 w-full py-4 sm:py-2 text-[#000]"
+          : "flex flex-row-reverse  gap-6 justify-between items-center bg-[#ffc265]  px-4 sm:px-20 w-full py-4 sm:py-2 text-[#000]"
+      }
     >
       <a href="#" className="hidden absolute sm:block sm:static">
         <div className="flex  gap-2 items-start ">
@@ -20,11 +25,11 @@ const TopBar = () => {
         href="https://www.facebook.com/profile.php?id=100090853364224"
         className="flex justify-center items-end gap-2 "
       >
-        <AiFillFacebook className="text-3xl sm:text-6xl" />
+        <div>
+          <AiFillFacebook className="text-3xl sm:text-6xl" />
+        </div>
         <div className="flex flex-col text-start text-xs md:text-lg">
-          <p className="text-xs sm:text-md sm:font-bold">
-            IQRA In the name of Allah
-          </p>
+          <p className="text-xs sm:text-md sm:font-bold">IQRA</p>
           <p className="font-bold text-[#4caf50]">Facebook</p>
         </div>
       </a>

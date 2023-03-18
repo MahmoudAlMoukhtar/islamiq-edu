@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import {BsArrowRight} from "react-icons/bs";
-import ProductSlider from "../../components/ProductsSlider";
 import {Link, useNavigate} from "react-router-dom";
 import {AiOutlineArrowRight, AiOutlineArrowLeft} from "react-icons/ai";
 import {motion} from "framer-motion";
@@ -14,6 +13,7 @@ import Fees from "./Fees/Fees";
 import Testimonials from "./Testimonials/Testimonials";
 import BlogsSection from "./BlogsSction/BlogsSction";
 import CustomizedAccordions from "./FAQ/FAQ";
+import ContactPage from "./Contact/Contact";
 
 const HomePage = () => {
   const container = {
@@ -41,6 +41,7 @@ const HomePage = () => {
       <BlogsSection />
       <Fees />
       <Testimonials />
+      <ContactPage />
       <CustomizedAccordions />
       <ToastContainer />
     </motion.div>

@@ -2,6 +2,7 @@ import React from "react";
 import {useTranslation} from "react-i18next";
 import {AiOutlineWhatsApp} from "react-icons/ai";
 import {LazyLoadImage} from "react-lazy-load-image-component";
+import moment from "moment";
 
 const HeroDetailSection = ({post}) => {
   const [t, i18n] = useTranslation();
@@ -29,7 +30,7 @@ const HeroDetailSection = ({post}) => {
           <div className="flex justify-center gap-2">
             <h6>{i18n.language === "en" ? "By Admin" : "بواسطة الآدمن"}</h6>
             {" - "}
-            <h6>{post.createdAt}</h6>
+            <h6>{moment(post.createdAt).utc().format("YYYY-MM-DD")}</h6>
           </div>
         </div>
         <a
