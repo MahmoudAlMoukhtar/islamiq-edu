@@ -7,7 +7,6 @@ const {
   updateBlog,
   deletBlog,
 } = require("../controller/blogs");
-const authMW = require("../middleware/authMW");
 const parser = require("../utils/cloudinary");
 
 const router = express.Router();
@@ -17,6 +16,5 @@ router.get("/:id", getBlogById);
 router.post("/", parser.single("image"), createBlog);
 router.put("/:id", parser.single("image"), updateBlog);
 router.delete("/:id", deletBlog);
-//router.delete("/:id", authMW, deletBlog);
 
 module.exports = router;
