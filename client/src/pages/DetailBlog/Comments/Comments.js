@@ -116,5 +116,3 @@ const Comments = ({post}) => {
 };
 
 export default Comments;
-/*                         {moment(c.createdAt).fromNow()}
- */

@@ -11,7 +11,9 @@ import {Link, useParams} from "react-router-dom";
 import * as api from "../../api/index";
 import {HiOutlineMail, HiOutlineLocationMarker} from "react-icons/hi";
 import {HiDevicePhoneMobile} from "react-icons/hi2";
+import {toast} from "react-toastify";
 import "./user.css";
+import userImage from "../../depositphotos_137014128-stock-illustration-user-profile-icon.jpg";
 
 export default function User() {
   const {userId} = useParams();
@@ -37,6 +39,7 @@ export default function User() {
     try {
       setLoading(true);
       const res = await api.updateUser(userId, userData);
+      toast.success("Updated User Success");
       setuserData(res.data);
       setLoading(false);
     } catch (err) {
@@ -54,16 +57,10 @@ export default function User() {
           <button className="userAddButton">Create</button>
         </Link>
       </div>
-      <div className="userContainer">
+      <div className="userContainer flex flex-col md:flex-row">
         <div className="userShow">
           <div className="userShowTop">
-            <img
-              src={
-                "/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"
-              }
-              alt=""
-              className="userShowImg"
-            />
+            <img src={userImage} alt="" className="userShowImg" />
             <div className="userShowTopTitle">
               <span className="userShowUsername">
                 {userData.firstName + " " + userData.lastName}
@@ -96,7 +93,7 @@ export default function User() {
             </div>
           </div>
         </div>
-        <div className="userUpdate">
+        <div className="userUpdate" style={{margin: 0}}>
           <span className="userUpdateTitle">Edit</span>
           <form className="userUpdateForm">
             <div className="userUpdateLeft">
@@ -164,11 +161,7 @@ export default function User() {
             </div>
             <div className="userUpdateRight">
               <div className="userUpdateUpload">
-                <img
-                  className="userUpdateImg"
-                  src="/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"
-                  alt=""
-                />
+                <img className="userUpdateImg" src={userImage} alt="user" />
               </div>
               <button className="userUpdateButton" onClick={handleUpdate}>
                 Update

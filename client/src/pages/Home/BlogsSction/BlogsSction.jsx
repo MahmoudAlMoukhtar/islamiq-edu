@@ -15,8 +15,8 @@ const BlogItem = ({b}) => {
       to={`/blogs/${b._id}`}
       className={
         i18n.language === "en"
-          ? "flex flex-col items-start justify-between gap-10 mb-4 w-80 sm:w-96 rounded shadow-xl text-start  sm:h-[550px] hover:scale-[1.02] transtion duration-200"
-          : "flex flex-col items-end justify-between gap-10 mb-4 w-80 sm:w-96 rounded shadow-xl text-end  sm:h-[550px] hover:scale-[1.02] transtion duration-200"
+          ? "flex flex-col items-start justify-between gap-10 mb-4 w-80 sm:w-96  rounded shadow-xl text-start  sm:h-[550px] hover:scale-[1.02] transtion duration-200"
+          : "flex flex-col items-end justify-between gap-10 mb-4 w-80 sm:w-96  rounded shadow-xl text-end  sm:h-[550px] hover:scale-[1.02] transtion duration-200"
       }
     >
       <LazyLoadImage
@@ -32,7 +32,7 @@ const BlogItem = ({b}) => {
             : "flex flex-col justify-end items-end gap-10 text-end h-full w-full"
         }
       >
-        <p className="text-2xl font-semibold  px-4">
+        <p className="text-xl lg:text-2xl font-semibold  px-4">
           {i18n.language === "en" ? b.title : b.titleAr}
         </p>
         <p className="w-full  px-4">
@@ -41,7 +41,7 @@ const BlogItem = ({b}) => {
             : b.messageAr.substr(0, 200)}
           <span className="mx-1 opacity-[0.6] text-3xl">.....</span>
         </p>
-        <button className="rounded bg-[#4caf50] py-2 px-4 w-full font-bold">
+        <button className="rounded bg-[#4caf50] py-2 px-4 w-full font-bold text-sm sm:text-md">
           {i18n.language === "en" ? "See more" : "رؤية المزيد"}
         </button>
       </div>

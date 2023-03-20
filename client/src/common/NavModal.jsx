@@ -46,23 +46,48 @@ const NavbarModal = ({setNavBarModal, navbarModal}) => {
             to="/"
             end
             className={styles.linkPages}
+            onClick={() => setNavBarModal(false)}
           >
             Home
           </NavLink>
-          <Link to="/#Whyus" end className={styles.linkPages}>
+          <Link
+            to="/#Whyus"
+            end
+            className={styles.linkPages}
+            onClick={() => setNavBarModal(false)}
+          >
             Why us
           </Link>
-          <Link to="/#courses" end className={styles.linkPages}>
+          <Link
+            to="/#courses"
+            end
+            className={styles.linkPages}
+            onClick={() => setNavBarModal(false)}
+          >
             Courses
           </Link>
-          <Link to="/#fees" end className={styles.linkPages}>
+          <Link
+            to="/#fees"
+            end
+            className={styles.linkPages}
+            onClick={() => setNavBarModal(false)}
+          >
             Fees
           </Link>
-          <Link to="/#testimonials" className={styles.linkPages}>
+          <Link
+            to="/#testimonials"
+            className={styles.linkPages}
+            onClick={() => setNavBarModal(false)}
+          >
             Testimonials
           </Link>
 
-          <Link to="/#blogs" end className={styles.linkPages}>
+          <Link
+            to="/#blogs"
+            end
+            className={styles.linkPages}
+            onClick={() => setNavBarModal(false)}
+          >
             Blogs
           </Link>
         </ul>

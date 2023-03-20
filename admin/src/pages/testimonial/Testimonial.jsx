@@ -4,6 +4,8 @@ import * as api from "../../api/index";
 import {HiOutlineMail} from "react-icons/hi";
 import {HiDevicePhoneMobile} from "react-icons/hi2";
 import "./user.css";
+import userImage from "../../depositphotos_137014128-stock-illustration-user-profile-icon.jpg";
+
 import {toast, ToastContainer} from "react-toastify";
 export default function Testimonial() {
   const {id} = useParams();
@@ -14,7 +16,7 @@ export default function Testimonial() {
   useEffect(() => {
     const makeRequest = async () => {
       try {
-        console.log(id);
+        //console.log(id);
         const res = await api.fetchTestimonialById(id);
         setTestimonialData(res.data);
         //console.log(res.data);
@@ -33,16 +35,10 @@ export default function Testimonial() {
       <div className="userTitleContainer">
         <h1 className="userTitle">Show Testimonial</h1>
       </div>
-      <div className="userContainer">
+      <div className="userContainer flex flex-col md:flex-row">
         <div className="userShow">
           <div className="userShowTop">
-            <img
-              src={
-                "/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"
-              }
-              alt=""
-              className="userShowImg"
-            />
+            <img src={userImage} alt="" className="userShowImg" />
             <div className="userShowTopTitle">
               <span className="userShowUsername">
                 {testimonialData.firstName} {testimonialData.lastName}
@@ -81,43 +77,41 @@ export default function Testimonial() {
             </div>
           </div>
         </div>
-        <div className="userUpdate">
-          <span className="userUpdateTitle">Testimoial</span>
-          <p>{testimonialData.message}</p>
-          <button
-            className="userAcceptButton w-full mb-2"
-            onClick={() => {
-              const res = api.updateTestimonial(testimonialData._id, {
-                display: true,
-              });
-              toast.success(
-                "This Testimonial Is Display On Main Website In Success"
-              );
-            }}
-          >
-            Accept
-          </button>
-          <button
-            className="userRejectButton w-full"
-            onClick={() => {
-              const res = api.deleteTestimonialById(testimonialData._id);
-              navigait.push("/");
-            }}
-          >
-            Reject
-          </button>
+        <div
+          className="userUpdate flex flex-col justify-between w-full"
+          style={{margin: 0}}
+        >
+          <div className="flex flex-col gap-2">
+            <span className="userUpdateTitle">Testimoial</span>
+            <p>{testimonialData.message}</p>
+          </div>
+          <div className="flex flex-col gap-2 mt-4">
+            <button
+              className="userAcceptButton w-full mb-2"
+              onClick={() => {
+                const res = api.updateTestimonial(testimonialData._id, {
+                  display: true,
+                });
+                toast.success(
+                  "This Testimonial Is Display On Main Website In Success"
+                );
+              }}
+            >
+              Accept
+            </button>
+            <button
+              className="userRejectButton w-full"
+              onClick={() => {
+                const res = api.deleteTestimonialById(testimonialData._id);
+                navigait.push("/");
+              }}
+            >
+              Reject
+            </button>
+          </div>
         </div>
       </div>
       <ToastContainer />
     </div>
   );
 }
-
-/* 
-<PermIdentity className="userShowIcon" />
-<CalendarToday className="userShowIcon" />
-<PhoneAndroid className="userShowIcon" />
-<MailOutline className="userShowIcon" />
-<LocationSearching className="userShowIcon" />
-<Publish className="userUpdateIcon" />
-*/

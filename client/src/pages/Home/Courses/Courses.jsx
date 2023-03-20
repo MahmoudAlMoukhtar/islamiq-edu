@@ -28,29 +28,27 @@ const Courses = () => {
         <span className="h-1 sm:h-2 w-60 bg-[#ffc265]" />
       </div>
       <motion.div className="flex justify-center items-center flex-wrap gap-4 sm:gap-10 lg:gap-4  w-full py-10 mt-4 sm:mt-20">
-        {courses
-          .map(c => (
-            <Link
-              key={c._id}
-              to={`/courses/${c._id}`}
-              variants={item}
-              className="item flex flex-col items-center justify-between hover:text-black  transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px] bg-[#FF932D] rounded-t-full pt-4   cursor-pointer hover:translate-y-[-10px] sm:mb-10"
-            >
-              <LazyLoadImage
-                effect="blur"
-                loading="lazy"
-                src={c.thum}
-                className="w-40 sm:w-60 rounded-t-full h-[100px] sm:h-[200px] px-4 bg-[#FF932D]"
-                alt="Islamic-Studies"
-              />
-              <h3 className="text-xs sm:text-sm font-semibold bg-[#4caf50] text-white w-full h-6 sm:h-10 text-lg">
-                {i18n.language === "en" ? c.title : c.titleAr}
-              </h3>
-            </Link>
-          ))
-          .slice(0, 5)}
+        {courses.map(c => (
+          <Link
+            key={c._id}
+            to={`/courses/${c._id}`}
+            variants={item}
+            className="item flex flex-col items-center justify-between hover:text-black  transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px] bg-[#FF932D] rounded-t-full pt-4   cursor-pointer hover:translate-y-[-10px] sm:mb-10"
+          >
+            <LazyLoadImage
+              effect="blur"
+              loading="lazy"
+              src={c.thum}
+              className="w-40 sm:w-60 rounded-t-full h-[100px] sm:h-[200px] px-4 bg-[#FF932D]"
+              alt="Islamic-Studies"
+            />
+            <h3 className="text-xs sm:text-sm font-semibold bg-[#4caf50] text-white w-full h-6 sm:h-10 text-lg">
+              {i18n.language === "en" ? c.title : c.titleAr}
+            </h3>
+          </Link>
+        ))}
       </motion.div>
-      <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-10 w-full bg-[#4caf50] px-40 py-6">
+      <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-10 w-full bg-[#4caf50] px-10 md:px-20 lg:px-40 py-6">
         <div className="flex flex-col items-center justify-center gap-2 text-white w-60 text-center">
           <LazyLoadImage
             effect="blur"

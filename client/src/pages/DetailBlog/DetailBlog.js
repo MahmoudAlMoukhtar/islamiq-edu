@@ -1,16 +1,11 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import {useParams, useNavigate} from "react-router-dom";
 import {motion} from "framer-motion";
 import Spinner from "../../Spinner";
 import {useDispatch, useSelector} from "react-redux";
-import {ToastContainer} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import BeatLoader from "react-spinners/BeatLoader";
-import {AiOutlineWhatsApp} from "react-icons/ai";
-import {LazyLoadImage} from "react-lazy-load-image-component";
 import HeroDetailSection from "./HeroDetailSection/HeroDetailSection";
 import Details from "./Details/Details";
-import SideBar from "./SideBar/SideBar";
 import {fetchBlogByIdAction} from "../../redux/actions/blogsActions";
 
 const DetailBlog = () => {

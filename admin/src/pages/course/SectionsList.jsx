@@ -6,14 +6,16 @@ import React from "react";
 import * as api from "../../api/index";
 export default function SectionsList({courseData, setCourseData}) {
   const navigate = useHistory();
-  const handleDelete = async (idSection, idCourse) => {
-    //console.log(idSection);
+  const handleDelete = async (idCourse, idSection) => {
+    console.log(idSection);
+    console.log(idCourse);
     const res = await api.deleteSection(idCourse, idSection);
-    setCourseData(courseData.sections.filter(item => item._id !== idSection));
-    if (
-      courseData.sections.filter(item => item._id !== idSection).length === 0
-    ) {
-      navigate.push("/newproduct");
+    const sectionsAfterDelete = courseData.sections.filter(
+      item => item._id !== idSection
+    );
+    setCourseData({...courseData, sections: sectionsAfterDelete});
+    if (sectionsAfterDelete.length === 0) {
+      navigate.push("/admin/courses");
     }
   };
 
@@ -26,7 +28,7 @@ export default function SectionsList({courseData, setCourseData}) {
       renderCell: params => {
         //console.log(params);
         if (params.row.image) {
-          return <img src={params.row.image} className="productListImg" />;
+          return <img src={params.row.image} alt="section" />;
         } else if (params.row.video) {
           return (
             <a
@@ -62,7 +64,7 @@ export default function SectionsList({courseData, setCourseData}) {
           <div className="containerActionsBtns w-full">
             <button
               className="productListDelete w-full"
-              onClick={() => handleDelete(params.row._id, courseData._id)}
+              onClick={() => handleDelete(courseData._id, params.row._id)}
             >
               Delete
             </button>
@@ -71,7 +73,6 @@ export default function SectionsList({courseData, setCourseData}) {
       },
     },
   ];
-  if (courseData.sections.length === 0) return <h1>Empty</h1>;
 
   return (
     <div className="h-screen mt-10">

@@ -3,8 +3,10 @@ import {Link, useHistory, useParams} from "react-router-dom";
 import * as api from "../../api/index";
 import {HiOutlineMail} from "react-icons/hi";
 import {HiDevicePhoneMobile} from "react-icons/hi2";
-import "./user.css";
+import "./comment.css";
 import {toast, ToastContainer} from "react-toastify";
+import userImage from "../../depositphotos_137014128-stock-illustration-user-profile-icon.jpg";
+
 export default function Comment() {
   const {id} = useParams();
   const [commentData, setCommentData] = useState();
@@ -29,65 +31,53 @@ export default function Comment() {
   if (error) return <h1 className="text-red-800">error</h1>;
   if (loading) return <h1 className="text-red-800">Loading</h1>;
   return (
-    <div className="user">
-      <div className="userTitleContainer">
-        <h1 className="userTitle">Show Comment</h1>
+    <div className="comment">
+      <div className="commentTitleContainer">
+        <h1 className="commentTitle">Show Comment</h1>
       </div>
-      <div className="userContainer">
-        <div className="userShow">
-          <div className="userShowTop">
-            <img
-              src={
-                "/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"
-              }
-              alt=""
-              className="userShowImg"
-            />
-            <div className="userShowTopTitle">
-              <span className="userShowUsername">
+      <div className="commentContainer flex flex-col md:flex-row">
+        <div className="commentShow">
+          <div className="commentShowTop">
+            <img src={userImage} alt="" className="commentShowImg" />
+            <div className="commentShowTopTitle">
+              <span className="commentShowcommentname">
                 {commentData.firstName} {commentData.lastName}
               </span>
-              <span className="userShowUserTitle">Gender</span>
             </div>
           </div>
-          <div className="userShowBottom">
-            <span className="userShowTitle">Account Details</span>
-            <div className="userShowInfo">
-              <span className="userShowInfoTitle">
-                Id User: {commentData.idUser}
+          <div className="commentShowBottom">
+            <span className="commentShowTitle">Account Details</span>
+            <div className="commentShowInfo">
+              <span className="commentShowInfoTitle">
+                Id comment: {commentData.idcomment}
               </span>
             </div>
-            <div className="userShowInfo">
-              <span className="userShowInfoTitle">
+            <div className="commentShowInfo">
+              <span className="commentShowInfoTitle">
                 First Name: {commentData.firstName}
               </span>
             </div>
-            <div className="userShowInfo">
-              <span className="userShowInfoTitle">
+            <div className="commentShowInfo">
+              <span className="commentShowInfoTitle">
                 Last Name: {commentData.lastName}
               </span>
             </div>
-
-            <span className="userShowTitle">Contact Details</span>
-            <div className="userShowInfo">
-              <HiDevicePhoneMobile />
-              <span className="userShowInfoTitle">{commentData.phone}</span>
-            </div>
-            <div className="userShowInfo">
-              <HiOutlineMail />
-              <span className="userShowInfoTitle">{commentData.email}</span>
-            </div>
           </div>
         </div>
-        <div className="userUpdate">
-          <span className="userUpdateTitle">Comment Message</span>
-          <p>{commentData.message}</p>
+        <div
+          className="commentUpdate flex flex-col justify-between w-full"
+          style={{margin: 0}}
+        >
+          <div className="flex flex-col gap-2">
+            <span className="commentUpdateTitle">Comment Message:</span>
+            <p>{commentData.message}</p>
+          </div>
 
           <button
-            className="userRejectButton w-full"
+            className="commentRejectButton w-full"
             onClick={async () => {
               const res = await api.deleteCommentById(commentData._id);
-              navigait.push("/");
+              navigait.push("/admin");
             }}
           >
             Delete
@@ -100,10 +90,13 @@ export default function Comment() {
 }
 
 /* 
-<PermIdentity className="userShowIcon" />
-<CalendarToday className="userShowIcon" />
-<PhoneAndroid className="userShowIcon" />
-<MailOutline className="userShowIcon" />
-<LocationSearching className="userShowIcon" />
-<Publish className="userUpdateIcon" />
+<span className="commentShowTitle">Contact Details</span>
+            <div className="commentShowInfo">
+              <HiDevicePhoneMobile />
+              <span className="commentShowInfoTitle">{commentData.phone}</span>
+            </div>
+            <div className="commentShowInfo">
+              <HiOutlineMail />
+              <span className="commentShowInfoTitle">{commentData.email}</span>
+            </div>
 */

@@ -6,7 +6,7 @@ import {useState} from "react";
 import React from "react";
 import {useEffect} from "react";
 import * as api from "../../api/index";
-export default function CommentsList() {
+export default function CommentsList({theme}) {
   const [data, setDataComments] = useState();
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -26,8 +26,8 @@ export default function CommentsList() {
   }, []);
 
   const handleDelete = async id => {
-    const res = await api.deleteCourseById(id);
-    setDataComments(data.filter(item => item._id !== res.data._id));
+    const res = await api.deleteCommentById(id);
+    setDataComments(data.filter(item => item._id !== id));
   };
 
   if (error) return <h1 className="text-red-800">error</h1>;
@@ -35,24 +35,28 @@ export default function CommentsList() {
 
   const columns = [
     {field: "_id", headerName: "ID", width: 150},
+
     {
       field: "idUser",
       headerName: "Id User",
       width: 200,
-      renderCell: params => {
-        return (
-          <p src={params.row.thum} className="productListImg">
-            {params.row.idUser}
-          </p>
-        );
-      },
     },
     {
       field: "idParent",
-      headerName: "Id Blog Parent",
+      headerName: "Id Blog Parent Comment",
       width: 200,
       renderCell: params => {
-        return <div className="productListItem">{params.row.idParent}</div>;
+        return (
+          <div
+            className={
+              theme === "black"
+                ? "productListItem text-white"
+                : "productListItem "
+            }
+          >
+            {params.row.idParent}
+          </div>
+        );
       },
     },
     {
@@ -60,7 +64,17 @@ export default function CommentsList() {
       headerName: "First Name",
       width: 200,
       renderCell: params => {
-        return <div className="productListItem">{params.row.firstName}</div>;
+        return (
+          <div
+            className={
+              theme === "black"
+                ? "productListItem text-white"
+                : "productListItem "
+            }
+          >
+            {params.row.firstName}
+          </div>
+        );
       },
     },
     {
@@ -68,15 +82,36 @@ export default function CommentsList() {
       headerName: "Last Name",
       width: 200,
       renderCell: params => {
-        return <div className="productListItem">{params.row.lastName}</div>;
+        return (
+          <div
+            className={
+              theme === "black"
+                ? "productListItem text-white"
+                : "productListItem "
+            }
+          >
+            {params.row.lastName}
+          </div>
+        );
       },
     },
     {
       field: "message",
       headerName: "Comment Message",
+
       width: 200,
       renderCell: params => {
-        return <div className="productListItem">{params.row.message}</div>;
+        return (
+          <div
+            className={
+              theme === "black"
+                ? "productListItem text-white"
+                : "productListItem "
+            }
+          >
+            {params.row.message}
+          </div>
+        );
       },
     },
 
@@ -86,13 +121,22 @@ export default function CommentsList() {
       width: 150,
       renderCell: params => {
         return (
-          <div className="containerActionsBtns">
+          <div
+            className={
+              theme === "black"
+                ? "containerActionsBtns text-white"
+                : "containerActionsBtns"
+            }
+          >
             <Link to={"/admin/comments/" + params.row._id}>
-              <button className="productListEdit">Edit</button>
+              <button className="productListEdit">Show Details</button>
             </Link>
             <button
               className="productListDelete"
-              onClick={() => handleDelete(params.row._id)}
+              onClick={() => {
+                //console.log(params.row._id);
+                handleDelete(params.row._id);
+              }}
             >
               Delete
             </button>
@@ -103,7 +147,13 @@ export default function CommentsList() {
   ];
 
   return (
-    <div className="productList h-[500px]">
+    <div
+      className={
+        theme === "black"
+          ? "productList h-[500px] text-white"
+          : "productList h-[500px] "
+      }
+    >
       <DataGrid
         rows={data}
         disableSelectionOnClick

@@ -49,6 +49,7 @@ const getTestimoialsDashboard = async (req, res) => {
         ...testimonialUserData._doc,
         _id: testimoials[i]._id,
         message: testimoials[i].message,
+        display: testimoials[i].display,
       });
     }
     console.log(testimonialsUsersData);

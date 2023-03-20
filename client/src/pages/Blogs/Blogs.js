@@ -77,7 +77,7 @@ const BlogsPage = () => {
       </div>
       <div className="flex gap-20 sm:gap-4 justify-center items-center flex-wrap w-full px-2 sm:px-4 sm:px-20 ">
         {blogsData.map(b => (
-          <BlogItem b={b} />
+          <BlogItem b={b} key={b._id} />
         ))}
       </div>
     </motion.section>

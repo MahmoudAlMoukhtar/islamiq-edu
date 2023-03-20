@@ -4,22 +4,27 @@ import * as api from "../../api/index";
 import SectionsList from "./SectionsList";
 import Resizer from "react-image-file-resizer";
 import GridLoader from "react-spinners/GridLoader";
-import {toast, ToastContainer} from "react-toastify";
+import {toast} from "react-toastify";
+import {v4 as uuidv4} from "uuid";
+
 export default function Newcourse() {
   const [courseData, setCourseData] = useState({
     title: "",
     sections: [],
   });
   const [sectionData, setSectionData] = useState({
+    uuid: "",
     video: "",
     description: "",
   });
 
   const [imagesSections, setImagesSections] = useState([]);
+  const [thum, setThum] = useState();
   const [imageValueThum, setImageValueThum] = useState();
   const [imageValue, setImageValue] = useState();
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [loadingCreateCourse, setLoadingCreateCourse] = useState(false);
 
   const handleUpload = async e => {
     const file = e.target.files[0];
@@ -45,7 +50,6 @@ export default function Newcourse() {
       return;
     } else {
       setImagesSections([...imagesSections, image]);
-      setImagesSections([image, ...imagesSections]);
       var reader = new FileReader();
       reader.onload = function (e) {
         setImageValue(e.target.result);
@@ -76,7 +80,7 @@ export default function Newcourse() {
       setError("File must be in JPG/PNG format");
       return;
     } else {
-      setImagesSections([image, ...imagesSections]);
+      setThum(image);
       var reader = new FileReader();
       reader.onload = function (e) {
         setImageValueThum(e.target.result);
@@ -98,48 +102,50 @@ export default function Newcourse() {
       const idYoutube = youtube_parser(sectionData.video);
       setCourseData({
         ...courseData,
-        sections: [...courseData.sections, {...sectionData, video: idYoutube}],
+        sections: [
+          ...courseData.sections,
+          {...sectionData, video: idYoutube, uuid: uuidv4()},
+        ],
       });
+      //console.log(courseData.sections);
     } else {
       setCourseData({
         ...courseData,
-        sections: [...courseData.sections, {...sectionData}],
+        sections: [...courseData.sections, {...sectionData, uuid: uuidv4()}],
       });
+      //console.log(courseData.sections);
     }
     toast.success("Add Section successfully!");
   };
 
   const handleSubmit = async e => {
     e.preventDefault();
-    setLoading(true);
     const formData = new FormData();
+
+    //console.log(imagesSections);
+    formData.append("images", thum);
     for (const image of imagesSections) {
       formData.append("images", image);
     }
     formData.append("title", courseData.title);
     formData.append("titleAr", courseData.title);
     formData.append("sections", JSON.stringify(courseData.sections));
-    const res = await api.createCourse(formData);
+    //console.log(formData)
+    setLoadingCreateCourse(true);
+    await api.createCourse(formData);
+    setLoadingCreateCourse(false);
     toast.success("Create Course successfully!");
     setLoading(false);
   };
   if (error) return <h1 className="text-red-800">error</h1>;
-  if (loading)
-    return (
-      <GridLoader
-        color={"#0000"}
-        loading={loading}
-        size={150}
-        aria-label="Loading Spinner"
-        data-testid="loader"
-      />
-    );
+  if (loading) return <p>Loading</p>;
   return (
-    <div className="newcourse flex flex-col gap-20">
+    <form onSubmit={handleSubmit} className="newcourse flex flex-col gap-20">
       <h1 className="addcourseTitle  text-4xl font-bold">New Course</h1>
       <div className="w-full">
         <label className=" text-xl font-bold">Title Course</label>
         <input
+          required
           type="text"
           className="border-b-[1px] border-black  rounded w-full  p-2"
           placeholder="Title Course"
@@ -151,6 +157,7 @@ export default function Newcourse() {
           عنوان الكورس باللغة العربية
         </label>
         <input
+          required
           type="text"
           className="border-b-[1px] border-black  rounded w-full  p-2"
           placeholder="عنوان الكورس باللغة العربية"
@@ -162,26 +169,33 @@ export default function Newcourse() {
       <div className="addcourseItem">
         <label>Thum Image</label>
         <input
+          required
           type="file"
           id="thumImage"
           name="thumImage"
           htmlFor="thumImage"
           onChange={handleUploadThum}
         />
-        {imageValue && <img src={imageValueThum} alt="image section" />}
+
+        {imageValueThum && <img src={imageValueThum} alt="image section" />}
       </div>
 
       <section className="flex flex-col w-full p-2">
         <h2 className=" text-xl font-bold">Add section</h2>
         <div className="addcourseItem">
           <label>Image</label>
-          <input
-            type="file"
-            id="image"
-            name="image"
-            htmlFor="image"
-            onChange={handleUpload}
-          />
+          <div className="flex justify-between items-center gap-4 w-full">
+            <input
+              type="file"
+              id="image"
+              name="image"
+              htmlFor="image"
+              onChange={handleUpload}
+            />
+            <button className=" p-2 rounded shadow-xl border-[1px] border-black">
+              Remove
+            </button>
+          </div>
         </div>
         {imageValue && <img src={imageValue} alt="image section" />}
         <div className="w-full">
@@ -199,7 +213,7 @@ export default function Newcourse() {
           <label>Description</label>
           <textarea
             type="text"
-            className="border-b-[1px] border-black  rounded w-full  p-2"
+            className="border-b-[1px] border-black  rounded w-full  p-2 h-60"
             placeholder="Description section"
             onChange={e =>
               setSectionData({...sectionData, description: e.target.value})
@@ -207,10 +221,10 @@ export default function Newcourse() {
           />
         </div>
         <div className="w-full">
-          <label>Description</label>
+          <label>وصف القسم بالغة العربية</label>
           <textarea
             type="text"
-            className="border-b-[1px] border-black  rounded w-full  p-2"
+            className="border-b-[1px] border-black  rounded w-full p-2 h-60"
             placeholder="وصف القسم باللغة العربية"
             onChange={e =>
               setSectionData({...sectionData, descriptionAr: e.target.value})
@@ -225,17 +239,17 @@ export default function Newcourse() {
           Add Section
         </button>
       </section>
-      <form className="addcourseForm w-full">
+      <div className="addcourseForm w-full">
         <button
-          className="bg-green-400 py-2 font-bold w-full"
+          className="bg-green-400 font-bold w-full py-4 text-lg"
           type="submit"
-          onClick={handleSubmit}
         >
-          Create Course
+          {loadingCreateCourse
+            ? "Wait..."
+            : "POST THE COURSE TO THE MAIN WEBSITE"}
         </button>
-      </form>
+      </div>
       <SectionsList courseData={courseData} setCourseData={setCourseData} />
-      <ToastContainer />
-    </div>
+    </form>
   );
 }

@@ -4,6 +4,7 @@ import * as api from "../../api/index";
 import "./course.css";
 import SectionsList from "./SectionsList";
 import Resizer from "react-image-file-resizer";
+import {toast} from "react-toastify";
 
 export default function Course() {
   const {id} = useParams();
@@ -36,26 +37,34 @@ export default function Course() {
 
   const handleAddSection = async e => {
     e.preventDefault();
-    // console.log(imagesSections);
-    // console.log(sectionData);
-    setCourseData({
-      ...courseData,
-      sections: [...courseData.sections, sectionData],
-    });
+    const formData = new FormData();
+    formData.append("image", sectionData.image);
+    formData.append("description", sectionData.description);
+    formData.append("descriptionAr", sectionData.descriptionAr);
+    formData.append("video", sectionData.video);
+    try {
+      const res = await api.addSection(courseData._id, formData);
+      setCourseData(res.data);
+      toast.success("Add section to course success");
+    } catch (err) {
+      toast.error("Error in add section to course!");
+    }
   };
 
   const handleUpdate = async e => {
     e.preventDefault();
     const formData = new FormData();
     setImagesSections([imageThum, ...imagesSections]);
-    for (const image of imagesSections) {
-      formData.append("images", image);
+
+    formData.append("images", imageThum);
+    if (courseData.title) {
+      formData.append("title", courseData.title);
+      formData.append("titleAr", courseData.titleAr);
     }
-    formData.append("title", courseData.title);
-    formData.append("sections", JSON.stringify(courseData.sections));
 
     setLoading(true);
     const res = await api.updateCourse(id, formData);
+    toast.success("Update course success");
     setLoading(false);
     setCourseData(res.data);
   };
@@ -83,7 +92,7 @@ export default function Course() {
       setError("File must be in JPG/PNG format");
       return;
     } else {
-      setImagesSections([...imagesSections, image]);
+      setSectionData({...sectionData, image});
       var reader = new FileReader();
       reader.onload = function (e) {
         setImageValueSection(e.target.result);
@@ -125,18 +134,17 @@ export default function Course() {
 
   if (error) return <h1 className="text-red-800">error</h1>;
   if (loading) return <h1 className="text-red-800 course">Loading</h1>;
-  if (courseData?.sections.length === 0) return <h1>Empty</h1>;
   return (
-    <div className="course">
+    <div className="course w-full">
       <div className="courseTitleContainer">
         <h1 className="courseTitle text-3xl font-bold">
           {courseData.title} Course
         </h1>
-        <Link to="/newcourse">
+        <Link to="/admin/newcourse">
           <button className="courseAddButton">Create</button>
         </Link>
       </div>
-      <div className="courseTop">
+      <div className="courseTop flex-col sm:flex-row">
         <div className="courseTopRight">
           <img src={imageValue} alt="" className="w-full" />
         </div>
@@ -150,11 +158,19 @@ export default function Course() {
               <span className="courseInfoKey">id:</span>
               <span className="courseInfoValue">{courseData._id}</span>
             </div>
-            <div className="courseInfoItem">
-              <span className="courseInfoKey">Title Course:</span>
-              <span className="courseInfoValue">{courseData.title}</span>
+            <div className=" w-full">
+              <span className="courseInfoKey w-full">Title Course:</span>
+              <span className="courseInfoValue w-full">{courseData.title}</span>
             </div>
-            <div className="courseInfoItem">
+            <div className="courseInfoItem w-full">
+              <span className="courseInfoKey w-full">
+                عنوان الكورس باللغة العربية:
+              </span>
+              <span className="courseInfoValue w-full">
+                {courseData.titleAr}
+              </span>
+            </div>
+            <div className="courseInfoItem w-full">
               <span className="courseInfoKey">Number Sections:</span>
               <span className="courseInfoValue">
                 {courseData.sections.length}
@@ -163,15 +179,25 @@ export default function Course() {
           </div>
         </div>
       </div>
-      <div className="courseBottom">
-        <form className="courseForm my-4">
+      <div className="courseBottom ">
+        <form className="courseForm flex flex-col sm:flex-row  my-4">
           <div className="courseFormLeft">
             <label>Course Title</label>
             <input
               type="text"
-              placeholder="Apple AirPod"
+              placeholder="Title Course"
               onChange={e =>
                 setCourseData({...courseData, title: e.target.value})
+              }
+            />
+          </div>
+          <div className="courseFormLeft">
+            <label>عنوان الكورس باللغة العربية</label>
+            <input
+              type="text"
+              placeholder="عنوان الكورس"
+              onChange={e =>
+                setCourseData({...courseData, titleAr: e.target.value})
               }
             />
           </div>
@@ -179,7 +205,7 @@ export default function Course() {
           <div className="courseFormRight">
             <div className="courseUpload">
               <img src={imageValue} alt="" className="courseUploadImg" />
-              <label for="file"></label>
+              <label for="file">Thum Image</label>
               <input type="file" id="file" onChange={handleUploadThum} />
             </div>
           </div>
@@ -192,12 +218,15 @@ export default function Course() {
           Update
         </button>
       </div>
-      <section className="flex flex-col w-full p-2 shadow-xl">
+      <form
+        onSubmit={handleAddSection}
+        className="flex flex-col w-full p-2 shadow-xl"
+      >
         <h2 className=" text-xl font-bold">Add section</h2>
         <div className="addcourseItem">
           <label>Image</label>
           <input
-            type="file"
+            type="file"            
             id="images"
             name="images"
             htmlFor="images"
@@ -208,9 +237,21 @@ export default function Course() {
           <img src={imageValueSection} alt="image section" />
         )}
         <div className="w-full">
+          <label>Link Video</label>
+          <textarea
+            type="text"
+            className="border-b-[1px] border-black  rounded w-full  p-2"
+            placeholder="Link video from youtube"
+            onChange={e =>
+              setSectionData({...sectionData, video: e.target.value})
+            }
+          />
+        </div>
+        <div className="w-full">
           <label>Description</label>
           <textarea
             type="text"
+            required
             className="border-b-[1px] border-black  rounded w-full  p-2"
             placeholder="Description section"
             onChange={e =>
@@ -218,14 +259,24 @@ export default function Course() {
             }
           />
         </div>
+        <div className="w-full">
+          <label>وصف القسم ياللغة العربية</label>
+          <textarea
+            type="text"
+            required
+            className="border-b-[1px] border-black  rounded w-full  p-2"
+            placeholder="وصف القسم"
+            onChange={e =>
+              setSectionData({...sectionData, descriptionAr: e.target.value})
+            }
+          />
+        </div>
 
-        <button
-          className="bg-[#FF932D] text-white p-2 "
-          onClick={handleAddSection}
-        >
+        <button type="submit" className="bg-[#FF932D] text-white p-2 ">
           Add Section
         </button>
-      </section>
+      </form>
+      <SectionsList courseData={courseData} setCourseData={setCourseData} />
     </div>
   );
 }

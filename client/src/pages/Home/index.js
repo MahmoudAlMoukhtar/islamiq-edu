@@ -1,12 +1,7 @@
-import React, {useState} from "react";
-import {BsArrowRight} from "react-icons/bs";
-import {Link, useNavigate} from "react-router-dom";
-import {AiOutlineArrowRight, AiOutlineArrowLeft} from "react-icons/ai";
+import React from "react";
 import {motion} from "framer-motion";
 import HeroSection from "./HeroSection/HeroSection";
 import WhyUS from "./WhyUS/WhyUS";
-import ProductsCategory from "./Courses/Courses";
-import SliderProducts from "./SliderProducts/SliderPRoducts";
 import {ToastContainer} from "react-toastify";
 import Courses from "./Courses/Courses";
 import Fees from "./Fees/Fees";
@@ -16,18 +11,6 @@ import CustomizedAccordions from "./FAQ/FAQ";
 import ContactPage from "./Contact/Contact";
 
 const HomePage = () => {
-  const container = {
-    hidden: {opacity: 1, scale: 0},
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
   return (
     <motion.div
       initial={{opacity: 0}}
@@ -43,17 +26,8 @@ const HomePage = () => {
       <Testimonials />
       <ContactPage />
       <CustomizedAccordions />
-      <ToastContainer />
     </motion.div>
   );
 };
-
-/* 
-
-      <LandingSection />
-      <ProductsCategory />
-      <SliderProducts />
-
-*/
 
 export default HomePage;

@@ -32,4 +32,3 @@ const Details = ({post}) => {
 };
 
 export default Details;
-/* <Comments post={post} /> */

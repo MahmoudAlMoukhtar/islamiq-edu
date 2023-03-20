@@ -7,6 +7,7 @@ import {useEffect, useState} from "react";
 import {useHistory} from "react-router-dom";
 import * as api from "../../api/index";
 import "./userList.css";
+import userImage from "../../depositphotos_137014128-stock-illustration-user-profile-icon.jpg";
 
 export default function UserList() {
   const [data, setDataUsers] = useState();
@@ -50,11 +51,7 @@ export default function UserList() {
       renderCell: params => {
         return (
           <div className="userListUser">
-            <img
-              className="userListImg"
-              src="/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"
-              alt=""
-            />
+            <img className="userListImg" src={userImage} alt="" />
             {params.row.firstName}
           </div>
         );
@@ -100,7 +97,7 @@ export default function UserList() {
       renderCell: params => {
         return (
           <div className="containerActionsBtns">
-            <Link to={"/user/" + params.row._id}>
+            <Link to={"/admin/user/" + params.row._id}>
               <button className="userListEdit">Edit</button>
             </Link>
             <button
@@ -116,7 +113,7 @@ export default function UserList() {
   ];
 
   return (
-    <div className="userList">
+    <div className="userList h-[500px]">
       <DataGrid
         rows={data}
         disableSelectionOnClick

@@ -193,7 +193,7 @@ const Footer = () => {
                 <div>
                   <BsTelephoneFill color="#FF932D" size={20} />
                 </div>
-                <div className="text-white text-sm">+966534686903</div>
+                <div className="text-white text-sm">+201012750418</div>
               </div>
               <div className="flex items-center gap-2">
                 <div>

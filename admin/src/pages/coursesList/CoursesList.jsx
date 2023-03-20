@@ -7,6 +7,8 @@ import {useState} from "react";
 import React from "react";
 import {useEffect} from "react";
 import * as api from "../../api/index";
+import {toast} from "react-toastify";
+
 export default function CoursesList() {
   const [data, setDataProducts] = useState();
   const [error, setError] = useState(false);
@@ -28,6 +30,7 @@ export default function CoursesList() {
 
   const handleDelete = async id => {
     const res = await api.deleteCourseById(id);
+    toast.success("Delete Section successfully!");
     setDataProducts(data.filter(item => item._id !== res.data._id));
   };
 
@@ -41,7 +44,7 @@ export default function CoursesList() {
       headerName: "Image Course",
       width: 200,
       renderCell: params => {
-        return <img src={params.row.thum} className="productListImg" />;
+        return <img src={params.row.thum} alt="course" />;
       },
     },
     {
@@ -62,31 +65,23 @@ export default function CoursesList() {
         );
       },
     },
-    {
-      field: "teachers",
-      headerName: "Teachers number",
-      width: 200,
-      renderCell: params => {
-        return (
-          <div className="productListItem">{params.row.teachers.length}</div>
-        );
-      },
-    },
 
     {
       field: "action",
       headerName: "Action",
-      width: 150,
+      width: 250,
       renderCell: params => {
         //console.log(params.row);
         return (
           <div className="containerActionsBtns">
-            <Link to={"/course/" + params.row._id}>
-              <button className="productListEdit">Edit</button>
+            <Link to={"/admin/course/" + params.row._id}>
+              <button className="productListEdit">Edit Or Show Details</button>
             </Link>
             <button
               className="productListDelete"
-              onClick={() => handleDelete(params.row._id)}
+              onClick={() => {
+                handleDelete(params.row._id);
+              }}
             >
               Delete
             </button>
@@ -100,7 +95,7 @@ export default function CoursesList() {
     <div className="productList h-[500px]">
       <button
         className="addProductList"
-        onClick={() => navigate.push("/newcourse")}
+        onClick={() => navigate.push("/admin/newcourse")}
       >
         Add New Course
       </button>

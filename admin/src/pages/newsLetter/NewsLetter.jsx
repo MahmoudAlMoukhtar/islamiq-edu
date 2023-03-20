@@ -85,26 +85,58 @@ export default function NewNewsLetter() {
           write your post and puplish it...
         </span>
       </h1>
-      <form className="w-full">
+      <form className="w-full flex flex-col gap-6">
+        <div className="w-full">
+          {error && <h1 className="text-red-700 font-semibold">{error}</h1>}
+          <div className="w-full">
+            <label
+              htmlFor="title"
+              className="block text-sm font-medium text-gray-700"
+            >
+              title
+            </label>
+            <div className="mt-1">
+              <input
+                id="title"
+                required
+                name="title"
+                placeholder="title"
+                value={newsLetterData.title}
+                className="block w-full h-8 flex-1 rounded-none rounded-r-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                onChange={e => {
+                  setNewsLetterData({...newsLetterData, title: e.target.value});
+                }}
+              />
+            </div>
+          </div>
+          <label
+            htmlFor="tags"
+            className="block text-sm font-medium text-gray-700"
+          >
+            image
+          </label>
+          <div className="mt-1">
+            <input
+              type="file"
+              required
+              id="imageNewsLetter"
+              name="imageNewsLetter"
+              htmlFor="imageNewsLetter"
+              className="block w-full h-8 flex-1 rounded-none rounded-r-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+              onChange={handleUpload}
+            />
+          </div>
+        </div>
+        {newsLetterData.image && <img src={images} alt="blog" />}
+
         <div className="w-full">
           <label
             htmlFor="title"
             className="block text-sm font-medium text-gray-700"
           >
-            title
+            Password
           </label>
           <div className="mt-1">
-            <input
-              id="title"
-              required
-              name="title"
-              placeholder="title"
-              value={newsLetterData.title}
-              className="block w-full h-8 flex-1 rounded-none rounded-r-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-              onChange={e => {
-                setNewsLetterData({...newsLetterData, title: e.target.value});
-              }}
-            />
             <input
               id="password"
               required
@@ -145,27 +177,6 @@ export default function NewNewsLetter() {
           </div>
         </div>
 
-        {newsLetterData.image && <img src={images} alt="blog" />}
-        <div className="w-full">
-          {error && <h1 className="text-red-700 font-semibold">{error}</h1>}
-          <label
-            htmlFor="tags"
-            className="block text-sm font-medium text-gray-700"
-          >
-            image
-          </label>
-          <div className="mt-1">
-            <input
-              type="file"
-              required
-              id="imageNewsLetter"
-              name="imageNewsLetter"
-              htmlFor="imageNewsLetter"
-              className="block w-full h-8 flex-1 rounded-none rounded-r-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-              onChange={handleUpload}
-            />
-          </div>
-        </div>
         <button
           type="submit"
           className="inline-flex justify-center rounded-md border border-transparent bg-[#4caf50] py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-[#FF932D] focus:outline-none focus:ring-2 focus:ring-[#FF932D] focus:ring-offset-2 w-full"

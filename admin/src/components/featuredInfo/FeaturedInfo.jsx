@@ -21,7 +21,7 @@ export default function FeaturedInfo() {
         setDataBlogs(responseOrders.data);
         const responseSales = await api.fetchCourses();
         setDataCourses(responseSales.data);
-        console.log(responseSales.data);
+        //console.log(responseSales.data);
       } catch (err) {
         setError(true);
       } finally {
@@ -33,7 +33,7 @@ export default function FeaturedInfo() {
 
   if (error) return <h1 className="text-red-800">error</h1>;
   return (
-    <div className="featured mb-4">
+    <div className="flex justify-between w-full mb-4 flex-wrap">
       <div className="featuredItem flex flex-col items-center justify-center gap-6">
         <span className="text-4xl">USERS</span>
         <div className="featuredMoneyContainer">
@@ -70,7 +70,6 @@ export default function FeaturedInfo() {
           </span>
         </div>
       </div>
-
       <div className="featuredItem flex flex-col items-center justify-center gap-6">
         <span className="text-4xl">Blogs</span>
         <div className="featuredMoneyContainer">

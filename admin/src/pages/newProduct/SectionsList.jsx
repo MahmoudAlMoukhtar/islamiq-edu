@@ -3,22 +3,18 @@ import React from "react";
 import {DataGrid} from "@material-ui/data-grid";
 import {useHistory} from "react-router-dom";
 export default function SectionsList({courseData, setCourseData}) {
+  //console.log(courseData.sections);
   const navigate = useHistory();
-  const handleDelete = async description => {
-    const courseSections = courseData.sections.filter(
-      s => s.description !== description
-    );
+  const handleDelete = async uuid => {
+    const courseSections = courseData.sections.filter(s => s.uuid !== uuid);
     setCourseData({
       ...courseData,
       sections: courseSections,
     });
-    if (courseSections.length === 0) {
-      navigate.push("/newproduct");
-    }
   };
 
   const columns = [
-    {field: "_id", headerName: "ID", width: 150},
+    {field: "uuid", headerName: "ID", width: 150},
 
     {
       field: "description",
@@ -26,6 +22,14 @@ export default function SectionsList({courseData, setCourseData}) {
       width: 200,
       renderCell: params => {
         return <p>{params.row.description}</p>;
+      },
+    },
+    {
+      field: "descriptionAr",
+      headerName: "وصف القسم باللغة العربية",
+      width: 200,
+      renderCell: params => {
+        return <p>{params.row.descriptionAr}</p>;
       },
     },
 
@@ -38,7 +42,7 @@ export default function SectionsList({courseData, setCourseData}) {
           <div className="containerActionsBtns w-full">
             <button
               className="productListDelete w-full"
-              onClick={() => handleDelete(params.row.description)}
+              onClick={() => handleDelete(params.row.uuid)}
             >
               Delete
             </button>
@@ -57,7 +61,7 @@ export default function SectionsList({courseData, setCourseData}) {
         columns={columns}
         pageSize={8}
         checkboxSelection
-        getRowId={row => row.description}
+        getRowId={row => row.uuid}
       />
     </div>
   );

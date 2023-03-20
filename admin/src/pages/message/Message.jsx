@@ -4,7 +4,9 @@ import * as api from "../../api/index";
 import {HiOutlineMail} from "react-icons/hi";
 import {HiDevicePhoneMobile} from "react-icons/hi2";
 import "./user.css";
-import {toast, ToastContainer} from "react-toastify";
+import {toast} from "react-toastify";
+import userImage from "../../depositphotos_137014128-stock-illustration-user-profile-icon.jpg";
+
 export default function Message() {
   const {id} = useParams();
   const [contactMessage, setContactMessage] = useState();
@@ -30,20 +32,14 @@ export default function Message() {
   if (error) return <h1 className="text-red-800">error</h1>;
   if (loading) return <h1 className="text-red-800">Loading</h1>;
   return (
-    <div className="user">
+    <div className="user w-full">
       <div className="userTitleContainer">
         <h1 className="userTitle">Message</h1>
       </div>
-      <div className="userContainer">
+      <div className="userContainer flex flex-col md:flex-row">
         <div className="userShow">
           <div className="userShowTop">
-            <img
-              src={
-                "/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"
-              }
-              alt=""
-              className="userShowImg"
-            />
+            <img src={userImage} alt="" className="userShowImg" />
             <div className="userShowTopTitle">
               <span className="userShowUsername">
                 {contactMessage.firstName} {contactMessage.lastName}
@@ -76,7 +72,10 @@ export default function Message() {
             </div>
           </div>
         </div>
-        <div className="userUpdate flex flex-col justify-between">
+        <div
+          className="userUpdate  flex flex-col justify-between"
+          style={{margin: 0}}
+        >
           <div className="flex flex-col gap-2">
             <span className="userUpdateTitle">Message from website</span>
             <p>{contactMessage.message}</p>
@@ -85,15 +84,17 @@ export default function Message() {
           <button
             className="userRejectButton w-full"
             onClick={async () => {
-              const res = await api.deleteCommentById(contactMessage._id);
-              navigait.push("/");
+              const res = await api.deleteContactMessagesById(
+                contactMessage._id
+              );
+              toast.success("Delete Message Success");
+              navigait.push("/admin");
             }}
           >
             Delete
           </button>
         </div>
       </div>
-      <ToastContainer />
     </div>
   );
 }

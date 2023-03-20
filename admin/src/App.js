@@ -21,71 +21,92 @@ import CommentsList from "./pages/comments/CommentsList";
 import Comment from "./pages/comment/Comment";
 import ContactMessagesList from "./pages/contactMessages/ContactMessagesList";
 import Message from "./pages/message/Message";
-
+import {toast, ToastContainer} from "react-toastify";
+import NavbarModal from "./components/NavModal";
 function App() {
   const [theme, selectTheme] = useState("white");
+  const [navbarModal, setNavBarModal] = useState(false);
   document.querySelector("body").style.backgroundColor =
     theme === "black" ? "#27272a" : "white";
   document.querySelector("body").style.color =
     theme === "black" ? "white" : "black";
+
   return (
     <Router>
-      <Topbar theme={theme} selectTheme={selectTheme} />
-      <div className="container ">
-        <Sidebar theme={theme} selectTheme={selectTheme} />
+      <Topbar
+        theme={theme}
+        selectTheme={selectTheme}
+        navbarModal={navbarModal}
+        setNavBarModal={setNavBarModal}
+      />
+
+      <div className=" flex justify-between w-full mt-10">
+        {navbarModal && (
+          <NavbarModal
+            theme={theme}
+            navbarModal={navbarModal}
+            setNavBarModal={setNavBarModal}
+          />
+        )}
+        <Sidebar
+          theme={theme}
+          selectTheme={selectTheme}
+          navbarModal={navbarModal}
+        />
         <Switch>
           <Route exact path="/admin">
             <Home theme={theme} selectTheme={selectTheme} />
           </Route>
           <Route path="/admin/users" exact>
-            <UserList />
+            <UserList theme={theme} selectTheme={selectTheme} />
           </Route>
           <Route path="/admin/user/:userId">
-            <User />
+            <User theme={theme} selectTheme={selectTheme} />
           </Route>
           <Route path="/admin/newUser" exact>
-            <NewUser />
+            <NewUser theme={theme} selectTheme={selectTheme} />
           </Route>
           <Route path="/admin/courses" exact>
-            <CoursesList />
+            <CoursesList theme={theme} selectTheme={selectTheme} />
           </Route>
           <Route path="/admin/comments" exact>
-            <CommentsList />
+            <CommentsList theme={theme} selectTheme={selectTheme} />
           </Route>
           <Route path="/admin/comments/:id" exact>
-            <Comment />
+            <Comment theme={theme} selectTheme={selectTheme} />
           </Route>
           <Route path="/admin/blogs" exact>
-            <BlogsList />
+            <BlogsList theme={theme} selectTheme={selectTheme} />
           </Route>
           <Route path="/admin/course/:id">
-            <Course />
+            <Course theme={theme} selectTheme={selectTheme} />
           </Route>
           <Route path="/admin/newcourse">
-            <NewProduct />
+            <NewProduct theme={theme} selectTheme={selectTheme} />
           </Route>
           <Route path="/admin/blog/:id">
-            <Blog />
+            <Blog theme={theme} selectTheme={selectTheme} />
           </Route>
           <Route path="/admin/newBlog">
-            <NewBlog />
+            <NewBlog theme={theme} selectTheme={selectTheme} />
           </Route>
           <Route path="/admin/testimonials" exact>
-            <TestimonialsList />
+            <TestimonialsList theme={theme} selectTheme={selectTheme} />
           </Route>
           <Route path="/admin/testimonials/:id">
-            <Testimonial />
+            <Testimonial theme={theme} selectTheme={selectTheme} />
           </Route>
           <Route path="/admin/contactMessage" exact>
-            <ContactMessagesList />
+            <ContactMessagesList theme={theme} selectTheme={selectTheme} />
           </Route>
           <Route path="/admin/contactMessage/:id">
-            <Message />
+            <Message theme={theme} selectTheme={selectTheme} />
           </Route>
           <Route path="/admin/newsLetter">
-            <NewNewsLetter />
+            <NewNewsLetter theme={theme} selectTheme={selectTheme} />
           </Route>
         </Switch>
+        <ToastContainer />
       </div>
     </Router>
   );

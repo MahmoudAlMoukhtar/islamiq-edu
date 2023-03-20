@@ -10,16 +10,16 @@ import PrivaitRoute from "./components/PrivaitRoute";
 import Spinner from "./Spinner";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAllProductsAction} from "./redux/actions/productsActions";
+import {ToastContainer} from "react-toastify";
 
 import TopBar from "./common/TopBar";
 import {Fab} from "@mui/material";
-import {BsChatDotsFill, BsTelegram, BsWhatsapp} from "react-icons/bs";
+import {BsTelegram, BsWhatsapp} from "react-icons/bs";
 import DetailCourse from "./pages/DetailCourse/DetailCourse";
 import DetailBlog from "./pages/DetailBlog/DetailBlog";
 import {motion} from "framer-motion";
 import BlogsPage from "./pages/Blogs/Blogs";
 import * as api from "./api/index";
-import ContactPage from "./pages/Contact";
 export default function App() {
   const [navBarModal, setNavBarModal] = useState(false);
   const [show, setShow] = useState(false);
@@ -96,7 +96,7 @@ export default function App() {
                   aria-label="add"
                   style={{width: "70px", height: "70px", borderRadius: "100%"}}
                 >
-                  <a href="https://t.me/+963936464820" target="blank">
+                  <a href="https://t.me/+201028875241" target="blank">
                     <BsTelegram size={30} />
                   </a>
                 </Fab>
@@ -140,34 +140,8 @@ export default function App() {
             </Fab>
           </motion.div>
         </div>
+        <ToastContainer />
       </div>
     </React.Fragment>
   );
 }
-
-/* 
-<Route path="/products" element={<Menu />} />
-          <Route path="/aboutUs" element={<AboutPage />} />
-          <Route
-            path="/contact"
-            element={<ContactPage setNavBarModal={setNavBarModal} />}
-          />
-          <Route
-            path="/cart"
-            element={
-              <PrivaitRoute>
-                <CartPage />
-              </PrivaitRoute>
-            }
-          />
-*/
-
-// <Route
-//   path="/blogs/:id"
-//   element={<DetailBlog setNavBarModal={setNavBarModal} />}
-// />
-
-// <Route path="/checkout" element={<Pay />} />
-// <Route path="/locations" element={<Locations />} />
-/*           <Route path="/contact" element={<ContactPage />} exact />
- */

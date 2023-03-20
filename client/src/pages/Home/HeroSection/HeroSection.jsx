@@ -42,7 +42,7 @@ const HeroSection = () => {
         autoplay={{delay: 4000}}
         className="cursor-grap"
       >
-        <SwiperSlide className="">
+        <SwiperSlide className="" key="top-view-islamic ke">
           <img
             effect="blur"
             loading="lazy"
@@ -68,7 +68,7 @@ const HeroSection = () => {
           </div>
         </SwiperSlide>
 
-        <SwiperSlide className="">
+        <SwiperSlide className="" key="quran2.avif">
           <img
             effect="blur"
             loading="lazy"
@@ -92,7 +92,7 @@ const HeroSection = () => {
             <SlideNextButton />
           </div>
         </SwiperSlide>
-        <SwiperSlide className="">
+        <SwiperSlide className="" key="photo1678924784">
           <img
             effect="blur"
             loading="lazy"

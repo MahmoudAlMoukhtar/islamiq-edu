@@ -1,0 +1,162 @@
+.comment {
+  flex: 4;
+  padding: 20px;
+}
+
+.commentTitleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.commentAddButton {
+  width: 80px;
+  border: none;
+  padding: 5px;
+  background-color: teal;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  font-size: 16px;
+}
+
+.commentContainer {
+  display: flex;
+  margin-top: 20px;
+}
+
+.commentShow {
+  flex: 1;
+  padding: 20px;
+  -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+}
+
+.commentUpdate {
+  flex: 2;
+  padding: 20px;
+  -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+}
+
+.commentShowTop {
+  display: flex;
+  align-items: center;
+}
+
+.commentShowImg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.commentShowTopTitle {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+.commentShowcommentname {
+  font-weight: 600;
+}
+
+.commentShowcommentTitle {
+  font-weight: 300;
+}
+
+.commentShowBottom{
+    margin-top: 20px;
+}
+
+.commentShowTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(175, 170, 170);
+}
+
+.commentShowInfo{
+    display: flex;
+    align-items: center;
+    margin: 20px 0px;
+    color: #444;
+}
+
+.commentShowIcon{
+    font-size: 16px !important;
+}
+
+.commentShowInfoTitle{
+    margin-left: 10px;
+}
+
+.commentUpdateTitle{
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.commentUpdateForm{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.commentUpdateItem{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.commentUpdateItem>label{
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.commentUpdateInput{
+    border: none;
+    width: 250px;
+    height: 30px;
+    border-bottom: 1px solid gray;
+}
+
+.commentUpdateRight{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.commentUpdateUpload{
+    display: flex;
+    align-items: center;
+}
+
+.commentUpdateImg{
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.commentUpdateIcon{
+    cursor: pointer;
+}
+
+.commentAcceptButton{
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    background-color: #3bb077;
+    color: white;
+    font-weight: 600;
+}
+.commentRejectButton{
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    background-color: #a02020;
+    color: white;
+    font-weight: 600;
+}

@@ -51,7 +51,7 @@ const Auth = () => {
 
   return (
     <React.Fragment>
-      <div className="flex flex-col justify-center items-center h-full mb-10  rounded">
+      <div className="flex flex-col justify-center items-center h-full mb-10  rounded w-full">
         <div className=" ">
           <LazyLoadImage
             effect="blur"
@@ -247,7 +247,6 @@ const Auth = () => {
             </div>
           </form>
         </div>
-        <ToastContainer />
       </div>
     </React.Fragment>
   );

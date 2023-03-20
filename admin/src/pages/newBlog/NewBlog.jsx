@@ -72,13 +72,37 @@ export default function NewBlog() {
       />
     );
   return (
-    <div className="min-w-[300px] shadow-xl flex flex-col gap-8 items-start w-full justify-start bg-white p-2 transition duration-200 rounded-md">
+    <form
+      onSubmit={handleSubmit}
+      className="min-w-[300px] shadow-xl flex flex-col gap-8 items-start w-full justify-start bg-white p-2 transition duration-200 rounded-md"
+    >
       <h1 className="font-bold flex flex-col gap-1 items-start">
         Form New Blog
         <span className="text-sm text-gray-400 font-normal">
           write your post and puplish it...
         </span>
       </h1>
+      <div className="w-full">
+        {error && <h1 className="text-red-700 font-semibold">{error}</h1>}
+        <label
+          htmlFor="tags"
+          className="block text-sm font-medium text-gray-700"
+        >
+          image
+        </label>
+        <div className="mt-1">
+          <input
+            type="file"
+            required
+            id="upload"
+            name="image"
+            htmlFor="image"
+            className="block w-full h-8 flex-1 rounded-none rounded-r-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            onChange={handleUpload}
+          />
+        </div>
+      </div>
+      {blogData.image && <img src={images} alt="blog" />}
 
       <div className="w-full">
         <label
@@ -139,7 +163,7 @@ export default function NewBlog() {
             minLength={200}
             name="message"
             rows={3}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-80 border-b-2 border-black"
             placeholder="message"
             value={blogData.message}
             onChange={e => {
@@ -162,7 +186,7 @@ export default function NewBlog() {
             minLength={200}
             name="messageAr"
             rows={3}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-80 border-b-2 border-black"
             placeholder="رسالة المدونة باللغة العربية"
             value={blogData.messageAr}
             onChange={e => {
@@ -172,37 +196,15 @@ export default function NewBlog() {
         </div>
       </div>
 
-      {blogData.image && <img src={images} alt="blog" />}
-      <div className="w-full">
-        {error && <h1 className="text-red-700 font-semibold">{error}</h1>}
-        <label
-          htmlFor="tags"
-          className="block text-sm font-medium text-gray-700"
-        >
-          image
-        </label>
-        <div className="mt-1">
-          <input
-            type="file"
-            id="upload"
-            name="image"
-            htmlFor="image"
-            className="block w-full h-8 flex-1 rounded-none rounded-r-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-            onChange={handleUpload}
-          />
-        </div>
-      </div>
-
       <div className="flex gap-2 py-2 w-full">
         <button
           type="submit"
           className="inline-flex justify-center rounded-md border border-transparent bg-[#4caf50] py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-[#FF932D] focus:outline-none focus:ring-2 focus:ring-[#FF932D] focus:ring-offset-2 w-full"
-          onClick={handleSubmit}
         >
           Submit
         </button>
       </div>
       <ToastContainer />
-    </div>
+    </form>
   );
 }

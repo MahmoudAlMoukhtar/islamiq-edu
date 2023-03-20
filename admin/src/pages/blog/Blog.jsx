@@ -5,6 +5,7 @@ import Chart from "../../components/chart/Chart";
 import * as api from "../../api/index";
 import "./blog.css";
 import Resizer from "react-image-file-resizer";
+import {toast} from "react-toastify";
 
 // import { Publish } from "@material-ui/icons";
 
@@ -29,7 +30,7 @@ export default function Blog() {
       }
     };
     makeRequest();
-    console.log("test");
+    //console.log("test");
   }, []);
 
   const handleUpload = async e => {
@@ -76,6 +77,7 @@ export default function Blog() {
     formData.append("messageAr", datablog.messageAr);
     setLoading(true);
     const res = await api.updatePost(id, formData);
+    toast.success("Update Blog success");
     setLoading(false);
     setDatablog(res.data);
   };
@@ -84,14 +86,19 @@ export default function Blog() {
   if (loading) return <h1 className="text-red-800 blog">Loading</h1>;
 
   return (
-    <div className="blog">
+    <div className="blog w-full">
       <div className="blogTitleContainer">
         <h1 className="blogTitle">blog</h1>
-        <Link to="/newblog">
-          <button className="blogAddButton">Create</button>
-        </Link>
+        <div className="flex gap-2">
+          <Link to="/admin/newblog">
+            <button className="blogAddButton bg-[#4caf50]">Create</button>
+          </Link>
+          <Link to="/admin/blogs">
+            <button className="blogAddButton bg-[#FF932D]">Back</button>
+          </Link>
+        </div>
       </div>
-      <div className="blogTop">
+      <div className="blogTop flex-col sm:flex-row">
         <div className="blogTopLeft">
           <img src={datablog.image} alt="" className="w-full" />
         </div>
@@ -105,18 +112,24 @@ export default function Blog() {
               <span className="blogInfoValue">{datablog._id}</span>
             </div>
             <div className="blogInfoItem">
-              <span className="blogInfoKey">Title:</span>
+              <span className="blogInfoKey">Title Enslish:</span>
               <span className="blogInfoValue">{datablog.title}</span>
+            </div>
+            <div className="blogInfoItem">
+              <span className="blogInfoKey">Title Arabic:</span>
+              <span className="blogInfoValue">{datablog.titleAr}</span>
             </div>
           </div>
         </div>
       </div>
       <div className="flex flex-col w-full blogBoxMessage">
-        <span className="text-lg font-bold">message:</span>
+        <span className="text-lg font-bold">blog message in engilsh:</span>
         <span className="blogInfoValue">{datablog.message}</span>
+        <span className="text-lg font-bold">رسالة المدونة بالعربية:</span>
+        <span className="blogInfoValue">{datablog.messageAr}</span>
       </div>
       <div className="blogBottom">
-        <form className="blogForm">
+        <form className="blogForm flex flex-col sm:flex-row">
           <div className="addblogItem">
             <label>Image</label>
             <input
@@ -130,15 +143,7 @@ export default function Blog() {
 
           <div className="blogFormRight">
             <div className="blogUpload">
-              <img
-                src={
-                  datablog.image
-                    ? datablog.image
-                    : "/Placeholder_view_vector.svg.png"
-                }
-                alt=""
-                className="blogUploadImg"
-              />
+              <img src={datablog.image} alt="blog" className="blogUploadImg" />
               <label for="file"></label>
               <input type="file" id="file" style={{display: "none"}} />
             </div>

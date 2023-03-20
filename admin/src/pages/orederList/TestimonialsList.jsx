@@ -64,7 +64,12 @@ export default function TestimonialsList() {
     {
       field: "display",
       headerName: "Display On Website",
-      width: 120,
+      width: 250,
+      renderCell: params => {
+        //console.log(params.row);
+        const display = params.row.display;
+        return <div className="orderListItem">{display.toString()}</div>;
+      },
     },
 
     {
@@ -75,8 +80,8 @@ export default function TestimonialsList() {
         //console.log(params.row);
         return (
           <div className="containerActionsBtns">
-            <Link to={"/testimonials/" + params.row._id}>
-              <button className="orderListDiplay">Display</button>
+            <Link to={"/admin/testimonials/" + params.row._id}>
+              <button className="orderListDiplay">Show Details</button>
             </Link>
             <button>
               <button
@@ -121,7 +126,7 @@ export default function TestimonialsList() {
   ];
 
   return (
-    <div className="orderList">
+    <div className="orderList h-[500px]">
       <DataGrid
         rows={data}
         disableSelectionOnClick

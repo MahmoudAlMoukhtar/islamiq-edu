@@ -1,11 +1,10 @@
 import React, {useEffect, useState} from "react";
-import {useParams, useNavigate} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import Spinner from "../../Spinner";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchProductByIdAction} from "../../redux/actions/productsActions";
 import {toast, ToastContainer} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import BeatLoader from "react-spinners/BeatLoader";
 import {AiOutlineWhatsApp} from "react-icons/ai";
 import {FaQuoteLeft, FaQuoteRight} from "react-icons/fa";
 import * as api from "../../api/index";
@@ -15,7 +14,6 @@ const DetailCourse = () => {
   const [t, i18n] = useTranslation();
   const {id} = useParams();
   const user = JSON.parse(localStorage.getItem("userIqraa"));
-  const navigate = useNavigate();
   const [testemionalValue, setTemionalValue] = useState();
   const {loadingProduct, product: course} = useSelector(
     state => state.products
@@ -24,15 +22,11 @@ const DetailCourse = () => {
   useEffect(() => {
     dispatch(fetchProductByIdAction(id));
   }, []);
-  // const urlYoutube = "https://www.youtube.com/watch?v=vfEypiTm4so";
-  // const idYoutube = urlYoutube.split("?v=");
-  // console.log(idYoutube);
-  // const url = "https://www.youtube.com/watch?v=Zq4GAnhUq48";
-  // const idUser = jwt_decode(user.token);
+
   const handleSubmitTestmional = async e => {
     e.preventDefault();
     const userDecoded = jwt_decode(user.token);
-    const res = await api.sendTestemional({
+    await api.sendTestemional({
       idUser: userDecoded.id,
       message: testemionalValue,
     });
@@ -43,20 +37,35 @@ const DetailCourse = () => {
   if (loadingProduct) return <Spinner />;
   return (
     <div className="flex justify-between flex-col-reverse lg:flex-row gap-4 w-full md:px-20 lg:px-40 xl:px-60  py-4 sm:py-10">
-      <div className="flex flex-col  items-start gap-20  text-black w-full shadow-md rounded ">
+      <div className="flex flex-col  items-start gap-20  text-black w-full rounded">
         {course.sections.map((c, i) => (
-          <div className="flex flex-col items-center gap-10 w-full">
+          <div className="flex flex-col items-center gap-10 w-full" key={c._id}>
             {i === 0 && (
-              <div className="flex flex-col sm:flex-row sm:justify-between items-center gap-2 w-full px-4">
-                <h2 className="text-2xl sm:text-xl md:text-3xl font-bold w-full text-center sm:text-start">
+              <div
+                className={
+                  i18n.language === "en"
+                    ? "flex flex-col sm:flex-row sm:justify-between items-center gap-2 w-full px-4"
+                    : "flex flex-col sm:flex-row-reverse sm:justify-between items-center gap-2 w-full px-4"
+                }
+              >
+                <h2
+                  className={
+                    i18n.language === "en"
+                      ? "text-2xl sm:text-xl md:text-3xl font-bold w-full text-center sm:text-start"
+                      : "text-2xl sm:text-xl md:text-3xl font-bold w-full text-center sm:text-end"
+                  }
+                >
                   {i18n.language === "en"
                     ? `${course.title}`.toUpperCase()
                     : `${course.titleAr}`.toUpperCase()}
                 </h2>
-                <div className="flex justify-center ">
-                  <button className="bg-[#ffc265] py-2 px-4 sm:py-4 sm:px-8 rounded text-md w-40 font-bold">
-                    {i18n.language === "en" ? "Show Fees" : "رؤية الأسعار"}
-                  </button>
+                <div
+                  className={
+                    i18n.language === "en"
+                      ? "flex justify-center"
+                      : "flex flex-row-reverse justify-center"
+                  }
+                >
                   <a
                     href="http://wa.me/+201012750418"
                     target="blank"
@@ -81,7 +90,7 @@ const DetailCourse = () => {
             {c.video && (
               <iframe
                 width="100%"
-                className="h-[300px] sm:h-[400px]"
+                className="h-[300px] sm:h-[400px] px-4"
                 src={`https://www.youtube.com/embed/${c.video}`}
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -162,4 +171,12 @@ export default DetailCourse;
           </form>
         )}
       </section>
+*/
+/* 
+  <Link
+                    to="/#fees"
+                    className="bg-[#ffc265] py-2 px-4 sm:py-4 sm:px-8 rounded text-md w-40 font-bold"
+                  >
+                    {i18n.language === "en" ? "Show Fees" : "رؤية الأسعار"}
+                  </Link>
 */

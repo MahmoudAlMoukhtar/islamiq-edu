@@ -1,10 +1,15 @@
 import React from "react";
 import "./topbar.css";
-// import { NotificationsNone, Language, Settings } from "@material-ui/icons";
-import {IoMdNotificationsOutline} from "react-icons/io";
-import {IoSettings} from "react-icons/io5";
+import {Link} from "react-router-dom";
 import {MdModeNight, MdOutlineLightMode} from "react-icons/md";
-export default function Topbar({theme, selectTheme}) {
+import {ImMenu} from "react-icons/im";
+
+export default function Topbar({
+  theme,
+  selectTheme,
+  navbarModal,
+  setNavBarModal,
+}) {
   return (
     <div className="topbar shadow-lg">
       <div
@@ -14,14 +19,25 @@ export default function Topbar({theme, selectTheme}) {
             : "topbarWrapper"
         }
       >
-        <div className="topLeft">
+        <Link to="/admin" className="topLeft">
           <span className={theme === "black" ? "logo text-white" : "logo"}>
             Iqraa
           </span>
-        </div>
+        </Link>
         <div className="topRight">
-          <div className="topbarIconContainer">
-            {theme === "black" ? (
+          <div className="topbarIconContainer"></div>
+          <ImMenu
+            size={25}
+            onClick={() => setNavBarModal(!navbarModal)}
+            className="cursor-pointer text-black"
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+/* 
+ {theme === "black" ? (
               <MdOutlineLightMode
                 size={25}
                 onClick={() => selectTheme("white")}
@@ -34,23 +50,4 @@ export default function Topbar({theme, selectTheme}) {
                 color={theme === "black" ? "white" : "black"}
               />
             )}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-/* 
-          <img src="/person_2.jpg" alt="" className="topAvatar" />
-<NotificationsNone />
-<Language />
-<Settings />
-
 */
-/* <div className="topbarIconContainer">
-            <span className="topIconBadge">2</span>
-            <IoMdNotificationsOutline
-              size={20}
-              color={theme === "black" ? "white" : "black"}
-            />
-          </div> */

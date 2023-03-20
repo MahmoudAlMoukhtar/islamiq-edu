@@ -1,27 +1,28 @@
 import React, {useEffect} from "react";
 import {Link, NavLink, useLocation, useNavigate} from "react-router-dom";
-import {HiMenuAlt1} from "react-icons/hi";
-import {FaLanguage} from "react-icons/fa";
+
 import {toast} from "react-toastify";
 import {useTranslation} from "react-i18next";
-const styles = {
-  linkPages:
-    "text-lg sm:text-[15px] md:text-[16px] lg:text-lg font-semibold py-[4px] px-2 lg:px-4 hover:bg-[#FF932D] transtion duration-200 text-white rounded",
-};
+import {ImMenu} from "react-icons/im";
 
 const activeStyle = {
   color: "white",
   backgroundColor: "#FF932D",
-  padding: "4px 12px",
+  padding: "2px 12px",
   fontWeight: "bold",
+  borderRaduis: "3px",
 };
 
 const Navbar = ({setNavBarModal, navbarModal}) => {
   const user = JSON.parse(localStorage.getItem("userIqraa"));
   const [t, i18n] = useTranslation();
   const navigaite = useNavigate();
-  const {pathname, hash, key} = useLocation();
-
+  const styles = {
+    linkPages:
+      i18n.language === "en"
+        ? "text-lg sm:text-[13px] md:text-[16px] lg:text-lg font-semibold  sm:py-1 px-2 lg:px-4 hover:bg-[#FF932D] transtion duration-200 text-white rounded"
+        : "text-lg sm:text-[13px] md:text-[14px] lg:text-md font-semibold  sm:py-1 px-[6px] lg:px-4 hover:bg-[#FF932D] transtion duration-200 text-white rounded",
+  };
   return (
     <nav
       className={
@@ -39,8 +40,8 @@ const Navbar = ({setNavBarModal, navbarModal}) => {
         <ul
           className={
             i18n.language === "en"
-              ? "invisible absolute sm:flex sm:items-center  md:gap-2 sm:visible sm:static"
-              : "invisible absolute sm:flex flex-row-reverse sm:items-center  md:gap-2 sm:visible sm:static"
+              ? "hidden absolute sm:flex sm:items-center  md:gap-2 sm:flex sm:static"
+              : "hidden absolute sm:flex sm:flex-row-reverse sm:items-center  md:gap-2 sm:flex sm:static"
           }
         >
           <NavLink
@@ -83,7 +84,7 @@ const Navbar = ({setNavBarModal, navbarModal}) => {
       >
         {!user ? (
           <NavLink
-            className="font-bold px-1 text-sm sm:text-md sm:px-2 py-1 sm:py-2 bg-[#FF932D] transtion duration-200 text-white rounded"
+            className="font-bold px-2 py-[6px] text-xs sm:text-md sm:px-2 sm:py-2 bg-[#FF932D] transtion duration-200 text-white rounded"
             to="/auth"
             end
           >
@@ -91,8 +92,7 @@ const Navbar = ({setNavBarModal, navbarModal}) => {
           </NavLink>
         ) : (
           <button
-            style={activeStyle}
-            className="text-sm"
+            className="font-bold px-2 py-[6px] text-xs sm:text-md sm:px-2 sm:py-2 bg-[#FF932D] transtion duration-200 text-white rounded"
             onClick={() => {
               localStorage.removeItem("userIqraa");
               toast.success("Logout successfully");
@@ -102,7 +102,7 @@ const Navbar = ({setNavBarModal, navbarModal}) => {
             {t("nav.logout")}
           </button>
         )}
-        <HiMenuAlt1
+        <ImMenu
           size={30}
           onClick={() => setNavBarModal(!navbarModal)}
           className="cursor-pointer text-white"

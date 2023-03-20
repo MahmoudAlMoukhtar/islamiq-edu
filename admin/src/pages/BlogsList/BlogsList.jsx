@@ -6,7 +6,7 @@ import {useState} from "react";
 import React from "react";
 import {useEffect} from "react";
 import * as api from "../../api/index";
-export default function BlogsList() {
+export default function BlogsList({theme}) {
   const [data, setDataProducts] = useState();
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -16,7 +16,7 @@ export default function BlogsList() {
       try {
         const responseProducts = await api.fetchPosts();
         setDataProducts(responseProducts.data);
-        console.log(data);
+        //console.log(data);
       } catch (err) {
         setError(true);
       } finally {
@@ -38,10 +38,11 @@ export default function BlogsList() {
     {field: "_id", headerName: "ID", width: 150},
     {
       field: "image",
+
       headerName: "Image Course",
       width: 200,
       renderCell: params => {
-        return <img src={params.row.image} className="productListImg" />;
+        return <img src={params.row.image} alt="blog" />;
       },
     },
     {
@@ -49,13 +50,36 @@ export default function BlogsList() {
       headerName: "Title Blog",
       width: 200,
       renderCell: params => {
-        return <div className="productListItem">{params.row.title}</div>;
+        return (
+          <div
+            className={
+              theme === "black"
+                ? "productListItem text-white"
+                : "productListItem"
+            }
+          >
+            {params.row.title}
+          </div>
+        );
       },
     },
     {
       field: "message",
       headerName: "Message Blog",
       width: 200,
+      renderCell: params => {
+        return (
+          <div
+            className={
+              theme === "black"
+                ? "productListItem text-white"
+                : "productListItem"
+            }
+          >
+            {params.row.message}
+          </div>
+        );
+      },
     },
 
     {
@@ -65,8 +89,14 @@ export default function BlogsList() {
       renderCell: params => {
         //console.log(params.row);
         return (
-          <div className="containerActionsBtns">
-            <Link to={"/blog/" + params.row._id}>
+          <div
+            className={
+              theme === "black"
+                ? "containerActionsBtns text-white"
+                : "containerActionsBtns"
+            }
+          >
+            <Link to={"/admin/blog/" + params.row._id}>
               <button className="productListEdit">Edit</button>
             </Link>
             <button
@@ -82,10 +112,10 @@ export default function BlogsList() {
   ];
 
   return (
-    <div className="productList">
+    <div className="productList h-[500px]">
       <button
         className="addProductList"
-        onClick={() => navigate.push("/newBlog")}
+        onClick={() => navigate.push("/admin/newBlog")}
       >
         Add new Blog
       </button>

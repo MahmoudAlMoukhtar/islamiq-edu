@@ -89,25 +89,59 @@ const Fees = () => {
   };
 
   return (
-    <motion.section
+    <section
       variants={item}
       id="fees"
-      className="flex flex-col  justify-center items-center gap-10 mt-20 py-10 bg-[#4caf50] w-full"
+      className="flex flex-col  justify-center items-center gap-20 mt-20 py-10 bg-[#4caf50] w-full"
     >
-      <div className={"flex flex-col items-center gap-2"}>
+      <div className={"flex flex-col items-center gap-10"}>
         <h2 className="text-3xl sm:text-4xl font-bold text-white text-center px-2 sm:px-0">
           {t("titleFees")}
         </h2>
-        <p className="text-lg sm:text-xl text-gray-200 font-semibold text-white">
-          No contracts, No surprise fees.
-        </p>
         <span className="h-1 sm:h-2 w-40 bg-[#ffc265]" />
+        <div className="flex w-full justify- flex-wrap lg:flex-nowrap gap-2 px-4 sm:px-10 lg:px-20">
+          <p
+            className={
+              i18n.language === "en"
+                ? "text-sm sm:text-md   text-black text-center pt-2 sm:pt-4 px-4 sm:px-8 text-start w-full lg:w-1/2 bg-[#ffc265] py-4 rounded"
+                : "text-sm sm:text-md   text-black pt-2 sm:pt-4 px-4 sm:px-8 text-end w-full lg:w-1/2 bg-[#ffc265] py-4 rounded"
+            }
+          >
+            <h2 className="text-lg sm:text-lg font-semibold">
+              {i18n.language === "en"
+                ? `IQRA in the name of Allah`
+                : "اقرا بسم الله"}
+            </h2>
+
+            {i18n.language === "en"
+              ? `welcomes students to join its engaging community anytime with
+            affordable fees that suit each and every student.`
+              : "اقرأ بسم الله ترحب بكم في عالمها المتحرك في أي وقت يأسعار تناسب جميع الطلاب"}
+          </p>
+          <p
+            className={
+              i18n.language === "en"
+                ? "text-sm sm:text-md   text-black text-center pt-2 sm:pt-4 px-4 sm:px-8 text-start w-full lg:w-1/2 bg-[#ffc265] py-4 rounded"
+                : "text-sm sm:text-md   text-black pt-2 sm:pt-4 px-4 sm:px-8 text-end w-full lg:w-1/2 bg-[#ffc265] py-4 rounded"
+            }
+          >
+            <h2 className="text-lg sm:text-lg font-semibold">
+              {i18n.language === "en" ? `Classes Fees:` : "أسعار الحصص"}
+            </h2>
+            {i18n.language === "en"
+              ? `Payment is done in advance at the beginning of every month. Children
+            can share one class with the same teacher, and parents just pay for
+            one child only. Even a parent and a child can share the class with
+            the same teacher with no extra fee.`
+              : "يتم دفع الأجر في بداية كل شهرز يمكن للأطفال مشاركة الحصة مع الآباء لنفس المعلم دون أي مصاريف إضافية"}
+          </p>
+        </div>
       </div>
       <div
         className={
           i18n.language === "en"
-            ? "flex flex-col-reverse md:flex-row gap-10 justify-center w-full px-4  sm:px-10 md:px-20"
-            : "flex flex-col md:flex-row-reverse gap-10 justify-center w-full px-4  sm:px-10 md:px-20"
+            ? "flex flex-col-reverse md:flex-row gap-10 justify-center w-full px-4  sm:px-10  lg:px-20"
+            : "flex flex-col md:flex-row-reverse gap-10 justify-center w-full px-4  sm:px-10  lg:px-20"
         }
       >
         <div
@@ -381,7 +415,7 @@ const Fees = () => {
                   12 {i18n.language === "en" ? "HRS" : "ساعة"}
                 </h5>
                 <p className="bg-[#fff] rounded-full py-1 px-2 text-xs font-semibold">
-                  {i18n.language === "en" ? "Save" : "وفّر"} %20
+                  {i18n.language === "en" ? "Save" : "وفّر"} $30
                 </p>
               </div>
             </div>
@@ -433,186 +467,30 @@ const Fees = () => {
           </div>
         </div>
       </div>
-      <a
-        href="http://wa.me/+201012750418"
-        target="blank"
-        className="flex gap-2 items-center bg-[#FF932D] rounded-full py-4 px-8 font-bold"
-      >
-        <div>
-          <AiOutlineWhatsApp size={25} />
+      <div className="flex flex-col gap-4 items-center">
+        <p className="text-[#fff] font-semibold text-md sm:text-lg text-center sm:w-[600px] px-4">
+          {i18n.language === "en"
+            ? "We can offer you a customised plan if you wish. Please kindly fill in the contact form or contact us on any of this meens"
+            : "نستطيع أيضاً عمل خطة خاصة لك رجاءاً اتصل بنا أو راسلنا بإحدى طريق التواصل التالية"}
+        </p>
+        <div className="flex gap-2 flex-wrap sm:flex-wrap">
+          <div className="flex gap-2 justify-center items-center bg-[#ffc265] rounded-full py-4 px-8 text-sm font-semibold sm:font-bold w-full sm:w-auto text-center mx-2 sm:mx-0">
+            iqrainthenameofallah29@gmail.com
+          </div>
+          <a
+            href="http://wa.me/+201012750418"
+            target="blank"
+            className="flex gap-2 justify-center items-center bg-[#FF932D] rounded-full py-4 px-8 text-sm font-semibold sm:font-bold w-full sm:w-auto text-cente mx-2 sm:mx-0"
+          >
+            <div>
+              <AiOutlineWhatsApp size={25} />
+            </div>
+            {i18n.language === "en" ? "Whatsapp" : "الواتساب"}
+          </a>
         </div>
-        {i18n.language === "en" ? "Whatsapp" : "الواتساب"}
-      </a>
-    </motion.section>
+      </div>
+    </section>
   );
 };
 
 export default Fees;
-
-/* 
-
-<div className="rounded-lg bg-[#EFEDD6] flex justify-between py-6 px-4 cursor-pointer border-4 border-black">
-            <div className="flex items-center gap-4">
-              <div className="bg-[#fff] rounded-full">
-                <BsCheck color="black" size={30} />
-              </div>
-              <div className="flex flex-col">
-                <h5 className="text-2xl font-semibold">Intro</h5>
-                <p className="bg-[#fff] rounded-full py-1 px-2 text-xs">
-                  {i18n.language === "en"
-                  ? "Save"
-                  : "وفّر"} %20
-                </p>
-              </div>
-            </div>
-            <p className="text-sm">
-              <span className=" text-4xl font-bold">$19</span>/Month
-            </p>
-          </div>
-          <div className="rounded-lg bg-[#f5cd9c] flex justify-between py-6 px-4 cursor-pointer">
-            <div className="flex items-center gap-4">
-              <div className="bg-[#fff] rounded-full">
-                <ImRadioUnchecked color="gray" size={30} />
-              </div>
-              <div className="flex flex-col">
-                <h5 className="text-2xl font-semibold">Base</h5>
-                <p className="bg-[#fff] rounded-full py-1 px-2 text-xs">
-                  {i18n.language === "en"
-                  ? "Save"
-                  : "وفّر"} %20
-                </p>
-              </div>
-            </div>
-            <p className="text-sm">
-              <span className=" text-4xl font-bold">$39</span>/Month
-            </p>
-          </div>
-
-*/
-
-/* 
-<div className="flex flex-col justify-between items-center gap-4 bg-white text-black hover:text-black pb-6 transtion duration-200  text-center w-full sm:w-[200px] md:w-[250px] lg:w-80 xl:w-96 h-[500px] rounded shadow-xl">
-          <h3 className="text-3xl semibold bg-[#FF932D] text-black text-center w-full py-8 rounded-t font-bold">
-            30 Min
-          </h3>
-          <ul className="flex flex-col items-center justify-center gap-2">
-            <li className="text-md">
-              04 Class/Month ={" "}
-              <span className="text-[#000] font-bold">$12</span>
-            </li>
-            <li className="text-md">
-              08 Class/Month ={" "}
-              <span className="text-[#000] font-bold">$12</span>
-            </li>
-            <li className="text-md">
-              04 Class/Month ={" "}
-              <span className="text-[#000] font-bold">$12</span>
-            </li>
-            <li className="text-md">
-              04 Class/Month ={" "}
-              <span className="text-[#000] font-bold">$12</span>
-            </li>
-            <li className="text-md">
-              04 Class/Month ={" "}
-              <span className="text-[#000] font-bold">$12</span>
-            </li>
-          </ul>
-          <p className="text-sm text-gray-400">
-            *Get your first Free Demo class.
-          </p>
-        </div>
-        <div className="flex flex-col justify-between items-center gap-4 bg-white text-black hover:text-black pb-6 transtion duration-200  text-center w-full sm:w-[200px] md:w-[250px] lg:w-80 xl:w-96 h-[500px] rounded shadow-xl scale-110">
-          <h3 className="text-3xl semibold bg-[#ffc265] text-black text-center w-full py-8 rounded-t font-bold relative 	overflow-x-hidden overflow-y-hidden">
-            45 Min
-            <span
-              id="popular"
-              className="bg-red-800 text-white font-semibold rotate-45 py-1 w-60 absolute right-[-80px] top-6 text-lg	"
-            >
-              POPULAR
-            </span>
-          </h3>
-          <ul className="flex flex-col items-center justify-center gap-2">
-            <li className="text-md">
-              04 Class/Month ={" "}
-              <span className="text-[#000] font-bold">$12</span>
-            </li>
-            <li className="text-md">
-              08 Class/Month ={" "}
-              <span className="text-[#000] font-bold">$12</span>
-            </li>
-            <li className="text-md">
-              04 Class/Month ={" "}
-              <span className="text-[#000] font-bold">$12</span>
-            </li>
-            <li className="text-md">
-              04 Class/Month ={" "}
-              <span className="text-[#000] font-bold">$12</span>
-            </li>
-            <li className="text-md">
-              04 Class/Month ={" "}
-              <span className="text-[#000] font-bold">$12</span>
-            </li>
-          </ul>
-          <p className="text-sm text-gray-400">
-            *Get your first Free Demo class.
-          </p>
-        </div>
-        <div className="flex flex-col justify-between items-center gap-4 bg-white text-black hover:text-black pb-6 transtion duration-200  text-center w-full sm:w-[200px] md:w-[250px] lg:w-80 xl:w-96 h-[500px] rounded shadow-xl">
-          <h3 className="text-3xl semibold bg-[#EFEDD6] text-black text-center w-full py-8 rounded-t font-bold">
-            60 Min
-          </h3>
-          <ul className="flex flex-col items-center justify-center gap-2">
-            <li className="text-md">
-              04 Class/Month ={" "}
-              <span className="text-[#000] font-bold">$12</span>
-            </li>
-            <li className="text-md">
-              08 Class/Month ={" "}
-              <span className="text-[#000] font-bold">$12</span>
-            </li>
-            <li className="text-md">
-              04 Class/Month ={" "}
-              <span className="text-[#000] font-bold">$12</span>
-            </li>
-            <li className="text-md">
-              04 Class/Month ={" "}
-              <span className="text-[#000] font-bold">$12</span>
-            </li>
-            <li className="text-md">
-              04 Class/Month ={" "}
-              <span className="text-[#000] font-bold">$12</span>
-            </li>
-          </ul>
-          <p className="text-sm text-gray-400">
-            *Get your first Free Demo class.
-          </p>
-        </div>
-*/
-
-/* 
-   <div className={i18n.language ==="en"?"flex items-center justify-between w-full  p-2 gap-2":"flex flex-row-reverse items-center justify-between w-full  p-2 gap-2"}>
-            When 3 members from your family join us thus package will gift you
-            even if
-            <div className="bg-[#FF932D] rounded-full">
-              <BsCheck size={25} />
-            </div>
-          </div>
-          <div className="flex items-center justify-between w-full  p-2 ">
-            30 min per session for everyone
-            <div className="bg-[#FF932D] rounded-full">
-              <BsCheck size={25} />
-            </div>
-          </div>
-          <div className="flex items-center justify-between w-full  p-2 ">
-            8 sessions per month for everyone
-            <div className="bg-[#FF932D] rounded-full">
-              <BsCheck size={25} />
-            </div>
-          </div>
-          <div className="flex items-center justify-between w-full  p-2 ">
-            Flexible timing schedule
-            <div className="bg-[#FF932D] rounded-full">
-              <BsCheck size={25} />
-            </div>
-          </div>
-*/

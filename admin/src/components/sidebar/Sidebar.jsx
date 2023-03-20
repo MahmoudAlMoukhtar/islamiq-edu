@@ -1,9 +1,15 @@
 import "./sidebar.css";
 import {Link, NavLink} from "react-router-dom";
 
-export default function Sidebar({theme, selectTheme}) {
+export default function Sidebar({theme, selectTheme, navbarModal}) {
   return (
-    <div className={theme === "black" ? " bg-zinc-800 w-60" : " bg-white w-60"}>
+    <div
+      className={
+        theme === "black"
+          ? " bg-zinc-800 w-60 hidden lg:block"
+          : " bg-white w-60 hidden lg:block"
+      }
+    >
       <div
         className={
           theme === "black"
@@ -47,7 +53,7 @@ export default function Sidebar({theme, selectTheme}) {
           <h3 className="sidebarTitle">Add New</h3>
           <ul className="sidebarList">
             <NavLink to="/admin/newcourse" className="link">
-              <li className="sidebarListItem">New Courses</li>
+              <li className="sidebarListItem">New Course</li>
             </NavLink>
             <NavLink to="/admin/newBlog" className="link">
               <li className="sidebarListItem">New Blog</li>

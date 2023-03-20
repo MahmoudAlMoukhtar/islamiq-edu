@@ -79,6 +79,7 @@ const WhyUS = () => {
             src="/icons/onlineCourse1.avif"
             className="w-14 sm:w-20"
             alt="online-course"
+            width={56}
           />
           <h3 className="text-xs sm:text-sm sm:font-bold">{t("whyus.3")}</h3>
         </motion.div>

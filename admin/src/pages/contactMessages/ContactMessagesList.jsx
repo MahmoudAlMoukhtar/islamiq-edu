@@ -39,7 +39,7 @@ export default function ContactMessagesList() {
       headerName: "First Name",
       width: 200,
       renderCell: params => {
-        return <p className="productListImg">{params.row.firstName}</p>;
+        return <div className="productListItem">{params.row.firstName}</div>;
       },
     },
     {
@@ -70,12 +70,12 @@ export default function ContactMessagesList() {
     {
       field: "action",
       headerName: "Action",
-      width: 150,
+      width: 250,
       renderCell: params => {
         return (
           <div className="containerActionsBtns">
             <Link to={"/admin/contactMessage/" + params.row._id}>
-              <button className="productListEdit">Edit</button>
+              <button className="productListEdit">Show Details</button>
             </Link>
             <button
               className="productListDelete"
