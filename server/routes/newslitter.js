@@ -13,7 +13,7 @@ router.post("/", parser.single("imageNewsLetter"), async (req, res) => {
   let transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: process.env.EMAIL, // generated ethereal user
+      user: "iqrainthenameofallah29@gmail.com", // generated ethereal user
       pass: req.body.password, // generated ethereal password
     },
   });
@@ -35,7 +35,7 @@ router.post("/", parser.single("imageNewsLetter"), async (req, res) => {
   for (let i = 0; i < emailsSubscribes.length; i++) {
     transporter.sendMail(
       {
-        from: process.env.EMAIL,
+        from: "iqrainthenameofallah29@gmail.com",
         to: emailsSubscribes[i].email,
         subject: req.body.title,
         template: "index",
