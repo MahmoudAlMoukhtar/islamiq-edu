@@ -57,7 +57,7 @@ export default function NewBlog() {
     formData.append("messageAr", blogData.messageAr);
     setLoading(true);
     await api.createPost(formData);
-    toast.success("Signup successfully");
+    toast.success("Blog added successfully");
     setLoading(false);
   };
   if (error) return <h1 className="text-red-800">error</h1>;

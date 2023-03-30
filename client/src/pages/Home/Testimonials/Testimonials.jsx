@@ -1,5 +1,4 @@
 import React from "react";
-import {motion} from "framer-motion";
 import {Swiper, SwiperSlide} from "swiper/react";
 import {Autoplay, Pagination} from "swiper";
 import "swiper/css";
@@ -27,18 +26,10 @@ const Testimonials = () => {
     makeRequest();
   }, []);
 
-  const item = {
-    hidden: {y: 50, opacity: 0},
-    visible: {
-      y: 0,
-      opacity: 1,
-    },
-  };
   if (error) return <h1 className="text-red-800">error</h1>;
   if (loading) return <h1 className="text-red-800">Loading</h1>;
   return (
-    <motion.section
-      variants={item}
+    <section
       id="testimonials"
       className="flex flex-col  justify-center items-center gap-10 sm:gap-20 py-10 bg-[#f2ede7] w-full"
     >
@@ -64,7 +55,7 @@ const Testimonials = () => {
         >
           {data.map(t => (
             <SwiperSlide className="w-[500px] h-[200px]" key={t._id}>
-              <div className="flex justify-between items-start gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 text-center w-full">
+              <div className="flex justify-between items-start gap-4 bg-[#3cc4ad] text-white hover:bg-[#fd5308] hover:text-black p-6 py-6 transtion duration-200 text-center w-full">
                 <div className="flex flex-col items-center w-40">
                   <img
                     loading="lazy"
@@ -82,7 +73,7 @@ const Testimonials = () => {
             </SwiperSlide>
           ))}
           <SwiperSlide className="w-[500px] h-[200px]">
-            <div className="flex justify-between items-start gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 text-center w-full">
+            <div className="flex justify-between items-start gap-4 bg-[#3cc4ad] text-white hover:bg-[#fd5308] hover:text-black p-6 py-6 transtion duration-200 text-center w-full">
               <div className="flex flex-col items-center w-40">
                 <img
                   loading="lazy"
@@ -102,7 +93,7 @@ const Testimonials = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide className="w-[500px] h-[200px]">
-            <div className="flex justify-between items-start gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 text-center w-full">
+            <div className="flex justify-between items-start gap-4 bg-[#3cc4ad] text-white hover:bg-[#fd5308] hover:text-black p-6 py-6 transtion duration-200 text-center w-full">
               <div className="flex flex-col items-center w-40">
                 <img
                   loading="lazy"
@@ -123,6 +114,7 @@ const Testimonials = () => {
           </SwiperSlide>
         </Swiper>
       </div>
+
       <div className="flex gap-4 justify-center items-center flex-wrap w-full px-4 md:px-20 lg:px-40 xl:px-60 sm:hidden">
         <Swiper
           modules={[Pagination, Autoplay]}
@@ -134,8 +126,27 @@ const Testimonials = () => {
           autoplay={{delay: 2000}}
           className="cursor-grab"
         >
-          <SwiperSlide className="w-[500px] h-[200px] cursor-grab">
-            <div className="flex justify-between items-start gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 text-center w-full">
+          {data.map(t => (
+            <SwiperSlide className="w-[500px] max-h-[200px]" key={t._id}>
+              <div className="flex justify-between items-start gap-4 bg-[#3cc4ad] text-white hover:bg-[#fd5308] hover:text-black p-6 py-6 transtion duration-200 text-center w-full h-full">
+                <div className="flex flex-col items-center w-40">
+                  <img
+                    loading="lazy"
+                    src="/student.jpg"
+                    className="w-40 rounded-md"
+                    alt="experience"
+                  />
+                  <h4 className="text-sm font-bold">{t.firstName}</h4>
+                  <p>Student</p>
+                </div>
+                <p className="text-start text-sm font-bold w-96">
+                  {t.message.slice(0, 220)}
+                </p>
+              </div>
+            </SwiperSlide>
+          ))}
+          <SwiperSlide className="w-[500px] h-[200px]">
+            <div className="flex justify-between items-start gap-4 bg-[#3cc4ad] text-white hover:bg-[#fd5308] hover:text-black p-6 py-6 transtion duration-200 text-center w-full">
               <div className="flex flex-col items-center w-40">
                 <img
                   loading="lazy"
@@ -154,8 +165,8 @@ const Testimonials = () => {
               </p>
             </div>
           </SwiperSlide>
-          <SwiperSlide className="w-[500px] h-[200px] cursor-grab">
-            <div className="flex justify-between items-start gap-4 bg-[#4caf50] text-white hover:bg-[#FF932D] hover:text-black p-6 py-6 transtion duration-200 text-center w-full cursor-grab">
+          <SwiperSlide className="w-[500px] h-[200px]">
+            <div className="flex justify-between items-start gap-4 bg-[#3cc4ad] text-white hover:bg-[#fd5308] hover:text-black p-6 py-6 transtion duration-200 text-center w-full">
               <div className="flex flex-col items-center w-40">
                 <img
                   loading="lazy"
@@ -176,7 +187,7 @@ const Testimonials = () => {
           </SwiperSlide>
         </Swiper>
       </div>
-    </motion.section>
+    </section>
   );
 };
 

@@ -29,6 +29,7 @@ export default function TestimonialsList() {
   const handleDelete = async id => {
     const res = await api.deleteTestimonialById(id);
     setDataTestimonials(data.filter(item => item.id !== res.data._id));
+    toast.success("Recommendation has been successfully deleted");
   };
 
   if (error) return <h1 className="text-red-800">error</h1>;
@@ -75,7 +76,7 @@ export default function TestimonialsList() {
     {
       field: "action",
       headerName: "Action",
-      width: 250,
+      width: 350,
       renderCell: params => {
         //console.log(params.row);
         return (
@@ -91,7 +92,7 @@ export default function TestimonialsList() {
                     display: true,
                   });
                   toast.success(
-                    "This Testimonial Is Display On Main Website In Success"
+                    "The Testimonial has been displayed on the main website successfully"
                   );
                 }}
               >
@@ -106,7 +107,7 @@ export default function TestimonialsList() {
                     display: false,
                   });
                   toast.success(
-                    "This Testimonial Is Un Display On Main Website In Success"
+                    "Testimonial has been successfully prevented from being displayed on the main website"
                   );
                 }}
               >
@@ -139,13 +140,3 @@ export default function TestimonialsList() {
     </div>
   );
 }
-/* 
-   <DataGrid
-        rows={data}
-        disableSelectionOnClick
-        columns={columns}
-        pageSize={8}
-        checkboxSelection
-        getRowId={row => row._id}
-      />
-*/

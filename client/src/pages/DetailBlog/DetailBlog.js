@@ -1,6 +1,5 @@
 import React, {useEffect} from "react";
-import {useParams, useNavigate} from "react-router-dom";
-import {motion} from "framer-motion";
+import {useParams} from "react-router-dom";
 import Spinner from "../../Spinner";
 import {useDispatch, useSelector} from "react-redux";
 import "react-toastify/dist/ReactToastify.css";
@@ -11,7 +10,6 @@ import {fetchBlogByIdAction} from "../../redux/actions/blogsActions";
 const DetailBlog = () => {
   //react router
   const {id} = useParams();
-  const navigate = useNavigate();
   const {loadingBlog, blog} = useSelector(state => state.blogs);
   const dispatch = useDispatch();
   useEffect(() => {

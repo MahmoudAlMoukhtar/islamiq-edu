@@ -19,11 +19,8 @@ const ContactPage = () => {
   };
   return (
     <section
-      variants={container}
-      whileInView="visible"
-      initial="hidden"
       id="contact"
-      className="flex flex-col justify-between gap-8 bg-[#4caf50] w-full my-20 py-20 text-white  px-4 sm:px-10 lg:px-20  mx-4"
+      className="flex flex-col justify-between gap-8 bg-[#3cc4ad] w-full my-20 py-20 text-white  px-4 sm:px-10 lg:px-20  mx-4"
     >
       <div className="flex flex-col items-center gap-2">
         {i18n.language === "en" ? (
@@ -50,7 +47,7 @@ const ContactPage = () => {
         }
       >
         <label
-          for="name"
+          htmlFor="name"
           className="text-white font-semibold flex flex-col w-[100%]"
         >
           {i18n.language === "en" ? "First Name" : "الاسم الأول"}
@@ -68,7 +65,7 @@ const ContactPage = () => {
           />
         </label>
         <label
-          for="name"
+          htmlFor="name"
           className="text-white font-semibold flex flex-col w-[100%] rounded"
         >
           {i18n.language === "en" ? "Last Name" : "الاسم الأخير"}
@@ -86,7 +83,7 @@ const ContactPage = () => {
             }
           />
         </label>
-        <label for="email" className="text-white font-semibold w-[100%]">
+        <label htmlFor="email" className="text-white font-semibold w-[100%]">
           {i18n.language === "en" ? "Email" : "الأيميل"}
 
           <input
@@ -101,7 +98,7 @@ const ContactPage = () => {
             }
           />
         </label>
-        <label for="message" className="text-white font-semibold w-[100%]">
+        <label htmlFor="message" className="text-white font-semibold w-[100%]">
           {i18n.language === "en" ? "Message" : "الرسالة"}
 
           <textarea
@@ -118,7 +115,7 @@ const ContactPage = () => {
             }
           ></textarea>
         </label>
-        <button className="bg-[#FF932D] p-4 font-bold text-white transtion duration-200 w-full rounded">
+        <button className="bg-[#fd5308] p-4 font-bold text-white transtion duration-200 w-full rounded">
           {i18n.language === "en" ? "SUBMIT" : "إرسال"}
         </button>
       </form>
@@ -126,25 +123,3 @@ const ContactPage = () => {
   );
 };
 export default ContactPage;
-/* 
-  <div className="flex flex-col sm:flex-row sm:justify-between gap-4 w-full text-white">
-        <div className="flex flex-col gap-2 items-center bg-[#ca0202] w-full sm:w-auto p-2 sm:py-4 sm:px-8 hover:scale-105 transtion duration-500 rounded">
-          <AiOutlinePhone size={30} color="white" />
-          <div className="flex flex-col items-center  text-xs">
-            +(314) 287-6300
-          </div>
-        </div>
-        <div className="flex flex-col gap-2 items-center bg-[#ca0202] w-full sm:w-auto p-2 sm:py-4 sm:px-8 hover:scale-105 transtion duration-500 rounded">
-          <AiOutlineMail size={30} color="white" />
-          <div className="flex flex-col items-center  text-xs">
-            studds@gmail.com
-          </div>
-        </div>
-        <div className="flex flex-col gap-2 items-center bg-[#ca0202] w-full sm:w-auto p-2 sm:py-4 sm:px-8 hover:scale-105 transtion duration-500 rounded">
-          <MdLocationOn size={30} color="white" />
-          <div className="flex flex-col items-center  text-xs">
-            <p>United States</p>
-          </div>
-        </div>
-      </div>
-*/

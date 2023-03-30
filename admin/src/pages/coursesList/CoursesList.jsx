@@ -30,7 +30,7 @@ export default function CoursesList() {
 
   const handleDelete = async id => {
     const res = await api.deleteCourseById(id);
-    toast.success("Delete Section successfully!");
+    toast.success("Delete Course successfully!");
     setDataProducts(data.filter(item => item._id !== res.data._id));
   };
 

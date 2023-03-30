@@ -10,7 +10,6 @@ export default function CommentsList({theme}) {
   const [data, setDataComments] = useState();
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
-  const navigate = useHistory();
   useEffect(() => {
     const makeRequest = async () => {
       try {

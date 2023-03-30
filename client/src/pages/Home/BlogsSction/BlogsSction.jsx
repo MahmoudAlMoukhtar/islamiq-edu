@@ -41,7 +41,7 @@ const BlogItem = ({b}) => {
             : b.messageAr.substr(0, 200)}
           <span className="mx-1 opacity-[0.6] text-3xl">.....</span>
         </p>
-        <button className="rounded bg-[#4caf50] py-2 px-4 w-full font-bold text-sm sm:text-md">
+        <button className="rounded bg-[#3cc4ad] py-2 px-4 w-full font-bold text-sm sm:text-md">
           {i18n.language === "en" ? "See more" : "رؤية المزيد"}
         </button>
       </div>
@@ -61,12 +61,9 @@ const BlogsSection = () => {
     };
     makeRequest();
   }, []);
-  if (loading) return <h1>Loading...</h1>;
+  if (loading) return <div></div>;
   return (
-    <motion.section
-      whileInView={{opacity: 1}}
-      initial={{opacity: 0}}
-      transition={{duration: 0.7}}
+    <section
       id="blogs"
       className="flex flex-col  justify-center items-center gap-10 py-10 bg-[#f2ede7] w-full my-40"
     >
@@ -77,21 +74,16 @@ const BlogsSection = () => {
         <span className="h-1 sm:h-2 w-40 bg-[#ffc265]" />
       </div>
 
-      <motion.div
-        whileInView={{opacity: 1}}
-        initial={{opacity: 0}}
-        transition={{duration: 0.7}}
-        className="flex gap-20 sm:gap-4 justify-center items-center flex-wrap w-full px-2 sm:px-4 sm:px-20"
-      >
+      <div className="flex gap-20 sm:gap-4 justify-center items-center flex-wrap w-full px-2 sm:px-4 sm:px-20">
         {blogsData.map(b => <BlogItem b={b} key={b._id} />).slice(0, 3)}
-      </motion.div>
+      </div>
       <Link
         to="/blogs"
-        className="flex gap-2 items-center bg-[#FF932D] rounded-full py-4 px-8 font-bold"
+        className="flex gap-2 items-center bg-[#fd5308] rounded-full py-4 px-8 font-bold"
       >
         {t("titleblogs")}
       </Link>
-    </motion.section>
+    </section>
   );
 };
 
@@ -113,7 +105,7 @@ export default BlogsSection;
               journey that enlightens your heart, mind, and whole life. That’s
               why you see Muslims across the
             </p>
-            <button className="rounded bg-[#FF932D] py-2 px-4 w-full">
+            <button className="rounded bg-[#fd5308] py-2 px-4 w-full">
               See more
             </button>
           </div>
@@ -136,7 +128,7 @@ export default BlogsSection;
             </p>
             <Link
               to="/blogs/blog"
-              className="rounded bg-[#FF932D]  py-2 px-4 w-full"
+              className="rounded bg-[#fd5308]  py-2 px-4 w-full"
             >
               See more
             </Link>
@@ -146,4 +138,14 @@ export default BlogsSection;
         Memorizing Quran is a great spiritual, physical, and mental journey
           that enlightens your heart, mind, and whole life. That’s why you see
           Muslims across the
+*/
+/* 
+whileInView={{opacity: 1}}
+      initial={{opacity: 0}}
+      transition={{duration: 0.7}}
+*/
+/* 
+whileInView={{opacity: 1}}
+        initial={{opacity: 0}}
+        transition={{duration: 0.7}}
 */

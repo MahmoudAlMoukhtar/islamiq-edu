@@ -35,7 +35,7 @@ const deleteUserById = async (req, res) => {
 const updateUserById = async (req, res) => {
   const {id: _id} = req.params;
   const updates = req.body;
-  console.log(_id);
+  //console.log(_id);
 
   try {
     const userUpdated = await User.findByIdAndUpdate(
@@ -47,7 +47,7 @@ const updateUserById = async (req, res) => {
         new: true,
       }
     );
-    console.log(userUpdated);
+    //console.log(userUpdated);
 
     res.status(200).json(userUpdated);
   } catch (err) {
@@ -59,8 +59,7 @@ const signin = async (req, res) => {
   const {email, password} = req.body;
   try {
     const existingUser = await User.findOne({email});
-    if (!existingUser)
-      return res.status(404).json({message: "sorry this user doesnt exist!"});
+    if (!existingUser) return res.status(400).json({exist: true});
     const isPasswordCorrect = await bcrypt.compareSync(
       password,
       existingUser.password

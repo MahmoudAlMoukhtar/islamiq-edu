@@ -7,6 +7,8 @@ import {Provider} from "react-redux";
 import createStore from "./redux/store/configuerStore";
 import "./index.css";
 import App from "./App";
+import "animate.css";
+
 const store = createStore();
 ReactDOM.render(
   <ErrorBoundary>

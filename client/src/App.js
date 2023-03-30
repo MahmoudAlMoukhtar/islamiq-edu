@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Routes, Route, useLocation} from "react-router-dom";
+import {Routes, Route} from "react-router-dom";
 import HomePage from "./pages/Home";
 import Footer from "./common/Footer";
 import ScrollToTop from "./components/ScrollToTop";
@@ -11,7 +11,6 @@ import Spinner from "./Spinner";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAllProductsAction} from "./redux/actions/productsActions";
 import {ToastContainer} from "react-toastify";
-
 import TopBar from "./common/TopBar";
 import {Fab} from "@mui/material";
 import {BsTelegram, BsWhatsapp} from "react-icons/bs";
@@ -20,13 +19,16 @@ import DetailBlog from "./pages/DetailBlog/DetailBlog";
 import {motion} from "framer-motion";
 import BlogsPage from "./pages/Blogs/Blogs";
 import * as api from "./api/index";
+import {useTranslation} from "react-i18next";
+import ContactModal from "./common/ContactModal";
+
 export default function App() {
+  const [t, i18n] = useTranslation();
+  const [contactModalShow, setContactModalShow] = useState(false);
   const [navBarModal, setNavBarModal] = useState(false);
   const [show, setShow] = useState(false);
   const dispatch = useDispatch();
   const {loading} = useSelector(state => state.products);
-
-  const {pathname, hash, key} = useLocation();
 
   useEffect(() => {
     const makeRequest = async () => {
@@ -34,34 +36,32 @@ export default function App() {
     };
     dispatch(fetchAllProductsAction());
     makeRequest();
-    // if not a hash link, scroll to top
-    if (hash === "") {
-      window.scrollTo(0, 0);
-    }
-    // else scroll to id
-    else {
-      setTimeout(() => {
-        const id = hash.replace("#", "");
-        const element = document.getElementById(id);
-        if (element) {
-          element.scrollIntoView();
-        }
-      }, 0);
-    }
-  }, [pathname, hash, key]);
+  }, []);
 
   if (loading) return <Spinner />;
 
   return (
     <React.Fragment>
       <ScrollToTop />
-      <div className="flex flex-col justify-between items-center  h-full relative w-full">
-        <TopBar />
+      <div
+        className={
+          i18n.language === "en"
+            ? "flex flex-col justify-between items-center  h-full relative w-full english"
+            : "flex flex-col justify-between items-center  h-full relative w-full arabic"
+        }
+      >
         <Navbar setNavBarModal={setNavBarModal} navbarModal={navBarModal} />
+        <TopBar setNavBarModal={setNavBarModal} navbarModal={navBarModal} />
         <NavbarModal
           setNavBarModal={setNavBarModal}
           navbarModal={navBarModal}
         />
+        {contactModalShow && (
+          <ContactModal
+            setContactModalShow={setContactModalShow}
+            contactModalShow={contactModalShow}
+          />
+        )}
         <Routes>
           <Route
             path="/"
@@ -80,8 +80,18 @@ export default function App() {
               </h1>
             }
           />
-          <Route path="/auth" element={<Auth />} />
-          <Route path="/courses/:id" element={<DetailCourse />} />
+          <Route
+            path="/auth"
+            element={
+              <PrivaitRoute>
+                <Auth />
+              </PrivaitRoute>
+            }
+          />
+          <Route
+            path="/courses/:id"
+            element={<DetailCourse setContactModalShow={setContactModalShow} />}
+          />
           <Route path="/blogs" element={<BlogsPage />} exact />
           <Route path="/blogs/:id" element={<DetailBlog />} />
         </Routes>
@@ -129,7 +139,7 @@ export default function App() {
               variant="extended"
               aria-label="add"
               style={{
-                backgroundColor: "#FF932D",
+                backgroundColor: "#fd5308",
                 width: "70px",
                 height: "70px",
                 borderRadius: "100%",

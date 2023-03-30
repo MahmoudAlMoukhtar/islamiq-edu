@@ -6,6 +6,8 @@ import {useState} from "react";
 import React from "react";
 import {useEffect} from "react";
 import * as api from "../../api/index";
+import {toast} from "react-toastify";
+
 export default function BlogsList({theme}) {
   const [data, setDataProducts] = useState();
   const [error, setError] = useState(false);
@@ -28,6 +30,7 @@ export default function BlogsList({theme}) {
 
   const handleDelete = async id => {
     const res = await api.deletePost(id);
+    toast.success("The blog has been deleted successfully");
     setDataProducts(data.filter(item => item._id !== res.data._id));
   };
 

@@ -1,8 +1,7 @@
 import {useEffect, useState} from "react";
-import {Link, useHistory, useParams} from "react-router-dom";
+import {useHistory, useParams} from "react-router-dom";
 import * as api from "../../api/index";
 import {HiOutlineMail} from "react-icons/hi";
-import {HiDevicePhoneMobile} from "react-icons/hi2";
 import "./user.css";
 import {toast} from "react-toastify";
 import userImage from "../../depositphotos_137014128-stock-illustration-user-profile-icon.jpg";
@@ -16,10 +15,8 @@ export default function Message() {
   useEffect(() => {
     const makeRequest = async () => {
       try {
-        //console.log(id);
         const res = await api.fetchContactMessagesId(id);
         setContactMessage(res.data);
-        //console.log(res.data);
       } catch (err) {
         setError(true);
       } finally {
@@ -87,7 +84,7 @@ export default function Message() {
               const res = await api.deleteContactMessagesById(
                 contactMessage._id
               );
-              toast.success("Delete Message Success");
+              toast.success("The blog has been deleted successfully");
               navigait.push("/admin");
             }}
           >

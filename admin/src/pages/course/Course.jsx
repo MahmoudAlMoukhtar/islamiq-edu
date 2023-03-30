@@ -36,18 +36,26 @@ export default function Course() {
   }, []);
 
   const handleAddSection = async e => {
+    function youtube_parser(url) {
+      var regExp =
+        /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+      var match = url.match(regExp);
+      return match && match[7].length == 11 ? match[7] : false;
+    }
+
+    const idYoutube = youtube_parser(sectionData.video);
     e.preventDefault();
     const formData = new FormData();
     formData.append("image", sectionData.image);
     formData.append("description", sectionData.description);
     formData.append("descriptionAr", sectionData.descriptionAr);
-    formData.append("video", sectionData.video);
+    formData.append("video", idYoutube);
     try {
       const res = await api.addSection(courseData._id, formData);
       setCourseData(res.data);
-      toast.success("Add section to course success");
+      toast.success("The section has been added to the course successfully~");
     } catch (err) {
-      toast.error("Error in add section to course!");
+      toast.error("There is an error adding the course");
     }
   };
 
@@ -64,7 +72,7 @@ export default function Course() {
 
     setLoading(true);
     const res = await api.updateCourse(id, formData);
-    toast.success("Update course success");
+    toast.success("The course has been updated successfully!");
     setLoading(false);
     setCourseData(res.data);
   };
@@ -226,7 +234,7 @@ export default function Course() {
         <div className="addcourseItem">
           <label>Image</label>
           <input
-            type="file"            
+            type="file"
             id="images"
             name="images"
             htmlFor="images"

@@ -1,59 +1,86 @@
-import {
-  AiFillFacebook,
-  AiFillHourglass,
-  AiOutlineWhatsApp,
-} from "react-icons/ai";
 import {motion} from "framer-motion";
 import {useTranslation} from "react-i18next";
-const TopBar = () => {
+import {NavHashLink} from "react-router-hash-link";
+import {NavLink} from "react-router-dom";
+import {ImMenu} from "react-icons/im";
+
+const TopBar = ({setNavBarModal, navbarModal}) => {
   const [t, i18n] = useTranslation();
+  const styles = {
+    linkPages:
+      i18n.language === "en"
+        ? "text-lg sm:text-[13px] md:text-[14px] lg:text-lg sm:py-1 px-2 lg:px-4 hover:bg-[#fd5308] hover:text-white transtion duration-200 text-black rounded"
+        : "text-lg sm:text-[13px] md:text-[14px] lg:text-md sm:py-1 px-[6px] lg:px-4 hover:bg-[#fd5308] hover:text-white transtion duration-200 text-black rounded",
+  };
+
+  const activeStyle = {
+    color: "white",
+    backgroundColor: "#fd5308",
+    padding: "2px 12px",
+    borderRaduis: "3px",
+  };
+
   return (
     <header
       className={
         i18n.language === "en"
-          ? "flex  gap-6 justify-between items-center bg-[#ffc265]  px-4 sm:px-20 w-full py-4 sm:py-2 text-[#000] hidden absolute sm:flex sm:static"
-          : "flex flex-row-reverse  gap-6 justify-between items-center bg-[#ffc265]  px-4 sm:px-20 w-full py-4 sm:py-2 text-[#000] hidden absolute sm:flex sm:static"
+          ? "flex  gap-4 justify-between items-center bg-[#f2ede7]  px-4 sm:px-10 w-full py-2 text-[#000] "
+          : "flex flex-row-reverse  gap-4 justify-between items-center bg-[#f2ede7]  px-4 sm:px-20 w-full py-2 text-[#000] "
       }
     >
-      <a href="#" className="hidden absolute sm:block sm:static">
+      <a href="/#" className="">
         <div className="flex  gap-2 items-start ">
-          <img src="/test.png" className="w-32" alt="iqraa" />
+          <img src="/test.png" className="w-20 md:w-32" alt="iqra" />
         </div>
       </a>
-      <a
-        target="blank"
-        href="https://www.facebook.com/profile.php?id=100090853364224"
-        className="flex justify-center items-end gap-2 "
+      <ul
+        className={
+          i18n.language === "en"
+            ? "hidden absolute md:flex md:static sm:items-center  md:gap-2 uppercase"
+            : "hidden absolute md:flex md:static sm:flex-row-reverse sm:items-center  md:gap-2 uppercase"
+        }
       >
-        <div>
-          <AiFillFacebook className="text-3xl sm:text-6xl" />
-        </div>
-        <div className="flex flex-col text-start text-xs md:text-lg">
-          <p className="text-xs sm:text-md sm:font-bold">IQRA</p>
-          <p className="font-bold text-[#4caf50]">Facebook</p>
-        </div>
-      </a>
+        <NavLink
+          style={({isActive}) => (isActive ? activeStyle : undefined)}
+          to="/"
+          className={styles.linkPages}
+        >
+          {t("nav.home")}
+        </NavLink>
+        <NavHashLink to="/#Whyus" className={styles.linkPages}>
+          {t("nav.whyus")}
+        </NavHashLink>
+        <NavHashLink to="/#courses" className={styles.linkPages}>
+          {t("nav.courses")}
+        </NavHashLink>
+        <NavHashLink to="/#testimonials" className={styles.linkPages}>
+          {t("nav.testimonials")}
+        </NavHashLink>
+        <NavHashLink to="/#fees" className={styles.linkPages}>
+          {t("nav.fees")}
+        </NavHashLink>
 
-      <a
-        target="blank"
-        href="http://wa.me/+201012750418"
-        className="flex items-center gap-2 "
-      >
-        <AiOutlineWhatsApp className="text-3xl sm:text-6xl" />
-        <div className="flex flex-col text-center text-xs md:text-lg">
-          <p className="text-xs sm:text-md sm:font-bold">+201012750418</p>
-          <p className="text-[#4caf50] font-bold">whatsapp</p>
-        </div>
-      </a>
-      <div className="flex items-center gap-2 ">
-        <AiFillHourglass className="text-3xl sm:text-6xl" />
-        <div className="flex flex-col text-center text-xs md:text-lg">
-          <p className="text-xs sm:text-md sm:font-bold">24/7</p>
-          <p className="font-bold text-[#4caf50]">Open</p>
-        </div>
-      </div>
+        <NavHashLink to="/#blogs" className={styles.linkPages}>
+          {t("nav.blogs")}
+        </NavHashLink>
+        <NavHashLink to="/#contact" className={styles.linkPages}>
+          {t("nav.contact")}
+        </NavHashLink>
+      </ul>
+      <ImMenu
+        size={35}
+        color="#000"
+        onClick={() => setNavBarModal(!navbarModal)}
+        className="cursor-pointer text-white"
+      />
     </header>
   );
 };
 
 export default TopBar;
+/* 
+hidden absolute sm:flex sm:static
+hidden absolute sm:flex sm:static
+
+hidden absolute sm:block sm:static
+*/

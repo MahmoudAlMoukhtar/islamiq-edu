@@ -1,8 +1,6 @@
 import {useEffect, useState} from "react";
-import {Link, useHistory, useParams} from "react-router-dom";
+import {useHistory, useParams} from "react-router-dom";
 import * as api from "../../api/index";
-import {HiOutlineMail} from "react-icons/hi";
-import {HiDevicePhoneMobile} from "react-icons/hi2";
 import "./comment.css";
 import {toast, ToastContainer} from "react-toastify";
 import userImage from "../../depositphotos_137014128-stock-illustration-user-profile-icon.jpg";

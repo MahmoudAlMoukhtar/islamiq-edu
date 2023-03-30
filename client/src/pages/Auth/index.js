@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from "react";
 import {BiShowAlt, BiHide} from "react-icons/bi";
-import {useNavigate} from "react-router-dom";
+import {Navigate, useNavigate} from "react-router-dom";
 import * as api from "../../api/index";
 import {motion} from "framer-motion";
-import {ToastContainer} from "react-toastify";
+import {ToastContainer, toast} from "react-toastify";
 import {useTranslation} from "react-i18next";
 import {LazyLoadImage} from "react-lazy-load-image-component";
 import {useDispatch} from "react-redux";
@@ -22,6 +22,7 @@ const initialState = {
 };
 
 const Auth = () => {
+  //const user = JSON.parse(localStorage.getItem("userIqraa"));
   const [t, i18n] = useTranslation();
   const [formData, setFormData] = useState(initialState);
   const [showPassword, setShowPassword] = useState(false);
@@ -33,9 +34,14 @@ const Auth = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     if (isSignup) {
-      const {data} = await api.signup({...formData, phone: value});
-      localStorage.setItem("userIqraa", JSON.stringify(data));
-      navigait("/");
+      try {
+        const {data} = await api.signup({...formData, phone: value});
+        localStorage.setItem("userIqraa", JSON.stringify(data));
+        navigait("/");
+        toast.success("You are successfully logged in");
+      } catch (err) {
+        toast.error("This email may already exist, try another email");
+      }
     } else {
       dispatch(signin(formData, navigait));
     }
@@ -52,7 +58,7 @@ const Auth = () => {
   return (
     <React.Fragment>
       <div className="flex flex-col justify-center items-center h-full mb-10  rounded w-full">
-        <div className=" ">
+        <div>
           <LazyLoadImage
             effect="blur"
             loading="lazy"
@@ -73,20 +79,12 @@ const Auth = () => {
               </p>
             )}
           </div>
-          <form
-            className="mt-8 space-y-6"
-            action="#"
-            method="POST"
-            onSubmit={handleSubmit}
-          >
-            <input type="hidden" name="remember" defaultValue="true" />
+          <form  className="mt-8 space-y-6" onSubmit={handleSubmit}>
             <div className=" rounded-md shadow-sm">
               {isSignup && (
                 <React.Fragment>
                   <div>
-                    <label htmlFor="firstName" className="">
-                      {t("authPage.fn")}
-                    </label>
+                    <label htmlFor="firstName">{t("authPage.fn")}</label>
                     <input
                       id="firstName"
                       name="firstName"
@@ -98,9 +96,7 @@ const Auth = () => {
                     />
                   </div>
                   <div>
-                    <label htmlFor="lastName" className="">
-                      {t("authPage.ln")}
-                    </label>
+                    <label htmlFor="lastName">{t("authPage.ln")}</label>
                     <input
                       id="lastName"
                       name="lastName"
@@ -112,9 +108,7 @@ const Auth = () => {
                     />
                   </div>
                   <div>
-                    <label htmlFor="phone" className="">
-                      {t("authPage.ph")}
-                    </label>
+                    <label htmlFor="phone">{t("authPage.ph")}</label>
 
                     <PhoneInput
                       flags={flags}
@@ -129,9 +123,7 @@ const Auth = () => {
                     />
                   </div>
                   <div className="my-2">
-                    <label htmlFor="gender" className="">
-                      {t("authPage.gn")}
-                    </label>
+                    <label htmlFor="gender">{t("authPage.gn")}</label>
                     <select
                       id="gender"
                       required
@@ -146,9 +138,7 @@ const Auth = () => {
                 </React.Fragment>
               )}
               <div>
-                <label htmlFor="email" className="">
-                  {t("authPage.em")}
-                </label>
+                <label htmlFor="email">{t("authPage.em")}</label>
                 <input
                   id="email"
                   name="email"
@@ -178,13 +168,13 @@ const Auth = () => {
                   {!showPassword ? (
                     <BiShowAlt
                       onClick={() => setShowPassword(!showPassword)}
-                      className="cursor-pointer "
+                      className="cursor-pointer"
                       size={20}
                     />
                   ) : (
                     <BiHide
                       onClick={() => setShowPassword(!showPassword)}
-                      className="cursor-pointer "
+                      className="cursor-pointer"
                       size={20}
                     />
                   )}
@@ -204,13 +194,13 @@ const Auth = () => {
                     {!showPassword ? (
                       <BiShowAlt
                         onClick={() => setShowPassword(!showPassword)}
-                        className="cursor-pointer "
+                        className="cursor-pointer"
                         size={20}
                       />
                     ) : (
                       <BiHide
                         onClick={() => setShowPassword(!showPassword)}
-                        className="cursor-pointer "
+                        className="cursor-pointer"
                         size={20}
                       />
                     )}
@@ -220,28 +210,31 @@ const Auth = () => {
             </div>
 
             <div>
-              <button
-                type="submit"
-                className="group relative flex w-full justify-center rounded-md border border-transparent py-2 px-4 text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 bg-[#34872A]"
-              >
+              <button className="group relative flex w-full justify-center rounded-md border border-transparent py-2 px-4 text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 bg-[#2e9175]">
                 {isSignup ? t("authPage.signup") : t("authPage.login")}
               </button>
             </div>
 
             <div className="group relative flex w-full justify-center rounded-md border border-transparent py-2 px-4 text-sm font-medium text-black">
               {isSignup ? (
-                <div>
-                  {t("authPage.haveAcc")}{" "}
-                  <button onClick={switchMode} className="font-bold">
+                <div className="flex justify-center gap-2 w-full">
+                  {t("authPage.haveAcc")}
+                  <div
+                    onClick={switchMode}
+                    className="font-bold cursor-pointer"
+                  >
                     {t("authPage.login")}
-                  </button>
+                  </div>
                 </div>
               ) : (
-                <div>
-                  {t("authPage.dontHaveAcc")}{" "}
-                  <button onClick={switchMode} className="font-bold">
+                <div className="flex justify-center gap-2 w-full">
+                  {t("authPage.dontHaveAcc")}
+                  <div
+                    onClick={switchMode}
+                    className="font-bold cursor-pointer"
+                  >
                     {t("authPage.signup")}
-                  </button>
+                  </div>
                 </div>
               )}
             </div>

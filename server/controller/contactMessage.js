@@ -14,7 +14,6 @@ const getContactMessageById = async (req, res) => {
   console.log(_id);
   try {
     const contactMessage = await ContactMessage.findById(_id);
-    //const contactMessages = await User.findById(contactMessage.idUser);
     console.log(contactMessage);
     res.status(200).json(contactMessage);
   } catch (err) {
@@ -23,7 +22,6 @@ const getContactMessageById = async (req, res) => {
 };
 
 const sendContactMessage = async (req, res) => {
-  //console.log(req.body);
   try {
     const newContactMessage = await new ContactMessage({
       firstName: req.body.firstName,

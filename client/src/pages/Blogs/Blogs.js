@@ -40,7 +40,7 @@ const BlogItem = ({b}) => {
             : b.messageAr.substr(0, 200)}
           <span className="mx-1 opacity-[0.6] text-3xl">.....</span>
         </p>
-        <button className="rounded bg-[#bg-[#4caf50]] py-2 px-4 w-full font-semibold">
+        <button className="rounded bg-[#3cc4ad] py-2 px-4 w-full font-bold text-sm sm:text-md">
           {i18n.language === "en" ? "See more" : "رؤية المزيد"}
         </button>
       </div>

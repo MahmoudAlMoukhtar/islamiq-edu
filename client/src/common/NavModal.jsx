@@ -1,24 +1,22 @@
 import React from "react";
-import {Link, NavLink, useNavigate} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
+import {NavHashLink} from "react-router-hash-link";
 
 const activeStyle = {
   color: "white",
-  backgroundColor: "#4caf50",
+  backgroundColor: "#3cc4ad",
   padding: "20px 12px",
-  fontWeight: "bold",
-  borderLeft: "8px solid #FF932D",
+  borderLeft: "8px solid #fd5308",
 };
 const styles = {
   linkPages:
-    "text-[#000] hover:text-white hover:text-white hover:bg-[#4caf50] py-6 px-2 font-semibold w-full hover:border-l-8 hover:border-[#FF932D] hover:font-bold w-full transtion duration-200",
+    "text-[#000] hover:text-white hover:text-white hover:bg-[#3cc4ad] py-6 px-2 w-full hover:border-l-8 hover:border-[#fd5308] hover:font-bold w-full transtion duration-200",
   navBarModalHidden: "hidden",
   navBarModal:
     "fixed inset-0 bg-opacity-75 transition-opacity flex flex-col justify-center items-center z-50",
 };
 
 const NavbarModal = ({setNavBarModal, navbarModal}) => {
-  const user = JSON.parse(localStorage.getItem("userEcommerce"));
-  const navigaite = useNavigate();
   return (
     <div
       id="modal-nav"
@@ -44,52 +42,47 @@ const NavbarModal = ({setNavBarModal, navbarModal}) => {
           <NavLink
             style={({isActive}) => (isActive ? activeStyle : undefined)}
             to="/"
-            end
             className={styles.linkPages}
             onClick={() => setNavBarModal(false)}
           >
-            Home
+            {"Home".toUpperCase()}
           </NavLink>
-          <Link
+          <NavHashLink
             to="/#Whyus"
-            end
             className={styles.linkPages}
             onClick={() => setNavBarModal(false)}
           >
-            Why us
-          </Link>
-          <Link
+            {"Why us".toUpperCase()}
+          </NavHashLink>
+          <NavHashLink
             to="/#courses"
-            end
             className={styles.linkPages}
             onClick={() => setNavBarModal(false)}
           >
-            Courses
-          </Link>
-          <Link
+            {"Courses".toUpperCase()}
+          </NavHashLink>
+          <NavHashLink
             to="/#fees"
-            end
             className={styles.linkPages}
             onClick={() => setNavBarModal(false)}
           >
-            Fees
-          </Link>
-          <Link
+            {"Fees".toUpperCase()}
+          </NavHashLink>
+          <NavHashLink
             to="/#testimonials"
             className={styles.linkPages}
             onClick={() => setNavBarModal(false)}
           >
-            Testimonials
-          </Link>
+            {"Testimonials".toUpperCase()}
+          </NavHashLink>
 
-          <Link
+          <NavHashLink
             to="/#blogs"
-            end
             className={styles.linkPages}
             onClick={() => setNavBarModal(false)}
           >
-            Blogs
-          </Link>
+            {"Blogs".toUpperCase()}
+          </NavHashLink>
         </ul>
       </div>
     </div>
@@ -97,7 +90,3 @@ const NavbarModal = ({setNavBarModal, navbarModal}) => {
 };
 
 export default NavbarModal;
-
-/* 
-
-*/

@@ -42,7 +42,6 @@ const createBlog = async (req, res) => {
 const updateBlog = async (req, res) => {
   const {id: _id} = req.params;
   const updates = req.body;
-  //console.log(updates);
   if (!mongoose.Types.ObjectId.isValid(_id)) {
     res.status(404).send("No post with that id");
   }

@@ -8,6 +8,7 @@ import {useHistory} from "react-router-dom";
 import * as api from "../../api/index";
 import "./userList.css";
 import userImage from "../../depositphotos_137014128-stock-illustration-user-profile-icon.jpg";
+import {toast} from "react-toastify";
 
 export default function UserList() {
   const [data, setDataUsers] = useState();
@@ -31,6 +32,7 @@ export default function UserList() {
   const handleDelete = async id => {
     const userDeleted = await api.deleteUserById(id);
     setDataUsers(data.filter(item => item._id !== userDeleted.data._id));
+    toast.success("The user has been deleted successfully");
   };
   if (error) return <h1 className="text-red-800">error</h1>;
   if (loading) return <h1 className="text-red-800">Loading</h1>;

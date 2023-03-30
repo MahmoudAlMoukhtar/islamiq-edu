@@ -36,7 +36,7 @@ const HeroDetailSection = ({post}) => {
         <a
           href="http://wa.me/+201012750418"
           target="blank"
-          className="flex justify-center gap-2 items-center bg-[#4caf50] py-4 px-8 font-bold rounded w-40 text-white"
+          className="flex justify-center gap-2 items-center bg-[#2e9175] py-4 px-8 font-bold rounded w-40 text-white"
         >
           <div>
             <AiOutlineWhatsApp size={25} />

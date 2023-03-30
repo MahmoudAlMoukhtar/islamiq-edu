@@ -1,11 +1,3 @@
-// import {
-//   CalendarToday,
-//   LocationSearching,
-//   MailOutline,
-//   PermIdentity,
-//   PhoneAndroid,
-//   Publish,
-// } from "@material-ui/icons";
 import {useEffect, useState} from "react";
 import {Link, useParams} from "react-router-dom";
 import * as api from "../../api/index";
@@ -39,7 +31,7 @@ export default function User() {
     try {
       setLoading(true);
       const res = await api.updateUser(userId, userData);
-      toast.success("Updated User Success");
+      toast.success("User information has been updated successfully");
       setuserData(res.data);
       setLoading(false);
     } catch (err) {
@@ -53,9 +45,6 @@ export default function User() {
     <div className="user">
       <div className="userTitleContainer">
         <h1 className="userTitle">Edit User</h1>
-        <Link to="/newUser">
-          <button className="userAddButton">Create</button>
-        </Link>
       </div>
       <div className="userContainer flex flex-col md:flex-row">
         <div className="userShow">

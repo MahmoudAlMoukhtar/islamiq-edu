@@ -55,12 +55,13 @@ const HeroSection = () => {
             <p className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
               {t("mainSlider.1.title")}
             </p>
+
             <p className="text-sm sm:text-md font-semibold w-80 sm:w-auto">
               {t("mainSlider.1.desciption")}
             </p>
             <a
               href="#fees"
-              className="py-2 px-8 rounded bg-[#4caf50] text-white font-bold text-black chatWidget"
+              className="py-2 px-8 rounded bg-[#3cc4ad] text-white font-bold text-black chatWidget"
             >
               {t("mainSlider.1.button")}
             </a>
@@ -85,7 +86,7 @@ const HeroSection = () => {
             </p>
             <Link
               to="/auth"
-              className="py-2 px-8 rounded bg-[#4caf50] text-white font-bold text-black"
+              className="py-2 px-8 rounded bg-[#3cc4ad] text-white font-bold text-black"
             >
               {t("mainSlider.3.button")}
             </Link>
@@ -96,7 +97,7 @@ const HeroSection = () => {
           <img
             effect="blur"
             loading="lazy"
-            src="/photo1678924784.avif"
+            src="/vecteezy_verses-of-the-holy-quran_6034228_263.avif"
             className="w-full relative object-cover h-[300px] sm:h-full"
           />
           <div className="flex flex-col items-center justify-center text-center gap-6 w-full absolute top-[50%] left-[50%] sm:px-20 translate-x-[-50%] translate-y-[-50%] sm:translate-y-[-80%] ">
@@ -109,7 +110,7 @@ const HeroSection = () => {
             </p>
             <a
               href="#courses"
-              className="py-2 px-8 rounded bg-[#4caf50] text-white font-bold text-black"
+              className="py-2 px-8 rounded bg-[#3cc4ad] text-white font-bold text-black"
             >
               {t("mainSlider.2.button")}
             </a>
@@ -139,7 +140,7 @@ export default HeroSection;
               <p className="text-sm sm:text-md font-semibold w-80 sm:w-auto">{t("mainSlider.2.desciption")}</p>
               <a
                 href="#courses"
-                className="py-2 px-8 rounded bg-[#4caf50] text-white font-bold text-black"
+                className="py-2 px-8 rounded bg-[#3cc4ad] text-white font-bold text-black"
               >
                 {t("mainSlider.2.button")}
               </a>

@@ -10,8 +10,9 @@ import {FaQuoteLeft, FaQuoteRight} from "react-icons/fa";
 import * as api from "../../api/index";
 import jwt_decode from "jwt-decode";
 import {useTranslation} from "react-i18next";
-const DetailCourse = () => {
+const DetailCourse = ({setContactModalShow}) => {
   const [t, i18n] = useTranslation();
+  const [contactMessage, setContactMessage] = useState();
   const {id} = useParams();
   const user = JSON.parse(localStorage.getItem("userIqraa"));
   const [testemionalValue, setTemionalValue] = useState();
@@ -32,27 +33,26 @@ const DetailCourse = () => {
     });
     toast.success("Send Testimonal Succsessfully!");
   };
-
-  //return jsx UI product
+  console.log(course);
   if (loadingProduct) return <Spinner />;
   return (
-    <div className="flex justify-between flex-col-reverse lg:flex-row gap-4 w-full md:px-20 lg:px-40 xl:px-60  py-4 sm:py-10">
-      <div className="flex flex-col  items-start gap-20  text-black w-full rounded">
+    <div className="flex justify-between flex-col md:flex-row gap-4 w-full px-4 lg:px-20 py-4 sm:py-10">
+      <div className="flex flex-col  items-start gap-20  text-black w-full rounded ">
         {course.sections.map((c, i) => (
           <div className="flex flex-col items-center gap-10 w-full" key={c._id}>
             {i === 0 && (
               <div
                 className={
                   i18n.language === "en"
-                    ? "flex flex-col sm:flex-row sm:justify-between items-center gap-2 w-full px-4"
-                    : "flex flex-col sm:flex-row-reverse sm:justify-between items-center gap-2 w-full px-4"
+                    ? "flex flex-col sm:flex-row sm:justify-between items-center gap-2 w-full md:px-4"
+                    : "flex flex-col sm:flex-row-reverse sm:justify-between items-center gap-2 w-full md:px-4"
                 }
               >
                 <h2
                   className={
                     i18n.language === "en"
-                      ? "text-2xl sm:text-xl md:text-3xl font-bold w-full text-center sm:text-start"
-                      : "text-2xl sm:text-xl md:text-3xl font-bold w-full text-center sm:text-end"
+                      ? "text-xl lg:text-3xl font-bold w-full text-start"
+                      : "text-xl lg:text-3xl font-bold w-full text-end"
                   }
                 >
                   {i18n.language === "en"
@@ -62,20 +62,27 @@ const DetailCourse = () => {
                 <div
                   className={
                     i18n.language === "en"
-                      ? "flex justify-center"
-                      : "flex flex-row-reverse justify-center"
+                      ? "md:w-auto flex flex-row justify-center gap-1 w-full"
+                      : "md:w-auto flex flex-row-reverse justify-center gap-1 w-full"
                   }
                 >
                   <a
                     href="http://wa.me/+201012750418"
                     target="blank"
-                    className="flex justify-center gap-2 items-center bg-[#4caf50] py-2 px-4 sm:py-4 sm:px-8 font-bold rounded w-40 text-white"
+                    className="flex justify-center gap-2 items-center bg-[#2e9175] py-2 px-2  lg:py-4  lg:px-8 font-bold rounded w-full text-white text-xs sm:text-sm md:text-md"
                   >
                     <div>
-                      <AiOutlineWhatsApp size={25} />
+                      <AiOutlineWhatsApp size={20} />
                     </div>
-                    Whatsapp
+                    {i18n.language === "en" ? "Whatsapp" : "الواتساب"}
                   </a>
+                  <button
+                    onClick={() => setContactModalShow(true)}
+                    target="blank"
+                    className="flex justify-center gap-2 items-center bg-[#fd5308] py-2 px-2  lg:py-4  lg:px-8 font-bold rounded w-full text-white text-xs sm:text-sm md:text-md md:hidden"
+                  >
+                    {i18n.language === "en" ? "Send Message" : "أرسل رسالة"}
+                  </button>
                 </div>
               </div>
             )}
@@ -90,7 +97,7 @@ const DetailCourse = () => {
             {c.video && (
               <iframe
                 width="100%"
-                className="h-[300px] sm:h-[400px] px-4"
+                className="h-[300px] sm:h-[400px] px-2"
                 src={`https://www.youtube.com/embed/${c.video}`}
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -98,24 +105,42 @@ const DetailCourse = () => {
                 title="Embedded youtube"
               />
             )}
-            <p className="text-lg p-4">
-              {i18n.language === "en" ? c.description : c.descriptionAr}
+            <p
+              className={
+                i18n.language === "en" ? "text-start text-lg p-4" : "text-end"
+              }
+            >
+              {i18n.language === "en" && c.description}
+              {i18n.language === "ar" && c.descriptionAr
+                ? c.descriptionAr
+                : c.description}
             </p>
           </div>
         ))}
         {user && (
-          <form className="my-10 flex flex-col gap-4 w-full px-4">
+          <form
+            onSubmit={handleSubmitTestmional}
+            className={
+              i18n.language === "en"
+                ? "text-xl sm:text-3xl md:text-2xl xl:text-5xl my-10 flex flex-col gap-4 w-full sm:px-4"
+                : "text-xl sm:text-3xl md:text-2xl xl:text-5xl my-10 flex flex-col items-end gap-4 w-full sm:px-4"
+            }
+          >
             <label className="flex items-center gap-4">
               <div>
-                <FaQuoteLeft size={25} />
+                <FaQuoteLeft />
               </div>
-              <p className="text-2xl sm:text-3xl lg:text-5xl font-bold">
+              <p
+                className={
+                  i18n.language === "en" ? "font-bold" : "font-bold text-end"
+                }
+              >
                 {i18n.language === "en"
                   ? "Write Your Testimonial"
                   : "أكتب توصية"}
               </p>
               <div>
-                <FaQuoteRight size={25} />
+                <FaQuoteRight />
               </div>
             </label>
             <textarea
@@ -127,56 +152,126 @@ const DetailCourse = () => {
               value={testemionalValue}
               onChange={e => setTemionalValue(e.target.value)}
             />
-            <button
-              className="p-4 w-full text-xl font-bold bg-[#4caf50] hover:bg-[#FF932D] text-white"
-              onClick={handleSubmitTestmional}
-            >
+            <button className="p-4 w-full text-xl font-bold bg-[#3cc4ad] hover:bg-[#FF932D] text-white">
               {i18n.language === "en" ? "SUBMIT" : "أرسل"}
             </button>
           </form>
         )}
       </div>
+      <section
+        id="contact"
+        className="flex flex-col  gap-8 bg-[#3cc4ad]   w-full md:w-[500px] py-10 text-white  px-4 hidden md:flex"
+      >
+        <div className="flex flex-col items-center gap-2">
+          {i18n.language === "en" ? (
+            <h4 className="text-3xl sm:text-2xl tracking-[0.2em] font-bold text-center">
+              CONTACT US
+            </h4>
+          ) : (
+            <h2 className="text-3xl sm:text-4xl font-bold text-center">
+              تواصل معنا
+            </h2>
+          )}
+          <span className="h-1 sm:h-2 w-40 bg-[#ffc265]" />
+        </div>
+        <form
+          onSubmit={async e => {
+            e.preventDefault();
+            await api.sendContactMessage(contactMessage);
+            toast.success("Submit your message in successfull");
+          }}
+          className={
+            i18n.language === "en"
+              ? "flex flex-col justify-center items-center gap-y-8"
+              : "flex flex-col justify-center items-end text-end gap-y-8"
+          }
+        >
+          <label
+            htmlFor="name"
+            className="text-white font-semibold flex flex-col w-[100%]"
+          >
+            {i18n.language === "en" ? "First Name" : "الاسم الأول"}
+            <input
+              required
+              placeholder={
+                i18n.language === "en" ? "First Name" : "الاسم الأول"
+              }
+              minLength={3}
+              type="text"
+              name="name"
+              id="name"
+              className="border-[1px] border-black  px-4 py-2  w-[100%] rounded text-black"
+              onChange={e =>
+                setContactMessage({
+                  ...contactMessage,
+                  firstName: e.target.value,
+                })
+              }
+            />
+          </label>
+          <label
+            htmlFor="name"
+            className="text-white font-semibold flex flex-col w-[100%] rounded"
+          >
+            {i18n.language === "en" ? "Last Name" : "الاسم الأخير"}
 
+            <input
+              required
+              placeholder={
+                i18n.language === "en" ? "Last Name" : "الاسم الأخير"
+              }
+              minLength={3}
+              type="text"
+              name="name"
+              id="name"
+              className="border-[1px] border-black px-4 py-2  w-[100%] rounded text-black"
+              onChange={e =>
+                setContactMessage({...contactMessage, lastName: e.target.value})
+              }
+            />
+          </label>
+          <label htmlFor="email" className="text-white font-semibold w-[100%]">
+            {i18n.language === "en" ? "Email" : "الأيميل"}
+
+            <input
+              required
+              placeholder={i18n.language === "en" ? "Email" : "الإيميل"}
+              type="email"
+              name="email"
+              id="email"
+              className="border-[1px] border-black  px-4 py-2  w-[100%] rounded text-black"
+              onChange={e =>
+                setContactMessage({...contactMessage, email: e.target.value})
+              }
+            />
+          </label>
+          <label
+            htmlFor="message"
+            className="text-white font-semibold w-[100%]"
+          >
+            {i18n.language === "en" ? "Message" : "الرسالة"}
+
+            <textarea
+              required
+              placeholder={i18n.language === "en" ? "Message" : "الرسالة"}
+              minLength={10}
+              name=""
+              id=""
+              cols={"100"}
+              rows="5"
+              className="border-[1px] border-black w-[100%] rounded text-black"
+              onChange={e =>
+                setContactMessage({...contactMessage, message: e.target.value})
+              }
+            ></textarea>
+          </label>
+          <button className="bg-[#fd5308] p-4 font-bold text-white transtion duration-200 w-full rounded">
+            {i18n.language === "en" ? "SUBMIT" : "إرسال"}
+          </button>
+        </form>
+      </section>
       <ToastContainer theme="dark" />
     </div>
   );
 };
 export default DetailCourse;
-/* 
-      <section className="flex flex-col sm:flex-row  lg:flex-col  w-full lg:w-[700px]  lg:h-[1200px] gap-10 bg-[#4caf50] p-4 rounded text-white">
-        {user && (
-          <form className="my-10 flex flex-col gap-4 w-full">
-            <label className="flex items-center gap-4">
-              <div>
-                <FaQuoteLeft size={25} />
-              </div>
-              <p className="text-5xl font-bold">Write Your Testimonial</p>
-              <div>
-                <FaQuoteRight size={25} />
-              </div>
-            </label>
-            <textarea
-              type="text"
-              placeholder="Write Your Testimonial"
-              className="w-full p-4 h-60"
-              value={testemionalValue}
-              onChange={e => setTemionalValue(e.target.value)}
-            />
-            <button
-              className="p-4 w-full text-xl font-bold bg-[#4caf50] hover:bg-[#FF932D] text-white"
-              onClick={handleSubmitTestmional}
-            >
-              SUBMIT
-            </button>
-          </form>
-        )}
-      </section>
-*/
-/* 
-  <Link
-                    to="/#fees"
-                    className="bg-[#ffc265] py-2 px-4 sm:py-4 sm:px-8 rounded text-md w-40 font-bold"
-                  >
-                    {i18n.language === "en" ? "Show Fees" : "رؤية الأسعار"}
-                  </Link>
-*/

@@ -21,7 +21,7 @@ export default function Topbar({
       >
         <Link to="/admin" className="topLeft">
           <span className={theme === "black" ? "logo text-white" : "logo"}>
-            Iqraa
+            IQRA
           </span>
         </Link>
         <div className="topRight">

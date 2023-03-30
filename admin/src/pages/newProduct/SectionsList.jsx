@@ -2,15 +2,20 @@ import "./productList.css";
 import React from "react";
 import {DataGrid} from "@material-ui/data-grid";
 import {useHistory} from "react-router-dom";
+import * as api from "../../api/index";
+import {toast} from "react-toastify";
 export default function SectionsList({courseData, setCourseData}) {
-  //console.log(courseData.sections);
   const navigate = useHistory();
-  const handleDelete = async uuid => {
-    const courseSections = courseData.sections.filter(s => s.uuid !== uuid);
-    setCourseData({
-      ...courseData,
-      sections: courseSections,
-    });
+  const handleDelete = async (idCourse, idSection) => {
+    const res = await api.deleteSection(idCourse, idSection);
+    toast.success("Deleted Section successfully!");
+    const sectionsAfterDelete = courseData.sections.filter(
+      item => item._id !== idSection
+    );
+    setCourseData({...courseData, sections: sectionsAfterDelete});
+    if (sectionsAfterDelete.length === 0) {
+      navigate.push("/admin/courses");
+    }
   };
 
   const columns = [
@@ -42,7 +47,7 @@ export default function SectionsList({courseData, setCourseData}) {
           <div className="containerActionsBtns w-full">
             <button
               className="productListDelete w-full"
-              onClick={() => handleDelete(params.row.uuid)}
+              onClick={() => handleDelete(courseData._id, params.row._id)}
             >
               Delete
             </button>
@@ -61,7 +66,7 @@ export default function SectionsList({courseData, setCourseData}) {
         columns={columns}
         pageSize={8}
         checkboxSelection
-        getRowId={row => row.uuid}
+        getRowId={row => row._id}
       />
     </div>
   );

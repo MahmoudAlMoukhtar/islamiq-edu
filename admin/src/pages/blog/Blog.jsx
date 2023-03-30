@@ -1,6 +1,5 @@
 import {useEffect, useState} from "react";
 import {Link, useParams} from "react-router-dom";
-import Chart from "../../components/chart/Chart";
 //import {blogData} from "../../dummyData";
 import * as api from "../../api/index";
 import "./blog.css";
@@ -77,7 +76,7 @@ export default function Blog() {
     formData.append("messageAr", datablog.messageAr);
     setLoading(true);
     const res = await api.updatePost(id, formData);
-    toast.success("Update Blog success");
+    toast.success("The blog has been updated successfully");
     setLoading(false);
     setDatablog(res.data);
   };

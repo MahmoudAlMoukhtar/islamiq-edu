@@ -2,17 +2,17 @@
     "mainSlider":{
         "1":{
             "title":"Highest Quality & Low Fees",
-            "desciption":"Our Academy is an academy for Arabic and Quran Studies.",
+            "desciption":"IQRA Arabic Quran welcomes students to join its engaging community anytime.",
             "button":"Show Fees"
         },
         "2":{
             "title":"Islam company for learn islamiq scince",
-            "desciption":"We want to make the process of Quran teaching easier for everyone",
+            "desciption":"We challenge you to master reading Arabic in one single month",
             "button":"Our courses"
         },
         "3":{
             "title":"Register Now",
-            "desciption":"We are offering our services for every individual nu ignoring the age and gender factor.",
+            "desciption":"IQRA and start your journey towards Al-Jannah",
             "button":"Login"
         }
 
@@ -33,9 +33,9 @@
 "blogs":"Blogs",
 "testimonials":"Testimonials",
 "contact":"Contact Us",
-"login":"تسجيل الدخول",
+"login":"Login",
 "logout":"Logout",
-"freetrail":"Free Trail"
+"freetrail":"Free Evaluation Sesstion"
     },
      "whyus":{
 "1":"Native and experienced Tutors.",
@@ -108,7 +108,7 @@
     "footer":{
         "title":"Subscibe For Newsletter",
         "desciptionSubscibe":"Subscribe to the newsletter to receive all new",
-        "desciption":"iqra in the name of allah online quran & arabic classes",
+        "desciption":"IQRA in the name of Allah\n online Quran & Arabic classes",
         "button":"Subscibe",
         "loaction":"Egypt"
     }

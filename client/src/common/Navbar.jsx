@@ -1,79 +1,46 @@
-import React, {useEffect} from "react";
-import {Link, NavLink, useLocation, useNavigate} from "react-router-dom";
-
+import React from "react";
+import {NavLink, useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
 import {useTranslation} from "react-i18next";
-import {ImMenu} from "react-icons/im";
+import {
+  AiFillFacebook,
+  AiFillYoutube,
+  AiOutlineMail,
+  AiOutlineWhatsApp,
+} from "react-icons/ai";
 
-const activeStyle = {
-  color: "white",
-  backgroundColor: "#FF932D",
-  padding: "2px 12px",
-  fontWeight: "bold",
-  borderRaduis: "3px",
-};
-
-const Navbar = ({setNavBarModal, navbarModal}) => {
+const Navbar = () => {
   const user = JSON.parse(localStorage.getItem("userIqraa"));
   const [t, i18n] = useTranslation();
   const navigaite = useNavigate();
-  const styles = {
-    linkPages:
-      i18n.language === "en"
-        ? "text-lg sm:text-[13px] md:text-[16px] lg:text-lg font-semibold  sm:py-1 px-2 lg:px-4 hover:bg-[#FF932D] transtion duration-200 text-white rounded"
-        : "text-lg sm:text-[13px] md:text-[14px] lg:text-md font-semibold  sm:py-1 px-[6px] lg:px-4 hover:bg-[#FF932D] transtion duration-200 text-white rounded",
-  };
+
   return (
     <nav
       className={
         i18n.language === "en"
-          ? "flex justify-between items-center gap-2 py-2 sm:py-4 px-4  lg:px-20 w-full shadow-xl text-white bg-[#4caf50]"
-          : "flex flex-row-reverse justify-between items-center gap-2 py-2 sm:py-4 px-4  lg:px-20 w-full shadow-xl text-white bg-[#4caf50]"
+          ? "flex flex-col md:flex-row justify-between items-center gap-2 py-2 sm:py-4 px-4  lg:px-10 w-full shadow-xl text-white bg-[#3cc4ad]"
+          : "flex flex-col md:flex-row-reverse justify-between items-center gap-2 py-2 sm:py-4 px-4  lg:px-10 w-full shadow-xl text-white bg-[#3cc4ad]"
       }
     >
-      <div className="flex justify-center">
-        <Link to="/" className="sm:hidden">
-          <h2 className="font-bold text-xl">
-            {i18n.language === "en" ? "IQRAA" : "إقرأ"}
-          </h2>
-        </Link>
-        <ul
-          className={
-            i18n.language === "en"
-              ? "hidden absolute sm:flex sm:items-center  md:gap-2 sm:flex sm:static"
-              : "hidden absolute sm:flex sm:flex-row-reverse sm:items-center  md:gap-2 sm:flex sm:static"
-          }
+      <div className="flex justify-center gap-2 sm:gap-4">
+        <div target="blank" className="flex items-center gap-2">
+          <AiOutlineMail className="text-md sm:text-xl" />
+          <div className="flex flex-col text-center text-xs md:text-lg">
+            <p className="text-[10px] sm:text-md sm:font-bold">
+              iqrainthenameofallah29@gmail.com
+            </p>
+          </div>
+        </div>
+        <a
+          target="blank"
+          href="http://wa.me/+201012750418"
+          className="flex items-center gap-2"
         >
-          <NavLink
-            style={({isActive}) => (isActive ? activeStyle : undefined)}
-            to="/"
-            end
-            className={styles.linkPages}
-          >
-            {t("nav.home")}
-          </NavLink>
-          <li>
-            <Link to="/#Whyus" end className={styles.linkPages}>
-              {t("nav.whyus")}
-            </Link>
-          </li>
-          <Link to="/#courses" end className={styles.linkPages}>
-            {t("nav.courses")}
-          </Link>
-          <Link to="/#testimonials" className={styles.linkPages}>
-            {t("nav.testimonials")}
-          </Link>
-          <Link to="/#fees" end className={styles.linkPages}>
-            {t("nav.fees")}
-          </Link>
-
-          <Link to="/#blogs" end className={styles.linkPages}>
-            {t("nav.blogs")}
-          </Link>
-          <Link to="/#contact" end className={styles.linkPages}>
-            {t("nav.contact")}
-          </Link>
-        </ul>
+          <AiOutlineWhatsApp className="text-md sm:text-xl" />
+          <div className="flex flex-col text-center text-xs md:text-lg">
+            <p className="text-xs sm:text-md sm:font-bold">+201012750418</p>
+          </div>
+        </a>
       </div>
       <div
         className={
@@ -82,17 +49,41 @@ const Navbar = ({setNavBarModal, navbarModal}) => {
             : "flex flex-row-reverse justify-center  gap-2 items-center"
         }
       >
+        <ul className="flex items-center gap-2">
+          <a
+            target="blank"
+            href="https://www.facebook.com/profile.php?id=100090853364224"
+            className="rounded-full p-[4px] hover:bg-[#fd5308]"
+          >
+            <AiFillFacebook size={25} />
+          </a>
+          <a
+            href="http://wa.me/+201012750418"
+            target="blank"
+            className="rounded-full p-[4px] hover:bg-[#fd5308]"
+          >
+            <AiOutlineWhatsApp size={25} />
+          </a>
+
+          <a
+            target="blank"
+            href="https://www.youtube.com/channel/UC5oDD19WtYccO99HBVlSAoQ"
+            className="rounded-full p-[4px] hover:bg-[#fd5308]"
+          >
+            <AiFillYoutube size={25} />
+          </a>
+        </ul>
+
         {!user ? (
           <NavLink
-            className="font-bold px-2 py-[6px] text-xs sm:text-md sm:px-2 sm:py-2 bg-[#FF932D] transtion duration-200 text-white rounded"
+            className="font-semibold sm:font-bold text-sm sm:text-md py-[6px] px-4 bg-[#fd5308] transtion duration-200 text-white rounded"
             to="/auth"
-            end
           >
             {t("nav.freetrail")}
           </NavLink>
         ) : (
           <button
-            className="font-bold px-2 py-[6px] text-xs sm:text-md sm:px-2 sm:py-2 bg-[#FF932D] transtion duration-200 text-white rounded"
+            className="font-semibold sm:font-bold text-sm sm:text-md py-[6px] px-4 bg-[#fd5308] transtion duration-200 text-white rounded"
             onClick={() => {
               localStorage.removeItem("userIqraa");
               toast.success("Logout successfully");
@@ -102,18 +93,9 @@ const Navbar = ({setNavBarModal, navbarModal}) => {
             {t("nav.logout")}
           </button>
         )}
-        <ImMenu
-          size={30}
-          onClick={() => setNavBarModal(!navbarModal)}
-          className="cursor-pointer text-white"
-        />
       </div>
     </nav>
   );
 };
 
 export default Navbar;
-/* bg-[#4caf50] */
-/*    <Link to="/#blogs" end className={styles.linkPages}>
-            {t("nav.contact")}
-          </Link> */

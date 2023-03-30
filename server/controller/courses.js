@@ -10,39 +10,13 @@ const getCourses = async (req, res) => {
 };
 
 const createCourse = async (req, res) => {
-  const {title, titleAr, sections} = req.body;
-  const parseSections = JSON.parse(sections);
-  let sectionsHandled = [];
-  //console.log(req.body);
-  //console.log("//////////////////////////////");
-  //console.log(parseSections);
-  //console.log("//////////////////////////////");
+  const {title, titleAr} = req.body;
   try {
-    if (req.files.length > 1) {
-      for (let i = 0; i < parseSections.length; i++) {
-        //console.log(req.files);
-        sectionsHandled.push({
-          image: req?.files[i + 1]?.path,
-          description: parseSections[i].description,
-          descriptionAr: parseSections[i].descriptionAr,
-          video: parseSections[i].video,
-        });
-        //console.log(sectionsHandled);
-      }
-    } else {
-      for (let i = 0; i < parseSections.length; i++) {
-        sectionsHandled.push({
-          description: parseSections[i].description,
-          video: parseSections[i].video,
-        });
-      }
-    }
-    console.log(sectionsHandled);
     const newCourse = await new Course({
       title,
       titleAr,
-      thum: req.files[0].path,
-      sections: sectionsHandled,
+      thum: req.file.path,
+      sections: [],
     });
     await newCourse.save();
     console.log(newCourse);
@@ -55,16 +29,15 @@ const createCourse = async (req, res) => {
 const addSection = async (req, res) => {
   const {id: _id} = req.params;
   const section = req.body;
-  //console.log(section);
   const courseFind = await Course.findById(_id);
-  if(req.file){
+  if (req.file) {
     courseFind.sections.push({
       image: req.file.path,
       description: section.description,
       descriptionAr: section.descriptionAr,
       video: section.video,
     });
-  }else{
+  } else {
     courseFind.sections.push({
       description: section.description,
       descriptionAr: section.descriptionAr,
@@ -84,26 +57,6 @@ const addSection = async (req, res) => {
 const updateCourse = async (req, res) => {
   const {id: _id} = req.params;
   const updates = req.body;
-  //console.log(updates);
-  //const parseSections = JSON.parse(updates.sections);
-  //let sectionsHandled = [];
-
-  // if (req.files.length > 1) {
-  //   for (let i = 0; i < parseSections.length; i++) {
-  //     sectionsHandled.push({
-  //       image: req.files[i + 1].path,
-  //       description: parseSections[i].description,
-  //       video: parseSections[i].video,
-  //     });
-  //   }
-  // } else {
-  //   for (let i = 0; i < parseSections.length; i++) {
-  //     sectionsHandled.push({
-  //       description: parseSections[i].description,
-  //       video: parseSections[i].video,
-  //     });
-  //   }
-  // }
   let actulUpdate;
   if (req.file) {
     actulUpdate = {
@@ -150,7 +103,6 @@ const deleteSection = async (req, res) => {
   const {id: _id} = req.params;
   console.log(req.body.idSection);
   try {
-    //find({"details.detail_list.count": {$gt: 0}});
     const courseDelete = await Course.findById(_id);
     const newSections = courseDelete.sections.filter(
       s => s._id != req.body.idSection
@@ -184,3 +136,41 @@ module.exports = {
   deleteSection,
   addSection,
 };
+/* 
+const createCourse = async (req, res) => {
+  const {title, titleAr, sections} = req.body;
+  const parseSections = JSON.parse(sections);
+  let sectionsHandled = [];
+  try {
+    if (req.files.length > 1) {
+      for (let i = 0; i < parseSections.length; i++) {
+        sectionsHandled.push({
+          image: req?.files[i + 1]?.path,
+          description: parseSections[i].description,
+          descriptionAr: parseSections[i].descriptionAr,
+          video: parseSections[i].video,
+        });
+      }
+    } else {
+      for (let i = 0; i < parseSections.length; i++) {
+        sectionsHandled.push({
+          description: parseSections[i].description,
+          video: parseSections[i].video,
+        });
+      }
+    }
+    console.log(sectionsHandled);
+    const newCourse = await new Course({
+      title,
+      titleAr,
+      thum: req.files[0].path,
+      sections: sectionsHandled,
+    });
+    await newCourse.save();
+    console.log(newCourse);
+    res.status(201).json(newCourse);
+  } catch (err) {
+    res.status(400).json({message: err.message});
+  }
+};
+*/

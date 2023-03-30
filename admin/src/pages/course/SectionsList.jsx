@@ -6,9 +6,7 @@ import React from "react";
 import * as api from "../../api/index";
 export default function SectionsList({courseData, setCourseData}) {
   const navigate = useHistory();
-  const handleDelete = async (idCourse, idSection) => {
-    console.log(idSection);
-    console.log(idCourse);
+  const handleDelete = async (idCourse, idSection) => {    
     const res = await api.deleteSection(idCourse, idSection);
     const sectionsAfterDelete = courseData.sections.filter(
       item => item._id !== idSection

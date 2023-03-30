@@ -13,7 +13,7 @@ const router = express.Router();
 const parser = require("../utils/cloudinary");
 router.get("/", getCourses);
 router.get("/:id", getCourseById);
-router.post("/", parser.array("images"), createCourse);
+router.post("/", parser.single("imageThum"), createCourse);
 router.put("/:id", parser.single("images"), updateCourse);
 router.delete("/:id", deleteCourseById);
 router.patch("/sections/:id", deleteSection);
