@@ -30,19 +30,19 @@ const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`success listning on ${PORT}`);
 });
-// mongoose
-//   .connect(process.env.MONGODB_CONNECTION, {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//   })
-//   .then(() => {
-//     console.log("success connection database");
+mongoose
+  .connect(process.env.MONGODB_CONNECTION, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log("success connection database");
 
-//     app.listen(PORT, () => {
-//       console.log(`success listning on ${PORT}`);
-//     });
-//   })
-//   .catch(err => {
-//     console.log("error connection database!!!");
-//     console.log(err.message);
-//   });
+    app.listen(PORT, () => {
+      console.log(`success listning on ${PORT}`);
+    });
+  })
+  .catch(err => {
+    console.log("error connection database!!!");
+    console.log(err.message);
+  });
