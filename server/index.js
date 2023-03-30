@@ -9,7 +9,7 @@ const cors = require("cors");
 // const contactMessagesRouter = require("./routes/contactMessage");
 // const newsRouter = require("./routes/newslitter");
 // const commentRouter = require("./routes/comments");
-// const compression = require("compression");
+const compression = require("compression");
 const app = express();
 
 app.use(bodyParser.json({extended: true}));
@@ -27,9 +27,9 @@ app.use(cors());
 // app.use("/api/comments", commentRouter);
 
 const PORT = process.env.PORT || 3001;
-   app.listen(PORT, () => {
-     console.log(`success listning on ${PORT}`);
-   });
+  app.listen(PORT, () => {
+    console.log(`success listning on ${PORT}`);
+  });
 // mongoose
 //   .connect(process.env.MONGODB_CONNECTION, {
 //     useNewUrlParser: true,
