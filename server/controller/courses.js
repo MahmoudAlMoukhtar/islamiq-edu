@@ -19,7 +19,7 @@ const createCourse = async (req, res) => {
       sections: [],
     });
     await newCourse.save();
-    console.log(newCourse);
+    // console.log(newCourse);
     res.status(201).json(newCourse);
   } catch (err) {
     res.status(400).json({message: err.message});
@@ -48,7 +48,7 @@ const addSection = async (req, res) => {
     const course = await Course.findByIdAndUpdate(_id, courseFind, {
       new: true,
     });
-    console.log(course);
+    // console.log(course);
     res.status(200).json(course);
   } catch (err) {
     res.status(400).json({message: err.message});
@@ -72,7 +72,7 @@ const updateCourse = async (req, res) => {
     const course = await Course.findByIdAndUpdate(_id, actulUpdate, {
       new: true,
     });
-    console.log(course);
+    // console.log(course);
     res.status(200).json(course);
   } catch (err) {
     res.status(400).json({message: err.message});
@@ -136,41 +136,3 @@ module.exports = {
   deleteSection,
   addSection,
 };
-/* 
-const createCourse = async (req, res) => {
-  const {title, titleAr, sections} = req.body;
-  const parseSections = JSON.parse(sections);
-  let sectionsHandled = [];
-  try {
-    if (req.files.length > 1) {
-      for (let i = 0; i < parseSections.length; i++) {
-        sectionsHandled.push({
-          image: req?.files[i + 1]?.path,
-          description: parseSections[i].description,
-          descriptionAr: parseSections[i].descriptionAr,
-          video: parseSections[i].video,
-        });
-      }
-    } else {
-      for (let i = 0; i < parseSections.length; i++) {
-        sectionsHandled.push({
-          description: parseSections[i].description,
-          video: parseSections[i].video,
-        });
-      }
-    }
-    console.log(sectionsHandled);
-    const newCourse = await new Course({
-      title,
-      titleAr,
-      thum: req.files[0].path,
-      sections: sectionsHandled,
-    });
-    await newCourse.save();
-    console.log(newCourse);
-    res.status(201).json(newCourse);
-  } catch (err) {
-    res.status(400).json({message: err.message});
-  }
-};
-*/
