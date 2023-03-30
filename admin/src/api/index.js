@@ -53,11 +53,6 @@ export const updateTestimonial = (id, data) =>
   API.put(`/testimoials/${id}`, data);
 export const deleteTestimonialById = id => API.delete(`/testimoials/${id}`);
 
-// //notify
-// export const addNotify = notify => API.post(`/notify`, notify);
-// export const fetchNotifycations = () => API.get("/notify");
-// export const updateNotifycations = id => API.get(`/notify/${id}`);
-
 //newsLetter
 export const createNewsLetter = newsLetter =>
   API.post("/newsLetter", newsLetter);
