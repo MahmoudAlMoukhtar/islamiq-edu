@@ -31,10 +31,10 @@ const Testimonials = () => {
   return (
     <section
       id="testimonials"
-      className="flex flex-col  justify-center items-center gap-10 sm:gap-20 py-10 bg-[#f2ede7] w-full"
+      className="flex flex-col  justify-center items-center gap-10 sm:gap-20 py-10 bg-[#f2ede7] w-full my-10"
     >
       <div className="flex flex-col items-center gap-2 md:w-[600px]">
-        <h2 className="flex flex-col items-center text-center px-2 text-xl sm:px-0 sm:text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold">
+        <h2 className="flex flex-col items-center text-center px-2 sm:px-0 text-2xl md:text-3xl lg:text-4xl font-bold">
           {t("titletestimonials")}
           <p className="text-sm sm:text-lg font-semibold   text-black text-center pt-2 sm:pt-4 px-4 sm:px-8 w-full py-4 rounded">
             {i18n.language === "en"

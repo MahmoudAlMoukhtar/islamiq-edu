@@ -24,6 +24,7 @@
 
 body {
   background-color: #f2ede7;  
+  
 }
 
 .english{
@@ -102,7 +103,7 @@ body {
                         }
             
                         ::-webkit-scrollbar-thumb {
-                          background: #fd5308;
+                          background: #9e9e9e;
                           border-radius: 10px;
                         }
 

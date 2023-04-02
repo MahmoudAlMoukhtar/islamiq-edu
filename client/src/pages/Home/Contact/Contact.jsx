@@ -20,7 +20,7 @@ const ContactPage = () => {
   return (
     <section
       id="contact"
-      className="flex flex-col justify-between gap-8 bg-[#3cc4ad] w-full my-20 py-20 text-white  px-4 sm:px-10 lg:px-20  mx-4"
+      className="flex flex-col justify-between gap-8 bg-[#3cc4ad] w-full my-20 py-10  text-white  px-4 sm:px-10 lg:px-20  mx-4"
     >
       <div className="flex flex-col items-center gap-2">
         {i18n.language === "en" ? (

@@ -21,7 +21,7 @@ const Footer = () => {
   const [t, i18n] = useTranslation();
   const [emailSubscripe, setEmailSubscripe] = useState();
   return (
-    <footer className="flex flex-col items-center gap-10 py-10 px-4 px-4 md:px-10 lg:px-40 w-full bg-[#2e9175]">
+    <footer className="flex flex-col items-center gap-6 sm:gap-10 py-10 px-4 px-4 md:px-10 lg:px-40 w-full bg-[#2e9175]">
       <div className="flex flex-col items-center text-center sm:text-start gap-2 sm:gap-6 text-white">
         <h2 className="text-2xl sm:text-4xl font-bold">{t("footer.title")}</h2>
         <p className="text-xs w-60 sm:text-md sm:w-auto">
@@ -29,7 +29,6 @@ const Footer = () => {
         </p>
         <div className="flex justify-center items-center gap-2 sm:gap-6 text-black">
           <form
-            className=""
             onSubmit={async e => {
               e.preventDefault();
               const testValid = EmailValidator.validate(emailSubscripe);
@@ -44,7 +43,7 @@ const Footer = () => {
             <input
               type="email"
               required
-              className="rounded-l-full border-2 border-[#fd5308] py-2 px-2 sm:px-4 "
+              className="rounded-l-full border-2 border-[#fd5308] py-2 px-2 sm:px-4 w-48 sm:w-auto"
               placeholder="example@gmail.com"
               onChange={e => {
                 setEmailSubscripe(e.target.value);
@@ -69,28 +68,34 @@ const Footer = () => {
         <div
           className={
             i18n.language === "en"
-              ? "flex flex-col items-center text-center sm:text-start sm:items-start gap-10 sm:gap-4 w-64"
-              : "flex flex-col items-center text-center sm:text-end sm:items-end gap-10 sm:gap-4 w-64"
+              ? "px-6 sm:px-0 flex  justify-between sm:justify-start flex-col  sm:text-start sm:items-start gap-4 sm:w-64 w-full"
+              : "px-6 sm:px-0 flex  justify-between sm:justify-start flex-col  sm:text-end sm:items-end gap-4 sm:w-64 w-full"
           }
         >
-          <a href="#" className="flex  gap-2 items-center">
-            <img src="/test.png" className="w-20" alt="Iqraa" />
-          </a>
+          <div className="flex items-end sm:items-start justify-between sm:flex-col gap-4 w-full">
+            <a href="#" className="flex  gap-2 items-center">
+              <img
+                src="/test.png"
+                className="w-20 shadow-2xl shadow-white"
+                alt="Iqraa"
+              />
+            </a>
 
-          <p className="text-sm text-white">
-            {i18n.language === "en" ? (
-              <span>
-                IQRA in the name of Allah <br /> online Quran & Arabic classes
-              </span>
-            ) : (
-              <span>
-                اقرأ بسم الله
-                <br />
-                على الإنترنت دروس القرآن والعربية
-              </span>
-            )}
-          </p>
-          <ul className="flex items-center gap-1">
+            <p className="text-sm text-white">
+              {i18n.language === "en" ? (
+                <span>
+                  IQRA in the name of Allah <br /> online Quran & Arabic classes
+                </span>
+              ) : (
+                <span>
+                  اقرأ بسم الله
+                  <br />
+                  على الإنترنت دروس القرآن والعربية
+                </span>
+              )}
+            </p>
+          </div>
+          <ul className="flex  items-center gap-1">
             <a
               target="blank"
               href="https://www.facebook.com/profile.php?id=100090853364224"
@@ -118,15 +123,15 @@ const Footer = () => {
         <section
           className={
             i18n.language === "en"
-              ? "flex flex-col justify-center items-center text-center sm:flex-row  sm:justify-between sm:items-start sm:text-start sm:w-[600px] gap-10 sm:gap-4 flex-wrap sm:flex-nowrap w-full"
-              : "flex flex-col justify-center items-center text-center sm:flex-row-reverse  sm:justify-between sm:items-start sm:text-start sm:w-[600px] gap-10 sm:gap-4 flex-wrap sm:flex-nowrap w-full"
+              ? "flex flex-col justify-center items-center text-center sm:flex-row  sm:justify-between sm:items-start sm:text-start sm:w-[600px] gap-8 sm:gap-4 flex-wrap sm:flex-nowrap w-full"
+              : "flex flex-col justify-center items-center text-center sm:flex-row-reverse  sm:justify-between sm:items-start sm:text-start sm:w-[600px] gap-8 sm:gap-4 flex-wrap sm:flex-nowrap w-full"
           }
         >
           <div
             className={
               i18n.language === "en"
-                ? "flex flex-col gap-10 sm:gap-4"
-                : "flex flex-col items-end text-end gap-10 sm:gap-4"
+                ? "flex flex-col gap-4"
+                : "flex flex-col items-end text-end gap-4"
             }
           >
             <h5 className="text-md font-bold">
@@ -135,8 +140,8 @@ const Footer = () => {
             <nav
               className={
                 i18n.language === "en"
-                  ? "flex flex-col justify-center items-center text-center  sm:justify-between sm:items-start sm:text-start gap-10 sm:gap-4"
-                  : "flex flex-col justify-center items-center text-center  sm:justify-between sm:items-end sm:text-end gap-10 sm:gap-4"
+                  ? "flex flex-col justify-center items-center text-center  sm:justify-between sm:items-start sm:text-start gap-4"
+                  : "flex flex-col justify-center items-center text-center  sm:justify-between sm:items-end sm:text-end gap-4"
               }
             >
               <NavHashLink to={"/"} className="text-white text-sm">
@@ -153,8 +158,8 @@ const Footer = () => {
           <div
             className={
               i18n.language === "en"
-                ? "flex flex-col justify-center items-center text-center  sm:justify-between sm:items-start sm:text-start gap-10 sm:gap-4"
-                : "flex flex-col justify-center items-center text-center  sm:justify-between sm:items-end sm:text-end gap-10 sm:gap-4"
+                ? "flex flex-col justify-center items-center text-center  sm:justify-between sm:items-start sm:text-start gap-4"
+                : "flex flex-col justify-center items-center text-center  sm:justify-between sm:items-end sm:text-end gap-4"
             }
           >
             <h5 className="text-md font-bold">
@@ -163,8 +168,8 @@ const Footer = () => {
             <nav
               className={
                 i18n.language === "en"
-                  ? "flex flex-col justify-center items-center text-center  sm:justify-between sm:items-start sm:text-start gap-10 sm:gap-4"
-                  : "flex flex-col justify-center items-center text-center  sm:justify-between sm:items-end sm:text-end gap-10 sm:gap-4"
+                  ? "flex flex-col justify-center items-center text-center  sm:justify-between sm:items-start sm:text-start gap-4"
+                  : "flex flex-col justify-center items-center text-center  sm:justify-between sm:items-end sm:text-end gap-4"
               }
             >
               <NavHashLink to="/#blogs" className="text-white text-sm">
@@ -178,8 +183,8 @@ const Footer = () => {
           <div
             className={
               i18n.language === "en"
-                ? "flex flex-col justify-center items-center text-center  sm:justify-between sm:items-start sm:text-start gap-10 sm:gap-4"
-                : "flex flex-col justify-center items-center text-center  sm:justify-between sm:items-end sm:text-end gap-10 sm:gap-4"
+                ? "flex flex-col justify-center items-center text-center  sm:justify-between sm:items-start sm:text-start gap-4"
+                : "flex flex-col justify-center items-center text-center  sm:justify-between sm:items-end sm:text-end gap-4"
             }
           >
             <h5 className="text-md font-bold">
@@ -188,8 +193,8 @@ const Footer = () => {
             <nav
               className={
                 i18n.language === "en"
-                  ? "flex flex-col justify-center items-center text-center  sm:justify-between sm:items-start sm:text-start gap-10 sm:gap-4"
-                  : "flex flex-col justify-center items-center text-center  sm:justify-between sm:items-end sm:text-end gap-10 sm:gap-4"
+                  ? "flex flex-col justify-center items-center text-center  sm:justify-between sm:items-start sm:text-start gap-4"
+                  : "flex flex-col justify-center items-center text-center  sm:justify-between sm:items-end sm:text-end gap-4"
               }
             >
               <div className="flex items-center gap-2">
@@ -222,9 +227,9 @@ const Footer = () => {
           </div>
         </section>
       </div>
-      <div className="flex flex-col sm:flex-row items-center gap-2">
-        <div>
-          <FaLanguage color="#fd5308" size={50} />
+      <div className="flex items-center gap-2">
+        <div className="text-6xl">
+          <FaLanguage color="#fd5308" />
         </div>
         <select
           className="text-black font-bold border-2 border-[#fd5308] bg-[#fd5308] rounded px-1 text-xs sm:px-2 sm:py-1 cursor-pointer w-40 py-2 "

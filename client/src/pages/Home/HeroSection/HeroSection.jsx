@@ -52,16 +52,18 @@ const HeroSection = () => {
           />
           <div className="flex flex-col items-center justify-center text-center gap-6 w-full absolute top-[50%] left-[50%] sm:px-20 translate-x-[-50%] translate-y-[-50%] sm:translate-y-[-80%]">
             <SlidePrevButton />
-            <p className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
-              {t("mainSlider.1.title")}
-            </p>
+            <div className="flex flex-col items-center bg-[#3cc4ad] p-2 rounded-b text-white gap-2">
+              <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-[#3cc4ad] p-2 rounded text-white">
+                {t("mainSlider.1.title")}
+              </h1>
 
-            <p className="text-sm sm:text-md font-semibold w-80 sm:w-auto">
-              {t("mainSlider.1.desciption")}
-            </p>
+              <p className="text-sm sm:text-lg font-semibold w-80 sm:w-auto bg-[#3cc4ad] p-2 rounded-b text-white">
+                {t("mainSlider.1.desciption")}
+              </p>
+            </div>
             <a
               href="#fees"
-              className="py-2 px-8 rounded bg-[#3cc4ad] text-white font-bold text-black chatWidget"
+              className="py-2 px-8 rounded bg-[#fd5308] text-white font-bold text-black chatWidget"
             >
               {t("mainSlider.1.button")}
             </a>
@@ -78,15 +80,14 @@ const HeroSection = () => {
           />
           <div className="flex flex-col items-center justify-center text-center gap-6 w-full absolute top-[50%] left-[50%] sm:px-20 translate-x-[-50%] translate-y-[-50%] sm:translate-y-[-80%] ">
             <SlidePrevButton />
-            <p className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-black">
+
+            <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold bg-[#3cc4ad] p-2 rounded text-white">
               {t("mainSlider.3.title")}
-            </p>
-            <p className="text-sm sm:text-md font-semibold w-80 sm:w-auto">
-              {t("mainSlider.3.desciption")}
-            </p>
+            </h1>
+
             <Link
               to="/auth"
-              className="py-2 px-8 rounded bg-[#3cc4ad] text-white font-bold text-black"
+              className="py-2 px-8 rounded bg-[#fd5308] text-white font-bold text-black"
             >
               {t("mainSlider.3.button")}
             </Link>
@@ -102,15 +103,14 @@ const HeroSection = () => {
           />
           <div className="flex flex-col items-center justify-center text-center gap-6 w-full absolute top-[50%] left-[50%] sm:px-20 translate-x-[-50%] translate-y-[-50%] sm:translate-y-[-80%] ">
             <SlidePrevButton />
-            <p className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-black">
+
+            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-black bg-[#3cc4ad] p-2 rounded">
               {t("mainSlider.2.title")}
-            </p>
-            <p className="text-sm sm:text-md font-semibold w-80 sm:w-auto">
-              {t("mainSlider.2.desciption")}
-            </p>
+            </h1>
+
             <a
               href="#courses"
-              className="py-2 px-8 rounded bg-[#3cc4ad] text-white font-bold text-black"
+              className="py-2 px-8 rounded bg-[#fd5308] text-white font-bold text-black"
             >
               {t("mainSlider.2.button")}
             </a>
@@ -137,7 +137,7 @@ export default HeroSection;
               <p className="text-4xl md:text-5xl lg:text-6xl font-bold text-black">
                 {t("mainSlider.2.title")}
               </p>
-              <p className="text-sm sm:text-md font-semibold w-80 sm:w-auto">{t("mainSlider.2.desciption")}</p>
+              <p className="text-sm sm:text-lg font-semibold w-80 sm:w-auto">{t("mainSlider.2.desciption")}</p>
               <a
                 href="#courses"
                 className="py-2 px-8 rounded bg-[#3cc4ad] text-white font-bold text-black"
@@ -147,4 +147,12 @@ export default HeroSection;
               <SlideNextButton />
             </div>
           </SwiperSlide>
+*/
+/* 
+<p className="text-sm sm:text-lg font-semibold w-80 sm:w-auto">
+                {t("mainSlider.3.desciption")}
+              </p>
+<p className="text-sm sm:text-lg font-semibold w-80 sm:w-auto">
+                {t("mainSlider.2.desciption")}
+              </p>
 */

@@ -6,7 +6,7 @@ import React from "react";
 import * as api from "../../api/index";
 export default function SectionsList({courseData, setCourseData}) {
   const navigate = useHistory();
-  const handleDelete = async (idCourse, idSection) => {    
+  const handleDelete = async (idCourse, idSection) => {
     const res = await api.deleteSection(idCourse, idSection);
     const sectionsAfterDelete = courseData.sections.filter(
       item => item._id !== idSection
@@ -60,6 +60,12 @@ export default function SectionsList({courseData, setCourseData}) {
         //console.log(params.row);
         return (
           <div className="containerActionsBtns w-full">
+            <Link
+              to={`/admin/course/section/${courseData._id}/${params.row._id}`}
+              className="courseButton rounded w-full"
+            >
+              Edit
+            </Link>
             <button
               className="productListDelete w-full"
               onClick={() => handleDelete(courseData._id, params.row._id)}

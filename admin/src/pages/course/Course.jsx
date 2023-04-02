@@ -18,6 +18,7 @@ export default function Course() {
   });
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [loadingSection, setLoadingSection] = useState(false);
 
   useEffect(() => {
     const makeRequest = async () => {
@@ -36,22 +37,27 @@ export default function Course() {
   }, []);
 
   const handleAddSection = async e => {
+    e.preventDefault();
+    const formData = new FormData();
     function youtube_parser(url) {
       var regExp =
         /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
       var match = url.match(regExp);
       return match && match[7].length == 11 ? match[7] : false;
     }
-
-    const idYoutube = youtube_parser(sectionData.video);
-    e.preventDefault();
-    const formData = new FormData();
+    if (sectionData.video) {
+      const idYoutube = youtube_parser(sectionData.video);
+      formData.append("video", idYoutube);
+    } else {
+      formData.append("video", "");
+    }
     formData.append("image", sectionData.image);
     formData.append("description", sectionData.description);
     formData.append("descriptionAr", sectionData.descriptionAr);
-    formData.append("video", idYoutube);
     try {
+      setLoadingSection(true);
       const res = await api.addSection(courseData._id, formData);
+      setLoadingSection(false);
       setCourseData(res.data);
       toast.success("The section has been added to the course successfully~");
     } catch (err) {
@@ -83,9 +89,9 @@ export default function Course() {
       new Promise(resolve => {
         Resizer.imageFileResizer(
           file,
-          300,
-          300,
-          "JPEG",
+          800,
+          800,
+          "WEBP",
           100,
           0,
           uri => {
@@ -114,9 +120,9 @@ export default function Course() {
       new Promise(resolve => {
         Resizer.imageFileResizer(
           file,
-          300,
-          300,
-          "JPEG",
+          800,
+          800,
+          "WEBP",
           100,
           0,
           uri => {
@@ -145,24 +151,19 @@ export default function Course() {
   return (
     <div className="course w-full">
       <div className="courseTitleContainer">
-        <h1 className="courseTitle text-3xl font-bold">
-          {courseData.title} Course
-        </h1>
-        <Link to="/admin/newcourse">
-          <button className="courseAddButton">Create</button>
-        </Link>
+        <h1 className="courseTitle text-3xl font-bold">{courseData.title}</h1>
       </div>
       <div className="courseTop flex-col sm:flex-row">
         <div className="courseTopRight">
           <img src={imageValue} alt="" className="w-full" />
         </div>
         <div className="courseTopRight">
-          <div className="courseInfoTop">
+          <div className="courseInfoTop w-full">
             <img src={imageValue} alt="" className="courseInfoImg" />
-            <span className="courseName">{courseData.name}</span>
+            <span className="courseName">{courseData.title}</span>
           </div>
-          <div className="courseInfoBottom">
-            <div className="courseInfoItem">
+          <div className="courseInfoBottom w-full flex flex-col gap-4">
+            <div className="courseInfoItem w-full">
               <span className="courseInfoKey">id:</span>
               <span className="courseInfoValue">{courseData._id}</span>
             </div>
@@ -171,17 +172,17 @@ export default function Course() {
               <span className="courseInfoValue w-full">{courseData.title}</span>
             </div>
             <div className="courseInfoItem w-full">
-              <span className="courseInfoKey w-full">
+              <span className="courseInfoKey">Number Sections:</span>
+              <span className="courseInfoValue">
+                {courseData.sections.length}
+              </span>
+            </div>
+            <div className="flex flex-row-reverse w-full">
+              <span className="courseInfoKey w-full" dir="rtl">
                 عنوان الكورس باللغة العربية:
               </span>
               <span className="courseInfoValue w-full">
                 {courseData.titleAr}
-              </span>
-            </div>
-            <div className="courseInfoItem w-full">
-              <span className="courseInfoKey">Number Sections:</span>
-              <span className="courseInfoValue">
-                {courseData.sections.length}
               </span>
             </div>
           </div>
@@ -198,23 +199,26 @@ export default function Course() {
                 setCourseData({...courseData, title: e.target.value})
               }
             />
-          </div>
-          <div className="courseFormLeft">
-            <label>عنوان الكورس باللغة العربية</label>
-            <input
-              type="text"
-              placeholder="عنوان الكورس"
-              onChange={e =>
-                setCourseData({...courseData, titleAr: e.target.value})
-              }
-            />
+            <div className="courseFormLeft">
+              <label dir="rtl">عنوان الكورس باللغة العربية</label>
+              <input
+                dir="rtl"
+                type="text"
+                placeholder="عنوان الكورس"
+                onChange={e =>
+                  setCourseData({...courseData, titleAr: e.target.value})
+                }
+              />
+            </div>
           </div>
 
           <div className="courseFormRight">
             <div className="courseUpload">
               <img src={imageValue} alt="" className="courseUploadImg" />
-              <label for="file">Thum Image</label>
-              <input type="file" id="file" onChange={handleUploadThum} />
+              <div className="flex flex-col gap-2">
+                <label for="file">Thum Image</label>
+                <input type="file" id="file" onChange={handleUploadThum} />
+              </div>
             </div>
           </div>
         </form>
@@ -267,7 +271,7 @@ export default function Course() {
             }
           />
         </div>
-        <div className="w-full">
+        <div className="w-full" dir="rtl">
           <label>وصف القسم ياللغة العربية</label>
           <textarea
             type="text"
@@ -280,12 +284,11 @@ export default function Course() {
           />
         </div>
 
-        <button type="submit" className="bg-[#FF932D] text-white p-2 ">
-          Add Section
+        <button type="submit" className="bg-[#FF932D] text-white p-2 rounded">
+          {loadingSection ? "Wait..." : "Add Section"}
         </button>
       </form>
       <SectionsList courseData={courseData} setCourseData={setCourseData} />
     </div>
   );
 }
-/* <Publish/> */

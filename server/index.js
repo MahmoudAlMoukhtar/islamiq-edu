@@ -27,9 +27,7 @@ app.use("/api/contactMessages", contactMessagesRouter);
 app.use("/api/comments", commentRouter);
 
 const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
-  console.log(`success listning on ${PORT}`);
-});
+
 mongoose
   .connect(process.env.MONGODB_CONNECTION, {
     useNewUrlParser: true,

@@ -23,6 +23,7 @@ import ContactMessagesList from "./pages/contactMessages/ContactMessagesList";
 import Message from "./pages/message/Message";
 import {toast, ToastContainer} from "react-toastify";
 import NavbarModal from "./components/NavModal";
+import SectionCourse from "./pages/SectionCourse/SectionCourse";
 function App() {
   const [theme, selectTheme] = useState("white");
   const [navbarModal, setNavBarModal] = useState(false);
@@ -78,8 +79,11 @@ function App() {
           <Route path="/admin/blogs" exact>
             <BlogsList theme={theme} selectTheme={selectTheme} />
           </Route>
-          <Route path="/admin/course/:id">
+          <Route path="/admin/course/:id" exact>
             <Course theme={theme} selectTheme={selectTheme} />
+          </Route>
+          <Route path="/admin/course/section/:idCourse/:idSection" exact>
+            <SectionCourse theme={theme} selectTheme={selectTheme} />
           </Route>
           <Route path="/admin/newcourse">
             <NewProduct theme={theme} selectTheme={selectTheme} />

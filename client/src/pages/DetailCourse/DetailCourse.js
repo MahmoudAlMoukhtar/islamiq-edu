@@ -33,7 +33,7 @@ const DetailCourse = ({setContactModalShow}) => {
     });
     toast.success("Send Testimonal Succsessfully!");
   };
-  console.log(course);
+  //console.log(course);
   if (loadingProduct) return <Spinner />;
   return (
     <div className="flex justify-between flex-col md:flex-row gap-4 w-full px-4 lg:px-20 py-4 sm:py-10">
@@ -107,10 +107,12 @@ const DetailCourse = ({setContactModalShow}) => {
             )}
             <p
               className={
-                i18n.language === "en" ? "text-start text-lg p-4" : "text-end"
+                i18n.language === "en"
+                  ? "text-start text-lg p-4 w-full"
+                  : "text-end w-full"
               }
+              style={{whiteSpace: "pre-wrap"}}
             >
-              {i18n.language === "en" && c.description}
               {i18n.language === "ar" && c.descriptionAr
                 ? c.descriptionAr
                 : c.description}

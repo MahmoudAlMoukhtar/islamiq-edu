@@ -5,14 +5,14 @@ import * as api from "../api/index";
 
 const activeStyle = {
   color: "white",
-  backgroundColor: "#4caf50",
+  backgroundColor: "#3cc4ad",
   padding: "20px 12px",
   fontWeight: "bold",
   borderLeft: "8px solid #FF932D",
 };
 const styles = {
   linkPages:
-    "text-[#000] hover:text-white hover:text-white hover:bg-[#4caf50] py-6 px-2 font-semibold w-full hover:border-l-8 hover:border-[#FF932D] hover:font-bold w-full transtion duration-200",
+    "text-[#000] hover:text-white hover:text-white hover:bg-[#3cc4ad] py-6 px-2 font-semibold w-full hover:border-l-8 hover:border-[#FF932D] hover:font-bold w-full transtion duration-200",
   navBarModalHidden: "hidden",
   navBarModal:
     "fixed inset-0 bg-opacity-75 transition-opacity flex flex-col justify-center items-center z-50 px-10 py-10",
@@ -35,7 +35,7 @@ const ContactModal = ({setContactModalShow, contactModalShow}) => {
       ></div>
       <section
         id="contact"
-        className="flex flex-col  gap-2 bg-[#4caf50]   w-full sm:w-[600px] py-4 sm:py-10 text-white  px-4 z-10 "
+        className="flex flex-col  gap-2 bg-[#3cc4ad]   w-full sm:w-[600px] py-4 sm:py-10 text-white  px-4 z-10 "
       >
         <div className="flex flex-col items-center gap-2">
           {i18n.language === "en" ? (

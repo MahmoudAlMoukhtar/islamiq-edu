@@ -32,6 +32,10 @@ export const updateUser = (id, updates) => API.put(`/user/${id}`, updates);
 //courses
 export const fetchCourses = () => API.get("/courses");
 export const fetchCourseById = id => API.get(`/courses/${id}`);
+export const fetchSectionCourseById = (idCourse, idSection) =>
+  API.get(`/courses/section/${idCourse}/${idSection}`);
+export const updateSectionById = (idCourse, idSection, updates) =>
+  API.patch(`/courses/section/${idCourse}/${idSection}`, updates);
 export const deleteCourseById = id => API.delete(`/courses/${id}`);
 export const createCourse = formData => API.post("/courses", formData);
 export const addSection = (id, formData) =>

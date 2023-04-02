@@ -3,9 +3,8 @@ import "./newcourse.css";
 import * as api from "../../api/index";
 import SectionsList from "./SectionsList";
 import Resizer from "react-image-file-resizer";
-import GridLoader from "react-spinners/GridLoader";
 import {toast} from "react-toastify";
-import {v4 as uuidv4} from "uuid";
+import {TbTrashXFilled} from "react-icons/tb";
 
 export default function Newcourse() {
   const [courseData, setCourseData] = useState({
@@ -66,9 +65,9 @@ export default function Newcourse() {
       new Promise(resolve => {
         Resizer.imageFileResizer(
           file,
-          300,
-          300,
-          "JPEG",
+          800,
+          800,
+          "WEBP",
           100,
           0,
           uri => {
@@ -196,11 +195,14 @@ export default function Newcourse() {
           </button>
         </div>
       </form>
-      <form onSubmit={handleAddSection} className="flex flex-col w-full p-2">
+      <form
+        onSubmit={handleAddSection}
+        className="flex flex-col w-full gap-2 p-2"
+      >
         <h2 className=" text-xl font-bold">Add section</h2>
-        <div className="addcourseItem">
+        <div className=" w-full">
           <label>Image</label>
-          <div className="flex justify-between items-center gap-4 w-full">
+          <div className="flex justify-between items-center gap-2">
             <input
               type="file"
               id="image"
@@ -208,13 +210,33 @@ export default function Newcourse() {
               htmlFor="image"
               onChange={handleUpload}
             />
+            <div
+              className="cursor-pointer bg-red-600 rounded py-1 px-2 text-white"
+              onClick={() => {
+                setImageValue("");
+                setSectionData({...sectionData, image: ""});
+              }}
+            >
+              Remove
+            </div>
           </div>
         </div>
         {imageValue && <img src={imageValue} alt="image section" />}
         <div className="w-full">
-          <label>Link Video</label>
-          <textarea
+          <div className="flex justify-between items-center gap-2 w-full">
+            <label>Link Video</label>
+            <div
+              className="cursor-pointer bg-red-600 rounded py-1 px-2 text-white"
+              onClick={() => {
+                setSectionData({...sectionData, video: ""});
+              }}
+            >
+              Remove
+            </div>
+          </div>
+          <input
             type="text"
+            value={sectionData.video}
             className="border-b-[1px] border-black  rounded w-full  p-2"
             placeholder="Link video from youtube"
             onChange={e =>
@@ -257,35 +279,3 @@ export default function Newcourse() {
     </div>
   );
 }
-
-//const handleAddSection = async e => {
-//  e.preventDefault();
-//if (sectionData.video) {
-// function youtube_parser(url) {
-//   var regExp =
-//     /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/
-//   var match = url.match(regExp);
-//   return match && match[7].length == 11 ? match[7] : false;
-// }
-
-//     const idYoutube = youtube_parser(sectionData.video);
-//     setCourseData({
-//       ...courseData,
-//       sections: [
-//         ...courseData.sections,
-//         {...sectionData, video: idYoutube, uuid: uuidv4()},
-//       ],
-//     });
-//     setImageValue("");
-//     //console.log(courseData.sections);
-//   } else {
-//     setCourseData({
-//       ...courseData,
-//       sections: [...courseData.sections, {...sectionData, uuid: uuidv4()}],
-//     });
-//     setImageValue("");
-
-//     //console.log(courseData.sections);
-//   }
-//   toast.success("Add Section successfully!");
-// };

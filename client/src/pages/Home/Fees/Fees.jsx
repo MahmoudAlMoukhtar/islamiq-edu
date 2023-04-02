@@ -20,8 +20,8 @@ const Fees = () => {
       ],
       feachers: [
         "When 3 members from your family join us thus package will gift you even if",
-        "30 min per session for everyone",
-        "8 sessions per month for everyone",
+        "30 Min per session for everyone",
+        "8 Sessions per month for everyone",
         "Flexible timing schedule",
       ],
     },
@@ -36,9 +36,9 @@ const Fees = () => {
         "مرونة فى تحديد المواعيد",
       ],
       feachers: [
-        "20 sessions per month",
-        "60 min per session",
-        "4 session per week",
+        "20 Sessions per month",
+        "60 Min per session",
+        "4 Session per week",
         "Flexible timing schedule",
       ],
     },
@@ -53,13 +53,13 @@ const Fees = () => {
       ],
       feachers: [
         "30 Min per sesstion",
-        "3 sessions per week",
+        "3 Sessions per week",
         "Native teachers",
         "Flexible timing schedule",
       ],
     },
     childern: {
-      titleEN: "childern",
+      titleEN: "Childern",
       titleAR: "أطفال",
 
       feachersAr: [
@@ -73,8 +73,8 @@ const Fees = () => {
       feachers: [
         "15 min per sesstion",
         "3 sessions per week",
-        "in teractive tools such as Games,stories, and drawings",
-        "especially for kids from 4-6 year sold",
+        "In teractive tools such as Games,stories, and drawings",
+        "Especially for kids from 4-6 year sold",
         "Native teachers",
         "Flexible timing schedule",
       ],
@@ -92,9 +92,9 @@ const Fees = () => {
     <section
       variants={item}
       id="fees"
-      className="flex flex-col  justify-center items-center gap-20 mt-20 py-10 bg-[#3cc4ad] w-full"
+      className="flex flex-col  justify-center items-center gap-10 mt-20 py-10 bg-[#3cc4ad] w-full"
     >
-      <div className={"flex flex-col items-center gap-10"}>
+      <div className={"flex flex-col items-center gap-4"}>
         <h2 className="text-3xl sm:text-4xl font-bold text-white text-center px-2 sm:px-0">
           {t("titleFees")}
         </h2>
@@ -145,10 +145,11 @@ const Fees = () => {
         }
       >
         <div
+          id="details_package"
           className={
             i18n.language === "en"
-              ? "flex flex-col gap-8 w-full text-white font-semibold p-4"
-              : "flex flex-col items-end  gap-8 w-full text-white font-semibold p-4"
+              ? "flex flex-col gap-6 w-full text-white font-semibold p-4"
+              : "flex flex-col items-end  gap-6 w-full text-white font-semibold p-4"
           }
         >
           <div
@@ -158,7 +159,7 @@ const Fees = () => {
                 : "flex flex-col gap-2 sm:flex-row-reverse items-center justify-between w-full"
             }
           >
-            <h4 className="text-lg  sm:text-2xl">
+            <h4 className="text-xl  sm:text-2xl">
               {i18n.language === "en"
                 ? "Details Package Selected"
                 : "تفاصيل الباقة المُختارة "}
@@ -325,7 +326,8 @@ const Fees = () => {
                 )))}
         </div>
         <div className="w-full flex flex-col gap-4">
-          <div
+          <a
+            href="#details_package"
             className="rounded-lg bg-[#EFEDD6] flex justify-between py-6 sm:py-4 px-2 sm:px-4 cursor-pointer"
             onClick={() => setSelectedPackage("childern")}
           >
@@ -359,8 +361,9 @@ const Fees = () => {
                 $30
               </span>
             </div>
-          </div>
-          <div
+          </a>
+          <a
+            href="#details_package"
             className={
               "rounded-lg bg-[#f5cd9c] flex justify-between py-6 sm:py-4 px-2 sm:px-4 cursor-pointer"
             }
@@ -396,8 +399,9 @@ const Fees = () => {
                 $60
               </span>
             </div>
-          </div>
-          <div
+          </a>
+          <a
+            href="#details_package"
             className="rounded-lg bg-[#ffc265] flex justify-between py-6 sm:py-4 px-4 cursor-pointer"
             onClick={() => setSelectedPackage("family")}
           >
@@ -431,8 +435,9 @@ const Fees = () => {
                 $120
               </span>
             </div>
-          </div>
-          <div
+          </a>
+          <a
+            href="#details_package"
             className="rounded-lg bg-[#fd5308] flex justify-between py-6 sm:py-4 px-2 sm:px-4 cursor-pointer"
             onClick={() => setSelectedPackage("economic")}
           >
@@ -466,7 +471,7 @@ const Fees = () => {
                 $200
               </span>
             </div>
-          </div>
+          </a>
         </div>
       </div>
       <div className="flex flex-col gap-4 items-center">
@@ -474,7 +479,7 @@ const Fees = () => {
           {i18n.language === "en" ? "Customised plan" : "خطّة مخصّصة"}
         </h2>
         <span className="h-1 sm:h-2 w-40 bg-[#ffc265]" />
-        <p className="text-[#fff] font-semibold text-md text-center sm:w-[600px] px-4">
+        <p className="text-[#fff]  text-md text-center sm:w-[600px] px-4">
           {i18n.language === "en"
             ? "We can offer you a customised plan if you wish. Please kindly fill in the contact form or contact us on any of this meens"
             : "نستطيع أيضاً عمل خطّة خاصة لك رجاءاً اتصل بنا أو راسلنا بإحدى طرق التواصل التالية"}
