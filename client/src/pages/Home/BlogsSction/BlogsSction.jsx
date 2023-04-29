@@ -65,7 +65,7 @@ const BlogsSection = () => {
   return (
     <section
       id="blogs"
-      className="flex flex-col  justify-center items-center gap-10 py-10 bg-[#f2ede7] w-full my-20"
+      className="flex flex-col  justify-center items-center gap-10 py-10 bg-[#f2ede7] w-full my-10"
     >
       <div className="flex flex-col items-center gap-2">
         <h2 className="text-3xl sm:text-4xl font-bold text-center">

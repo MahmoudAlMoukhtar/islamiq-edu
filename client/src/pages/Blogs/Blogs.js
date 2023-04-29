@@ -14,8 +14,8 @@ const BlogItem = ({b}) => {
       to={`/blogs/${b._id}`}
       className={
         i18n.language === "en"
-          ? "flex flex-col items-start justify-between gap-10 mb-4 w-80  rounded shadow-xl text-start  sm:h-[550px] hover:scale-[1.02] transtion duration-200"
-          : "flex flex-col items-end justify-between gap-10 mb-4 w-80 sm:w-96 rounded shadow-xl text-end  sm:h-[550px] hover:scale-[1.02] transtion duration-200"
+          ? "flex flex-col items-start justify-between gap-10 mb-4 w-80  rounded shadow-xl text-start   hover:scale-[1.02] transtion duration-200"
+          : "flex flex-col items-end justify-between gap-10 mb-4 w-80 sm:w-96 rounded shadow-xl text-end  hover:scale-[1.02] transtion duration-200"
       }
     >
       <LazyLoadImage

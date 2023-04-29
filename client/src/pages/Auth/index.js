@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import {BiShowAlt, BiHide} from "react-icons/bi";
-import {Navigate, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import * as api from "../../api/index";
 import {motion} from "framer-motion";
-import {ToastContainer, toast} from "react-toastify";
+import {toast} from "react-toastify";
 import {useTranslation} from "react-i18next";
 import {LazyLoadImage} from "react-lazy-load-image-component";
 import {useDispatch} from "react-redux";
@@ -22,7 +22,6 @@ const initialState = {
 };
 
 const Auth = () => {
-  //const user = JSON.parse(localStorage.getItem("userIqraa"));
   const [t, i18n] = useTranslation();
   const [formData, setFormData] = useState(initialState);
   const [showPassword, setShowPassword] = useState(false);
@@ -79,40 +78,64 @@ const Auth = () => {
               </p>
             )}
           </div>
-          <form  className="mt-8 space-y-6" onSubmit={handleSubmit}>
-            <div className=" rounded-md shadow-sm">
+          <form
+            dir={
+              i18n.language === "en"
+                ? "en"
+                : "rtl"
+            }
+            className="mt-8 space-y-6"
+            onSubmit={handleSubmit}
+          >
+            <div className="flex flex-col gap-4 rounded-md shadow-sm">
               {isSignup && (
                 <React.Fragment>
-                  <div>
+                  <div
+                
+                  >
                     <label htmlFor="firstName">{t("authPage.fn")}</label>
                     <input
+                      dir={i18n.language === "en" ? "en" : "rtl"}
                       id="firstName"
                       name="firstName"
                       type="text"
                       required
                       className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-400 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                      placeholder="First Name"
+                      placeholder={
+                        i18n.language === "en" ? "First Name" : "الاسم الأخير"
+                      }
                       onChange={handleTextFieldChange}
                     />
                   </div>
-                  <div>
+                  <div
+                  
+                  >
                     <label htmlFor="lastName">{t("authPage.ln")}</label>
                     <input
+                      dir={i18n.language === "en" ? "en" : "rtl"}
                       id="lastName"
                       name="lastName"
                       type="text"
                       required
                       className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-400 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                      placeholder="Last Name"
+                      placeholder={
+                        i18n.language === "en" ? "Last Name" : "الاسم الأخير"
+                      }
                       onChange={handleTextFieldChange}
                     />
                   </div>
-                  <div>
+                  <div
+                  
+                  >
                     <label htmlFor="phone">{t("authPage.ph")}</label>
-
                     <PhoneInput
+                      dir={i18n.language === "en" ? "en" : "rtl"}
                       flags={flags}
-                      placeholder="Enter phone number"
+                      placeholder={
+                        i18n.language === "en"
+                          ? "Enter phone number"
+                          : "رقم الموبايل"
+                      }
                       value={value}
                       inputStyle={{
                         padding: "2px 3px !important",
@@ -120,26 +143,37 @@ const Auth = () => {
                       defaultCountry={"EG"}
                       onChange={setValue}
                       addInternationalOption={false}
+                      className="w-full"
                     />
                   </div>
-                  <div className="my-2">
+                  <div
+                   
+                  >
                     <label htmlFor="gender">{t("authPage.gn")}</label>
                     <select
+                      dir={i18n.language === "en" ? "en" : "rtl"}
                       id="gender"
                       required
                       name="gender"
                       className="w-full p-4 rounded cursor-pointer"
                       onChange={handleTextFieldChange}
                     >
-                      <option value="Male">Male</option>
-                      <option value="Fmale">Fmale</option>
+                      <option value={i18n.language === "en" ? "Male" : "ذكر"}>
+                        Male
+                      </option>
+                      <option value={i18n.language === "en" ? "Fmale" : "انثى"}>
+                        Fmale
+                      </option>
                     </select>
                   </div>
                 </React.Fragment>
               )}
-              <div>
+              <div
+               
+              >
                 <label htmlFor="email">{t("authPage.em")}</label>
                 <input
+                  dir={i18n.language === "en" ? "en" : "rtl"}
                   id="email"
                   name="email"
                   type="email"
@@ -150,12 +184,13 @@ const Auth = () => {
                   onChange={handleTextFieldChange}
                 />
               </div>
-              <div className="flex flex-col">
+              <div>
                 <label htmlFor="password" className="">
                   {t("authPage.ps")}
                 </label>
-                <div className="flex gap-2 items-center appearance-none rounded-none rounded-b-md border border-gray-300">
+                <div className="flex gap-2 items-center appearance-none rounded-none rounded-b-md border border-gray-300 w-full">
                   <input
+                    dir={i18n.language === "en" ? "en" : "rtl"}
                     id="password"
                     name="password"
                     type={showPassword ? "text" : "password"}
@@ -180,8 +215,9 @@ const Auth = () => {
                   )}
                 </div>
                 {isSignup && (
-                  <div className="flex gap-2 items-center appearance-none rounded-none rounded-b-md border border-gray-300">
+                  <div className="flex gap-2 items-center appearance-none rounded-none rounded-b-md border border-gray-300 w-full">
                     <input
+                      dir={i18n.language === "en" ? "en" : "rtl"}
                       id="confirmPassword"
                       name="confirmPassword"
                       type={showPassword ? "text" : "password"}
@@ -215,9 +251,9 @@ const Auth = () => {
               </button>
             </div>
 
-            <div className="group relative flex w-full justify-center rounded-md border border-transparent py-2 px-4 text-sm font-medium text-black">
+            <div className="group relative flex  w-full justify-center rounded-md border border-transparent py-2 px-4 text-sm font-medium text-black">
               {isSignup ? (
-                <div className="flex justify-center gap-2 w-full">
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-2 w-full">
                   {t("authPage.haveAcc")}
                   <div
                     onClick={switchMode}
@@ -227,7 +263,7 @@ const Auth = () => {
                   </div>
                 </div>
               ) : (
-                <div className="flex justify-center gap-2 w-full">
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-2 w-full">
                   {t("authPage.dontHaveAcc")}
                   <div
                     onClick={switchMode}
@@ -246,14 +282,3 @@ const Auth = () => {
 };
 
 export default Auth;
-/* 
-    <input
-                      id="phone"
-                      name="phone"
-                      type="number"
-                      required
-                      className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-400 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                      placeholder="Phone"
-                      onChange={handleTextFieldChange}
-                    />
-*/

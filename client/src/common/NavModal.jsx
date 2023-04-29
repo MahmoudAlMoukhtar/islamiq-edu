@@ -1,4 +1,5 @@
 import React from "react";
+import {useTranslation} from "react-i18next";
 import {Link, NavLink} from "react-router-dom";
 import {NavHashLink} from "react-router-hash-link";
 
@@ -8,15 +9,16 @@ const activeStyle = {
   padding: "20px 12px",
   borderLeft: "8px solid #fd5308",
 };
-const styles = {
-  linkPages:
-    "text-[#000] hover:text-white hover:text-white hover:bg-[#3cc4ad] py-6 px-2 w-full hover:border-l-8 hover:border-[#fd5308] hover:font-bold w-full transtion duration-200",
-  navBarModalHidden: "hidden",
-  navBarModal:
-    "fixed inset-0 bg-opacity-75 transition-opacity flex flex-col justify-center items-center z-50",
-};
 
 const NavbarModal = ({setNavBarModal, navbarModal}) => {
+  const [t, i18n] = useTranslation();
+  const styles = {
+    linkPages:
+      "text-[#000] hover:text-white hover:text-white hover:bg-[#3cc4ad] py-6 px-2 w-full hover:border-l-8 hover:border-[#fd5308] hover:font-bold w-full transtion duration-200",
+    navBarModalHidden: "hidden",
+    navBarModal:
+      "fixed inset-0 bg-opacity-75 transition-opacity flex flex-col justify-center items-center z-50",
+  };
   return (
     <div
       id="modal-nav"
@@ -28,7 +30,12 @@ const NavbarModal = ({setNavBarModal, navbarModal}) => {
       ></div>
       <div
         id="content-modal-Collaps"
-        className="bg-white flex flex-col gap-y-4 fixed z-10 top-0 left-0 border w-60 min-h-full shadow-2xl animate__animated animate__fadeInLeft"
+        dir={i18n.language === "en" ? "en" : "rtl"}
+        className={
+          i18n.language === "en"
+            ? "bg-white flex flex-col gap-y-4 fixed z-10 top-0 left-0 w-60 min-h-full shadow-2xl animate__animated animate__fadeInLeft"
+            : "bg-white flex flex-col gap-y-4 fixed z-10 top-0 right-0 w-60 min-h-full shadow-2xl animate__animated animate__fadeInRight"
+        }
       >
         <div id="header-cart" className="my-2 w-100">
           <button
@@ -43,45 +50,27 @@ const NavbarModal = ({setNavBarModal, navbarModal}) => {
             style={({isActive}) => (isActive ? activeStyle : undefined)}
             to="/"
             className={styles.linkPages}
-            onClick={() => setNavBarModal(false)}
           >
-            {"Home".toUpperCase()}
+            {t("nav.home")}
           </NavLink>
-          <NavHashLink
-            to="/#Whyus"
-            className={styles.linkPages}
-            onClick={() => setNavBarModal(false)}
-          >
-            {"Why us".toUpperCase()}
+          <NavHashLink to="/#Whyus" className={styles.linkPages}>
+            {t("nav.whyus")}
           </NavHashLink>
-          <NavHashLink
-            to="/#courses"
-            className={styles.linkPages}
-            onClick={() => setNavBarModal(false)}
-          >
-            {"Courses".toUpperCase()}
+          <NavHashLink to="/#courses" className={styles.linkPages}>
+            {t("nav.courses")}
           </NavHashLink>
-          <NavHashLink
-            to="/#fees"
-            className={styles.linkPages}
-            onClick={() => setNavBarModal(false)}
-          >
-            {"Fees".toUpperCase()}
+          <NavHashLink to="/#testimonials" className={styles.linkPages}>
+            {t("nav.testimonials")}
           </NavHashLink>
-          <NavHashLink
-            to="/#testimonials"
-            className={styles.linkPages}
-            onClick={() => setNavBarModal(false)}
-          >
-            {"Testimonials".toUpperCase()}
+          <NavHashLink to="/#fees" className={styles.linkPages}>
+            {t("nav.fees")}
           </NavHashLink>
 
-          <NavHashLink
-            to="/#blogs"
-            className={styles.linkPages}
-            onClick={() => setNavBarModal(false)}
-          >
-            {"Blogs".toUpperCase()}
+          <NavHashLink to="/#blogs" className={styles.linkPages}>
+            {t("nav.blogs")}
+          </NavHashLink>
+          <NavHashLink to="/#contact" className={styles.linkPages}>
+            {t("nav.contact")}
           </NavHashLink>
         </ul>
       </div>

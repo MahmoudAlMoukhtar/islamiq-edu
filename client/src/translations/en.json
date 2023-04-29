@@ -6,7 +6,7 @@
             "button":"Show Fees"
         },
         "2":{
-            "title":"IQRA and start your journey towards Al-Jannah",
+            "title":"IQRA and start your journey towards Al_Jannah",
             
             "button":"Our courses"
         },
@@ -106,10 +106,10 @@
 
     },
     "footer":{
-        "title":"Subscibe For Newsletter",
+        "title":"Subscribe For Newsletter",
         "desciptionSubscibe":"Subscribe to the newsletter to receive all new",
         "desciption":"IQRA in the name of Allah\n online Quran & Arabic classes",
-        "button":"Subscibe",
+        "button":"Subscribe",
         "loaction":"Egypt"
     }
 

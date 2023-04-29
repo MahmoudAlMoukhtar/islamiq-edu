@@ -55,7 +55,7 @@ const Testimonials = () => {
         >
           {data.map(t => (
             <SwiperSlide className="w-[500px] h-[200px]" key={t._id}>
-              <div className="flex justify-between items-start gap-4 bg-[#3cc4ad] text-white hover:bg-[#fd5308] hover:text-black p-6 py-6 transtion duration-200 text-center w-full">
+              <div className="flex justify-between items-start gap-4 bg-[#3cc4ad] text-white p-6 py-6 transtion duration-200 text-center w-full">
                 <div className="flex flex-col items-center w-40">
                   <img
                     loading="lazy"
@@ -73,7 +73,7 @@ const Testimonials = () => {
             </SwiperSlide>
           ))}
           <SwiperSlide className="w-[500px] h-[200px]">
-            <div className="flex justify-between items-start gap-4 bg-[#3cc4ad] text-white hover:bg-[#fd5308] hover:text-black p-6 py-6 transtion duration-200 text-center w-full">
+            <div className="flex justify-between items-start gap-4 bg-[#3cc4ad] text-white p-6 py-6 transtion duration-200 text-center w-full">
               <div className="flex flex-col items-center w-40">
                 <img
                   loading="lazy"
@@ -93,7 +93,7 @@ const Testimonials = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide className="w-[500px] h-[200px]">
-            <div className="flex justify-between items-start gap-4 bg-[#3cc4ad] text-white hover:bg-[#fd5308] hover:text-black p-6 py-6 transtion duration-200 text-center w-full">
+            <div className="flex justify-between items-start gap-4 bg-[#3cc4ad] text-white p-6 py-6 transtion duration-200 text-center w-full">
               <div className="flex flex-col items-center w-40">
                 <img
                   loading="lazy"
@@ -128,7 +128,7 @@ const Testimonials = () => {
         >
           {data.map(t => (
             <SwiperSlide className="w-[500px] max-h-[200px]" key={t._id}>
-              <div className="flex justify-between items-start gap-4 bg-[#3cc4ad] text-white hover:bg-[#fd5308] hover:text-black p-6 py-6 transtion duration-200 text-center w-full h-full">
+              <div className="flex justify-between items-start gap-4 bg-[#3cc4ad] text-white p-6 py-6 transtion duration-200 text-center w-full h-full">
                 <div className="flex flex-col items-center w-40">
                   <img
                     loading="lazy"
@@ -146,7 +146,7 @@ const Testimonials = () => {
             </SwiperSlide>
           ))}
           <SwiperSlide className="w-[500px] h-[200px]">
-            <div className="flex justify-between items-start gap-4 bg-[#3cc4ad] text-white hover:bg-[#fd5308] hover:text-black p-6 py-6 transtion duration-200 text-center w-full">
+            <div className="flex justify-between items-start gap-4 bg-[#3cc4ad] text-white p-6 py-6 transtion duration-200 text-center w-full">
               <div className="flex flex-col items-center w-40">
                 <img
                   loading="lazy"
@@ -166,7 +166,7 @@ const Testimonials = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide className="w-[500px] h-[200px]">
-            <div className="flex justify-between items-start gap-4 bg-[#3cc4ad] text-white hover:bg-[#fd5308] hover:text-black p-6 py-6 transtion duration-200 text-center w-full">
+            <div className="flex justify-between items-start gap-4 bg-[#3cc4ad] text-white p-6 py-6 transtion duration-200 text-center w-full">
               <div className="flex flex-col items-center w-40">
                 <img
                   loading="lazy"

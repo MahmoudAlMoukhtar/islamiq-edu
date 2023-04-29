@@ -11,24 +11,27 @@ const Fees = () => {
     family: {
       titleEN: "FAMILY",
       titleAR: "العائلة",
-
       feachersAr: [
         "هذه الباقة تناسبك عندما يلتحق بنا ثلاثة أعضاء من عائلتك",
         "٣٠ دقيقة لكل جلسة لكل فرد",
         "٨ جلسات خلال الشهر لكل فرد",
+        "معلمين عرب.",
         "مرونة في تحديد المواعيد",
       ],
       feachers: [
-        "When 3 members from your family join us thus package will gift you even if",
+        "When 3 members from your family join us this package will fit you",
+        "Your are saving $30",
         "30 Min per session for everyone",
         "8 Sessions per month for everyone",
-        "Flexible timing schedule",
+        "Native teachers",
+        "Flexible time schedule",
       ],
     },
     economic: {
       titleEN: "ECONOMIC",
       titleAR: "اقتصادي",
       feachersAr: [
+        "أنت توفر ٦٠ دولارًا من الجلسات شهريًا",
         "٢٠ جلسة خلال الشهر",
         "ساعة لكل جلسة",
         "٤ جلسات خلال الأسبوع",
@@ -36,10 +39,12 @@ const Fees = () => {
         "مرونة فى تحديد المواعيد",
       ],
       feachers: [
+        "You are saving $60 Sessions per month",
         "20 Sessions per month",
         "60 Min per session",
         "4 Session per week",
-        "Flexible timing schedule",
+        "Native teachers",
+        "Flexible time schedule",
       ],
     },
     static: {
@@ -55,14 +60,14 @@ const Fees = () => {
         "30 Min per sesstion",
         "3 Sessions per week",
         "Native teachers",
-        "Flexible timing schedule",
+        "Flexible time schedule",
       ],
     },
     childern: {
       titleEN: "Childern",
       titleAR: "أطفال",
-
       feachersAr: [
+        "١٢ جلسة في الشهر",
         "١٥ دقيقة فى الجلسة",
         "٣ جلسات خلال الأسبوع",
         "أدوات تفاعلية كالألعاب والقصص والرسومات",
@@ -71,12 +76,13 @@ const Fees = () => {
         "مرونة فى تحديد المواعيد",
       ],
       feachers: [
+        "12 sesstion per month",
         "15 min per sesstion",
         "3 sessions per week",
-        "In teractive tools such as Games,stories, and drawings",
-        "Especially for kids from 4-6 year sold",
+        "Interactive tools such as Games,stories, and drawings",
+        "Especially for kids from 4-6 year old",
         "Native teachers",
-        "Flexible timing schedule",
+        "Flexible time schedule",
       ],
     },
   };
@@ -92,7 +98,7 @@ const Fees = () => {
     <section
       variants={item}
       id="fees"
-      className="flex flex-col  justify-center items-center gap-10 mt-20 py-10 bg-[#3cc4ad] w-full"
+      className="flex flex-col  justify-center items-center gap-10  py-10 bg-[#3cc4ad] w-full"
     >
       <div className={"flex flex-col items-center gap-4"}>
         <h2 className="text-3xl sm:text-4xl font-bold text-white text-center px-2 sm:px-0">
@@ -103,14 +109,12 @@ const Fees = () => {
           <p
             className={
               i18n.language === "en"
-                ? "text-sm sm:text-md   text-black text-center pt-2 sm:pt-4 px-4 sm:px-8 text-start w-full lg:w-1/2 bg-[#ffc265] py-4 rounded"
-                : "text-sm sm:text-md   text-black pt-2 sm:pt-4 px-4 sm:px-8 text-end w-full lg:w-1/2 bg-[#ffc265] py-4 rounded"
+                ? "text-sm sm:text-md font-semibold text-black text-center pt-2 sm:pt-4 px-4 sm:px-8 text-start w-full lg:w-1/2 bg-[#ffc265] py-4 rounded"
+                : "text-sm sm:text-md font-semibold text-black pt-2 sm:pt-4 px-4 sm:px-8 text-end w-full lg:w-1/2 bg-[#ffc265] py-4 rounded"
             }
           >
             <h2 className="text-lg sm:text-lg font-semibold">
-              {i18n.language === "en"
-                ? `IQRA in the name of Allah`
-                : "اقرا بسم الله"}
+              {i18n.language === "en" ? `IQRA Arabic Quran` : "اقرأ عربي قرآن"}
             </h2>
 
             {i18n.language === "en"
@@ -121,8 +125,8 @@ const Fees = () => {
           <p
             className={
               i18n.language === "en"
-                ? "text-sm sm:text-md   text-black text-center pt-2 sm:pt-4 px-4 sm:px-8 text-start w-full lg:w-1/2 bg-[#ffc265] py-4 rounded"
-                : "text-sm sm:text-md   text-black pt-2 sm:pt-4 px-4 sm:px-8 text-end w-full lg:w-1/2 bg-[#ffc265] py-4 rounded"
+                ? "text-sm sm:text-md font-semibold text-black text-center pt-2 sm:pt-4 px-4 sm:px-8 text-start w-full lg:w-1/2 bg-[#ffc265] py-4 rounded"
+                : "text-sm sm:text-md font-semibold text-black pt-2 sm:pt-4 px-4 sm:px-8 text-end w-full lg:w-1/2 bg-[#ffc265] py-4 rounded"
             }
           >
             <h2 className="text-lg sm:text-lg font-semibold">
@@ -159,7 +163,7 @@ const Fees = () => {
                 : "flex flex-col gap-2 sm:flex-row-reverse items-center justify-between w-full"
             }
           >
-            <h4 className="text-xl  sm:text-2xl">
+            <h4 className="text-lg sm:text-2xl">
               {i18n.language === "en"
                 ? "Details Package Selected"
                 : "تفاصيل الباقة المُختارة "}
@@ -182,9 +186,10 @@ const Fees = () => {
                         ? "flex items-center justify-between w-full  p-2 gap-2"
                         : "flex flex-row-reverse items-center justify-between w-full  p-2 gap-2 text-end"
                     }
+                    style={{textTransform: "capitalize"}}
                     key={f}
                   >
-                    {f}
+                    <p className="text-sm sm:text-lg font-semibold">{f}</p>
                     <div className="bg-[#fd5308] rounded-full">
                       <BsCheck size={25} />
                     </div>
@@ -200,9 +205,10 @@ const Fees = () => {
                         ? "flex items-center justify-between w-full  p-2 gap-2"
                         : "flex flex-row-reverse items-center justify-between w-full  p-2 gap-2 text-end"
                     }
+                    style={{textTransform: "capitalize"}}
                     key={f}
                   >
-                    {f}
+                    <p className="text-sm sm:text-lg font-semibold">{f}</p>
                     <div className="bg-[#fd5308] rounded-full">
                       <BsCheck size={25} />
                     </div>
@@ -221,9 +227,10 @@ const Fees = () => {
                         ? "flex items-center justify-between w-full  p-2 gap-2"
                         : "flex flex-row-reverse items-center justify-between w-full  p-2 gap-2 text-end"
                     }
+                    style={{textTransform: "capitalize"}}
                     key={f}
                   >
-                    {f}
+                    <p className="text-sm sm:text-lg font-semibold">{f}</p>
                     <div className="bg-[#fd5308] rounded-full">
                       <BsCheck size={25} />
                     </div>
@@ -239,9 +246,10 @@ const Fees = () => {
                         ? "flex items-center justify-between w-full  p-2 gap-2"
                         : "flex flex-row-reverse items-center justify-between w-full  p-2 gap-2 text-end"
                     }
+                    style={{textTransform: "capitalize"}}
                     key={f}
                   >
-                    {f}
+                    <p className="text-sm sm:text-lg font-semibold">{f}</p>
                     <div className="bg-[#fd5308] rounded-full">
                       <BsCheck size={25} />
                     </div>
@@ -259,9 +267,10 @@ const Fees = () => {
                         ? "flex items-center justify-between w-full  p-2 gap-2"
                         : "flex flex-row-reverse items-center justify-between w-full  p-2 gap-2 text-end"
                     }
+                    style={{textTransform: "capitalize"}}
                     key={f}
                   >
-                    {f}
+                    <p className="text-sm sm:text-lg font-semibold">{f}</p>
                     <div className="bg-[#fd5308] rounded-full">
                       <BsCheck size={25} />
                     </div>
@@ -277,9 +286,10 @@ const Fees = () => {
                         ? "flex items-center justify-between w-full  p-2 gap-2"
                         : "flex flex-row-reverse items-center justify-between w-full  p-2 gap-2 text-end"
                     }
+                    style={{textTransform: "capitalize"}}
                     key={f}
                   >
-                    {f}
+                    <p className="text-sm sm:text-lg font-semibold">{f}</p>
                     <div className="bg-[#fd5308] rounded-full">
                       <BsCheck size={25} />
                     </div>
@@ -295,12 +305,13 @@ const Fees = () => {
                     transition={{duration: 0.7}}
                     className={
                       i18n.language === "en"
-                        ? "flex items-center justify-between w-full  p-2 gap-2"
-                        : "flex flex-row-reverse items-center justify-between w-full  p-2 gap-2 text-end"
+                        ? "flex items-center justify-between w-full  p-2 py-0 gap-2"
+                        : "flex flex-row-reverse items-center justify-between w-full  p-2 py-0 gap-2 text-end"
                     }
+                    style={{textTransform: "capitalize"}}
                     key={f}
                   >
-                    {f}
+                    <p className="text-sm sm:text-lg font-semibold">{f}</p>
                     <div className="bg-[#fd5308] rounded-full">
                       <BsCheck size={25} />
                     </div>
@@ -316,9 +327,10 @@ const Fees = () => {
                         ? "flex items-center justify-between w-full  p-2 gap-2"
                         : "flex flex-row-reverse items-center justify-between w-full  p-2 gap-2 text-end"
                     }
+                    style={{textTransform: "capitalize"}}
                     key={f}
                   >
-                    {f}
+                    <p className="text-sm sm:text-lg font-semibold">{f}</p>
                     <div className="bg-[#fd5308] rounded-full">
                       <BsCheck size={25} />
                     </div>
@@ -479,19 +491,19 @@ const Fees = () => {
           {i18n.language === "en" ? "Customised plan" : "خطّة مخصّصة"}
         </h2>
         <span className="h-1 sm:h-2 w-40 bg-[#ffc265]" />
-        <p className="text-[#fff]  text-md text-center sm:w-[600px] px-4">
+        <p className="text-[#fff]  text-md text-center sm:w-[600px] px-4 font-semibold">
           {i18n.language === "en"
             ? "We can offer you a customised plan if you wish. Please kindly fill in the contact form or contact us on any of this meens"
             : "نستطيع أيضاً عمل خطّة خاصة لك رجاءاً اتصل بنا أو راسلنا بإحدى طرق التواصل التالية"}
         </p>
         <div className="flex gap-2 flex-wrap sm:flex-wrap">
-          <div className="flex gap-2 justify-center items-center bg-[#ffc265] rounded-full py-4 px-8 text-sm font-semibold sm:font-bold w-full sm:w-auto text-center mx-2 sm:mx-0">
-            iqrainthenameofallah29@gmail.com
+          <div className="flex gap-2 justify-center items-center bg-[#ffc265] rounded-full py-4 px-8 text-sm font-bold sm:font-bold w-full sm:w-auto text-center mx-2 sm:mx-0">
+            iqraarabicquran@gmail.com
           </div>
           <a
             href="http://wa.me/+201012750418"
             target="blank"
-            className="flex gap-2 justify-center items-center bg-[#fd5308] rounded-full py-4 px-8 text-sm font-semibold sm:font-bold w-full sm:w-auto text-cente mx-2 sm:mx-0"
+            className="flex gap-2 justify-center items-center bg-[#fd5308] rounded-full py-4 px-8 text-sm font-bold sm:font-bold w-full sm:w-auto text-cente mx-2 sm:mx-0"
           >
             <div>
               <AiOutlineWhatsApp size={25} />

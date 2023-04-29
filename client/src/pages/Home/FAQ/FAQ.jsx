@@ -49,7 +49,7 @@ export default function CustomizedAccordions() {
   };
 
   return (
-    <section className=" sm:px-10 md:px-10 lg:px-20 flex flex-col items-center gap-10 my-20">
+    <section className=" sm:px-10 md:px-10 lg:px-20 flex flex-col items-center gap-10 mb-20">
       <div className="flex flex-col items-center gap-2">
         <h2 className="text-3xl sm:text-4xl font-bold text-black">
           {t("titlefaq")}
@@ -65,7 +65,7 @@ export default function CustomizedAccordions() {
             <h3 className="text-sm font-bold">{t("faq.1.q")}</h3>
           </AccordionSummary>
           <AccordionDetails>
-            <p className="text-sm">{t("faq.1.a")}</p>
+            <p className="text-sm font-bold">{t("faq.1.a")}</p>
           </AccordionDetails>
         </Accordion>
         <Accordion
@@ -76,7 +76,7 @@ export default function CustomizedAccordions() {
             <h3 className="text-sm font-bold">{t("faq.2.q")}</h3>
           </AccordionSummary>
           <AccordionDetails>
-            <p className="text-sm">{t("faq.2.a")}</p>
+            <p className="text-sm font-bold">{t("faq.2.a")}</p>
           </AccordionDetails>
         </Accordion>
         <Accordion
@@ -87,7 +87,7 @@ export default function CustomizedAccordions() {
             <h3 className="text-sm font-bold">{t("faq.3.q")}</h3>
           </AccordionSummary>
           <AccordionDetails>
-            <p className="text-sm">{t("faq.3.a")}</p>
+            <p className="text-sm font-bold">{t("faq.3.a")}</p>
           </AccordionDetails>
         </Accordion>
         <Accordion
@@ -98,7 +98,7 @@ export default function CustomizedAccordions() {
             <h3 className="text-sm font-bold">{t("faq.4.q")}</h3>
           </AccordionSummary>
           <AccordionDetails>
-            <p className="text-sm">{t("faq.4.a")}</p>
+            <p className="text-sm font-bold">{t("faq.4.a")}</p>
           </AccordionDetails>
         </Accordion>
         <Accordion
@@ -109,7 +109,7 @@ export default function CustomizedAccordions() {
             <h3 className="text-sm font-bold">{t("faq.5.q")}</h3>
           </AccordionSummary>
           <AccordionDetails>
-            <p className="text-sm">{t("faq.5.a")}</p>
+            <p className="text-sm font-bold">{t("faq.5.a")}</p>
           </AccordionDetails>
         </Accordion>
         <Accordion
@@ -120,7 +120,7 @@ export default function CustomizedAccordions() {
             <h3 className="text-sm font-bold">{t("faq.6.q")}</h3>
           </AccordionSummary>
           <AccordionDetails>
-            <p className="text-sm">{t("faq.6.a")}</p>
+            <p className="text-sm font-bold">{t("faq.6.a")}</p>
           </AccordionDetails>
         </Accordion>
         <Accordion
@@ -131,7 +131,7 @@ export default function CustomizedAccordions() {
             <h3 className="text-sm font-bold">{t("faq.7.q")}</h3>
           </AccordionSummary>
           <AccordionDetails>
-            <p className="text-sm">{t("faq.7.a")}</p>
+            <p className="text-sm font-bold">{t("faq.7.a")}</p>
           </AccordionDetails>
         </Accordion>
         <Accordion
@@ -142,7 +142,7 @@ export default function CustomizedAccordions() {
             <h3 className="text-sm font-bold">{t("faq.8.q")}</h3>
           </AccordionSummary>
           <AccordionDetails>
-            <p className="text-sm">{t("faq.8.a")}</p>
+            <p className="text-sm font-bold">{t("faq.8.a")}</p>
           </AccordionDetails>
         </Accordion>
       </div>

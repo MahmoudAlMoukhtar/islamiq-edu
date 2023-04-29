@@ -10,6 +10,9 @@ import {FaQuoteLeft, FaQuoteRight} from "react-icons/fa";
 import * as api from "../../api/index";
 import jwt_decode from "jwt-decode";
 import {useTranslation} from "react-i18next";
+import {LazyLoadImage} from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
+
 const DetailCourse = ({setContactModalShow}) => {
   const [t, i18n] = useTranslation();
   const [contactMessage, setContactMessage] = useState();
@@ -36,16 +39,16 @@ const DetailCourse = ({setContactModalShow}) => {
   //console.log(course);
   if (loadingProduct) return <Spinner />;
   return (
-    <div className="flex justify-between flex-col md:flex-row gap-4 w-full px-4 lg:px-20 py-4 sm:py-10">
-      <div className="flex flex-col  items-start gap-20  text-black w-full rounded ">
+    <div className="flex justify-between flex-col md:flex-row gap-4 w-full  lg:px-20 py-4 sm:py-10">
+      <div className="flex flex-col  items-start gap-10  text-black w-full rounded ">
         {course.sections.map((c, i) => (
           <div className="flex flex-col items-center gap-10 w-full" key={c._id}>
             {i === 0 && (
               <div
                 className={
                   i18n.language === "en"
-                    ? "flex flex-col sm:flex-row sm:justify-between items-center gap-2 w-full md:px-4"
-                    : "flex flex-col sm:flex-row-reverse sm:justify-between items-center gap-2 w-full md:px-4"
+                    ? "flex flex-col sm:flex-row sm:justify-between items-center gap-2 w-full px-2 md:px-4"
+                    : "flex flex-col sm:flex-row-reverse sm:justify-between items-center gap-2 w-full px-2 md:px-4"
                 }
               >
                 <h2
@@ -87,8 +90,10 @@ const DetailCourse = ({setContactModalShow}) => {
               </div>
             )}
             {c.image && (
-              <img
+              <LazyLoadImage
+                effect="blur"
                 loading="lazy"
+                width="100%"
                 src={c.image}
                 className="w-full rounded"
                 alt="course"

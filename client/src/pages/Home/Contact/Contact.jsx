@@ -20,7 +20,7 @@ const ContactPage = () => {
   return (
     <section
       id="contact"
-      className="flex flex-col justify-between gap-8 bg-[#3cc4ad] w-full my-20 py-10  text-white  px-4 sm:px-10 lg:px-20  mx-4"
+      className="flex flex-col justify-between gap-8 bg-[#3cc4ad] w-full mb-10 py-10  text-white  px-4 sm:px-10 lg:px-20  mx-4"
     >
       <div className="flex flex-col items-center gap-2">
         {i18n.language === "en" ? (
@@ -52,6 +52,7 @@ const ContactPage = () => {
         >
           {i18n.language === "en" ? "First Name" : "الاسم الأول"}
           <input
+            dir={i18n.language === "en" ? "en" : "rtl"}
             required
             placeholder={i18n.language === "en" ? "First Name" : "الاسم الأول"}
             minLength={3}
@@ -71,6 +72,7 @@ const ContactPage = () => {
           {i18n.language === "en" ? "Last Name" : "الاسم الأخير"}
 
           <input
+            dir={i18n.language === "en" ? "en" : "rtl"}
             required
             placeholder={i18n.language === "en" ? "Last Name" : "الاسم الأخير"}
             minLength={3}
@@ -87,6 +89,7 @@ const ContactPage = () => {
           {i18n.language === "en" ? "Email" : "الأيميل"}
 
           <input
+            dir={i18n.language === "en" ? "en" : "rtl"}
             required
             placeholder={i18n.language === "en" ? "Email" : "الإيميل"}
             type="email"
@@ -102,14 +105,15 @@ const ContactPage = () => {
           {i18n.language === "en" ? "Message" : "الرسالة"}
 
           <textarea
+            dir={i18n.language === "en" ? "en" : "rtl"}
             required
             placeholder={i18n.language === "en" ? "Message" : "الرسالة"}
             minLength={10}
-            name=""
-            id=""
+            name="message"
+            id="message"
             cols={"100"}
             rows="5"
-            className="border-[1px] border-black w-[100%] rounded text-black"
+            className="border-[1px] border-black px-4 py-2 w-[100%] rounded text-black"
             onChange={e =>
               setContactMessage({...contactMessage, message: e.target.value})
             }

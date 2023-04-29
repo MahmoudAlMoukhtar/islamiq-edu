@@ -21,12 +21,16 @@ const Footer = () => {
   const [t, i18n] = useTranslation();
   const [emailSubscripe, setEmailSubscripe] = useState();
   return (
-    <footer className="flex flex-col items-center gap-6 sm:gap-10 py-10 px-4 px-4 md:px-10 lg:px-40 w-full bg-[#2e9175]">
+    <footer className="flex flex-col items-center gap-6 sm:gap-10 py-4 px-4 px-4 md:px-10 lg:px-40 w-full bg-[#2e9175]">
       <div className="flex flex-col items-center text-center sm:text-start gap-2 sm:gap-6 text-white">
-        <h2 className="text-2xl sm:text-4xl font-bold">{t("footer.title")}</h2>
-        <p className="text-xs w-60 sm:text-md sm:w-auto">
-          {t("footer.desciptionSubscibe")}
-        </p>
+        <div className="flex flex-col items-center gap-2">
+          <h2 className="text-2xl sm:text-4xl font-bold">
+            {t("footer.title")}
+          </h2>
+          <p className="text-xs w-60 sm:text-md sm:w-auto">
+            {t("footer.desciptionSubscibe")}
+          </p>
+        </div>
         <div className="flex justify-center items-center gap-2 sm:gap-6 text-black">
           <form
             onSubmit={async e => {
@@ -61,30 +65,32 @@ const Footer = () => {
       <div
         className={
           i18n.language === "en"
-            ? "flex flex-col justify-between items-center sm:flex-row sm:justify-between sm:items-start gap-10 flex-wrap sm:flex-nowrap text-white w-full"
-            : "flex flex-col justify-between items-center sm:flex-row-reverse sm:justify-between sm:items-start gap-10 flex-wrap sm:flex-nowrap text-white w-full"
+            ? "flex flex-col justify-between items-center sm:flex-row sm:justify-between sm:items-start gap-4 sm:gap-10 flex-wrap sm:flex-nowrap text-white w-full"
+            : "flex flex-col justify-between items-center sm:flex-row-reverse sm:justify-between sm:items-start gap-4 sm:gap-10 flex-wrap sm:flex-nowrap text-white w-full"
         }
       >
         <div
           className={
             i18n.language === "en"
-              ? "px-6 sm:px-0 flex  justify-between sm:justify-start flex-col  sm:text-start sm:items-start gap-4 sm:w-64 w-full"
-              : "px-6 sm:px-0 flex  justify-between sm:justify-start flex-col  sm:text-end sm:items-end gap-4 sm:w-64 w-full"
+              ? "px-6 sm:px-0 flex flex-col sm:justify-start  sm:text-start sm:items-start gap-4 sm:w-64 w-full"
+              : "px-6 sm:px-0 flex flex-col sm:justify-end   sm:text-end sm:items-end gap-4 sm:w-64 w-full"
           }
         >
-          <div className="flex items-end sm:items-start justify-between sm:flex-col gap-4 w-full">
+          <div
+            className={
+              i18n.language == "en"
+                ? "flex text-center sm:text-start sm:items-start justify-between flex-col items-center gap-4 w-full"
+                : "flex text-center sm:text-end sm:items-end justify-between flex-col items-center gap-4 w-full"
+            }
+          >
             <a href="#" className="flex  gap-2 items-center">
-              <img
-                src="/test.png"
-                className="w-20 shadow-2xl shadow-white"
-                alt="Iqraa"
-              />
+              <img src="/test.png" className="w-20" alt="Iqra logo" />
             </a>
 
             <p className="text-sm text-white">
               {i18n.language === "en" ? (
-                <span>
-                  IQRA in the name of Allah <br /> online Quran & Arabic classes
+                <span style={{textTransform: "uppercase"}}>
+                  iqra arabic quran
                 </span>
               ) : (
                 <span>
@@ -95,7 +101,7 @@ const Footer = () => {
               )}
             </p>
           </div>
-          <ul className="flex  items-center gap-1">
+          <ul className="items-center gap-1 hidden sm:flex">
             <a
               target="blank"
               href="https://www.facebook.com/profile.php?id=100090853364224"
@@ -113,7 +119,7 @@ const Footer = () => {
             </a>
             <a
               target="blank"
-              href="https://www.youtube.com/channel/UC5oDD19WtYccO99HBVlSAoQ"
+              href="https://www.youtube.com/channel/UCCJVbBYw65WrGfY6aovCdzA"
               className="border-[1px] border-gray-700 rounded-full p-[4px] hover:bg-[#fd5308]"
             >
               <AiFillYoutube size={20} />
@@ -127,6 +133,29 @@ const Footer = () => {
               : "flex flex-col justify-center items-center text-center sm:flex-row-reverse  sm:justify-between sm:items-start sm:text-start sm:w-[600px] gap-8 sm:gap-4 flex-wrap sm:flex-nowrap w-full"
           }
         >
+          <ul className="flex  items-center gap-1  sm:hidden">
+            <a
+              target="blank"
+              href="https://www.facebook.com/profile.php?id=100090853364224"
+              className="border-[1px] border-gray-700 rounded-full p-[4px] hover:bg-[#fd5308]"
+            >
+              <AiOutlineFacebook size={20} />
+            </a>
+
+            <a
+              href="http://wa.me/+201012750418"
+              target="blank"
+              className="border-[1px] border-gray-700 rounded-full p-[4px] hover:bg-[#fd5308]"
+            >
+              <AiOutlineWhatsApp size={20} />
+            </a>
+            <a
+              href="https://www.youtube.com/channel/UCCJVbBYw65WrGfY6aovCdzA"
+              className="border-[1px] border-gray-700 rounded-full p-[4px] hover:bg-[#fd5308]"
+            >
+              <AiFillYoutube size={20} />
+            </a>
+          </ul>
           <div
             className={
               i18n.language === "en"
@@ -144,13 +173,22 @@ const Footer = () => {
                   : "flex flex-col justify-center items-center text-center  sm:justify-between sm:items-end sm:text-end gap-4"
               }
             >
-              <NavHashLink to={"/"} className="text-white text-sm">
+              <NavHashLink
+                to={"/"}
+                className="text-white text-sm hover:text-[#fd5308]"
+              >
                 {t("nav.home")}
               </NavHashLink>
-              <NavHashLink to={"/#Whyus"} className="text-white text-sm">
+              <NavHashLink
+                to={"/#Whyus"}
+                className="text-white text-sm hover:text-[#fd5308]"
+              >
                 {t("nav.whyus")}
               </NavHashLink>
-              <NavHashLink to={"/#courses"} className="text-white text-sm">
+              <NavHashLink
+                to={"/#courses"}
+                className="text-white text-sm hover:text-[#fd5308]"
+              >
                 {t("nav.courses")}
               </NavHashLink>
             </nav>
@@ -172,10 +210,16 @@ const Footer = () => {
                   : "flex flex-col justify-center items-center text-center  sm:justify-between sm:items-end sm:text-end gap-4"
               }
             >
-              <NavHashLink to="/#blogs" className="text-white text-sm">
+              <NavHashLink
+                to="/#blogs"
+                className="text-white text-sm hover:text-[#fd5308]"
+              >
                 {t("nav.blogs")}
               </NavHashLink>
-              <NavHashLink to="/auth" className="text-white text-sm">
+              <NavHashLink
+                to="/auth"
+                className="text-white text-sm hover:text-[#fd5308]"
+              >
                 {t("nav.freetrail")}
               </NavHashLink>
             </nav>
@@ -201,26 +245,30 @@ const Footer = () => {
                 <div>
                   <HiLocationMarker color="#fd5308" size={20} />
                 </div>
-                <div className="text-white text-sm">{t("footer.loaction")}</div>
+                <div className="text-white text-sm hover:text-[#fd5308]">
+                  {t("footer.loaction")}
+                </div>
               </div>
               <div className="flex items-center gap-2">
                 <div>
                   <BsTelephoneFill color="#fd5308" size={20} />
                 </div>
-                <div className="text-white text-sm">+201012750418</div>
+                <div className="text-white text-sm hover:text-[#fd5308]">
+                  +201012750418
+                </div>
               </div>
               <div className="flex items-center gap-2">
                 <div>
                   <Ri24HoursLine color="#fd5308" size={20} />
                 </div>
-                <p className="text-white text-sm">24/7</p>
+                <p className="text-white text-sm hover:text-[#fd5308]">24/7</p>
               </div>
               <div className="flex items-center gap-2">
                 <div>
                   <AiOutlineMail color="#fd5308" size={20} />
                 </div>
-                <div className="text-white text-sm">
-                  iqrainthenameofallah29@gmail.com
+                <div className="text-white text-sm hover:text-[#fd5308]">
+                  iqraarabicquran@gmail.com
                 </div>
               </div>
             </nav>
@@ -244,3 +292,6 @@ const Footer = () => {
 };
 
 export default Footer;
+/* 
+shadow-2xl shadow-white
+*/

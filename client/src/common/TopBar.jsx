@@ -25,7 +25,7 @@ const TopBar = ({setNavBarModal, navbarModal}) => {
       className={
         i18n.language === "en"
           ? "flex  gap-4 justify-between items-center bg-[#f2ede7]  px-4 sm:px-10 w-full py-2 text-[#000] "
-          : "flex flex-row-reverse  gap-4 justify-between items-center bg-[#f2ede7]  px-4 sm:px-20 w-full py-2 text-[#000] "
+          : "flex flex-row-reverse  gap-4 justify-between items-center bg-[#f2ede7]  px-4 lg:px-20 w-full py-2 text-[#000] "
       }
     >
       <a href="/#" className="">

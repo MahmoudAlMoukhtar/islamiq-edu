@@ -27,7 +27,7 @@ const Navbar = () => {
           <AiOutlineMail className="text-md sm:text-xl" />
           <div className="flex flex-col text-center text-xs md:text-lg">
             <p className="text-[10px] sm:text-md sm:font-bold">
-              iqrainthenameofallah29@gmail.com
+              iqraarabicquran@gmail.com
             </p>
           </div>
         </div>
@@ -67,7 +67,7 @@ const Navbar = () => {
 
           <a
             target="blank"
-            href="https://www.youtube.com/channel/UC5oDD19WtYccO99HBVlSAoQ"
+            href="https://www.youtube.com/channel/UCCJVbBYw65WrGfY6aovCdzA"
             className="rounded-full p-[4px] hover:bg-[#fd5308]"
           >
             <AiFillYoutube size={25} />

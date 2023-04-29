@@ -43,21 +43,22 @@ const HeroSection = () => {
         className="cursor-grap"
       >
         <SwiperSlide className="" key="top-view-islamic ke">
-          <img
+          <LazyLoadImage
             effect="blur"
             loading="lazy"
+            width="100%"
             src="/top-view-islamic-new-year-concept-with-copy-space.avif"
-            className="w-full relative object-cover	h-[300px] sm:h-full"
+            className="w-full relative object-cover	h-[300px] sm:h-full brightness-[0.70]"
             alt="heroimage"
           />
           <div className="flex flex-col items-center justify-center text-center gap-6 w-full absolute top-[50%] left-[50%] sm:px-20 translate-x-[-50%] translate-y-[-50%] sm:translate-y-[-80%]">
             <SlidePrevButton />
             <div className="flex flex-col items-center bg-[#3cc4ad] p-2 rounded-b text-white gap-2">
-              <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-[#3cc4ad] p-2 rounded text-white">
+              <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-[#3cc4ad]  rounded text-black">
                 {t("mainSlider.1.title")}
               </h1>
 
-              <p className="text-sm sm:text-lg font-semibold w-80 sm:w-auto bg-[#3cc4ad] p-2 rounded-b text-white">
+              <p className="text-sm sm:text-lg font-semibold w-80 sm:w-auto bg-[#3cc4ad] rounded-b text-black">
                 {t("mainSlider.1.desciption")}
               </p>
             </div>
@@ -72,16 +73,17 @@ const HeroSection = () => {
         </SwiperSlide>
 
         <SwiperSlide className="" key="quran2.avif">
-          <img
+          <LazyLoadImage
             effect="blur"
             loading="lazy"
+            width="100%"
             src="/quran2.avif"
-            className="w-full relative object-cover	h-[300px] sm:h-full"
+            className="w-full relative object-cover	h-[300px] sm:h-full brightness-[0.70]"
           />
           <div className="flex flex-col items-center justify-center text-center gap-6 w-full absolute top-[50%] left-[50%] sm:px-20 translate-x-[-50%] translate-y-[-50%] sm:translate-y-[-80%] ">
             <SlidePrevButton />
 
-            <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold bg-[#3cc4ad] p-2 rounded text-white">
+            <h1 className="text-xl sm:text-4xl md:text-5xl font-bold bg-[#3cc4ad] p-2 rounded text-black">
               {t("mainSlider.3.title")}
             </h1>
 
@@ -95,11 +97,12 @@ const HeroSection = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide className="" key="photo1678924784">
-          <img
+          <LazyLoadImage
             effect="blur"
             loading="lazy"
+            width="100%"
             src="/vecteezy_verses-of-the-holy-quran_6034228_263.avif"
-            className="w-full relative object-cover h-[300px] sm:h-full"
+            className="w-full relative object-cover h-[300px] sm:h-full brightness-[0.70]"
           />
           <div className="flex flex-col items-center justify-center text-center gap-6 w-full absolute top-[50%] left-[50%] sm:px-20 translate-x-[-50%] translate-y-[-50%] sm:translate-y-[-80%] ">
             <SlidePrevButton />

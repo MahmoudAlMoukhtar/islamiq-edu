@@ -67,7 +67,7 @@ const WhyUS = () => {
       >
         <motion.div
           variants={item}
-          className="item flex flex-col items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white hover:bg-[#fd5308] hover:text-black px-6 py-4 sm:py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
+          className="item flex flex-col items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white px-6 py-4 sm:py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
         >
           <LazyLoadImage
             effect="blur"
@@ -80,7 +80,7 @@ const WhyUS = () => {
         </motion.div>
         <motion.div
           variants={item}
-          className="item flex flex-col items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white hover:bg-[#fd5308] hover:text-black px-6 py-4 sm:py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
+          className="item flex flex-col items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white px-6 py-4 sm:py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
         >
           <LazyLoadImage
             effect="blur"
@@ -93,7 +93,7 @@ const WhyUS = () => {
         </motion.div>
         <motion.div
           variants={item}
-          className="item flex flex-col items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white hover:bg-[#fd5308] hover:text-black px-6 py-4 sm:py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
+          className="item flex flex-col items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white px-6 py-4 sm:py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
         >
           <LazyLoadImage
             effect="blur"
@@ -107,7 +107,7 @@ const WhyUS = () => {
         </motion.div>
         <motion.div
           variants={item}
-          className="item flex flex-col items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white hover:bg-[#fd5308] hover:text-black px-6 py-4 sm:py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
+          className="item flex flex-col items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white px-6 py-4 sm:py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
         >
           <LazyLoadImage
             effect="blur"
@@ -120,7 +120,7 @@ const WhyUS = () => {
         </motion.div>
         <motion.div
           variants={item}
-          className="item flex flex-col items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white hover:bg-[#fd5308] hover:text-black px-6 py-4 sm:py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
+          className="item flex flex-col items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white px-6 py-4 sm:py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
         >
           <LazyLoadImage
             effect="blur"
@@ -133,7 +133,7 @@ const WhyUS = () => {
         </motion.div>
         <motion.div
           variants={item}
-          className="item flex flex-col items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white hover:bg-[#fd5308] hover:text-black px-6 py-4 sm:py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
+          className="item flex flex-col items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white px-6 py-4 sm:py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
         >
           <LazyLoadImage
             effect="blur"
@@ -146,7 +146,7 @@ const WhyUS = () => {
         </motion.div>
         <motion.div
           variants={item}
-          className="item flex flex-col items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white hover:bg-[#fd5308] hover:text-black px-6 py-4 sm:py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
+          className="item flex flex-col items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white px-6 py-4 sm:py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
         >
           <LazyLoadImage
             effect="blur"
@@ -159,7 +159,7 @@ const WhyUS = () => {
         </motion.div>
         <motion.div
           variants={item}
-          className="item flex flex-col items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white hover:bg-[#fd5308] hover:text-black px-6 py-4 sm:py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
+          className="item flex flex-col items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white px-6 py-4 sm:py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
         >
           <LazyLoadImage
             effect="blur"
@@ -172,7 +172,7 @@ const WhyUS = () => {
         </motion.div>
         <motion.div
           variants={item}
-          className="item flex flex-col items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white hover:bg-[#fd5308] hover:text-black px-6 py-4 sm:py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
+          className="item flex flex-col items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white px-6 py-4 sm:py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
         >
           <LazyLoadImage
             effect="blur"
@@ -185,7 +185,7 @@ const WhyUS = () => {
         </motion.div>
         <motion.div
           variants={item}
-          className="item flex flex-col items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white hover:bg-[#fd5308] hover:text-black px-6 py-4 sm:py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
+          className="item flex flex-col items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white px-6 py-4 sm:py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
         >
           <LazyLoadImage
             effect="blur"
@@ -198,7 +198,7 @@ const WhyUS = () => {
         </motion.div>
         <motion.div
           variants={item}
-          className="item flex flex-col items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white hover:bg-[#fd5308] hover:text-black px-6 py-4 sm:py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
+          className="item flex flex-col items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white px-6 py-4 sm:py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
         >
           <LazyLoadImage
             effect="blur"
@@ -211,7 +211,7 @@ const WhyUS = () => {
         </motion.div>
         <motion.div
           variants={item}
-          className="item flex flex-col items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white hover:bg-[#fd5308] hover:text-black px-6 py-4 sm:py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
+          className="item flex flex-col items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white px-6 py-4 sm:py-6 transtion duration-200 w-40 sm:w-60 text-center h-[150px] sm:h-[200px]"
         >
           <LazyLoadImage
             effect="blur"
@@ -235,7 +235,7 @@ const WhyUS = () => {
           className="cursor-grab"
         >
           <SwiperSlide className="w-[500px] h-[200px]">
-            <div className="item flex  items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white hover:bg-[#fd5308] hover:text-black px-6 py-4 sm:py-6 transtion duration-200  text-center h-[150px] sm:h-[200px]">
+            <div className="item flex  items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white px-6 py-4 sm:py-6 transtion duration-200  text-center h-[150px] sm:h-[200px]">
               <SlidePrevButton />
               <div className="flex-col w-full">
                 <LazyLoadImage
@@ -253,7 +253,7 @@ const WhyUS = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide className="w-[500px] h-[200px]">
-            <div className="item flex  items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white hover:bg-[#fd5308] hover:text-black px-6 py-4 sm:py-6 transtion duration-200  text-center h-[150px] sm:h-[200px]">
+            <div className="item flex  items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white px-6 py-4 sm:py-6 transtion duration-200  text-center h-[150px] sm:h-[200px]">
               <SlidePrevButton />
               <div className="flex-col w-full">
                 <LazyLoadImage
@@ -271,7 +271,7 @@ const WhyUS = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide className="w-[500px] h-[200px]">
-            <div className="item flex  items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white hover:bg-[#fd5308] hover:text-black px-6 py-4 sm:py-6 transtion duration-200  text-center h-[150px] sm:h-[200px]">
+            <div className="item flex  items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white px-6 py-4 sm:py-6 transtion duration-200  text-center h-[150px] sm:h-[200px]">
               <SlidePrevButton />
               <div className="flex-col w-full">
                 <LazyLoadImage
@@ -290,7 +290,7 @@ const WhyUS = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide className="w-[500px] h-[200px]">
-            <div className="item flex  items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white hover:bg-[#fd5308] hover:text-black px-6 py-4 sm:py-6 transtion duration-200  text-center h-[150px] sm:h-[200px]">
+            <div className="item flex  items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white px-6 py-4 sm:py-6 transtion duration-200  text-center h-[150px] sm:h-[200px]">
               <SlidePrevButton />
               <div className="flex-col w-full">
                 <LazyLoadImage
@@ -308,7 +308,7 @@ const WhyUS = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide className="w-[500px] h-[200px]">
-            <div className="item flex  items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white hover:bg-[#fd5308] hover:text-black px-6 py-4 sm:py-6 transtion duration-200  text-center h-[150px] sm:h-[200px]">
+            <div className="item flex  items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white px-6 py-4 sm:py-6 transtion duration-200  text-center h-[150px] sm:h-[200px]">
               <SlidePrevButton />
               <div className="flex-col w-full">
                 <LazyLoadImage
@@ -326,7 +326,7 @@ const WhyUS = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide className="w-[500px] h-[200px]">
-            <div className="item flex  items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white hover:bg-[#fd5308] hover:text-black px-6 py-4 sm:py-6 transtion duration-200  text-center h-[150px] sm:h-[200px]">
+            <div className="item flex  items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white px-6 py-4 sm:py-6 transtion duration-200  text-center h-[150px] sm:h-[200px]">
               <SlidePrevButton />
               <div className="flex-col w-full">
                 <LazyLoadImage
@@ -344,7 +344,7 @@ const WhyUS = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide className="w-[500px] h-[200px]">
-            <div className="item flex  items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white hover:bg-[#fd5308] hover:text-black px-6 py-4 sm:py-6 transtion duration-200  text-center h-[150px] sm:h-[200px]">
+            <div className="item flex  items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white px-6 py-4 sm:py-6 transtion duration-200  text-center h-[150px] sm:h-[200px]">
               <SlidePrevButton />
               <div className="flex-col w-full">
                 <LazyLoadImage
@@ -362,7 +362,7 @@ const WhyUS = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide className="w-[500px] h-[200px]">
-            <div className="item flex  items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white hover:bg-[#fd5308] hover:text-black px-6 py-4 sm:py-6 transtion duration-200  text-center h-[150px] sm:h-[200px]">
+            <div className="item flex  items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white px-6 py-4 sm:py-6 transtion duration-200  text-center h-[150px] sm:h-[200px]">
               <SlidePrevButton />
               <div className="flex-col w-full">
                 <LazyLoadImage
@@ -380,7 +380,7 @@ const WhyUS = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide className="w-[500px] h-[200px]">
-            <div className="item flex  items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white hover:bg-[#fd5308] hover:text-black px-6 py-4 sm:py-6 transtion duration-200  text-center h-[150px] sm:h-[200px]">
+            <div className="item flex  items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white px-6 py-4 sm:py-6 transtion duration-200  text-center h-[150px] sm:h-[200px]">
               <SlidePrevButton />
               <div className="flex-col w-full">
                 <LazyLoadImage
@@ -398,7 +398,7 @@ const WhyUS = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide className="w-[500px] h-[200px]">
-            <div className="item flex  items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white hover:bg-[#fd5308] hover:text-black px-6 py-4 sm:py-6 transtion duration-200  text-center h-[150px] sm:h-[200px]">
+            <div className="item flex  items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white px-6 py-4 sm:py-6 transtion duration-200  text-center h-[150px] sm:h-[200px]">
               <SlidePrevButton />
               <div className="flex-col w-full">
                 <LazyLoadImage
@@ -416,7 +416,7 @@ const WhyUS = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide className="w-[500px] h-[200px]">
-            <div className="item flex  items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white hover:bg-[#fd5308] hover:text-black px-6 py-4 sm:py-6 transtion duration-200  text-center h-[150px] sm:h-[200px]">
+            <div className="item flex  items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white px-6 py-4 sm:py-6 transtion duration-200  text-center h-[150px] sm:h-[200px]">
               <SlidePrevButton />
               <div className="flex-col w-full">
                 <LazyLoadImage
@@ -434,7 +434,7 @@ const WhyUS = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide className="w-[500px] h-[200px]">
-            <div className="item flex  items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white hover:bg-[#fd5308] hover:text-black px-6 py-4 sm:py-6 transtion duration-200  text-center h-[150px] sm:h-[200px]">
+            <div className="item flex  items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white px-6 py-4 sm:py-6 transtion duration-200  text-center h-[150px] sm:h-[200px]">
               <SlidePrevButton />
               <div className="flex-col w-full">
                 <LazyLoadImage
@@ -454,7 +454,7 @@ const WhyUS = () => {
           <SwiperSlide className="w-[500px] h-[200px]">
             <motion.div
               variants={item}
-              className="item flex  items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white hover:bg-[#fd5308] hover:text-black px-6 py-4 sm:py-6 transtion duration-200  text-center h-[150px] sm:h-[200px]"
+              className="item flex  items-center gap-2 sm:gap-4 bg-[#3cc4ad] text-white px-6 py-4 sm:py-6 transtion duration-200  text-center h-[150px] sm:h-[200px]"
             >
               <SlidePrevButton />
               <div className="flex-col w-full">
