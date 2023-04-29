@@ -199,7 +199,7 @@ export default function SectionCourse() {
           </div>
         </form>
         <button
-          className="courseButton w-full"
+          className="bg-green-500 text-white p-2 rounded w-full"
           type="submit"
           onClick={handleUpdateSection}
         >
