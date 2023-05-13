@@ -26,7 +26,7 @@ const Navbar = () => {
         <div target="blank" className="flex items-center gap-2">
           <AiOutlineMail className="text-md sm:text-xl" />
           <div className="flex flex-col text-center text-xs md:text-lg">
-            <p className="text-[10px] sm:text-md sm:font-bold">
+            <p className="text-[12px] sm:text-[13px] font-bold">
               iqraarabicquran@gmail.com
             </p>
           </div>
@@ -38,7 +38,7 @@ const Navbar = () => {
         >
           <AiOutlineWhatsApp className="text-md sm:text-xl" />
           <div className="flex flex-col text-center text-xs md:text-lg">
-            <p className="text-xs sm:text-md sm:font-bold">+201012750418</p>
+            <p className="text-xs sm:text-md font-bold">+201012750418</p>
           </div>
         </a>
       </div>

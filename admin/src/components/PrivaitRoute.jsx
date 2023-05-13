@@ -1,13 +1,12 @@
 import React from "react";
-import {Navigate} from "react-router-dom";
-
+import {Redirect} from "react-router-dom";
+import jwt_decode from "jwt-decode";
 
 const PrivaitRoute = ({children}) => {
   const user = JSON.parse(localStorage.getItem("userIqraa"));
-
-  if (user) {
-
-    return <Navigate to="/" replace />;
+  const decoded = jwt_decode(user.token);
+  if (!user && !decoded.admin) {
+    return <Redirect to="/admin/auth" replace />;
   }
 
   return children;

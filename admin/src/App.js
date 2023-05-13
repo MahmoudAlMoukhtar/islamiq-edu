@@ -1,19 +1,18 @@
+import {useState} from "react";
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import {ToastContainer} from "react-toastify";
 import Sidebar from "./components/sidebar/Sidebar";
 import Topbar from "./components/topbar/Topbar";
-import "./App.css";
 import Home from "./pages/home/Home";
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import UserList from "./pages/userList/UserList";
 import User from "./pages/user/User";
 import NewUser from "./pages/newUser/NewUser";
 import NewProduct from "./pages/newProduct/NewProduct";
-import {useState} from "react";
 import CoursesList from "./pages/coursesList/CoursesList";
 import BlogsList from "./pages/BlogsList/BlogsList";
 import NewBlog from "./pages/newBlog/NewBlog";
 import Blog from "./pages/blog/Blog";
 import Course from "./pages/course/Course";
-import "react-toastify/dist/ReactToastify.css";
 import TestimonialsList from "./pages/orederList/TestimonialsList";
 import Testimonial from "./pages/testimonial/Testimonial";
 import NewNewsLetter from "./pages/newsLetter/NewsLetter";
@@ -21,9 +20,13 @@ import CommentsList from "./pages/comments/CommentsList";
 import Comment from "./pages/comment/Comment";
 import ContactMessagesList from "./pages/contactMessages/ContactMessagesList";
 import Message from "./pages/message/Message";
-import {toast, ToastContainer} from "react-toastify";
 import NavbarModal from "./components/NavModal";
 import SectionCourse from "./pages/SectionCourse/SectionCourse";
+import Auth from "./pages/auth/Auth";
+import PrivaitRoute from "./components/PrivaitRoute";
+import "./App.css";
+import "react-toastify/dist/ReactToastify.css";
+
 function App() {
   const [theme, selectTheme] = useState("white");
   const [navbarModal, setNavBarModal] = useState(false);
@@ -49,65 +52,100 @@ function App() {
             setNavBarModal={setNavBarModal}
           />
         )}
-        <Sidebar
-          theme={theme}
-          selectTheme={selectTheme}
-          navbarModal={navbarModal}
-        />
+
         <Switch>
           <Route exact path="/admin">
-            <Home theme={theme} selectTheme={selectTheme} />
+            <PrivaitRoute>
+              <Home theme={theme} selectTheme={selectTheme} />
+            </PrivaitRoute>
           </Route>
           <Route path="/admin/users" exact>
-            <UserList theme={theme} selectTheme={selectTheme} />
+            <PrivaitRoute>
+              <UserList theme={theme} selectTheme={selectTheme} />
+            </PrivaitRoute>
           </Route>
           <Route path="/admin/user/:userId">
-            <User theme={theme} selectTheme={selectTheme} />
+            <PrivaitRoute>
+              <User theme={theme} selectTheme={selectTheme} />
+            </PrivaitRoute>
           </Route>
           <Route path="/admin/newUser" exact>
-            <NewUser theme={theme} selectTheme={selectTheme} />
+            <PrivaitRoute>
+              <NewUser theme={theme} selectTheme={selectTheme} />
+            </PrivaitRoute>
           </Route>
           <Route path="/admin/courses" exact>
-            <CoursesList theme={theme} selectTheme={selectTheme} />
+            <PrivaitRoute>
+              <CoursesList theme={theme} selectTheme={selectTheme} />
+            </PrivaitRoute>
           </Route>
           <Route path="/admin/comments" exact>
-            <CommentsList theme={theme} selectTheme={selectTheme} />
+            <PrivaitRoute>
+              <CommentsList theme={theme} selectTheme={selectTheme} />
+            </PrivaitRoute>
           </Route>
           <Route path="/admin/comments/:id" exact>
-            <Comment theme={theme} selectTheme={selectTheme} />
+            <PrivaitRoute>
+              <Comment theme={theme} selectTheme={selectTheme} />
+            </PrivaitRoute>
           </Route>
           <Route path="/admin/blogs" exact>
-            <BlogsList theme={theme} selectTheme={selectTheme} />
+            <PrivaitRoute>
+              <BlogsList theme={theme} selectTheme={selectTheme} />
+            </PrivaitRoute>
           </Route>
           <Route path="/admin/course/:id" exact>
-            <Course theme={theme} selectTheme={selectTheme} />
+            <PrivaitRoute>
+              <Course theme={theme} selectTheme={selectTheme} />
+            </PrivaitRoute>
           </Route>
           <Route path="/admin/course/section/:idCourse/:idSection" exact>
-            <SectionCourse theme={theme} selectTheme={selectTheme} />
+            <PrivaitRoute>
+              <SectionCourse theme={theme} selectTheme={selectTheme} />
+            </PrivaitRoute>
           </Route>
           <Route path="/admin/newcourse">
-            <NewProduct theme={theme} selectTheme={selectTheme} />
+            <PrivaitRoute>
+              <NewProduct theme={theme} selectTheme={selectTheme} />
+            </PrivaitRoute>
           </Route>
           <Route path="/admin/blog/:id">
-            <Blog theme={theme} selectTheme={selectTheme} />
+            <PrivaitRoute>
+              <Blog theme={theme} selectTheme={selectTheme} />
+            </PrivaitRoute>
           </Route>
           <Route path="/admin/newBlog">
-            <NewBlog theme={theme} selectTheme={selectTheme} />
+            <PrivaitRoute>
+              <NewBlog theme={theme} selectTheme={selectTheme} />
+            </PrivaitRoute>
           </Route>
           <Route path="/admin/testimonials" exact>
-            <TestimonialsList theme={theme} selectTheme={selectTheme} />
+            <PrivaitRoute>
+              <TestimonialsList theme={theme} selectTheme={selectTheme} />
+            </PrivaitRoute>
           </Route>
           <Route path="/admin/testimonials/:id">
-            <Testimonial theme={theme} selectTheme={selectTheme} />
+            <PrivaitRoute>
+              <Testimonial theme={theme} selectTheme={selectTheme} />
+            </PrivaitRoute>
           </Route>
           <Route path="/admin/contactMessage" exact>
-            <ContactMessagesList theme={theme} selectTheme={selectTheme} />
+            <PrivaitRoute>
+              <ContactMessagesList theme={theme} selectTheme={selectTheme} />
+            </PrivaitRoute>
           </Route>
           <Route path="/admin/contactMessage/:id">
-            <Message theme={theme} selectTheme={selectTheme} />
+            <PrivaitRoute>
+              <Message theme={theme} selectTheme={selectTheme} />
+            </PrivaitRoute>
           </Route>
           <Route path="/admin/newsLetter">
-            <NewNewsLetter theme={theme} selectTheme={selectTheme} />
+            <PrivaitRoute>
+              <NewNewsLetter theme={theme} selectTheme={selectTheme} />
+            </PrivaitRoute>
+          </Route>
+          <Route path="/admin/auth">
+            <Auth theme={theme} selectTheme={selectTheme} />
           </Route>
         </Switch>
         <ToastContainer />
@@ -117,6 +155,11 @@ function App() {
 }
 
 export default App;
-/* <Route path="/oreders">
-            <OrederList />
-          </Route> */
+
+/* 
+<Sidebar
+          theme={theme}
+          selectTheme={selectTheme}
+          navbarModal={navbarModal}
+        />
+*/

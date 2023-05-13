@@ -51,12 +51,16 @@ const Fees = () => {
       titleEN: "start",
       titleAR: "البداية",
       feachersAr: [
+        "أنت توفر 10$",
+        "١٢ جلسة بالشهر",
         "ثلاثون دقيقة لكل جلسة",
         "ثلاث جلسات فس الأسبوع لكل",
         "معلمين عرب",
         "مرونة فى تحديد المواعيد",
       ],
       feachers: [
+        "You are saving $10",
+        "12 Sessions per Month",
         "30 Min per sesstion",
         "3 Sessions per week",
         "Native teachers",

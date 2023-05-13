@@ -26,7 +26,6 @@ export const deleteCommentById = id => API.delete(`/comments/${id}`);
 
 //AUTH Operation
 export const signin = formData => API.post("/user/signin", formData);
-export const signup = formData => API.post("/user/signup", formData);
 export const updateUser = (id, updates) => API.put(`/user/${id}`, updates);
 
 //courses

@@ -70,7 +70,11 @@ const signin = async (req, res) => {
         .json({message: "sorry password or email is error"});
 
     const token = jwt.sign(
-      {email: existingUser.email, id: existingUser._id},
+      {
+        email: existingUser.email,
+        id: existingUser._id,
+        admin: existingUser.admin,
+      },
       "132jwtsecretkey123"
     );
     res.status(200).json({token});
