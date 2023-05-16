@@ -59,11 +59,13 @@ const signin = async (req, res) => {
   const {email, password} = req.body;
   try {
     const existingUser = await User.findOne({email});
+
     if (!existingUser) return res.status(400).json({exist: true});
     const isPasswordCorrect = await bcrypt.compareSync(
       password,
       existingUser.password
     );
+
     if (!isPasswordCorrect)
       return res
         .status(400)
@@ -86,10 +88,10 @@ const signin = async (req, res) => {
 const signup = async (req, res) => {
   const {firstName, lastName, email, gender, phone, password, confirmPassword} =
     req.body;
-  console.log(req.body);
+  
   try {
     const existingUser = await User.findOne({email});
-    //console.log(existingUser);
+    
     if (existingUser)
       return res.status(404).json({message: "sorry this user already exist!"});
     if (password !== confirmPassword)

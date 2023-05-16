@@ -1,15 +1,25 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "./topbar.css";
 import {Link} from "react-router-dom";
-import {MdModeNight, MdOutlineLightMode} from "react-icons/md";
 import {ImMenu} from "react-icons/im";
+import jwt_decode from "jwt-decode";
 
-export default function Topbar({
-  theme,
-  selectTheme,
-  navbarModal,
-  setNavBarModal,
-}) {
+export default function Topbar({theme, navbarModal, setNavBarModal}) {
+  // const [showMenuIcon, setShowMenuIcon] = useState(false);
+  // const user = JSON.parse(localStorage.getItem("userIqraa"));
+  // useEffect(() => {
+  //   if (user) {
+  //     const decoded = jwt_decode(user.token);
+  //     if (decoded.admin) {
+  //       setShowMenuIcon(true);
+  //     } else {
+  //       setShowMenuIcon(false);
+  //     }
+  //   } else {
+  //     setShowMenuIcon(false);
+  //   }
+  // }, [user]);
+
   return (
     <div className="topbar shadow-lg">
       <div
@@ -24,6 +34,7 @@ export default function Topbar({
             IQRA
           </span>
         </Link>
+
         <div className="topRight">
           <div className="topbarIconContainer"></div>
           <ImMenu
@@ -36,18 +47,3 @@ export default function Topbar({
     </div>
   );
 }
-/* 
- {theme === "black" ? (
-              <MdOutlineLightMode
-                size={25}
-                onClick={() => selectTheme("white")}
-                color={theme === "black" ? "white" : "black"}
-              />
-            ) : (
-              <MdModeNight
-                size={25}
-                onClick={() => selectTheme("black")}
-                color={theme === "black" ? "white" : "black"}
-              />
-            )}
-*/

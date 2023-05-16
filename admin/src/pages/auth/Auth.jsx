@@ -11,22 +11,26 @@ const initialState = {
 };
 
 const Auth = () => {
-  const user = JSON.parse(localStorage.getItem("userIqraa"));
   const [formData, setFormData] = useState(initialState);
   const [showPassword, setShowPassword] = useState(false);
   const navigait = useHistory();
 
   const handleSubmit = async e => {
     e.preventDefault();
-    const decoded = jwt_decode(user.token);
+
     try {
-      const {data} = await api.signin(decoded.id, formData);
+      const {data} = await api.signin(formData);
       localStorage.setItem("userIqraa", JSON.stringify(data));
-      toast.success("Succes Login!");
-      navigait.push("/admin");
+      const user = JSON.parse(localStorage.getItem("userIqraa"));
+      const decoded = jwt_decode(user.token);
+      if (decoded.admin) {
+        toast.success("Succes Login!");
+        navigait.push("/admin");
+      } else {
+        toast.error("Error!");
+      }
     } catch (e) {
       toast.error("Error Login!");
-      navigait.push("/admin");
     }
   };
 
