@@ -2,7 +2,7 @@
   "name": "iqra-admin",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://iqraa-arabic-quran.com/admin",
+  "homepage": "https://islamiq-edu-one.vercel.app/admin",
   "dependencies": {
     "@material-ui/core": "^4.11.4",
     "@material-ui/data-grid": "^4.0.0-alpha.29",
