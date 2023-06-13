@@ -1,6 +1,5 @@
-import {motion} from "framer-motion";
 import {useTranslation} from "react-i18next";
-import {NavHashLink} from "react-router-hash-link";
+import {HashLink} from "react-router-hash-link";
 import {NavLink} from "react-router-dom";
 import {ImMenu} from "react-icons/im";
 
@@ -29,9 +28,13 @@ const TopBar = ({setNavBarModal, navbarModal}) => {
       }
     >
       <a href="/#" className="">
-        <div className="flex  gap-2 items-start ">
-          <img src="/test.png" className="w-20 md:w-32" alt="iqra" />
-        </div>
+        <img
+          src="/test.png"
+          className="w-20 md:w-32"
+          alt="iqraa"
+          width={"128px"}
+          height={"128px"}
+        />
       </a>
       <ul
         className={
@@ -47,25 +50,25 @@ const TopBar = ({setNavBarModal, navbarModal}) => {
         >
           {t("nav.home")}
         </NavLink>
-        <NavHashLink to="/#Whyus" className={styles.linkPages}>
+        <HashLink to="/#Whyus" className={styles.linkPages}>
           {t("nav.whyus")}
-        </NavHashLink>
-        <NavHashLink to="/#courses" className={styles.linkPages}>
+        </HashLink>
+        <HashLink to="/#courses" className={styles.linkPages}>
           {t("nav.courses")}
-        </NavHashLink>
-        <NavHashLink to="/#testimonials" className={styles.linkPages}>
+        </HashLink>
+        <HashLink to="/#testimonials" className={styles.linkPages}>
           {t("nav.testimonials")}
-        </NavHashLink>
-        <NavHashLink to="/#fees" className={styles.linkPages}>
+        </HashLink>
+        <HashLink to="/#fees" className={styles.linkPages}>
           {t("nav.fees")}
-        </NavHashLink>
+        </HashLink>
 
-        <NavHashLink to="/#blogs" className={styles.linkPages}>
+        <HashLink to="/#blogs" className={styles.linkPages}>
           {t("nav.blogs")}
-        </NavHashLink>
-        <NavHashLink to="/#contact" className={styles.linkPages}>
+        </HashLink>
+        <HashLink to="/#contact" className={styles.linkPages}>
           {t("nav.contact")}
-        </NavHashLink>
+        </HashLink>
       </ul>
       <ImMenu
         size={35}
@@ -78,9 +81,3 @@ const TopBar = ({setNavBarModal, navbarModal}) => {
 };
 
 export default TopBar;
-/* 
-hidden absolute sm:flex sm:static
-hidden absolute sm:flex sm:static
-
-hidden absolute sm:block sm:static
-*/

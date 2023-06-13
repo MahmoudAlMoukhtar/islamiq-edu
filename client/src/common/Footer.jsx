@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom";
+
 import {
   AiOutlineFacebook,
   AiOutlineMail,
@@ -15,13 +15,13 @@ import {FaLanguage} from "react-icons/fa";
 import {useState} from "react";
 import * as api from "../api/index";
 import * as EmailValidator from "email-validator";
-import {NavHashLink} from "react-router-hash-link";
+import {HashLink} from "react-router-hash-link";
 
 const Footer = () => {
   const [t, i18n] = useTranslation();
   const [emailSubscripe, setEmailSubscripe] = useState();
   return (
-    <footer className="flex flex-col items-center gap-6 sm:gap-10 py-4 px-4 px-4 md:px-10 lg:px-40 w-full bg-[#2e9175]">
+    <footer className="flex flex-col items-center gap-6 sm:gap-10 py-4 px-4 md:px-10 lg:px-40 w-full bg-[#2e9175]">
       <div className="flex flex-col items-center text-center sm:text-start gap-2 sm:gap-6 text-white">
         <div className="flex flex-col items-center gap-2">
           <h2 className="text-2xl sm:text-4xl font-bold">
@@ -78,13 +78,19 @@ const Footer = () => {
         >
           <div
             className={
-              i18n.language == "en"
+              i18n.language === "en"
                 ? "flex text-center sm:text-start sm:items-start justify-between flex-col items-center gap-4 w-full"
                 : "flex text-center sm:text-end sm:items-end justify-between flex-col items-center gap-4 w-full"
             }
           >
-            <a href="#" className="flex  gap-2 items-center">
-              <img src="/test.png" className="w-20" alt="Iqra logo" />
+            <a href="/#" className="flex  gap-2 items-center">
+              <img
+                src="/test.png"
+                className="w-20"
+                width={80}
+                height={80}
+                alt="Iqra logo"
+              />
             </a>
 
             <p className="text-sm text-white">
@@ -173,24 +179,24 @@ const Footer = () => {
                   : "flex flex-col justify-center items-center text-center  sm:justify-between sm:items-end sm:text-end gap-4"
               }
             >
-              <NavHashLink
+              <HashLink
                 to={"/"}
                 className="text-white text-sm hover:text-[#fd5308]"
               >
                 {t("nav.home")}
-              </NavHashLink>
-              <NavHashLink
+              </HashLink>
+              <HashLink
                 to={"/#Whyus"}
                 className="text-white text-sm hover:text-[#fd5308]"
               >
                 {t("nav.whyus")}
-              </NavHashLink>
-              <NavHashLink
+              </HashLink>
+              <HashLink
                 to={"/#courses"}
                 className="text-white text-sm hover:text-[#fd5308]"
               >
                 {t("nav.courses")}
-              </NavHashLink>
+              </HashLink>
             </nav>
           </div>
           <div
@@ -210,18 +216,18 @@ const Footer = () => {
                   : "flex flex-col justify-center items-center text-center  sm:justify-between sm:items-end sm:text-end gap-4"
               }
             >
-              <NavHashLink
+              <HashLink
                 to="/#blogs"
                 className="text-white text-sm hover:text-[#fd5308]"
               >
                 {t("nav.blogs")}
-              </NavHashLink>
-              <NavHashLink
+              </HashLink>
+              <HashLink
                 to="/auth"
                 className="text-white text-sm hover:text-[#fd5308]"
               >
                 {t("nav.freetrail")}
-              </NavHashLink>
+              </HashLink>
             </nav>
           </div>
           <div
@@ -292,6 +298,3 @@ const Footer = () => {
 };
 
 export default Footer;
-/* 
-shadow-2xl shadow-white
-*/

@@ -3,9 +3,9 @@ import {styled} from "@mui/material/styles";
 import MuiAccordion from "@mui/material/Accordion";
 import MuiAccordionSummary from "@mui/material/AccordionSummary";
 import MuiAccordionDetails from "@mui/material/AccordionDetails";
-//import Typography from "@mui/material/Typography";
 import {AiOutlineArrowRight} from "react-icons/ai";
 import {useTranslation} from "react-i18next";
+
 const Accordion = styled(props => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({theme}) => ({
@@ -56,7 +56,7 @@ export default function CustomizedAccordions() {
         </h2>
         <span className="h-1 sm:h-2 w-40 bg-[#ffc265]" />
       </div>
-      <div>
+      <div dir={i18n.language === "en" ? "en" : "rtl"}>
         <Accordion
           expanded={expanded === "panel1"}
           onChange={handleChange("panel1")}

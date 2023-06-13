@@ -2,7 +2,6 @@ import React from "react";
 import {motion} from "framer-motion";
 import HeroSection from "./HeroSection/HeroSection";
 import WhyUS from "./WhyUS/WhyUS";
-import {ToastContainer} from "react-toastify";
 import Courses from "./Courses/Courses";
 import Fees from "./Fees/Fees";
 import Testimonials from "./Testimonials/Testimonials";

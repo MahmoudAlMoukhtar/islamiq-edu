@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import {Routes, Route} from "react-router-dom";
 import HomePage from "./pages/Home";
 import Footer from "./common/Footer";
@@ -7,9 +7,6 @@ import NavbarModal from "./common/NavModal";
 import Navbar from "./common/Navbar";
 import Auth from "./pages/Auth/index";
 import PrivaitRoute from "./components/PrivaitRoute";
-import Spinner from "./Spinner";
-import {useDispatch, useSelector} from "react-redux";
-import {fetchAllProductsAction} from "./redux/actions/productsActions";
 import {ToastContainer} from "react-toastify";
 import TopBar from "./common/TopBar";
 import {Fab} from "@mui/material";
@@ -18,7 +15,6 @@ import DetailCourse from "./pages/DetailCourse/DetailCourse";
 import DetailBlog from "./pages/DetailBlog/DetailBlog";
 import {motion} from "framer-motion";
 import BlogsPage from "./pages/Blogs/Blogs";
-import * as api from "./api/index";
 import {useTranslation} from "react-i18next";
 import ContactModal from "./common/ContactModal";
 
@@ -27,18 +23,6 @@ export default function App() {
   const [contactModalShow, setContactModalShow] = useState(false);
   const [navBarModal, setNavBarModal] = useState(false);
   const [show, setShow] = useState(false);
-  const dispatch = useDispatch();
-  const {loading} = useSelector(state => state.products);
-
-  useEffect(() => {
-    const makeRequest = async () => {
-      await api.getTestimoials();
-    };
-    dispatch(fetchAllProductsAction());
-    makeRequest();
-  }, []);
-
-  if (loading) return <Spinner />;
 
   return (
     <React.Fragment>

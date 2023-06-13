@@ -72,7 +72,7 @@ const WhyUS = () => {
           <LazyLoadImage
             effect="blur"
             loading="lazy"
-            src="/icons/experience.avif"
+            src="/icons/experience.png"
             className="w-14 sm:w-20 translate-x-[+10px]"
             alt="experience"
           />
@@ -85,7 +85,7 @@ const WhyUS = () => {
           <LazyLoadImage
             effect="blur"
             loading="lazy"
-            src="/icons/teacher.avif"
+            src="/icons/teacher.png"
             className="w-14 sm:w-20"
             alt="teaching"
           />
@@ -98,10 +98,9 @@ const WhyUS = () => {
           <LazyLoadImage
             effect="blur"
             loading="lazy"
-            src="/icons/onlineCourse1.avif"
+            src="/icons/onlineCourse1.png"
             className="w-14 sm:w-20"
             alt="online-course"
-            width={56}
           />
           <h3 className="text-xs sm:text-sm sm:font-bold">{t("whyus.3")}</h3>
         </motion.div>
@@ -112,7 +111,7 @@ const WhyUS = () => {
           <LazyLoadImage
             effect="blur"
             loading="lazy"
-            src="/icons/scholarship.avif"
+            src="/icons/scholarship.png"
             className="w-14 sm:w-20"
             alt="scholarship"
           />
@@ -125,7 +124,7 @@ const WhyUS = () => {
           <LazyLoadImage
             effect="blur"
             loading="lazy"
-            src="/icons/period.avif"
+            src="/icons/period.png"
             className="w-14 sm:w-20"
             alt="period"
           />
@@ -138,7 +137,7 @@ const WhyUS = () => {
           <LazyLoadImage
             effect="blur"
             loading="lazy"
-            src="/icons/easy-to-use.avif"
+            src="/icons/easy-to-use.png"
             className="w-14 sm:w-20"
             alt="easy"
           />
@@ -151,7 +150,7 @@ const WhyUS = () => {
           <LazyLoadImage
             effect="blur"
             loading="lazy"
-            src="/icons/handling.avif"
+            src="/icons/handling.png"
             className="w-14 sm:w-20"
             alt="handling"
           />
@@ -164,7 +163,7 @@ const WhyUS = () => {
           <LazyLoadImage
             effect="blur"
             loading="lazy"
-            src="/icons/webinar.avif"
+            src="/icons/webinar.png"
             className="w-14 sm:w-20"
             alt="webinar"
           />
@@ -177,7 +176,7 @@ const WhyUS = () => {
           <LazyLoadImage
             effect="blur"
             loading="lazy"
-            src="/icons/choice.avif"
+            src="/icons/choice.png"
             className="w-14 sm:w-20"
             alt="choice"
           />
@@ -190,7 +189,7 @@ const WhyUS = () => {
           <LazyLoadImage
             effect="blur"
             loading="lazy"
-            src="/icons/24-hours.avif"
+            src="/icons/24-hours.png"
             className="w-14 sm:w-20"
             alt="24-hours"
           />
@@ -203,7 +202,7 @@ const WhyUS = () => {
           <LazyLoadImage
             effect="blur"
             loading="lazy"
-            src="/icons/flexible.avif"
+            src="/icons/flexible.png"
             className="w-14 sm:w-20"
             alt="flexible"
           />
@@ -216,7 +215,7 @@ const WhyUS = () => {
           <LazyLoadImage
             effect="blur"
             loading="lazy"
-            src="/icons/salary.avif"
+            src="/icons/salary.png"
             className="w-14 sm:w-20"
             alt="salary"
           />
@@ -241,7 +240,7 @@ const WhyUS = () => {
                 <LazyLoadImage
                   effect="blur"
                   loading="lazy"
-                  src="/icons/experience.avif"
+                  src="/icons/experience.png"
                   className="w-14 sm:w-20 translate-x-[+10px]"
                   alt="experience"
                 />
@@ -259,7 +258,7 @@ const WhyUS = () => {
                 <LazyLoadImage
                   effect="blur"
                   loading="lazy"
-                  src="/icons/teacher.avif"
+                  src="/icons/teacher.png"
                   className="w-14 sm:w-20"
                   alt="teaching"
                 />
@@ -277,10 +276,9 @@ const WhyUS = () => {
                 <LazyLoadImage
                   effect="blur"
                   loading="lazy"
-                  src="/icons/onlineCourse1.avif"
+                  src="/icons/onlineCourse1.png"
                   className="w-14 sm:w-20"
                   alt="online-course"
-                  width={56}
                 />
                 <h3 className="text-xs sm:text-sm sm:font-bold">
                   {t("whyus.3")}
@@ -296,7 +294,7 @@ const WhyUS = () => {
                 <LazyLoadImage
                   effect="blur"
                   loading="lazy"
-                  src="/icons/scholarship.avif"
+                  src="/icons/scholarship.png"
                   className="w-14 sm:w-20"
                   alt="scholarship"
                 />
@@ -314,7 +312,7 @@ const WhyUS = () => {
                 <LazyLoadImage
                   effect="blur"
                   loading="lazy"
-                  src="/icons/period.avif"
+                  src="/icons/period.png"
                   className="w-14 sm:w-20"
                   alt="period"
                 />
@@ -332,7 +330,7 @@ const WhyUS = () => {
                 <LazyLoadImage
                   effect="blur"
                   loading="lazy"
-                  src="/icons/easy-to-use.avif"
+                  src="/icons/easy-to-use.png"
                   className="w-14 sm:w-20"
                   alt="easy"
                 />
@@ -350,7 +348,7 @@ const WhyUS = () => {
                 <LazyLoadImage
                   effect="blur"
                   loading="lazy"
-                  src="/icons/handling.avif"
+                  src="/icons/handling.png"
                   className="w-14 sm:w-20"
                   alt="handling"
                 />
@@ -368,7 +366,7 @@ const WhyUS = () => {
                 <LazyLoadImage
                   effect="blur"
                   loading="lazy"
-                  src="/icons/webinar.avif"
+                  src="/icons/webinar.png"
                   className="w-14 sm:w-20"
                   alt="webinar"
                 />
@@ -386,7 +384,7 @@ const WhyUS = () => {
                 <LazyLoadImage
                   effect="blur"
                   loading="lazy"
-                  src="/icons/choice.avif"
+                  src="/icons/choice.png"
                   className="w-14 sm:w-20"
                   alt="choice"
                 />
@@ -404,7 +402,7 @@ const WhyUS = () => {
                 <LazyLoadImage
                   effect="blur"
                   loading="lazy"
-                  src="/icons/24-hours.avif"
+                  src="/icons/24-hours.png"
                   className="w-14 sm:w-20"
                   alt="24-hours"
                 />
@@ -422,7 +420,7 @@ const WhyUS = () => {
                 <LazyLoadImage
                   effect="blur"
                   loading="lazy"
-                  src="/icons/flexible.avif"
+                  src="/icons/flexible.png"
                   className="w-14 sm:w-20"
                   alt="flexible"
                 />
@@ -440,7 +438,7 @@ const WhyUS = () => {
                 <LazyLoadImage
                   effect="blur"
                   loading="lazy"
-                  src="/icons/salary.avif"
+                  src="/icons/salary.png"
                   className="w-14 sm:w-20"
                   alt="salary"
                 />
@@ -461,7 +459,7 @@ const WhyUS = () => {
                 <LazyLoadImage
                   effect="blur"
                   loading="lazy"
-                  src="/icons/choice.avif"
+                  src="/icons/choice.png"
                   className="w-14 sm:w-20"
                   alt="choice"
                 />

@@ -26,8 +26,7 @@ const Testimonials = () => {
     makeRequest();
   }, []);
 
-  if (error) return <h1 className="text-red-800">error</h1>;
-  if (loading) return <h1 className="text-red-800">Loading</h1>;
+  if (loading) return <h1 className="h-20"></h1>;
   return (
     <section
       id="testimonials"
@@ -44,7 +43,9 @@ const Testimonials = () => {
         </h2>
         <span className="h-2 w-40 bg-[#ffc265]" />
       </div>
-      <div className="flex gap-4 justify-center items-center flex-wrap w-full px-4 md:px-20 lg:px-40 xl:px-60 hidden sm:block">
+      <div
+        className="gap-4 justify-center items-center flex-wrap w-full px-4 md:px-20 lg:px-40 xl:px-60 hidden sm:block"
+      >
         <Swiper
           modules={[Pagination, Autoplay]}
           spaceBetween={10}
