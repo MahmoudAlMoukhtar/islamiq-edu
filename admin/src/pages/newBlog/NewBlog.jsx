@@ -3,7 +3,7 @@ import "./newcourse.css";
 import * as api from "../../api/index";
 import {toast, ToastContainer} from "react-toastify";
 import Resizer from "react-image-file-resizer";
-import GridLoader from "react-spinners/GridLoader";
+//import GridLoader from "react-spinners/GridLoader";
 export default function NewBlog() {
   const [blogData, setBlogData] = useState({
     title: "",
@@ -61,16 +61,7 @@ export default function NewBlog() {
     setLoading(false);
   };
   if (error) return <h1 className="text-red-800">error</h1>;
-  if (loading)
-    return (
-      <GridLoader
-        color={"#0000"}
-        loading={loading}
-        size={150}
-        aria-label="Loading Spinner"
-        data-testid="loader"
-      />
-    );
+  if (loading) return <h1>Loading</h1>;
   return (
     <form
       onSubmit={handleSubmit}
