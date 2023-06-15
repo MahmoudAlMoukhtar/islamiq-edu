@@ -99,7 +99,7 @@ export default function BlogsList({theme}) {
                 : "containerActionsBtns"
             }
           >
-            <Link to={"/admin/blog/" + params.row._id}>
+            <Link to={"/blog/" + params.row._id}>
               <button className="productListEdit">Edit</button>
             </Link>
             <button
@@ -118,7 +118,7 @@ export default function BlogsList({theme}) {
     <div className="productList h-[500px]">
       <button
         className="addProductList"
-        onClick={() => navigate.push("/admin/newBlog")}
+        onClick={() => navigate.push("/newBlog")}
       >
         Add new Blog
       </button>
