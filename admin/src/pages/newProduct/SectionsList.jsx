@@ -7,14 +7,14 @@ import {toast} from "react-toastify";
 export default function SectionsList({courseData, setCourseData}) {
   const navigate = useHistory();
   const handleDelete = async (idCourse, idSection) => {
-    const res = await api.deleteSection(idCourse, idSection);
+    await api.deleteSection(idCourse, idSection);
     toast.success("Deleted Section successfully!");
     const sectionsAfterDelete = courseData.sections.filter(
       item => item._id !== idSection
     );
     setCourseData({...courseData, sections: sectionsAfterDelete});
     if (sectionsAfterDelete.length === 0) {
-      navigate.push("/admin/courses");
+      navigate.push("/courses");
     }
   };
 

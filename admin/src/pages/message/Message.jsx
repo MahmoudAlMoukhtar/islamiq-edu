@@ -85,7 +85,7 @@ export default function Message() {
                 contactMessage._id
               );
               toast.success("The blog has been deleted successfully");
-              navigait.push("/admin");
+              navigait.push("/");
             }}
           >
             Delete

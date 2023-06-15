@@ -4,9 +4,11 @@ const testimoialSchema = mongoose.Schema(
   {
     idUser: {
       type: String,
+      ref: "User",
     },
     message: {
       type: String,
+      required: true,
     },
     display: {
       type: Boolean,

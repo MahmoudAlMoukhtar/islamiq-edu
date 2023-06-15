@@ -1,10 +1,10 @@
 import React from "react";
 import {DataGrid} from "@material-ui/data-grid";
 //import { DeleteOutline } from "@material-ui/icons";
-import {userRows} from "../../dummyData";
+//import {userRows} from "../../dummyData";
 import {Link} from "react-router-dom";
 import {useEffect, useState} from "react";
-import {useHistory} from "react-router-dom";
+//import {useHistory} from "react-router-dom";
 import * as api from "../../api/index";
 import "./userList.css";
 import userImage from "../../depositphotos_137014128-stock-illustration-user-profile-icon.jpg";
@@ -14,7 +14,7 @@ export default function UserList() {
   const [data, setDataUsers] = useState();
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
-  const navigate = useHistory();
+  //const navigate = useHistory();
   useEffect(() => {
     const makeRequest = async () => {
       try {
@@ -99,7 +99,7 @@ export default function UserList() {
       renderCell: params => {
         return (
           <div className="containerActionsBtns">
-            <Link to={"/admin/user/" + params.row._id}>
+            <Link to={"/user/" + params.row._id}>
               <button className="userListEdit">Edit</button>
             </Link>
             <button

@@ -89,10 +89,10 @@ export default function Blog() {
       <div className="blogTitleContainer">
         <h1 className="blogTitle">blog</h1>
         <div className="flex gap-2">
-          <Link to="/admin/newblog">
+          <Link to="/newblog">
             <button className="blogAddButton bg-[#4caf50]">Create</button>
           </Link>
-          <Link to="/admin/blogs">
+          <Link to="/blogs">
             <button className="blogAddButton bg-[#FF932D]">Back</button>
           </Link>
         </div>

@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import {useHistory, useParams} from "react-router-dom";
 import * as api from "../../api/index";
 import "./comment.css";
-import {toast, ToastContainer} from "react-toastify";
+import {ToastContainer} from "react-toastify";
 import userImage from "../../depositphotos_137014128-stock-illustration-user-profile-icon.jpg";
 
 export default function Comment() {
@@ -75,7 +75,7 @@ export default function Comment() {
             className="commentRejectButton w-full"
             onClick={async () => {
               const res = await api.deleteCommentById(commentData._id);
-              navigait.push("/admin");
+              navigait.push("/");
             }}
           >
             Delete

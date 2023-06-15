@@ -8,10 +8,10 @@ const PrivaitRoute = ({children}) => {
     const decoded = jwt_decode(user.token);
     console.log(decoded);
     if (!decoded.admin) {
-      return <Redirect to="/admin/auth" replace />;
+      return <Redirect to="/auth" replace />;
     }
   } else if (!user) {
-    return <Redirect to="/admin/auth" replace />;
+    return <Redirect to="/auth" replace />;
   }
 
   return children;

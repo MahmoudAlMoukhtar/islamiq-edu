@@ -1,16 +1,16 @@
 const express = require("express");
 const router = express.Router();
 const {
-  getTestimoials,
+  getTestimonials,
   createTestimoials,
   updateTestimoialsById,
   deleteTestimoialsById,
-  getTestimoialsDashboard,
+  getTestimonialsDashboard,
   getTestimonialById,
 } = require("../controller/testimoials");
-router.get("/", getTestimoials);
+router.get("/", getTestimonials);
 router.get("/testminialsDashboard/:id", getTestimonialById);
-router.get("/testminialsDashboard", getTestimoialsDashboard);
+router.get("/testminialsDashboard", getTestimonialsDashboard);
 router.post("/", createTestimoials);
 router.put("/:id", updateTestimoialsById);
 router.delete("/:id", deleteTestimoialsById);

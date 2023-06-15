@@ -10,7 +10,7 @@ export default function WidgetLg() {
   const [data, setDataUsers] = useState();
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
-  const navigate = useHistory();
+  //const navigate = useHistory();
   useEffect(() => {
     const makeRequest = async () => {
       try {
@@ -51,10 +51,7 @@ export default function WidgetLg() {
             <td className="widgetLgAmount">{u.phone}</td>
             <td className="widgetLgAmount">{u.email}</td>
             <td className="widgetLgStatus">
-              <Link
-                to={`/admin/user/${u._id}`}
-                className="bg-orange-100 rounded p-2"
-              >
+              <Link to={`/user/${u._id}`} className="bg-orange-100 rounded p-2">
                 Display
               </Link>
             </td>

@@ -25,7 +25,7 @@ const Auth = () => {
       const decoded = jwt_decode(user.token);
       if (decoded.admin) {
         toast.success("Succes Login!");
-        navigait.push("/admin");
+        navigait.push("/");
       } else {
         toast.error("Error!");
       }

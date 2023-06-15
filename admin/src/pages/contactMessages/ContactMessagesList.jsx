@@ -74,7 +74,7 @@ export default function ContactMessagesList() {
       renderCell: params => {
         return (
           <div className="containerActionsBtns">
-            <Link to={"/admin/contactMessage/" + params.row._id}>
+            <Link to={"/contactMessage/" + params.row._id}>
               <button className="productListEdit">Show Details</button>
             </Link>
             <button

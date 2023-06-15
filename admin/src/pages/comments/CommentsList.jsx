@@ -127,7 +127,7 @@ export default function CommentsList({theme}) {
                 : "containerActionsBtns"
             }
           >
-            <Link to={"/admin/comments/" + params.row._id}>
+            <Link to={"/comments/" + params.row._id}>
               <button className="productListEdit">Show Details</button>
             </Link>
             <button

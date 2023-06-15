@@ -58,7 +58,7 @@ export default function SectionCourse() {
       setLoadingUpload(true);
       const res = await api.updateSectionById(idCourse, idSection, formData);
       setLoadingUpload(false);
-      navigait.push(`/admin/course/${idCourse}`);
+      navigait.push(`/course/${idCourse}`);
       toast.success("The section has been upadted successfully");
     } catch (err) {
       toast.error("There is an error adding the course");

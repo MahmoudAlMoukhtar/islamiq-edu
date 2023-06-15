@@ -29,7 +29,7 @@ export default function Topbar({theme, navbarModal, setNavBarModal}) {
             : "topbarWrapper"
         }
       >
-        <Link to="/admin" className="topLeft">
+        <Link to="/" className="topLeft">
           <span className={theme === "black" ? "logo text-white" : "logo"}>
             IQRA
           </span>

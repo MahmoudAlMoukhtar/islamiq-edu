@@ -1,7 +1,7 @@
 import {useState} from "react";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import {ToastContainer} from "react-toastify";
-import Sidebar from "./components/sidebar/Sidebar";
+//import Sidebar from "./components/sidebar/Sidebar";
 import Topbar from "./components/topbar/Topbar";
 import Home from "./pages/home/Home";
 import UserList from "./pages/userList/UserList";
@@ -54,97 +54,97 @@ function App() {
         )}
 
         <Switch>
-          <Route exact path="/admin">
+          <Route exact path="/">
             <PrivaitRoute>
               <Home theme={theme} selectTheme={selectTheme} />
             </PrivaitRoute>
           </Route>
-          <Route path="/admin/users" exact>
+          <Route path="/users" exact>
             <PrivaitRoute>
               <UserList theme={theme} selectTheme={selectTheme} />
             </PrivaitRoute>
           </Route>
-          <Route path="/admin/user/:userId">
+          <Route path="/user/:userId">
             <PrivaitRoute>
               <User theme={theme} selectTheme={selectTheme} />
             </PrivaitRoute>
           </Route>
-          <Route path="/admin/newUser" exact>
+          <Route path="/newUser" exact>
             <PrivaitRoute>
               <NewUser theme={theme} selectTheme={selectTheme} />
             </PrivaitRoute>
           </Route>
-          <Route path="/admin/courses" exact>
+          <Route path="/courses" exact>
             <PrivaitRoute>
               <CoursesList theme={theme} selectTheme={selectTheme} />
             </PrivaitRoute>
           </Route>
-          <Route path="/admin/comments" exact>
+          <Route path="/comments" exact>
             <PrivaitRoute>
               <CommentsList theme={theme} selectTheme={selectTheme} />
             </PrivaitRoute>
           </Route>
-          <Route path="/admin/comments/:id" exact>
+          <Route path="/comments/:id" exact>
             <PrivaitRoute>
               <Comment theme={theme} selectTheme={selectTheme} />
             </PrivaitRoute>
           </Route>
-          <Route path="/admin/blogs" exact>
+          <Route path="/blogs" exact>
             <PrivaitRoute>
               <BlogsList theme={theme} selectTheme={selectTheme} />
             </PrivaitRoute>
           </Route>
-          <Route path="/admin/course/:id" exact>
+          <Route path="/course/:id" exact>
             <PrivaitRoute>
               <Course theme={theme} selectTheme={selectTheme} />
             </PrivaitRoute>
           </Route>
-          <Route path="/admin/course/section/:idCourse/:idSection" exact>
+          <Route path="/course/section/:idCourse/:idSection" exact>
             <PrivaitRoute>
               <SectionCourse theme={theme} selectTheme={selectTheme} />
             </PrivaitRoute>
           </Route>
-          <Route path="/admin/newcourse">
+          <Route path="/newcourse">
             <PrivaitRoute>
               <NewProduct theme={theme} selectTheme={selectTheme} />
             </PrivaitRoute>
           </Route>
-          <Route path="/admin/blog/:id">
+          <Route path="/blog/:id">
             <PrivaitRoute>
               <Blog theme={theme} selectTheme={selectTheme} />
             </PrivaitRoute>
           </Route>
-          <Route path="/admin/newBlog">
+          <Route path="/newBlog">
             <PrivaitRoute>
               <NewBlog theme={theme} selectTheme={selectTheme} />
             </PrivaitRoute>
           </Route>
-          <Route path="/admin/testimonials" exact>
+          <Route path="/testimonials" exact>
             <PrivaitRoute>
               <TestimonialsList theme={theme} selectTheme={selectTheme} />
             </PrivaitRoute>
           </Route>
-          <Route path="/admin/testimonials/:id">
+          <Route path="/testimonials/:id">
             <PrivaitRoute>
               <Testimonial theme={theme} selectTheme={selectTheme} />
             </PrivaitRoute>
           </Route>
-          <Route path="/admin/contactMessage" exact>
+          <Route path="/contactMessage" exact>
             <PrivaitRoute>
               <ContactMessagesList theme={theme} selectTheme={selectTheme} />
             </PrivaitRoute>
           </Route>
-          <Route path="/admin/contactMessage/:id">
+          <Route path="/contactMessage/:id">
             <PrivaitRoute>
               <Message theme={theme} selectTheme={selectTheme} />
             </PrivaitRoute>
           </Route>
-          <Route path="/admin/newsLetter">
+          <Route path="/newsLetter">
             <PrivaitRoute>
               <NewNewsLetter theme={theme} selectTheme={selectTheme} />
             </PrivaitRoute>
           </Route>
-          <Route path="/admin/auth">
+          <Route path="/auth">
             <Auth theme={theme} selectTheme={selectTheme} />
           </Route>
         </Switch>

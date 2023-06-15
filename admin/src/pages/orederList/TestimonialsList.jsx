@@ -16,6 +16,7 @@ export default function TestimonialsList() {
     const makeRequest = async () => {
       try {
         const res = await api.fetchAllTestimonials();
+        console.log(res.data);
         setDataTestimonials(res.data);
       } catch (err) {
         setError(true);
@@ -31,7 +32,6 @@ export default function TestimonialsList() {
     setDataTestimonials(data.filter(item => item.id !== res.data._id));
     toast.success("Recommendation has been successfully deleted");
   };
-
   if (error) return <h1 className="text-red-800">error</h1>;
   if (loading) return <h1 className="text-red-800">Loading</h1>;
 
@@ -81,14 +81,14 @@ export default function TestimonialsList() {
         //console.log(params.row);
         return (
           <div className="containerActionsBtns">
-            <Link to={"/admin/testimonials/" + params.row._id}>
+            <Link to={"/testimonials/" + params.row._id}>
               <button className="orderListDiplay">Show Details</button>
             </Link>
             <button>
               <button
                 className="orderListEdit"
                 onClick={() => {
-                  const res = api.updateTestimonial(params.row._id, {
+                  api.updateTestimonial(params.row._id, {
                     display: true,
                   });
                   toast.success(

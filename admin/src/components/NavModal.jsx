@@ -1,6 +1,6 @@
 import React from "react";
 import {Link, NavLink, useNavigate} from "react-router-dom";
-
+import "./sidebar/sidebar.css";
 const activeStyle = {
   color: "white",
   backgroundColor: "#4caf50",
@@ -54,7 +54,7 @@ const NavbarModal = ({setNavBarModal, navbarModal, theme}) => {
               <h3 className="sidebarTitle">Dashboard</h3>
               <ul className="sidebarList">
                 <NavLink
-                  to="/admin"
+                  to="/"
                   className="link"
                   onClick={() => setNavBarModal(false)}
                 >
@@ -66,35 +66,35 @@ const NavbarModal = ({setNavBarModal, navbarModal, theme}) => {
               <h3 className="sidebarTitle">Quick Menu</h3>
               <ul className="sidebarList">
                 <NavLink
-                  to="/admin/users"
+                  to="/users"
                   className="link"
                   onClick={() => setNavBarModal(false)}
                 >
                   <li className="sidebarListItem">Users</li>
                 </NavLink>
                 <NavLink
-                  to="/admin/blogs"
+                  to="/blogs"
                   className="link"
                   onClick={() => setNavBarModal(false)}
                 >
                   <li className="sidebarListItem">Blogs</li>
                 </NavLink>
                 <NavLink
-                  to="/admin/courses"
+                  to="/courses"
                   className="link"
                   onClick={() => setNavBarModal(false)}
                 >
                   <li className="sidebarListItem">Courses</li>
                 </NavLink>
                 <NavLink
-                  to="/admin/comments"
+                  to="/comments"
                   className="link"
                   onClick={() => setNavBarModal(false)}
                 >
                   <li className="sidebarListItem">Comments</li>
                 </NavLink>
                 <NavLink
-                  to="/admin/contactMessage"
+                  to="/contactMessage"
                   className="link"
                   onClick={() => setNavBarModal(false)}
                 >
@@ -102,7 +102,7 @@ const NavbarModal = ({setNavBarModal, navbarModal, theme}) => {
                 </NavLink>
 
                 <NavLink
-                  to="/admin/testimonials"
+                  to="/testimonials"
                   className="link"
                   onClick={() => setNavBarModal(false)}
                 >
@@ -114,21 +114,21 @@ const NavbarModal = ({setNavBarModal, navbarModal, theme}) => {
               <h3 className="sidebarTitle">Add New</h3>
               <ul className="sidebarList">
                 <NavLink
-                  to="/admin/newcourse"
+                  to="/newcourse"
                   className="link"
                   onClick={() => setNavBarModal(false)}
                 >
                   <li className="sidebarListItem">New Course</li>
                 </NavLink>
                 <NavLink
-                  to="/admin/newBlog"
+                  to="/newBlog"
                   className="link"
                   onClick={() => setNavBarModal(false)}
                 >
                   <li className="sidebarListItem">New Blog</li>
                 </NavLink>
                 <NavLink
-                  to="/admin/newsLetter"
+                  to="/newsLetter"
                   className="link"
                   onClick={() => setNavBarModal(false)}
                 >

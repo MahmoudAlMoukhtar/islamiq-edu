@@ -74,7 +74,7 @@ export default function CoursesList() {
         //console.log(params.row);
         return (
           <div className="containerActionsBtns">
-            <Link to={"/admin/course/" + params.row._id}>
+            <Link to={"/course/" + params.row._id}>
               <button className="productListEdit">Edit Or Show Details</button>
             </Link>
             <button
@@ -95,7 +95,7 @@ export default function CoursesList() {
     <div className="productList h-[500px]">
       <button
         className="addProductList"
-        onClick={() => navigate.push("/admin/newcourse")}
+        onClick={() => navigate.push("/newcourse")}
       >
         Add New Course
       </button>

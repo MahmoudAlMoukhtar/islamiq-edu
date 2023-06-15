@@ -13,7 +13,7 @@ export default function SectionsList({courseData, setCourseData}) {
     );
     setCourseData({...courseData, sections: sectionsAfterDelete});
     if (sectionsAfterDelete.length === 0) {
-      navigate.push("/admin/courses");
+      navigate.push("/courses");
     }
   };
 
@@ -61,7 +61,7 @@ export default function SectionsList({courseData, setCourseData}) {
         return (
           <div className="containerActionsBtns w-full">
             <Link
-              to={`/admin/course/section/${courseData._id}/${params.row._id}`}
+              to={`/course/section/${courseData._id}/${params.row._id}`}
               className="courseButton rounded w-full"
             >
               Edit

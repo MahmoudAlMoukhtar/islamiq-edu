@@ -20,7 +20,7 @@ export default function Sidebar({theme, selectTheme, navbarModal}) {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Dashboard</h3>
           <ul className="sidebarList">
-            <NavLink to="/admin" className="link">
+            <NavLink to="/" className="link">
               <li className="sidebarListItem active">Home</li>
             </NavLink>
           </ul>
@@ -28,23 +28,23 @@ export default function Sidebar({theme, selectTheme, navbarModal}) {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Quick Menu</h3>
           <ul className="sidebarList">
-            <NavLink to="/admin/users" className="link">
+            <NavLink to="/users" className="link">
               <li className="sidebarListItem">Users</li>
             </NavLink>
-            <NavLink to="/admin/blogs" className="link">
+            <NavLink to="/blogs" className="link">
               <li className="sidebarListItem">Blogs</li>
             </NavLink>
-            <NavLink to="/admin/courses" className="link">
+            <NavLink to="/courses" className="link">
               <li className="sidebarListItem">Courses</li>
             </NavLink>
-            <NavLink to="/admin/comments" className="link">
+            <NavLink to="/comments" className="link">
               <li className="sidebarListItem">Comments</li>
             </NavLink>
-            <NavLink to="/admin/contactMessage" className="link">
+            <NavLink to="/contactMessage" className="link">
               <li className="sidebarListItem">Contact Messages</li>
             </NavLink>
 
-            <NavLink to="/admin/testimonials" className="link">
+            <NavLink to="/testimonials" className="link">
               <li className="sidebarListItem">Testimonials</li>
             </NavLink>
           </ul>
@@ -52,13 +52,13 @@ export default function Sidebar({theme, selectTheme, navbarModal}) {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Add New</h3>
           <ul className="sidebarList">
-            <NavLink to="/admin/newcourse" className="link">
+            <NavLink to="/newcourse" className="link">
               <li className="sidebarListItem">New Course</li>
             </NavLink>
-            <NavLink to="/admin/newBlog" className="link">
+            <NavLink to="/newBlog" className="link">
               <li className="sidebarListItem">New Blog</li>
             </NavLink>
-            <NavLink to="/admin/newsLetter" className="link">
+            <NavLink to="/newsLetter" className="link">
               <li className="sidebarListItem">New NewsLetter</li>
             </NavLink>
           </ul>
